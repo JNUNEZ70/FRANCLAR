@@ -52,7 +52,7 @@ include 'conexion.php'
 	 ?>
     
     <form class="form-inline my-2 my-lg-0 float-left">
-        <a href="agregartipo_Sangre.php" class="genric-btn info circle">Agregar</a>
+        <a href="agregarDiagnostico.php" class="genric-btn info circle">Agregar</a>
     </form>
    <br>
     <form class="form-inline my-2 my-lg-0 float-right">
@@ -81,10 +81,10 @@ include 'conexion.php'
 						echo '
 						<tr>
                             <td>'.$row['ID_Diagnostico'].'</td>
-							<td>'.$row['Descripción'].'</td>	
+							<td>'.$row['Descripcion'].'</td>	
 							<td>							
-								<a href="Editartipo_Sangre.php?nik='.$row['ID_Diagnostico'].'" title="Editar datos" class="btn btn-success btn-sm"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></a>
-								<a href="Tipo_Sangre.php?aksi=delete&nik='.$row['ID_Diagnostico'].'" title="Eliminar" onclick="return confirm(\'¿Esta seguro de borrar los datos del colaborador '.$row['Descripcion'].'?\')" class="btn btn-danger btn-sm"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>
+								<a href="EditarDiagnostico.php?nik='.$row['ID_Diagnostico'].'" title="Editar datos" class="btn btn-success btn-sm"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></a>
+								<a href="Diagnostico.php?aksi=delete&nik='.$row['ID_Diagnostico'].'" title="Eliminar" onclick="return confirm(\'¿Esta seguro de borrar los datos del colaborador '.$row['Descripcion'].'?\')" class="btn btn-danger btn-sm"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>
 							</td>
 						</tr>
 						';

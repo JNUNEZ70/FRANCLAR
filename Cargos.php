@@ -61,7 +61,7 @@ include 'conexion.php'
     </form>
 	<br>
 	<br>
-		
+			
 		<div class="table-responsive">
 			<table class="table table-striped table-hover">
 				<tr>
@@ -84,7 +84,7 @@ include 'conexion.php'
                             <td>'.$row['nomb_cargo'].'</td>		
 							<td>							
 								<a href="EditarCargo.php?nik='.$row['ID_Cargo'].'" title="Editar datos" class="btn btn-success btn-sm"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></a>
-								<a href="Cargos.php?aksi=delete&nik='.$row['ID_Cargo'].'" title="Eliminar" onclick="return confirm(\'¿Esta seguro de borrar los datos del cargo '.$row['nomb_cargo'].'?\')" class="btn btn-danger btn-sm"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>
+								<a href="Cargos.php?aksi=delete&nik='.$row['ID_Cargo'].'" title="Eliminar" onclick="return confirm(\'¿Esta seguro de borrar los datos del colaborador '.$row['nomb_cargo'].'?\')" class="btn btn-danger btn-sm"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>
 							</td>
 						</tr>
 						';

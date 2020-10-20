@@ -23,7 +23,7 @@ include 'conexion.php'
                 <div class="col-lg-12">
                     <div class="breadcrumb_iner">
                         <div class="breadcrumb_iner_item">
-                            <h2>Parámetros</h2>
+                        <h2>Agregar Servicio</h2>
                         </div>
                     </div>
                 </div>
@@ -32,25 +32,26 @@ include 'conexion.php'
     </section>
     <!-- breadcrumb start-->
 
-    <!--::regervation_part start::-->
-    <section class="regervation_part section_padding">
+     <!--::regervation_part start::-->
+     <section class="regervation_part section_padding">
         <div class="container">
             <div class="row align-items-center regervation_content">
                 <div class="col-lg-7">
                     <div class="regervation_part_iner">
-                        <form method="POST" action="GuardarParametro.php" autocomplete="off">
-                            <h2>Datos del parámetro</h2>
+                        <form method="POST" action="GuardarServicio.php" autocomplete="off">
+                            <h2>Ingrese Nuevo Servicio</h2>
                             <div class="form-row">
                                 <div class="form-group col-md-6">
-                                    <input type="text" class="form-control" id="NomP" name="Parametro" onkeypress="return soloLetras(event)" placeholder="Nombre del parámetro" required>
+                                    <input type="text" class="form-control" id="Nombre_Servicio" maxlength="50" name="Nombre" placeholder="Nombre de Servicio" required>
                                 </div>
+                                
                                 <div class="form-group col-md-6">
-                                    <input type="text" class="form-control" id="ValP" name="Valor_Parametro" onkeypress="return solonumeros(event)" placeholder="Valor" required>
+                                    <input type="text" class="form-control" id="Precio" name="Precio" placeholder="Precio del servicio" required>
                                 </div>
-            
-                                <div class="regerv_btn">
+
+                                <div class="regerv_btn col-md-8" >
                                     <button type="submit" name="add" class="btn_2">Guardar</button>
-                                    <a href="Parametros.php" class="btn_2">Cancelar</a>
+                                    <a href="Servicios.php" class="btn_2">Cancelar</a>
                                 </div>
                             </div>
                         </form>
@@ -60,8 +61,9 @@ include 'conexion.php'
         </div>
     </section>
     <!--::regervation_part end::-->
-
-    <!-- footer part end-->
+    <!-- footer part start-->
+    
+    
     <?php
         include 'Copyright.php'
     ?>

@@ -57,7 +57,8 @@ include 'conexion.php'
                                     <input type="email" class="form-control" id="EmailU" name="Email" placeholder="Email" required>
                                 </div>
                                 <div class="form-group col-md-4">
-                                    <input type="text"  class="form-control" id="NomU" name="Nom_Usuario"  placeholder="Nombre de usuario" onchange="obtener_usuario()" required>
+                                    <input type="text"  class="form-control" id="NomU" name="Nom_Usuario"  placeholder="Nombre de usuario" onblur="obtener_usuario(value)" required>
+                                    
                                 </div>                                
                                 <div class="input-group col-md-4">
                                     <input value= "<?php echo generar_password_complejo(2) ?>" type="Password" class="form-control" id="passwordU" name="Password"  minlength="8" maxlength="30" placeholder="Contraseña" required>
@@ -77,6 +78,7 @@ include 'conexion.php'
                                 </div>
                                 <br>
                                 <br>
+                    
                                 <div class="regerv_btn">
                                     <button type="submit" name="add" class="btn_2">Guardar</button>
                                     <a href="Usuarios.php" class="btn_2">Cancelar</a>
@@ -114,9 +116,26 @@ include 'conexion.php'
     ?>            
 
     <script>
-        function obtener_usuario(){
-            alert('sdsdsdsd');
-        
+        function obtener_usuario(user){
+
+            // var user = document.getElementById('NomU');
+            
+            var theObject = new XMLHttpRequest();
+            theObject.open('POST','ValidarUsuario.php',true);
+            theObject.setRequestHeader('Content-Type','application/x-www-form-urlencoded');
+            theObject.send('usuario=Nom_Usuario');
+            theObject.onload = function(){
+                //document.getElementByID('title').innerHTML = theObject.responseText;
+                alert(theObject.responseText);
+                //  if (theObject.responseText = 1) {
+                //     alert('El usuario ya existe, favor ingrese otro');                        
+                //  }else{
+                //      alert('Usuario válido');
+                }
+            //theObject.send('user');
+            
+            // alert(user);
+            
             }
 
     </script>

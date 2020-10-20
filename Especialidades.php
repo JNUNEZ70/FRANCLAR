@@ -52,7 +52,7 @@ include 'conexion.php'
 	 ?>
     
     <form class="form-inline my-2 my-lg-0 float-left">
-        <a href="agregarpersonal.php" class="genric-btn info circle">Agregar</a>
+        <a href="agregar_Especialidad.php" class="genric-btn info circle">Agregar</a>
     </form>
    <br>
    <form class="form-inline my-2 my-lg-0 float-right">

@@ -23,7 +23,7 @@ include 'conexion.php'
                 <div class="col-lg-12">
                     <div class="breadcrumb_iner">
                         <div class="breadcrumb_iner_item">
-                            <h2>Parámetros</h2>
+                            <h2>Sexo</h2>
                         </div>
                     </div>
                 </div>
@@ -37,11 +37,11 @@ include 'conexion.php'
 			if(isset($_GET['aksi']) == 'delete'){
 				// escaping, additionally removing everything that could be (html/javascript-) code
 				$nik = mysqli_real_escape_string($con,(strip_tags($_GET["nik"],ENT_QUOTES)));
-				$cek = mysqli_query($con, "SELECT * FROM tbl_parametros WHERE id_parametro='$nik'");
+				$cek = mysqli_query($con, "SELECT * FROM tbl_sexo WHERE ID_Sexo='$nik'");
 				if(mysqli_num_rows($cek) == 0){
 					echo '<div class="alert alert-info alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button> No se encontraron datos.</div>';
 				}else{
-					$delete = mysqli_query($con, "DELETE FROM tbl_parametros WHERE id_parametro='$nik'");
+					$delete = mysqli_query($con, "DELETE FROM tbl_sexo WHERE ID_Sexo='$nik'");
 					if($delete){
 						echo '<div class="alert alert-success alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button> Datos eliminado correctamente.</div>';
 					}else{
@@ -52,7 +52,7 @@ include 'conexion.php'
 	 ?>
     
     <form class="form-inline my-2 my-lg-0 float-left">
-        <a href="agregarParametro.php" class="genric-btn info circle">Agregar</a>
+        <a href="agregarSexo.php" class="genric-btn info circle">Agregar</a>
     </form>
    <br>
     <form class="form-inline my-2 my-lg-0 float-right">
@@ -66,14 +66,13 @@ include 'conexion.php'
 			<table class="table table-striped table-hover">
 				<tr>
                     <th>No</th>
-					<th>Nombre Parámetro</th>
-					<th>Valor</th>
-                    <th>Acciones</th>
+					<th>Desccipción De Sexo</th>
+					<th>Acciones</th>
 					
                     
 				</tr>
 				<?php
-				$sql = mysqli_query($con, "SELECT * FROM tbl_parametros");
+				$sql = mysqli_query($con, "SELECT * FROM tbl_sexo");
 				if(mysqli_num_rows($sql) == 0){
 					echo '<tr><td colspan="8">No hay datos.</td></tr>';
 				}else{
@@ -81,12 +80,11 @@ include 'conexion.php'
 					while($row = mysqli_fetch_assoc($sql)){
 						echo '
 						<tr>
-                            <td>'.$row['id_parametro'].'</td>
-                            <td>'.$row['parametro'].'</td>		
-                            <td>'.$row['valor'].'</td>	
+                            <td>'.$row['ID_Sexo'].'</td>
+							<td>'.$row['Descripcion_sexo'].'</td>	
 							<td>							
-								<a href="EditarParametro.php?nik='.$row['id_parametro'].'" title="Editar datos" class="btn btn-success btn-sm"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></a>
-								
+								<a href="EditarSexo.php?nik='.$row['ID_Sexo'].'" title="Editar datos" class="btn btn-success btn-sm"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></a>
+								<a href="Sexo.php?aksi=delete&nik='.$row['ID_Sexo'].'" title="Eliminar" onclick="return confirm(\'¿Esta seguro de borrar los datos del colaborador '.$row['Descripcion_sexo'].'?\')" class="btn btn-danger btn-sm"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>
 							</td>
 						</tr>
 						';

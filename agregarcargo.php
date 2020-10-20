@@ -42,7 +42,7 @@ include 'conexion.php'
                             <h2>Ingrese Nuevo Cargo</h2>
                             <div class="form-row">
                                 <div class="form-group col-md-6">
-                                    <input type="text" class="form-control" id="Nombre_Cargo" maxlength="50" onkeypress="return soloLetras(event)" name="Nombre" placeholder="Nombre de Cargo" required>
+                                    <input type="text" class="form-control" id="Nombre_Cargo" maxlength="50" name="Nombre" placeholder="Nombre de Cargo" required>
                                 </div>
                                
                                 <div class="regerv_btn col-md-8" >

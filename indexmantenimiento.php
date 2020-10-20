@@ -34,7 +34,7 @@ include 'head.php'
 		<div class="row">
 				<a href="personal.php" class="btn_2">Personal</a>
 				<a href="usuarios.php" class="btn_2">Usuarios</a>
-				<a href="#" class="btn_2">Parámetros</a>
+				<a href="Parametros.php" class="btn_2">Parámetros</a>
 				<a href="cargos.php" class="btn_2">Cargos</a>
 				<a href="Especialidades.php" class="btn_2">Especialidades</a>
 				<a href="Servicios.php" class="btn_2">Servicios</a>
