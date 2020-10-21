@@ -50,7 +50,7 @@ include 'conexion.php'
                     VALUES ('$id_usuario',13,'Update','SE ACTUALIZÓ LA RELIGION')") or die(mysqli_error());
                     echo "<script type='text/javascript'>
                         alert('Ha sido modificado exitosamente');
-                        window.location.href= 'Religion.php';
+                        window.location.href= 'Religiones.php';
                     </script>";
 				}else{
 					echo '<div class="alert alert-danger alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>Error, No se pudo actualizar el dato.</div>';

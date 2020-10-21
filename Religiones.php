@@ -45,7 +45,7 @@ include 'conexion.php'
 					if($delete){
 						$id_usuario= $_SESSION['ID_Usuario'];
 							$insert_bitacora = mysqli_query($con, "INSERT INTO tbl_bitacora_evento (id_usuario,id_objeto,Accion,Descripcion)
-                            VALUES ('$id_usuario',13,'Delete','SE ELIMINÓ RELIGION')") or die(mysqli_error());
+                            VALUES ('$id_usuario',13,'Delete','SE ELIMINÓ UNA RELIGIÓN')") or die(mysqli_error());
 						echo '<div class="alert alert-success alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button> Datos eliminado correctamente.</div>';
 					}else{
 						echo '<div class="alert alert-danger alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button> Error, no se pudo eliminar los datos.</div>';
@@ -87,7 +87,7 @@ include 'conexion.php'
 							<td>'.$row['Descripción'].'</td>	
 							<td>							
 								<a href="EditarReligion.php?nik='.$row['ID_Religion'].'" title="Editar datos" class="btn btn-success btn-sm"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></a>
-								<a href="Religion.php?aksi=delete&nik='.$row['ID_Religion'].'" title="Eliminar" onclick="return confirm(\'¿Esta seguro de borrar los datos del colaborador '.$row['Descripción'].'?\')" class="btn btn-danger btn-sm"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>
+								<a href="Religiones.php?aksi=delete&nik='.$row['ID_Religion'].'" title="Eliminar" onclick="return confirm(\'¿Esta seguro de borrar los datos del colaborador '.$row['Descripción'].'?\')" class="btn btn-danger btn-sm"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>
 							</td>
 						</tr>
 						';

@@ -43,6 +43,9 @@ include 'conexion.php'
 				}else{
 					$update = mysqli_query($con, "UPDATE tbl_usuario SET ID_Estado= 2 WHERE ID_Usuario='$nik'");
 					if($update){
+                        $id_usuario= $_SESSION['ID_Usuario'];
+                    $insert_bitacora = mysqli_query($con, "INSERT INTO tbl_bitacora_evento (id_usuario,id_objeto,Accion,Descripcion)
+                    VALUES ('$id_usuario',2,'Update','SE BLOQUEÓ UN USUARIO')") or die(mysqli_error());
                         echo "<script type='text/javascript'>
                         alert('El Usuario ha sido bloqueado exitosamente');
                         window.location.href= 'Usuarios.php';
@@ -60,6 +63,9 @@ include 'conexion.php'
 				}else{
 					$update = mysqli_query($con, "UPDATE tbl_usuario SET ID_Estado= 1 WHERE ID_Usuario='$nik'");
 					if($update){
+                        $id_usuario= $_SESSION['ID_Usuario'];
+                    $insert_bitacora = mysqli_query($con, "INSERT INTO tbl_bitacora_evento (id_usuario,id_objeto,Accion,Descripcion)
+                    VALUES ('$id_usuario',2,'Update','SE ACTIVÓ UN USUARIO')") or die(mysqli_error());
 						echo "<script type='text/javascript'>
                         alert('El Usuario ha sido activado exitosamente');
                         window.location.href= 'Usuarios.php';
