@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.1
+-- version 5.0.2
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 20-10-2020 a las 09:26:22
--- Versión del servidor: 10.4.11-MariaDB
--- Versión de PHP: 7.4.3
+-- Tiempo de generación: 21-10-2020 a las 07:59:52
+-- Versión del servidor: 10.4.14-MariaDB
+-- Versión de PHP: 7.4.9
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -145,7 +144,8 @@ INSERT INTO `tbl_bitacora` (`id_bitacora`, `id_tabla`, `id_registro`, `fecha`, `
 (100, 'tbl_usuario', 14, '2020-10-20 06:47:47', 'root@localhost', 'Se insertó un nuevo usuario', 'Información insertada: 14 4 JEANRAMIRESXXX Franclar#2020 5 1', ''),
 (101, 'tbl_usuario', 14, '2020-10-20 06:51:36', 'root@localhost', 'Se actualizó un usuario', 'Información actualizada: 14 1 JEANRAMIRESXXX Franclar#2020 5 1', 'Información anterior: 14 4 JEANRAMIRESXXX Franclar#2020 5 1'),
 (102, 'tbl_usuario', 1, '2020-10-20 07:03:00', 'root@localhost', 'Se actualizó un usuario', 'Información actualizada: 1 2 JNUNEZ Franclar#2020 1 1', 'Información anterior: 1 1 JNUNEZ Franclar#2020 1 1'),
-(103, 'tbl_usuario', 1, '2020-10-20 07:03:20', 'root@localhost', 'Se actualizó un usuario', 'Información actualizada: 1 2 JNUNEZ Franclar#2020 1 1', 'Información anterior: 1 2 JNUNEZ Franclar#2020 1 1');
+(103, 'tbl_usuario', 1, '2020-10-20 07:03:20', 'root@localhost', 'Se actualizó un usuario', 'Información actualizada: 1 2 JNUNEZ Franclar#2020 1 1', 'Información anterior: 1 2 JNUNEZ Franclar#2020 1 1'),
+(104, 'tbl_parametros', 2, '2020-10-21 05:11:39', 'root@localhost', 'Se insertó un nuevo parámetro', 'Información insertada: Cajero 3 0 0000-00-00 0000-00-00', '');
 
 -- --------------------------------------------------------
 
@@ -168,7 +168,8 @@ INSERT INTO `tbl_cargo` (`ID_Cargo`, `nomb_cargo`) VALUES
 (3, 'Cajero(a)'),
 (4, 'Limpieza'),
 (5, 'Seguridad'),
-(6, 'Auto_Registro');
+(6, 'Auto_Registro'),
+(7, 'Mantenimiento');
 
 -- --------------------------------------------------------
 
@@ -236,6 +237,14 @@ CREATE TABLE `tbl_diagnosticos` (
   `ID_Diagnostico` int(3) NOT NULL,
   `Descripcion` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `tbl_diagnosticos`
+--
+
+INSERT INTO `tbl_diagnosticos` (`ID_Diagnostico`, `Descripcion`) VALUES
+(1, 'Diagnóstico Neurológico'),
+(2, 'Diagnóstico Pediátrico');
 
 -- --------------------------------------------------------
 
@@ -326,7 +335,8 @@ INSERT INTO `tbl_especialidad` (`ID_especialidad`, `Descripcion_espec`) VALUES
 (5, 'Odontología'),
 (6, 'Psicología'),
 (7, 'Podología'),
-(8, 'Auto_Registro');
+(8, 'Auto_Registro'),
+(9, 'Neurofisiología');
 
 -- --------------------------------------------------------
 
@@ -513,7 +523,8 @@ CREATE TABLE `tbl_parametros` (
 --
 
 INSERT INTO `tbl_parametros` (`id_parametro`, `parametro`, `valor`, `id_usuario`, `Fec_crea`, `Fec_modif`) VALUES
-(1, 'ADMIN_INTENTOS', '2', 1, '2020-10-04', '2020-10-04');
+(1, 'ADMIN_INTENTOS', '2', 1, '2020-10-04', '2020-10-04'),
+(2, 'Cajero', '3', 0, '0000-00-00', '0000-00-00');
 
 --
 -- Disparadores `tbl_parametros`
@@ -703,7 +714,8 @@ CREATE TABLE `tbl_religion` (
 INSERT INTO `tbl_religion` (`ID_Religion`, `Descripción`) VALUES
 (1, 'Católico(a)'),
 (2, 'Evangélico(a)'),
-(3, 'Otros');
+(3, 'Otros'),
+(4, 'Adventista');
 
 -- --------------------------------------------------------
 
@@ -739,6 +751,14 @@ CREATE TABLE `tbl_servicio` (
   `Precio` int(5) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Volcado de datos para la tabla `tbl_servicio`
+--
+
+INSERT INTO `tbl_servicio` (`ID_Servicio`, `Descripcion`, `Precio`) VALUES
+(1, 'Laboratorio', 500),
+(2, 'Diagnóstico Mamario', 1000);
+
 -- --------------------------------------------------------
 
 --
@@ -757,7 +777,7 @@ CREATE TABLE `tbl_sexo` (
 INSERT INTO `tbl_sexo` (`ID_Sexo`, `Descripcion_sexo`) VALUES
 (1, 'Masculino'),
 (2, 'Femenino'),
-(3, 'Indefinido');
+(3, 'Indefinido(a)');
 
 -- --------------------------------------------------------
 
@@ -1074,13 +1094,13 @@ ALTER TABLE `tbl_usuario`
 -- AUTO_INCREMENT de la tabla `tbl_bitacora`
 --
 ALTER TABLE `tbl_bitacora`
-  MODIFY `id_bitacora` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=104;
+  MODIFY `id_bitacora` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=105;
 
 --
 -- AUTO_INCREMENT de la tabla `tbl_cargo`
 --
 ALTER TABLE `tbl_cargo`
-  MODIFY `ID_Cargo` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `ID_Cargo` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT de la tabla `tbl_citas`
@@ -1101,10 +1121,28 @@ ALTER TABLE `tbl_detalle_factura`
   MODIFY `id_detalle_factura` bigint(3) NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT de la tabla `tbl_diagnosticos`
+--
+ALTER TABLE `tbl_diagnosticos`
+  MODIFY `ID_Diagnostico` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
 -- AUTO_INCREMENT de la tabla `tbl_empleado`
 --
 ALTER TABLE `tbl_empleado`
   MODIFY `ID_Empleado` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+
+--
+-- AUTO_INCREMENT de la tabla `tbl_especialidad`
+--
+ALTER TABLE `tbl_especialidad`
+  MODIFY `ID_especialidad` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+
+--
+-- AUTO_INCREMENT de la tabla `tbl_estado_civil`
+--
+ALTER TABLE `tbl_estado_civil`
+  MODIFY `ID_Est_Civil` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT de la tabla `tbl_expediente`
@@ -1134,7 +1172,7 @@ ALTER TABLE `tbl_pacientes`
 -- AUTO_INCREMENT de la tabla `tbl_parametros`
 --
 ALTER TABLE `tbl_parametros`
-  MODIFY `id_parametro` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_parametro` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT de la tabla `tbl_permisos`
@@ -1161,6 +1199,30 @@ ALTER TABLE `tbl_pregunta_usuario`
   MODIFY `id_pregunta_usuario` bigint(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
+-- AUTO_INCREMENT de la tabla `tbl_religion`
+--
+ALTER TABLE `tbl_religion`
+  MODIFY `ID_Religion` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT de la tabla `tbl_servicio`
+--
+ALTER TABLE `tbl_servicio`
+  MODIFY `ID_Servicio` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT de la tabla `tbl_sexo`
+--
+ALTER TABLE `tbl_sexo`
+  MODIFY `ID_Sexo` int(1) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT de la tabla `tbl_tipo_sangre`
+--
+ALTER TABLE `tbl_tipo_sangre`
+  MODIFY `ID_Tipo_Sangre` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+
+--
 -- AUTO_INCREMENT de la tabla `tbl_usuario`
 --
 ALTER TABLE `tbl_usuario`
@@ -1174,97 +1236,42 @@ ALTER TABLE `tbl_usuario`
 -- Filtros para la tabla `tbl_citas`
 --
 ALTER TABLE `tbl_citas`
-  ADD CONSTRAINT `tbl_citas_ibfk_2` FOREIGN KEY (`ID_Servicio`) REFERENCES `tbl_servicio` (`ID_Servicio`) ON UPDATE CASCADE,
   ADD CONSTRAINT `tbl_citas_ibfk_4` FOREIGN KEY (`ID_Estado`) REFERENCES `tbl_estado_cita` (`ID_Estado`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `tbl_citas_ibfk_5` FOREIGN KEY (`ID_Usuario`) REFERENCES `tbl_usuario` (`ID_Usuario`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `tbl_citas_ibfk_6` FOREIGN KEY (`ID_Empleado`) REFERENCES `tbl_empleado` (`ID_Empleado`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `tbl_citas_ibfk_7` FOREIGN KEY (`ID_Paciente`) REFERENCES `tbl_pacientes` (`ID_Paciente`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `tbl_citas_ibfk_7` FOREIGN KEY (`ID_Paciente`) REFERENCES `tbl_pacientes` (`ID_Paciente`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `tbl_citas_ibfk_8` FOREIGN KEY (`ID_Servicio`) REFERENCES `tbl_servicio` (`ID_Servicio`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Filtros para la tabla `tbl_consultas`
 --
 ALTER TABLE `tbl_consultas`
-  ADD CONSTRAINT `tbl_consultas_ibfk_2` FOREIGN KEY (`ID_Diagnostico`) REFERENCES `tbl_diagnosticos` (`ID_Diagnostico`) ON UPDATE CASCADE,
-  ADD CONSTRAINT `tbl_consultas_ibfk_3` FOREIGN KEY (`ID_Cita`) REFERENCES `tbl_citas` (`ID_Cita`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `tbl_consultas_ibfk_3` FOREIGN KEY (`ID_Cita`) REFERENCES `tbl_citas` (`ID_Cita`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `tbl_consultas_ibfk_4` FOREIGN KEY (`ID_Diagnostico`) REFERENCES `tbl_diagnosticos` (`ID_Diagnostico`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Filtros para la tabla `tbl_detalle_factura`
 --
 ALTER TABLE `tbl_detalle_factura`
-  ADD CONSTRAINT `tbl_detalle_factura_ibfk_2` FOREIGN KEY (`ID_servicio`) REFERENCES `tbl_servicio` (`ID_Servicio`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `tbl_detalle_factura_ibfk_3` FOREIGN KEY (`ID_factura`) REFERENCES `tbl_facturas` (`ID_factura`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `tbl_detalle_factura_ibfk_3` FOREIGN KEY (`ID_factura`) REFERENCES `tbl_facturas` (`ID_factura`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `tbl_detalle_factura_ibfk_4` FOREIGN KEY (`ID_servicio`) REFERENCES `tbl_servicio` (`ID_Servicio`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Filtros para la tabla `tbl_empleado`
 --
 ALTER TABLE `tbl_empleado`
-  ADD CONSTRAINT `tbl_empleado_ibfk_2` FOREIGN KEY (`ID_Est_Civil`) REFERENCES `tbl_estado_civil` (`ID_Est_Civil`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `tbl_empleado_ibfk_4` FOREIGN KEY (`ID_Especialidad`) REFERENCES `tbl_especialidad` (`ID_especialidad`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `tbl_empleado_ibfk_5` FOREIGN KEY (`ID_Sexo`) REFERENCES `tbl_sexo` (`ID_Sexo`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `tbl_empleado_ibfk_6` FOREIGN KEY (`ID_Cargo`) REFERENCES `tbl_cargo` (`ID_Cargo`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
--- Filtros para la tabla `tbl_expediente`
---
-ALTER TABLE `tbl_expediente`
-  ADD CONSTRAINT `tbl_expediente_ibfk_1` FOREIGN KEY (`ID_consulta`) REFERENCES `tbl_consultas` (`ID_Consulta`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `tbl_expediente_ibfk_2` FOREIGN KEY (`ID_paciente`) REFERENCES `tbl_pacientes` (`ID_Paciente`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
--- Filtros para la tabla `tbl_facturas`
---
-ALTER TABLE `tbl_facturas`
-  ADD CONSTRAINT `tbl_facturas_ibfk_1` FOREIGN KEY (`ID_cita`) REFERENCES `tbl_citas` (`ID_Cita`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
--- Filtros para la tabla `tbl_hist_contra`
---
-ALTER TABLE `tbl_hist_contra`
-  ADD CONSTRAINT `tbl_hist_contra_ibfk_1` FOREIGN KEY (`id_usuario`) REFERENCES `tbl_usuario` (`ID_Usuario`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `tbl_empleado_ibfk_6` FOREIGN KEY (`ID_Cargo`) REFERENCES `tbl_cargo` (`ID_Cargo`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `tbl_empleado_ibfk_7` FOREIGN KEY (`ID_Especialidad`) REFERENCES `tbl_especialidad` (`ID_especialidad`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `tbl_empleado_ibfk_8` FOREIGN KEY (`ID_Est_Civil`) REFERENCES `tbl_estado_civil` (`ID_Est_Civil`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Filtros para la tabla `tbl_pacientes`
 --
 ALTER TABLE `tbl_pacientes`
-  ADD CONSTRAINT `tbl_pacientes_ibfk_1` FOREIGN KEY (`ID_TipoPaciente`) REFERENCES `tbl_tipo_paciente` (`ID_TipoPaciente`),
-  ADD CONSTRAINT `tbl_pacientes_ibfk_2` FOREIGN KEY (`ID_Tipo_Sangre`) REFERENCES `tbl_tipo_sangre` (`ID_Tipo_Sangre`) ON UPDATE CASCADE,
-  ADD CONSTRAINT `tbl_pacientes_ibfk_4` FOREIGN KEY (`ID_Est_Civil`) REFERENCES `tbl_estado_civil` (`ID_Est_Civil`) ON UPDATE CASCADE,
-  ADD CONSTRAINT `tbl_pacientes_ibfk_5` FOREIGN KEY (`ID_Religion`) REFERENCES `tbl_religion` (`ID_Religion`) ON UPDATE CASCADE,
-  ADD CONSTRAINT `tbl_pacientes_ibfk_6` FOREIGN KEY (`ID_Sexo`) REFERENCES `tbl_sexo` (`ID_Sexo`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
--- Filtros para la tabla `tbl_parametros`
---
-ALTER TABLE `tbl_parametros`
-  ADD CONSTRAINT `tbl_parametros_ibfk_1` FOREIGN KEY (`id_usuario`) REFERENCES `tbl_usuario` (`ID_Usuario`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
--- Filtros para la tabla `tbl_permisos`
---
-ALTER TABLE `tbl_permisos`
-  ADD CONSTRAINT `tbl_permisos_ibfk_1` FOREIGN KEY (`id_objeto`) REFERENCES `tbl_objetos` (`id_objeto`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `tbl_permisos_ibfk_2` FOREIGN KEY (`id_rol`) REFERENCES `tbl_roles` (`ID_Rol`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
--- Filtros para la tabla `tbl_preclinica`
---
-ALTER TABLE `tbl_preclinica`
-  ADD CONSTRAINT `tbl_preclinica_ibfk_1` FOREIGN KEY (`ID_Cita`) REFERENCES `tbl_citas` (`ID_Cita`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
--- Filtros para la tabla `tbl_pregunta_usuario`
---
-ALTER TABLE `tbl_pregunta_usuario`
-  ADD CONSTRAINT `tbl_pregunta_usuario_ibfk_2` FOREIGN KEY (`ID_Usuario`) REFERENCES `tbl_usuario` (`ID_Usuario`) ON UPDATE CASCADE,
-  ADD CONSTRAINT `tbl_pregunta_usuario_ibfk_3` FOREIGN KEY (`ID_Pregunta`) REFERENCES `tbl_preguntas` (`ID_Pregunta`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
--- Filtros para la tabla `tbl_usuario`
---
-ALTER TABLE `tbl_usuario`
-  ADD CONSTRAINT `tbl_usuario_ibfk_3` FOREIGN KEY (`ID_Estado`) REFERENCES `tbl_estado_usuario` (`ID_Estado`) ON UPDATE CASCADE,
-  ADD CONSTRAINT `tbl_usuario_ibfk_5` FOREIGN KEY (`ID_Rol`) REFERENCES `tbl_roles` (`ID_Rol`) ON UPDATE CASCADE,
-  ADD CONSTRAINT `tbl_usuario_ibfk_6` FOREIGN KEY (`ID_Empleado`) REFERENCES `tbl_empleado` (`ID_Empleado`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `tbl_pacientes_ibfk_1` FOREIGN KEY (`ID_Est_Civil`) REFERENCES `tbl_estado_civil` (`ID_Est_Civil`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `tbl_pacientes_ibfk_2` FOREIGN KEY (`ID_Sexo`) REFERENCES `tbl_sexo` (`ID_Sexo`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `tbl_pacientes_ibfk_3` FOREIGN KEY (`ID_Religion`) REFERENCES `tbl_religion` (`ID_Religion`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `tbl_pacientes_ibfk_4` FOREIGN KEY (`ID_Tipo_Sangre`) REFERENCES `tbl_tipo_sangre` (`ID_Tipo_Sangre`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

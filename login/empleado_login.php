@@ -76,19 +76,19 @@ include 'conexionPDO.php'
                                     <input type="text" class="form-control" id="NombreEm" maxlength="50" onkeypress="return soloLetras(event)" name="Nombre" placeholder="Nombre" required>
                                 </div>
                                 <div class="form-group col-md-6">
-                                    <input type="text" class="form-control" maxlength="13" onkeypress="return solonumeros(event)" id="NumeroIDEm" name="NumeroID" placeholder="N�mero de identidad" required>
+                                    <input type="text" class="form-control" maxlength="13" onkeypress="return solonumeros(event)" id="NumeroIDEm" name="NumeroID" placeholder="Número de identidad" required>
                                 </div>
                                 <div class="form-group col-md-6">
                                     <input type="text" id="FechaNEm" name="FechaN" class="input-group date form-control" date="" data-date-format="dd-mm-yyyy" placeholder="Fecha de nacimiento" required>
                                 </div>
                                 <div class="form-group col-md-6">
-                                    <input type="tel" class="form-control" maxlength="8" onkeypress="return solonumeros(event)" id="TelefonoEm" name="Telefono" placeholder="Tel�fono fijo">
+                                    <input type="tel" class="form-control" maxlength="8" onkeypress="return solonumeros(event)" id="TelefonoEm" name="Telefono" placeholder="Teléfono fijo">
                                 </div>
                                 <div class="form-group col-md-6">
                                     <input type="tel" class="form-control" maxlength="8" onkeypress="return solonumeros(event)" id="CelularEm" name="Celular" placeholder="Celular" required>
                                 </div>
                                 <div class="form-group col-md-6">
-                                    <input type="text" class="form-control" id="DireccionEm" name="Direccion" placeholder="Direcci�n" required>
+                                    <input type="text" class="form-control" id="DireccionEm" name="Direccion" placeholder="Dirección" required>
                                 </div>
                                 <h2>Datos Generales</h2>
                                 <div class="form-row">

@@ -18,11 +18,11 @@
                 <input type="text" name="usuario" placeholder="Ingrese su Usuario">
                 
                 
-                <input type="button" disabled="true" role="link" onclick="window.location='../login/RCorreo.php'" value="Recuperación por correo electrónico">
+                <input type="button"  role="link" onclick="window.location='../login/RCorreo.php'" value="Recuperación por correo electrónico">
                 
                 </input>
 
-                <input type="button" disabled="true" role="link" onclick="window.location='../login/RPreguntaS.php'" value="Recuperación por preguntas secretas" >
+                <input type="button"  role="link" onclick="window.location='../login/RPreguntaS.php'" value="Recuperación por preguntas secretas" >
                 
                 </input>
             </form>
