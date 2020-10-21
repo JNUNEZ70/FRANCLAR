@@ -30,13 +30,14 @@ include ("conexionPDO.php");
 
                 <!-----Password----->
                 <label for="Password">Contraseña</label>
-                <input type="password"  name="Contraseña" placeholder="Ingrese una Contraseña">
+                <input type="password" id="con1" name="Contraseña" placeholder="Ingrese una Contraseña">
 
                 <label for="RPassword">Confirmar contraseña</label>
-                <input type="password" name="Rcontraseña" placeholder="Ingrese de nuevo la Contraseña">
+                <input type="password" name="Rcontraseña" placeholder="Ingrese de nuevo la Contraseña" onkeyup="conf_pass(value)">
+                <p id="aviso"></p>
 
                 <label for="Email">Correo Electrónico</label>
-                <input type="email"  name="email" placeholder="Ingrese un correo electr�nico">
+                <input type="email"  name="email" placeholder="Ingrese un correo electrónico">
                 
                 <input type="submit"  value="Registrar" name="add" >
                 
@@ -46,4 +47,20 @@ include ("conexionPDO.php");
             </form>
         </div>
     </body>
+
+<script>	
+    function conf_pass(valor){
+        var contraseña1 = document.getElementById('con1').value;
+        var contraseña2 = valor 
+
+        if(contraseña1!=contraseña2){
+            document.getElementByID('aviso').innerHTML = "sdsdsd";
+        }
+        
+    }
+
+</script>
+
 </html>
+
+

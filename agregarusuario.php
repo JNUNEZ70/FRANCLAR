@@ -57,7 +57,7 @@ include 'conexion.php'
                                     <input type="email" class="form-control" id="EmailU" name="Email" placeholder="Email" required>
                                 </div>
                                 <div class="form-group col-md-4">
-                                    <input type="text"  class="form-control" id="NomU" name="Nom_Usuario"  placeholder="Nombre de usuario" onblur="obtener_usuario(value)" required>
+                                    <input type="text"  class="form-control" id="NomU" name="Nom_Usuario"  placeholder="Nombre de usuario"  required>
                                     
                                 </div>                                
                                 <div class="input-group col-md-4">
@@ -115,30 +115,30 @@ include 'conexion.php'
 
     ?>            
 
-    <script>
+    <!-- <script>
         function obtener_usuario(user){
 
             // var user = document.getElementById('NomU');
             
+            // alert(user);
             var theObject = new XMLHttpRequest();
             theObject.open('POST','ValidarUsuario.php',true);
             theObject.setRequestHeader('Content-Type','application/x-www-form-urlencoded');
-            theObject.send('usuario=Nom_Usuario');
+            theObject.send(user);
             theObject.onload = function(){
-                //document.getElementByID('title').innerHTML = theObject.responseText;
-                alert(theObject.responseText);
+                        alert(theObject.responseText);
                 //  if (theObject.responseText = 1) {
                 //     alert('El usuario ya existe, favor ingrese otro');                        
                 //  }else{
                 //      alert('Usuario válido');
-                }
+                
             //theObject.send('user');
-            
+            }
             // alert(user);
             
             }
 
-    </script>
+    </script> -->
 
 
     <script>

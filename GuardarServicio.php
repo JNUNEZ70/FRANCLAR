@@ -9,7 +9,7 @@ include ("conexion.php");
         $nombre = mysqli_real_escape_string($con,(strip_tags($_POST['Nombre'],ENT_QUOTES)));
         $precio =mysqli_real_escape_string($con,(strip_tags($_POST['Precio'],ENT_QUOTES)));
 	
-	$insert = mysqli_query($con, "INSERT INTO tbl_servicio (parametro, precio) 
+	$insert = mysqli_query($con, "INSERT INTO tbl_servicio (Descripcion, precio) 
                                        VALUES ('$nombre', '$precio')") or die(mysqli_error());
     
     if($insert){
