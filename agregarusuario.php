@@ -16,6 +16,15 @@ include 'conexion.php'
     ?>
     <!-- Header part end-->
 
+    <?php
+        $sql = mysqli_query($con, "SELECT * FROM tbl_roles WHERE ID_Rol=2");
+            if(mysqli_num_rows($sql) > 0){
+               $row = mysqli_fetch_assoc($sql);
+            }
+                    
+    ?>
+
+
     <!-- breadcrumb start-->
     <section class="breadcrumb_part breadcrumb_bg">
         <div class="container">
@@ -66,9 +75,9 @@ include 'conexion.php'
                                 </div>               
                                 <div class="form-group col-md-4">
                                     <select class="form-control" id="RolU" name="Rol" required>
-                                        <option value="">Seleccione el rol</option>
+                                    <option value="<?php echo $row ['ID_Rol']; ?>"><?php echo $row ['Rol']; ?></option>
                                         <?php
-                                          $sql=$con -> query("Select * from tbl_roles");
+                                          $sql=$con -> query("Select * from tbl_roles WHERE ID_Rol<>2");
 
                                           while($fila=$sql->fetch_array()){
                                               echo "<option value='".$fila['ID_Rol']."'>".$fila['Rol']."</option>";
