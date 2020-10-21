@@ -23,7 +23,7 @@ include 'conexion.php'
                 <div class="col-lg-12">
                     <div class="breadcrumb_iner">
                         <div class="breadcrumb_iner_item">
-                            <h2>Sexo</h2>
+                            <h2>Sexos</h2>
                         </div>
                     </div>
                 </div>
