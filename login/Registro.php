@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es">
+<html>
 <?php
 session_start();
 include ("conexionPDO.php");
@@ -9,6 +9,7 @@ include ("conexionPDO.php");
         <link rel="shortcut icon" href="img/franclar.png">
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href ="css/bootstrap.css">
         <link rel="stylesheet" href ="css/registro.css">
     </head>
     <body>
@@ -26,16 +27,17 @@ include ("conexionPDO.php");
                 <input type="hidden"   name="ID_Rol"    value="5">
                 
                 
-                <input type="text" name="Nom_Usuario" style="text-transform:uppercase;" onkeyup="javascript:this.value=this.value.toUpperCase();" placeholder="Ingrese su usuario" autocomplete="off" required>
+                <input type="text" id="usuario" name="Nom_Usuario" style="text-transform:uppercase;" onkeyup="javascript:this.value=this.value.toUpperCase();" placeholder="Ingrese su usuario" autocomplete="off" required>
 
                 <!-----Password----->
                 <label for="Password">Contraseña</label>
-                <input type="password" id="con1" name="Contraseña" placeholder="Ingrese una Contraseña">
+                <input type="password" id="password" name="Contraseña" placeholder="Ingrese una Contraseña">
 
                 <label for="RPassword">Confirmar contraseña</label>
-                <input type="password" name="Rcontraseña" placeholder="Ingrese de nuevo la Contraseña" onkeyup="conf_pass(value)">
-                <p id="aviso"></p>
-
+                <input type="password" id="confirm_password" name="Rcontraseña" placeholder="Ingrese de nuevo la Contraseña">
+                
+                 
+                
                 <label for="Email">Correo Electrónico</label>
                 <input type="email"  name="email" placeholder="Ingrese un correo electrónico">
                 
@@ -46,21 +48,21 @@ include ("conexionPDO.php");
                 <p> Ya tienes una cuenta &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href="../login/Login.php">Ingresar</a></p> <br>
             </form>
         </div>
-    </body>
 
-<script>	
-    function conf_pass(valor){
-        var contraseña1 = document.getElementById('con1').value;
-        var contraseña2 = valor 
+ <script>
+  var password = document.getElementById("password")
+  , confirm_password = document.getElementById("confirm_password");
 
-        if(contraseña1!=contraseña2){
-            document.getElementByID('aviso').innerHTML = "sdsdsd";
-        }
-        
-    }
+function validatePassword(){
+  if(password.value != confirm_password.value) {
+    confirm_password.setCustomValidity("contraseña no coinciden");
+  } else {
+    confirm_password.setCustomValidity('');
+  }
+}
 
+password.onchange = validatePassword;
+confirm_password.onkeyup = validatePassword;
 </script>
-
+    </body>
 </html>
-
-

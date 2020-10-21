@@ -1,13 +1,14 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.2
+-- version 5.0.1
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Oct 21, 2020 at 10:09 AM
--- Server version: 10.4.11-MariaDB
--- PHP Version: 7.4.5
+-- Servidor: 127.0.0.1
+-- Tiempo de generación: 21-10-2020 a las 06:10:42
+-- Versión del servidor: 10.4.11-MariaDB
+-- Versión de PHP: 7.4.3
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -18,13 +19,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `sistema_franclar`
+-- Base de datos: `sistema_franclar`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_bitacora`
+-- Estructura de tabla para la tabla `tbl_bitacora`
 --
 
 CREATE TABLE `tbl_bitacora` (
@@ -39,7 +40,7 @@ CREATE TABLE `tbl_bitacora` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `tbl_bitacora`
+-- Volcado de datos para la tabla `tbl_bitacora`
 --
 
 INSERT INTO `tbl_bitacora` (`id_bitacora`, `id_tabla`, `id_registro`, `fecha`, `ejecutor`, `actividad_realizada`, `informacion_actual`, `informacion_anterior`) VALUES
@@ -144,56 +145,12 @@ INSERT INTO `tbl_bitacora` (`id_bitacora`, `id_tabla`, `id_registro`, `fecha`, `
 (100, 'tbl_usuario', 14, '2020-10-20 06:47:47', 'root@localhost', 'Se insertó un nuevo usuario', 'Información insertada: 14 4 JEANRAMIRESXXX Franclar#2020 5 1', ''),
 (101, 'tbl_usuario', 14, '2020-10-20 06:51:36', 'root@localhost', 'Se actualizó un usuario', 'Información actualizada: 14 1 JEANRAMIRESXXX Franclar#2020 5 1', 'Información anterior: 14 4 JEANRAMIRESXXX Franclar#2020 5 1'),
 (102, 'tbl_usuario', 1, '2020-10-20 07:03:00', 'root@localhost', 'Se actualizó un usuario', 'Información actualizada: 1 2 JNUNEZ Franclar#2020 1 1', 'Información anterior: 1 1 JNUNEZ Franclar#2020 1 1'),
-(103, 'tbl_usuario', 1, '2020-10-20 07:03:20', 'root@localhost', 'Se actualizó un usuario', 'Información actualizada: 1 2 JNUNEZ Franclar#2020 1 1', 'Información anterior: 1 2 JNUNEZ Franclar#2020 1 1'),
-(104, 'tbl_parametros', 2, '2020-10-21 05:11:39', 'root@localhost', 'Se insertó un nuevo parámetro', 'Información insertada: Cajero 3 0 0000-00-00 0000-00-00', ''),
-(105, 'tbl_parametros', 3, '2020-10-21 07:33:22', 'root@localhost', 'Se insertó un nuevo parámetro', 'Información insertada: sdjidijcndcd 5 0 0000-00-00 0000-00-00', ''),
-(106, 'tbl_usuario', 1, '2020-10-21 07:34:25', 'root@localhost', 'Se actualizó un usuario', 'Información actualizada: 1 2 JNUNEZ Franclar#2020 1 1', 'Información anterior: 1 2 JNUNEZ Franclar#2020 1 1'),
-(107, 'tbl_usuario', 1, '2020-10-21 07:34:50', 'root@localhost', 'Se actualizó un usuario', 'Información actualizada: 1 2 JNUNEZ Franclar#2020 1 1', 'Información anterior: 1 2 JNUNEZ Franclar#2020 1 1'),
-(108, 'tbl_usuario', 9, '2020-10-21 07:35:57', 'root@localhost', 'Se actualizó un usuario', 'Información actualizada: 11 1 JGONZALES Franclar.2020 1 1', 'Información anterior: 11 1 JGONZALES OtvJY]Jf 1 1'),
-(109, 'tbl_usuario', 1, '2020-10-21 07:37:09', 'root@localhost', 'Se actualizó un usuario', 'Información actualizada: 1 1 JNUNEZ Franclar#2020 1 1', 'Información anterior: 1 2 JNUNEZ Franclar#2020 1 1'),
-(110, 'tbl_usuario', 10, '2020-10-21 07:43:50', 'root@localhost', 'Se actualizó un usuario', 'Información actualizada: 8 1 CNUÑEZ Hf4,Qw9] 1 1', 'Información anterior: 8 2 CNUÑEZ Hf4,Qw9] 1 1'),
-(111, 'tbl_usuario', 10, '2020-10-21 07:44:09', 'root@localhost', 'Se actualizó un usuario', 'Información actualizada: 8 2 CNUÑEZ Hf4,Qw9] 1 1', 'Información anterior: 8 1 CNUÑEZ Hf4,Qw9] 1 1'),
-(112, 'tbl_usuario', 15, '2020-10-21 07:48:01', 'root@localhost', 'Se insertó un nuevo usuario', 'Información insertada: 12 1 WRAMIREZ Ud4/Au3. 4 1', ''),
-(113, ' tbl_empleado', 8, '2020-10-21 07:48:50', 'root@localhost', 'Se eliminó un empleado', '', 'Información eliminada: 1 1 1 1 0801196800586 CARLOS HUMBERTO NUÑEZ 1963-10-14 SDOVJNBDFUVHDBFUVDFVDFVDF 22222222 99999999 15000'),
-(114, 'tbl_empleado', 14, '2020-10-21 07:49:29', 'root@localhost', 'Se actualizó un empleado', 'Información actualizada: 1 1 6 8  JEAN CARLOS RAMIRES 0000-00-00 SDNS8UDFCDSDSASAS 22377053 88888888 0', 'Información anterior: 1 1 6 8 0801549841654 JEAN CARLOS RAMIRES 1980-10-19 SDNS8UDFCDSDSASAS 22222222 88888888 0');
+(103, 'tbl_usuario', 1, '2020-10-20 07:03:20', 'root@localhost', 'Se actualizó un usuario', 'Información actualizada: 1 2 JNUNEZ Franclar#2020 1 1', 'Información anterior: 1 2 JNUNEZ Franclar#2020 1 1');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_bitacora_evento`
---
-
-CREATE TABLE `tbl_bitacora_evento` (
-  `id_bitacora` int(3) NOT NULL,
-  `fecha_evento` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
-  `id_usuario` bigint(3) NOT NULL,
-  `id_objeto` bigint(3) NOT NULL,
-  `Accion` varchar(20) NOT NULL,
-  `Descripcion` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `tbl_bitacora_evento`
---
-
-INSERT INTO `tbl_bitacora_evento` (`id_bitacora`, `fecha_evento`, `id_usuario`, `id_objeto`, `Accion`, `Descripcion`) VALUES
-(1, '2020-10-21 07:33:22', 1, 3, 'Insert', 'SE INGRESÓ UN NUEVO PARAMETRO'),
-(2, '2020-10-21 07:43:50', 9, 2, 'Update', 'SE ACTIVÓ UN USUARIO'),
-(3, '2020-10-21 07:44:09', 9, 2, 'Update', 'SE BLOQUEÓ UN USUARIO'),
-(4, '2020-10-21 07:48:01', 9, 2, 'Insert', 'SE INGRESÓ UN NUEVO USUARIO'),
-(5, '2020-10-21 07:48:51', 9, 1, 'Delete', 'SE ELIMINÓ UN EMPLEADO'),
-(6, '2020-10-21 07:49:29', 9, 1, 'Update', 'SE ACTUALIZÓ UN EMPLEADO'),
-(7, '2020-10-21 07:52:06', 9, 10, 'Update', 'SE ACTUALIZÓ EL CARGO'),
-(8, '2020-10-21 07:52:42', 9, 10, 'Update', 'SE ACTUALIZÓ EL CARGO'),
-(9, '2020-10-21 07:53:20', 9, 16, 'Delete', 'SE ELIMINÓ UN EMPLEADO'),
-(10, '2020-10-21 07:53:41', 9, 16, 'Insert', 'SE INGRESÓ UN NUEVO SEXO'),
-(11, '2020-10-21 08:03:29', 9, 13, 'Update', 'SE ACTUALIZÓ LA RELIGION'),
-(12, '2020-10-21 08:06:24', 9, 13, 'Delete', 'SE ELIMINÓ RELIGION');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `tbl_cargo`
+-- Estructura de tabla para la tabla `tbl_cargo`
 --
 
 CREATE TABLE `tbl_cargo` (
@@ -202,7 +159,7 @@ CREATE TABLE `tbl_cargo` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `tbl_cargo`
+-- Volcado de datos para la tabla `tbl_cargo`
 --
 
 INSERT INTO `tbl_cargo` (`ID_Cargo`, `nomb_cargo`) VALUES
@@ -211,13 +168,12 @@ INSERT INTO `tbl_cargo` (`ID_Cargo`, `nomb_cargo`) VALUES
 (3, 'Cajero(a)'),
 (4, 'Limpieza'),
 (5, 'Seguridad'),
-(6, 'Auto_Registro'),
-(7, 'Mantenimiento');
+(6, 'Auto_Registro');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_citas`
+-- Estructura de tabla para la tabla `tbl_citas`
 --
 
 CREATE TABLE `tbl_citas` (
@@ -241,7 +197,7 @@ CREATE TABLE `tbl_citas` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_consultas`
+-- Estructura de tabla para la tabla `tbl_consultas`
 --
 
 CREATE TABLE `tbl_consultas` (
@@ -261,7 +217,7 @@ CREATE TABLE `tbl_consultas` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_detalle_factura`
+-- Estructura de tabla para la tabla `tbl_detalle_factura`
 --
 
 CREATE TABLE `tbl_detalle_factura` (
@@ -273,7 +229,7 @@ CREATE TABLE `tbl_detalle_factura` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_diagnosticos`
+-- Estructura de tabla para la tabla `tbl_diagnosticos`
 --
 
 CREATE TABLE `tbl_diagnosticos` (
@@ -281,18 +237,10 @@ CREATE TABLE `tbl_diagnosticos` (
   `Descripcion` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
---
--- Dumping data for table `tbl_diagnosticos`
---
-
-INSERT INTO `tbl_diagnosticos` (`ID_Diagnostico`, `Descripcion`) VALUES
-(1, 'Diagnóstico Neurológico'),
-(2, 'Diagnóstico Pediátrico');
-
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_empleado`
+-- Estructura de tabla para la tabla `tbl_empleado`
 --
 
 CREATE TABLE `tbl_empleado` (
@@ -315,18 +263,19 @@ CREATE TABLE `tbl_empleado` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `tbl_empleado`
+-- Volcado de datos para la tabla `tbl_empleado`
 --
 
 INSERT INTO `tbl_empleado` (`ID_Empleado`, `Nom_Empleado`, `ID_Sexo`, `ID_Est_Civil`, `ID_Cargo`, `ID_Especialidad`, `Cedula`, `Fec_Nacimiento`, `Dir_Empleado`, `Tel_Empleado`, `Cel_Empleado`, `Salario`, `Usuario_crea`, `Fec_crea`, `Usuario_modif`, `Fec_modif`) VALUES
 (1, 'Jean Carlos Núñez Salgado', 1, 2, 1, 1, '', '0000-00-00', 'Col venezuela sector B.....', 22091139, 33876298, 15000, NULL, NULL, NULL, NULL),
 (3, 'Carlos Fabricio Nuñez Ramires', 1, 3, 2, 6, '', '0000-00-00', 'Col. Venezuela Sector B Bloque 8 casa 17', 22278000, 33876298, 30000, NULL, NULL, NULL, NULL),
+(8, 'CARLOS HUMBERTO NUÑEZ', 1, 1, 1, 1, '0801196800586', '1963-10-14', 'SDOVJNBDFUVHDBFUVDFVDFVDF', 22222222, 99999999, 15000, NULL, NULL, NULL, NULL),
 (11, 'JOSUE ALLAN GONZALES RAMIRES', 1, 2, 3, 3, '0801199714588', '1987-10-08', 'WINFEIUFGEFVDFVDF', 22222222, 99999999, 20000, NULL, NULL, NULL, NULL),
 (12, 'WILDER EDUARDO RAMIRES ', 1, 1, 5, 7, '0801199714078', '1982-09-05', 'SJDNVSDHOFIVBDVRFGBRGBRFGBGF', 22222222, 88888888, 20000, NULL, NULL, NULL, NULL),
-(14, 'JEAN CARLOS RAMIRES', 1, 1, 6, 8, '', '0000-00-00', 'SDNS8UDFCDSDSASAS', 22377053, 88888888, 0, NULL, NULL, NULL, NULL);
+(14, 'JEAN CARLOS RAMIRES', 1, 1, 6, 8, '0801549841654', '1980-10-19', 'SDNS8UDFCDSDSASAS', 22222222, 88888888, 0, NULL, NULL, NULL, NULL);
 
 --
--- Triggers `tbl_empleado`
+-- Disparadores `tbl_empleado`
 --
 DELIMITER $$
 CREATE TRIGGER `trgr_empleado_delete` AFTER DELETE ON `tbl_empleado` FOR EACH ROW BEGIN
@@ -357,7 +306,7 @@ DELIMITER ;
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_especialidad`
+-- Estructura de tabla para la tabla `tbl_especialidad`
 --
 
 CREATE TABLE `tbl_especialidad` (
@@ -366,7 +315,7 @@ CREATE TABLE `tbl_especialidad` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `tbl_especialidad`
+-- Volcado de datos para la tabla `tbl_especialidad`
 --
 
 INSERT INTO `tbl_especialidad` (`ID_especialidad`, `Descripcion_espec`) VALUES
@@ -377,13 +326,12 @@ INSERT INTO `tbl_especialidad` (`ID_especialidad`, `Descripcion_espec`) VALUES
 (5, 'Odontología'),
 (6, 'Psicología'),
 (7, 'Podología'),
-(8, 'Auto_Registro'),
-(9, 'Neurofisiología');
+(8, 'Auto_Registro');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_estado_cita`
+-- Estructura de tabla para la tabla `tbl_estado_cita`
 --
 
 CREATE TABLE `tbl_estado_cita` (
@@ -392,7 +340,7 @@ CREATE TABLE `tbl_estado_cita` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `tbl_estado_cita`
+-- Volcado de datos para la tabla `tbl_estado_cita`
 --
 
 INSERT INTO `tbl_estado_cita` (`ID_Estado`, `Descripcion`) VALUES
@@ -404,7 +352,7 @@ INSERT INTO `tbl_estado_cita` (`ID_Estado`, `Descripcion`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_estado_civil`
+-- Estructura de tabla para la tabla `tbl_estado_civil`
 --
 
 CREATE TABLE `tbl_estado_civil` (
@@ -413,7 +361,7 @@ CREATE TABLE `tbl_estado_civil` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `tbl_estado_civil`
+-- Volcado de datos para la tabla `tbl_estado_civil`
 --
 
 INSERT INTO `tbl_estado_civil` (`ID_Est_Civil`, `Descripcion_est_civil`) VALUES
@@ -426,7 +374,7 @@ INSERT INTO `tbl_estado_civil` (`ID_Est_Civil`, `Descripcion_est_civil`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_estado_usuario`
+-- Estructura de tabla para la tabla `tbl_estado_usuario`
 --
 
 CREATE TABLE `tbl_estado_usuario` (
@@ -435,7 +383,7 @@ CREATE TABLE `tbl_estado_usuario` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `tbl_estado_usuario`
+-- Volcado de datos para la tabla `tbl_estado_usuario`
 --
 
 INSERT INTO `tbl_estado_usuario` (`ID_Estado`, `Descripcion`) VALUES
@@ -447,7 +395,7 @@ INSERT INTO `tbl_estado_usuario` (`ID_Estado`, `Descripcion`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_expediente`
+-- Estructura de tabla para la tabla `tbl_expediente`
 --
 
 CREATE TABLE `tbl_expediente` (
@@ -468,7 +416,7 @@ CREATE TABLE `tbl_expediente` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_facturas`
+-- Estructura de tabla para la tabla `tbl_facturas`
 --
 
 CREATE TABLE `tbl_facturas` (
@@ -480,7 +428,7 @@ CREATE TABLE `tbl_facturas` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_hist_contra`
+-- Estructura de tabla para la tabla `tbl_hist_contra`
 --
 
 CREATE TABLE `tbl_hist_contra` (
@@ -492,7 +440,7 @@ CREATE TABLE `tbl_hist_contra` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_objetos`
+-- Estructura de tabla para la tabla `tbl_objetos`
 --
 
 CREATE TABLE `tbl_objetos` (
@@ -501,7 +449,7 @@ CREATE TABLE `tbl_objetos` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `tbl_objetos`
+-- Volcado de datos para la tabla `tbl_objetos`
 --
 
 INSERT INTO `tbl_objetos` (`id_objeto`, `objeto`) VALUES
@@ -512,20 +460,12 @@ INSERT INTO `tbl_objetos` (`id_objeto`, `objeto`) VALUES
 (5, 'vista_consultas'),
 (6, 'vista_preclinica'),
 (7, 'vista_citas'),
-(8, 'vista_caja'),
-(9, 'Mant_Especialidad'),
-(10, 'Mant_Cargo'),
-(11, 'Mant_diagnostico'),
-(12, 'mant_estadoCiv'),
-(13, 'Religion'),
-(14, 'Mant_servicio'),
-(15, 'Mant_tipo_sangre'),
-(16, 'sexo');
+(8, 'vista_caja');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_pacientes`
+-- Estructura de tabla para la tabla `tbl_pacientes`
 --
 
 CREATE TABLE `tbl_pacientes` (
@@ -556,7 +496,7 @@ CREATE TABLE `tbl_pacientes` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_parametros`
+-- Estructura de tabla para la tabla `tbl_parametros`
 --
 
 CREATE TABLE `tbl_parametros` (
@@ -569,16 +509,14 @@ CREATE TABLE `tbl_parametros` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `tbl_parametros`
+-- Volcado de datos para la tabla `tbl_parametros`
 --
 
 INSERT INTO `tbl_parametros` (`id_parametro`, `parametro`, `valor`, `id_usuario`, `Fec_crea`, `Fec_modif`) VALUES
-(1, 'ADMIN_INTENTOS', '2', 1, '2020-10-04', '2020-10-04'),
-(2, 'Cajero', '3', 0, '0000-00-00', '0000-00-00'),
-(3, 'sdjidijcndcd', '5', 0, '0000-00-00', '0000-00-00');
+(1, 'ADMIN_INTENTOS', '2', 1, '2020-10-04', '2020-10-04');
 
 --
--- Triggers `tbl_parametros`
+-- Disparadores `tbl_parametros`
 --
 DELIMITER $$
 CREATE TRIGGER `trgr_parametro_delete` AFTER DELETE ON `tbl_parametros` FOR EACH ROW BEGIN
@@ -608,7 +546,7 @@ DELIMITER ;
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_permisos`
+-- Estructura de tabla para la tabla `tbl_permisos`
 --
 
 CREATE TABLE `tbl_permisos` (
@@ -624,7 +562,7 @@ CREATE TABLE `tbl_permisos` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_preclinica`
+-- Estructura de tabla para la tabla `tbl_preclinica`
 --
 
 CREATE TABLE `tbl_preclinica` (
@@ -647,7 +585,7 @@ CREATE TABLE `tbl_preclinica` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_preguntas`
+-- Estructura de tabla para la tabla `tbl_preguntas`
 --
 
 CREATE TABLE `tbl_preguntas` (
@@ -660,14 +598,14 @@ CREATE TABLE `tbl_preguntas` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `tbl_preguntas`
+-- Volcado de datos para la tabla `tbl_preguntas`
 --
 
 INSERT INTO `tbl_preguntas` (`ID_Pregunta`, `Pregunta`, `Usuario_crea`, `Fec_crea`, `Usuario_modif`, `Fec_modif`) VALUES
 (1, '¿Cuál es el nombre de su mamá?', 0, '0000-00-00', 0, '0000-00-00');
 
 --
--- Triggers `tbl_preguntas`
+-- Disparadores `tbl_preguntas`
 --
 DELIMITER $$
 CREATE TRIGGER `trgr_preguntas_delete` AFTER DELETE ON `tbl_preguntas` FOR EACH ROW BEGIN
@@ -698,7 +636,7 @@ DELIMITER ;
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_pregunta_usuario`
+-- Estructura de tabla para la tabla `tbl_pregunta_usuario`
 --
 
 CREATE TABLE `tbl_pregunta_usuario` (
@@ -713,14 +651,14 @@ CREATE TABLE `tbl_pregunta_usuario` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `tbl_pregunta_usuario`
+-- Volcado de datos para la tabla `tbl_pregunta_usuario`
 --
 
 INSERT INTO `tbl_pregunta_usuario` (`id_pregunta_usuario`, `ID_Pregunta`, `ID_Usuario`, `Respuesta`, `Usuario_crea`, `Fec_crea`, `Usuario_modif`, `Fec_modif`) VALUES
 (1, 1, 1, 'Edis', NULL, NULL, NULL, NULL);
 
 --
--- Triggers `tbl_pregunta_usuario`
+-- Disparadores `tbl_pregunta_usuario`
 --
 DELIMITER $$
 CREATE TRIGGER `trgr_preguntas_usuario_delete` AFTER DELETE ON `tbl_pregunta_usuario` FOR EACH ROW BEGIN
@@ -750,7 +688,7 @@ DELIMITER ;
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_religion`
+-- Estructura de tabla para la tabla `tbl_religion`
 --
 
 CREATE TABLE `tbl_religion` (
@@ -759,19 +697,18 @@ CREATE TABLE `tbl_religion` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `tbl_religion`
+-- Volcado de datos para la tabla `tbl_religion`
 --
 
 INSERT INTO `tbl_religion` (`ID_Religion`, `Descripción`) VALUES
 (1, 'Católico(a)'),
 (2, 'Evangélico(a)'),
-(3, 'Otros'),
-(4, 'Adventista');
+(3, 'Otros');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_roles`
+-- Estructura de tabla para la tabla `tbl_roles`
 --
 
 CREATE TABLE `tbl_roles` (
@@ -780,7 +717,7 @@ CREATE TABLE `tbl_roles` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `tbl_roles`
+-- Volcado de datos para la tabla `tbl_roles`
 --
 
 INSERT INTO `tbl_roles` (`ID_Rol`, `Rol`) VALUES
@@ -793,7 +730,7 @@ INSERT INTO `tbl_roles` (`ID_Rol`, `Rol`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_servicio`
+-- Estructura de tabla para la tabla `tbl_servicio`
 --
 
 CREATE TABLE `tbl_servicio` (
@@ -802,18 +739,10 @@ CREATE TABLE `tbl_servicio` (
   `Precio` int(5) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
---
--- Dumping data for table `tbl_servicio`
---
-
-INSERT INTO `tbl_servicio` (`ID_Servicio`, `Descripcion`, `Precio`) VALUES
-(1, 'Laboratorio', 500),
-(2, 'Diagnóstico Mamario', 1000);
-
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_sexo`
+-- Estructura de tabla para la tabla `tbl_sexo`
 --
 
 CREATE TABLE `tbl_sexo` (
@@ -822,18 +751,17 @@ CREATE TABLE `tbl_sexo` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `tbl_sexo`
+-- Volcado de datos para la tabla `tbl_sexo`
 --
 
 INSERT INTO `tbl_sexo` (`ID_Sexo`, `Descripcion_sexo`) VALUES
 (1, 'Masculino'),
-(2, 'Femenino'),
-(4, 'INDEFINIDO');
+(2, 'Femenino');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_tipo_paciente`
+-- Estructura de tabla para la tabla `tbl_tipo_paciente`
 --
 
 CREATE TABLE `tbl_tipo_paciente` (
@@ -844,7 +772,7 @@ CREATE TABLE `tbl_tipo_paciente` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_tipo_sangre`
+-- Estructura de tabla para la tabla `tbl_tipo_sangre`
 --
 
 CREATE TABLE `tbl_tipo_sangre` (
@@ -853,7 +781,7 @@ CREATE TABLE `tbl_tipo_sangre` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `tbl_tipo_sangre`
+-- Volcado de datos para la tabla `tbl_tipo_sangre`
 --
 
 INSERT INTO `tbl_tipo_sangre` (`ID_Tipo_Sangre`, `Descripción`) VALUES
@@ -869,7 +797,7 @@ INSERT INTO `tbl_tipo_sangre` (`ID_Tipo_Sangre`, `Descripción`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_usuario`
+-- Estructura de tabla para la tabla `tbl_usuario`
 --
 
 CREATE TABLE `tbl_usuario` (
@@ -890,21 +818,20 @@ CREATE TABLE `tbl_usuario` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `tbl_usuario`
+-- Volcado de datos para la tabla `tbl_usuario`
 --
 
 INSERT INTO `tbl_usuario` (`ID_Usuario`, `ID_Empleado`, `ID_Estado`, `Nom_Usuario`, `email`, `Contraseña`, `ID_Rol`, `Ult_Conexion`, `Primer_Ingreso`, `Fec_venc`, `Usuario_crea`, `Fec_crea`, `Usuario_modif`, `Fec_modif`) VALUES
-(1, 1, 1, 'JNUNEZ', '', 'Franclar#2020', 1, '2020-10-04', 1, '2020-10-04', NULL, NULL, NULL, NULL),
-(9, 11, 1, 'JGONZALES', 'jsdiksndsdsd@gmail.com', 'Franclar.2020', 1, NULL, 1, NULL, NULL, NULL, NULL, NULL),
+(1, 1, 2, 'JNUNEZ', '', 'Franclar#2020', 1, '2020-10-04', 1, '2020-10-04', NULL, NULL, NULL, NULL),
+(9, 11, 1, 'JGONZALES', 'jsdiksndsdsd@gmail.com', 'OtvJY]Jf', 1, NULL, 1, NULL, NULL, NULL, NULL, NULL),
 (10, 8, 2, 'CNUÑEZ', 'dvsdfvdfvdf@gmail.com', 'Hf4,Qw9]', 1, NULL, 1, NULL, NULL, NULL, NULL, NULL),
 (11, 12, 1, 'WRAMIRES', 'jidndf@gmail.com', 'Pv5{Qi0}', 1, NULL, 1, NULL, NULL, NULL, NULL, NULL),
 (12, 3, 1, 'JNUNEZ', 'sdsdsdsd@gmail.com', 'Yv3%Vr8}', 1, NULL, 1, NULL, NULL, NULL, NULL, NULL),
 (13, 3, 1, 'JNUNEZ', 'jsdsdsd@gmail.com', 'Ax3@Xa1&', 1, NULL, 1, NULL, NULL, NULL, NULL, NULL),
-(14, 14, 1, 'JEANRAMIRESXXX', 'jeansdsd@gmail.com', 'Franclar#2020', 5, NULL, 1, NULL, NULL, NULL, NULL, NULL),
-(15, 12, 1, 'WRAMIREZ', 'WILDER@GMAIL.COM', 'Ud4/Au3.', 4, NULL, 1, NULL, NULL, NULL, NULL, NULL);
+(14, 14, 1, 'JEANRAMIRESXXX', 'jeansdsd@gmail.com', 'Franclar#2020', 5, NULL, 1, NULL, NULL, NULL, NULL, NULL);
 
 --
--- Triggers `tbl_usuario`
+-- Disparadores `tbl_usuario`
 --
 DELIMITER $$
 CREATE TRIGGER `trgr_usuario_delete` AFTER DELETE ON `tbl_usuario` FOR EACH ROW BEGIN
@@ -933,31 +860,23 @@ $$
 DELIMITER ;
 
 --
--- Indexes for dumped tables
+-- Índices para tablas volcadas
 --
 
 --
--- Indexes for table `tbl_bitacora`
+-- Indices de la tabla `tbl_bitacora`
 --
 ALTER TABLE `tbl_bitacora`
   ADD PRIMARY KEY (`id_bitacora`);
 
 --
--- Indexes for table `tbl_bitacora_evento`
---
-ALTER TABLE `tbl_bitacora_evento`
-  ADD PRIMARY KEY (`id_bitacora`),
-  ADD KEY `tbl_bitacora_objeto` (`id_objeto`),
-  ADD KEY `tbl_bitacora_usuario` (`id_usuario`);
-
---
--- Indexes for table `tbl_cargo`
+-- Indices de la tabla `tbl_cargo`
 --
 ALTER TABLE `tbl_cargo`
   ADD PRIMARY KEY (`ID_Cargo`);
 
 --
--- Indexes for table `tbl_citas`
+-- Indices de la tabla `tbl_citas`
 --
 ALTER TABLE `tbl_citas`
   ADD PRIMARY KEY (`ID_Cita`),
@@ -968,7 +887,7 @@ ALTER TABLE `tbl_citas`
   ADD KEY `ID_Estado` (`ID_Estado`);
 
 --
--- Indexes for table `tbl_consultas`
+-- Indices de la tabla `tbl_consultas`
 --
 ALTER TABLE `tbl_consultas`
   ADD PRIMARY KEY (`ID_Consulta`),
@@ -977,7 +896,7 @@ ALTER TABLE `tbl_consultas`
   ADD KEY `ID_Cita` (`ID_Cita`);
 
 --
--- Indexes for table `tbl_detalle_factura`
+-- Indices de la tabla `tbl_detalle_factura`
 --
 ALTER TABLE `tbl_detalle_factura`
   ADD PRIMARY KEY (`id_detalle_factura`),
@@ -985,13 +904,13 @@ ALTER TABLE `tbl_detalle_factura`
   ADD KEY `ID_servicio` (`ID_servicio`);
 
 --
--- Indexes for table `tbl_diagnosticos`
+-- Indices de la tabla `tbl_diagnosticos`
 --
 ALTER TABLE `tbl_diagnosticos`
   ADD PRIMARY KEY (`ID_Diagnostico`);
 
 --
--- Indexes for table `tbl_empleado`
+-- Indices de la tabla `tbl_empleado`
 --
 ALTER TABLE `tbl_empleado`
   ADD PRIMARY KEY (`ID_Empleado`),
@@ -1003,31 +922,31 @@ ALTER TABLE `tbl_empleado`
   ADD KEY `id_cargo_3` (`ID_Cargo`);
 
 --
--- Indexes for table `tbl_especialidad`
+-- Indices de la tabla `tbl_especialidad`
 --
 ALTER TABLE `tbl_especialidad`
   ADD PRIMARY KEY (`ID_especialidad`);
 
 --
--- Indexes for table `tbl_estado_cita`
+-- Indices de la tabla `tbl_estado_cita`
 --
 ALTER TABLE `tbl_estado_cita`
   ADD PRIMARY KEY (`ID_Estado`);
 
 --
--- Indexes for table `tbl_estado_civil`
+-- Indices de la tabla `tbl_estado_civil`
 --
 ALTER TABLE `tbl_estado_civil`
   ADD PRIMARY KEY (`ID_Est_Civil`);
 
 --
--- Indexes for table `tbl_estado_usuario`
+-- Indices de la tabla `tbl_estado_usuario`
 --
 ALTER TABLE `tbl_estado_usuario`
   ADD PRIMARY KEY (`ID_Estado`);
 
 --
--- Indexes for table `tbl_expediente`
+-- Indices de la tabla `tbl_expediente`
 --
 ALTER TABLE `tbl_expediente`
   ADD PRIMARY KEY (`ID_expediente`),
@@ -1035,27 +954,27 @@ ALTER TABLE `tbl_expediente`
   ADD KEY `ID_consulta` (`ID_consulta`);
 
 --
--- Indexes for table `tbl_facturas`
+-- Indices de la tabla `tbl_facturas`
 --
 ALTER TABLE `tbl_facturas`
   ADD PRIMARY KEY (`ID_factura`),
   ADD KEY `ID_cita` (`ID_cita`);
 
 --
--- Indexes for table `tbl_hist_contra`
+-- Indices de la tabla `tbl_hist_contra`
 --
 ALTER TABLE `tbl_hist_contra`
   ADD PRIMARY KEY (`id_hist`),
   ADD KEY `id_usuario` (`id_usuario`);
 
 --
--- Indexes for table `tbl_objetos`
+-- Indices de la tabla `tbl_objetos`
 --
 ALTER TABLE `tbl_objetos`
   ADD PRIMARY KEY (`id_objeto`);
 
 --
--- Indexes for table `tbl_pacientes`
+-- Indices de la tabla `tbl_pacientes`
 --
 ALTER TABLE `tbl_pacientes`
   ADD PRIMARY KEY (`ID_Paciente`),
@@ -1066,14 +985,14 @@ ALTER TABLE `tbl_pacientes`
   ADD KEY `ID_TipoPaciente` (`ID_TipoPaciente`);
 
 --
--- Indexes for table `tbl_parametros`
+-- Indices de la tabla `tbl_parametros`
 --
 ALTER TABLE `tbl_parametros`
   ADD PRIMARY KEY (`id_parametro`),
   ADD KEY `id_usuario` (`id_usuario`);
 
 --
--- Indexes for table `tbl_permisos`
+-- Indices de la tabla `tbl_permisos`
 --
 ALTER TABLE `tbl_permisos`
   ADD PRIMARY KEY (`id_permiso`),
@@ -1081,20 +1000,20 @@ ALTER TABLE `tbl_permisos`
   ADD KEY `id_objeto` (`id_objeto`);
 
 --
--- Indexes for table `tbl_preclinica`
+-- Indices de la tabla `tbl_preclinica`
 --
 ALTER TABLE `tbl_preclinica`
   ADD PRIMARY KEY (`ID_Preclinica`),
   ADD KEY `ID_Cita` (`ID_Cita`);
 
 --
--- Indexes for table `tbl_preguntas`
+-- Indices de la tabla `tbl_preguntas`
 --
 ALTER TABLE `tbl_preguntas`
   ADD PRIMARY KEY (`ID_Pregunta`);
 
 --
--- Indexes for table `tbl_pregunta_usuario`
+-- Indices de la tabla `tbl_pregunta_usuario`
 --
 ALTER TABLE `tbl_pregunta_usuario`
   ADD PRIMARY KEY (`id_pregunta_usuario`),
@@ -1102,43 +1021,43 @@ ALTER TABLE `tbl_pregunta_usuario`
   ADD KEY `ID_Usuario` (`ID_Usuario`);
 
 --
--- Indexes for table `tbl_religion`
+-- Indices de la tabla `tbl_religion`
 --
 ALTER TABLE `tbl_religion`
   ADD PRIMARY KEY (`ID_Religion`);
 
 --
--- Indexes for table `tbl_roles`
+-- Indices de la tabla `tbl_roles`
 --
 ALTER TABLE `tbl_roles`
   ADD PRIMARY KEY (`ID_Rol`);
 
 --
--- Indexes for table `tbl_servicio`
+-- Indices de la tabla `tbl_servicio`
 --
 ALTER TABLE `tbl_servicio`
   ADD PRIMARY KEY (`ID_Servicio`);
 
 --
--- Indexes for table `tbl_sexo`
+-- Indices de la tabla `tbl_sexo`
 --
 ALTER TABLE `tbl_sexo`
   ADD PRIMARY KEY (`ID_Sexo`);
 
 --
--- Indexes for table `tbl_tipo_paciente`
+-- Indices de la tabla `tbl_tipo_paciente`
 --
 ALTER TABLE `tbl_tipo_paciente`
   ADD PRIMARY KEY (`ID_TipoPaciente`);
 
 --
--- Indexes for table `tbl_tipo_sangre`
+-- Indices de la tabla `tbl_tipo_sangre`
 --
 ALTER TABLE `tbl_tipo_sangre`
   ADD PRIMARY KEY (`ID_Tipo_Sangre`);
 
 --
--- Indexes for table `tbl_usuario`
+-- Indices de la tabla `tbl_usuario`
 --
 ALTER TABLE `tbl_usuario`
   ADD PRIMARY KEY (`ID_Usuario`),
@@ -1147,204 +1066,204 @@ ALTER TABLE `tbl_usuario`
   ADD KEY `ID_Rol` (`ID_Rol`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT de las tablas volcadas
 --
 
 --
--- AUTO_INCREMENT for table `tbl_bitacora`
+-- AUTO_INCREMENT de la tabla `tbl_bitacora`
 --
 ALTER TABLE `tbl_bitacora`
-  MODIFY `id_bitacora` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=115;
+  MODIFY `id_bitacora` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=104;
 
 --
--- AUTO_INCREMENT for table `tbl_bitacora_evento`
---
-ALTER TABLE `tbl_bitacora_evento`
-  MODIFY `id_bitacora` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
-
---
--- AUTO_INCREMENT for table `tbl_cargo`
+-- AUTO_INCREMENT de la tabla `tbl_cargo`
 --
 ALTER TABLE `tbl_cargo`
-  MODIFY `ID_Cargo` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `ID_Cargo` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
--- AUTO_INCREMENT for table `tbl_citas`
+-- AUTO_INCREMENT de la tabla `tbl_citas`
 --
 ALTER TABLE `tbl_citas`
   MODIFY `ID_Cita` bigint(3) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `tbl_consultas`
+-- AUTO_INCREMENT de la tabla `tbl_consultas`
 --
 ALTER TABLE `tbl_consultas`
   MODIFY `ID_Consulta` bigint(3) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `tbl_detalle_factura`
+-- AUTO_INCREMENT de la tabla `tbl_detalle_factura`
 --
 ALTER TABLE `tbl_detalle_factura`
   MODIFY `id_detalle_factura` bigint(3) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `tbl_diagnosticos`
---
-ALTER TABLE `tbl_diagnosticos`
-  MODIFY `ID_Diagnostico` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-
---
--- AUTO_INCREMENT for table `tbl_empleado`
+-- AUTO_INCREMENT de la tabla `tbl_empleado`
 --
 ALTER TABLE `tbl_empleado`
   MODIFY `ID_Empleado` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
--- AUTO_INCREMENT for table `tbl_especialidad`
---
-ALTER TABLE `tbl_especialidad`
-  MODIFY `ID_especialidad` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
-
---
--- AUTO_INCREMENT for table `tbl_estado_civil`
---
-ALTER TABLE `tbl_estado_civil`
-  MODIFY `ID_Est_Civil` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
-
---
--- AUTO_INCREMENT for table `tbl_expediente`
+-- AUTO_INCREMENT de la tabla `tbl_expediente`
 --
 ALTER TABLE `tbl_expediente`
   MODIFY `ID_expediente` bigint(3) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `tbl_facturas`
+-- AUTO_INCREMENT de la tabla `tbl_facturas`
 --
 ALTER TABLE `tbl_facturas`
   MODIFY `ID_factura` bigint(3) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `tbl_hist_contra`
+-- AUTO_INCREMENT de la tabla `tbl_hist_contra`
 --
 ALTER TABLE `tbl_hist_contra`
   MODIFY `id_hist` int(3) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `tbl_pacientes`
+-- AUTO_INCREMENT de la tabla `tbl_pacientes`
 --
 ALTER TABLE `tbl_pacientes`
   MODIFY `ID_Paciente` int(3) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `tbl_parametros`
+-- AUTO_INCREMENT de la tabla `tbl_parametros`
 --
 ALTER TABLE `tbl_parametros`
-  MODIFY `id_parametro` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_parametro` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT for table `tbl_permisos`
+-- AUTO_INCREMENT de la tabla `tbl_permisos`
 --
 ALTER TABLE `tbl_permisos`
   MODIFY `id_permiso` bigint(3) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `tbl_preclinica`
+-- AUTO_INCREMENT de la tabla `tbl_preclinica`
 --
 ALTER TABLE `tbl_preclinica`
   MODIFY `ID_Preclinica` bigint(3) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `tbl_preguntas`
+-- AUTO_INCREMENT de la tabla `tbl_preguntas`
 --
 ALTER TABLE `tbl_preguntas`
   MODIFY `ID_Pregunta` bigint(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT for table `tbl_pregunta_usuario`
+-- AUTO_INCREMENT de la tabla `tbl_pregunta_usuario`
 --
 ALTER TABLE `tbl_pregunta_usuario`
   MODIFY `id_pregunta_usuario` bigint(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT for table `tbl_religion`
---
-ALTER TABLE `tbl_religion`
-  MODIFY `ID_Religion` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
-
---
--- AUTO_INCREMENT for table `tbl_servicio`
---
-ALTER TABLE `tbl_servicio`
-  MODIFY `ID_Servicio` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-
---
--- AUTO_INCREMENT for table `tbl_sexo`
---
-ALTER TABLE `tbl_sexo`
-  MODIFY `ID_Sexo` int(1) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
-
---
--- AUTO_INCREMENT for table `tbl_tipo_sangre`
---
-ALTER TABLE `tbl_tipo_sangre`
-  MODIFY `ID_Tipo_Sangre` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
-
---
--- AUTO_INCREMENT for table `tbl_usuario`
+-- AUTO_INCREMENT de la tabla `tbl_usuario`
 --
 ALTER TABLE `tbl_usuario`
-  MODIFY `ID_Usuario` bigint(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `ID_Usuario` bigint(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
--- Constraints for dumped tables
+-- Restricciones para tablas volcadas
 --
 
 --
--- Constraints for table `tbl_bitacora_evento`
---
-ALTER TABLE `tbl_bitacora_evento`
-  ADD CONSTRAINT `tbl_bitacora_objeto` FOREIGN KEY (`id_objeto`) REFERENCES `tbl_objetos` (`id_objeto`),
-  ADD CONSTRAINT `tbl_bitacora_usuario` FOREIGN KEY (`id_usuario`) REFERENCES `tbl_usuario` (`ID_Usuario`);
-
---
--- Constraints for table `tbl_citas`
+-- Filtros para la tabla `tbl_citas`
 --
 ALTER TABLE `tbl_citas`
+  ADD CONSTRAINT `tbl_citas_ibfk_2` FOREIGN KEY (`ID_Servicio`) REFERENCES `tbl_servicio` (`ID_Servicio`) ON UPDATE CASCADE,
   ADD CONSTRAINT `tbl_citas_ibfk_4` FOREIGN KEY (`ID_Estado`) REFERENCES `tbl_estado_cita` (`ID_Estado`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `tbl_citas_ibfk_5` FOREIGN KEY (`ID_Usuario`) REFERENCES `tbl_usuario` (`ID_Usuario`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `tbl_citas_ibfk_6` FOREIGN KEY (`ID_Empleado`) REFERENCES `tbl_empleado` (`ID_Empleado`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `tbl_citas_ibfk_7` FOREIGN KEY (`ID_Paciente`) REFERENCES `tbl_pacientes` (`ID_Paciente`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `tbl_citas_ibfk_8` FOREIGN KEY (`ID_Servicio`) REFERENCES `tbl_servicio` (`ID_Servicio`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `tbl_citas_ibfk_7` FOREIGN KEY (`ID_Paciente`) REFERENCES `tbl_pacientes` (`ID_Paciente`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `tbl_consultas`
+-- Filtros para la tabla `tbl_consultas`
 --
 ALTER TABLE `tbl_consultas`
-  ADD CONSTRAINT `tbl_consultas_ibfk_3` FOREIGN KEY (`ID_Cita`) REFERENCES `tbl_citas` (`ID_Cita`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `tbl_consultas_ibfk_4` FOREIGN KEY (`ID_Diagnostico`) REFERENCES `tbl_diagnosticos` (`ID_Diagnostico`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `tbl_consultas_ibfk_2` FOREIGN KEY (`ID_Diagnostico`) REFERENCES `tbl_diagnosticos` (`ID_Diagnostico`) ON UPDATE CASCADE,
+  ADD CONSTRAINT `tbl_consultas_ibfk_3` FOREIGN KEY (`ID_Cita`) REFERENCES `tbl_citas` (`ID_Cita`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `tbl_detalle_factura`
+-- Filtros para la tabla `tbl_detalle_factura`
 --
 ALTER TABLE `tbl_detalle_factura`
-  ADD CONSTRAINT `tbl_detalle_factura_ibfk_3` FOREIGN KEY (`ID_factura`) REFERENCES `tbl_facturas` (`ID_factura`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `tbl_detalle_factura_ibfk_4` FOREIGN KEY (`ID_servicio`) REFERENCES `tbl_servicio` (`ID_Servicio`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `tbl_detalle_factura_ibfk_2` FOREIGN KEY (`ID_servicio`) REFERENCES `tbl_servicio` (`ID_Servicio`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `tbl_detalle_factura_ibfk_3` FOREIGN KEY (`ID_factura`) REFERENCES `tbl_facturas` (`ID_factura`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `tbl_empleado`
+-- Filtros para la tabla `tbl_empleado`
 --
 ALTER TABLE `tbl_empleado`
-  ADD CONSTRAINT `tbl_empleado_ibfk_6` FOREIGN KEY (`ID_Cargo`) REFERENCES `tbl_cargo` (`ID_Cargo`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `tbl_empleado_ibfk_7` FOREIGN KEY (`ID_Especialidad`) REFERENCES `tbl_especialidad` (`ID_especialidad`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `tbl_empleado_ibfk_8` FOREIGN KEY (`ID_Est_Civil`) REFERENCES `tbl_estado_civil` (`ID_Est_Civil`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `tbl_empleado_ibfk_2` FOREIGN KEY (`ID_Est_Civil`) REFERENCES `tbl_estado_civil` (`ID_Est_Civil`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `tbl_empleado_ibfk_4` FOREIGN KEY (`ID_Especialidad`) REFERENCES `tbl_especialidad` (`ID_especialidad`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `tbl_empleado_ibfk_5` FOREIGN KEY (`ID_Sexo`) REFERENCES `tbl_sexo` (`ID_Sexo`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `tbl_empleado_ibfk_6` FOREIGN KEY (`ID_Cargo`) REFERENCES `tbl_cargo` (`ID_Cargo`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `tbl_pacientes`
+-- Filtros para la tabla `tbl_expediente`
+--
+ALTER TABLE `tbl_expediente`
+  ADD CONSTRAINT `tbl_expediente_ibfk_1` FOREIGN KEY (`ID_consulta`) REFERENCES `tbl_consultas` (`ID_Consulta`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `tbl_expediente_ibfk_2` FOREIGN KEY (`ID_paciente`) REFERENCES `tbl_pacientes` (`ID_Paciente`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Filtros para la tabla `tbl_facturas`
+--
+ALTER TABLE `tbl_facturas`
+  ADD CONSTRAINT `tbl_facturas_ibfk_1` FOREIGN KEY (`ID_cita`) REFERENCES `tbl_citas` (`ID_Cita`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Filtros para la tabla `tbl_hist_contra`
+--
+ALTER TABLE `tbl_hist_contra`
+  ADD CONSTRAINT `tbl_hist_contra_ibfk_1` FOREIGN KEY (`id_usuario`) REFERENCES `tbl_usuario` (`ID_Usuario`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Filtros para la tabla `tbl_pacientes`
 --
 ALTER TABLE `tbl_pacientes`
-  ADD CONSTRAINT `tbl_pacientes_ibfk_1` FOREIGN KEY (`ID_Est_Civil`) REFERENCES `tbl_estado_civil` (`ID_Est_Civil`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `tbl_pacientes_ibfk_2` FOREIGN KEY (`ID_Sexo`) REFERENCES `tbl_sexo` (`ID_Sexo`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `tbl_pacientes_ibfk_3` FOREIGN KEY (`ID_Religion`) REFERENCES `tbl_religion` (`ID_Religion`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `tbl_pacientes_ibfk_4` FOREIGN KEY (`ID_Tipo_Sangre`) REFERENCES `tbl_tipo_sangre` (`ID_Tipo_Sangre`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `tbl_pacientes_ibfk_1` FOREIGN KEY (`ID_TipoPaciente`) REFERENCES `tbl_tipo_paciente` (`ID_TipoPaciente`),
+  ADD CONSTRAINT `tbl_pacientes_ibfk_2` FOREIGN KEY (`ID_Tipo_Sangre`) REFERENCES `tbl_tipo_sangre` (`ID_Tipo_Sangre`) ON UPDATE CASCADE,
+  ADD CONSTRAINT `tbl_pacientes_ibfk_4` FOREIGN KEY (`ID_Est_Civil`) REFERENCES `tbl_estado_civil` (`ID_Est_Civil`) ON UPDATE CASCADE,
+  ADD CONSTRAINT `tbl_pacientes_ibfk_5` FOREIGN KEY (`ID_Religion`) REFERENCES `tbl_religion` (`ID_Religion`) ON UPDATE CASCADE,
+  ADD CONSTRAINT `tbl_pacientes_ibfk_6` FOREIGN KEY (`ID_Sexo`) REFERENCES `tbl_sexo` (`ID_Sexo`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Filtros para la tabla `tbl_parametros`
+--
+ALTER TABLE `tbl_parametros`
+  ADD CONSTRAINT `tbl_parametros_ibfk_1` FOREIGN KEY (`id_usuario`) REFERENCES `tbl_usuario` (`ID_Usuario`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Filtros para la tabla `tbl_permisos`
+--
+ALTER TABLE `tbl_permisos`
+  ADD CONSTRAINT `tbl_permisos_ibfk_1` FOREIGN KEY (`id_objeto`) REFERENCES `tbl_objetos` (`id_objeto`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `tbl_permisos_ibfk_2` FOREIGN KEY (`id_rol`) REFERENCES `tbl_roles` (`ID_Rol`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Filtros para la tabla `tbl_preclinica`
+--
+ALTER TABLE `tbl_preclinica`
+  ADD CONSTRAINT `tbl_preclinica_ibfk_1` FOREIGN KEY (`ID_Cita`) REFERENCES `tbl_citas` (`ID_Cita`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Filtros para la tabla `tbl_pregunta_usuario`
+--
+ALTER TABLE `tbl_pregunta_usuario`
+  ADD CONSTRAINT `tbl_pregunta_usuario_ibfk_2` FOREIGN KEY (`ID_Usuario`) REFERENCES `tbl_usuario` (`ID_Usuario`) ON UPDATE CASCADE,
+  ADD CONSTRAINT `tbl_pregunta_usuario_ibfk_3` FOREIGN KEY (`ID_Pregunta`) REFERENCES `tbl_preguntas` (`ID_Pregunta`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Filtros para la tabla `tbl_usuario`
+--
+ALTER TABLE `tbl_usuario`
+  ADD CONSTRAINT `tbl_usuario_ibfk_3` FOREIGN KEY (`ID_Estado`) REFERENCES `tbl_estado_usuario` (`ID_Estado`) ON UPDATE CASCADE,
+  ADD CONSTRAINT `tbl_usuario_ibfk_5` FOREIGN KEY (`ID_Rol`) REFERENCES `tbl_roles` (`ID_Rol`) ON UPDATE CASCADE,
+  ADD CONSTRAINT `tbl_usuario_ibfk_6` FOREIGN KEY (`ID_Empleado`) REFERENCES `tbl_empleado` (`ID_Empleado`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
