@@ -13,6 +13,9 @@ include ("conexion.php");
                                        VALUES ('$nombre')") or die(mysqli_error());
     
     if($insert){
+        $id_usuario= $_SESSION['ID_Usuario'];
+                        $insert_bitacora = mysqli_query($con, "INSERT INTO tbl_bitacora_evento (id_usuario,id_objeto,Accion,Descripcion)
+                        VALUES ('$id_usuario',12,'Insert','SE INGRESÓ UN NUEVO ESTADO CIVIL')") or die(mysqli_error());
         echo "<script type='text/javascript'>
             alert('El nuevo Estado Civil ha sido registrado exitosamente');
             window.location.href= 'Estado_Civil.php';

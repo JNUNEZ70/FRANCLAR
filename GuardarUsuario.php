@@ -18,6 +18,9 @@ include ("conexion.php");
                                        VALUES ( '$id_empleado' , '$id_estado' , '$nom_usuario' , '$email' , '$contraseña' , '$id_rol' , '$primer_ingreso')") or die(mysqli_error());
     
     if($insert){
+        $id_usuario= $_SESSION['ID_Usuario'];
+                        $insert_bitacora = mysqli_query($con, "INSERT INTO tbl_bitacora_evento (id_usuario,id_objeto,Accion,Descripcion)
+                        VALUES ('$id_usuario',2,'Insert','SE INGRESÓ UN NUEVO USUARIO')") or die(mysqli_error());
         echo "<script type='text/javascript'>
             alert('El Usuario ha sido registrado exitosamente');
             window.location.href= 'Usuarios.php';

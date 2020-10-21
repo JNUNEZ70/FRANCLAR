@@ -45,6 +45,9 @@ include 'conexion.php'
 				
 				$update = mysqli_query($con, "UPDATE tbl_diagnosticos SET Descripcion='$nombre' WHERE ID_Diagnostico='$nik'") or die(mysqli_error());
 				if($update){
+                    $id_usuario= $_SESSION['ID_Usuario'];
+                    $insert_bitacora = mysqli_query($con, "INSERT INTO tbl_bitacora_evento (id_usuario,id_objeto,Accion,Descripcion)
+                    VALUES ('$id_usuario',11,'Update','SE ACTUALIZÓ EL DIAGNOSTICO')") or die(mysqli_error());
                     echo "<script type='text/javascript'>
                         alert('Ha sido modificado exitosamente');
                         window.location.href= 'Diagnosticos.php';

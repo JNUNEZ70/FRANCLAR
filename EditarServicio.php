@@ -46,6 +46,9 @@ include 'conexion.php'
                 
                 $update = mysqli_query($con, "UPDATE tbl_servicio SET Descripcion='$nombre', Precio=$precio  WHERE ID_Servicio='$nik'") or die(mysqli_error());
 				if($update){
+                    $id_usuario= $_SESSION['ID_Usuario'];
+                    $insert_bitacora = mysqli_query($con, "INSERT INTO tbl_bitacora_evento (id_usuario,id_objeto,Accion,Descripcion)
+                    VALUES ('$id_usuario',14,'Update','SE ACTUALIZÓ EL SERVICIO')") or die(mysqli_error());
                     echo "<script type='text/javascript'>
                         alert('Ha sido modificado exitosamente');
                         window.location.href= 'Servicios.php';

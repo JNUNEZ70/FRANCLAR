@@ -74,6 +74,9 @@ include 'conexion.php'
 				
 				$update = mysqli_query($con, "UPDATE tbl_empleado SET Nom_Empleado='$nombre', Cedula='$numeroid', Fec_Nacimiento='$fechan', Tel_Empleado='$telefono', Cel_Empleado='$celular', Dir_Empleado='$direccion', ID_Sexo='$sexo', ID_Est_Civil='$estado_civil', ID_Cargo='$cargo', Salario='$salario', ID_Especialidad='$especialidad' WHERE ID_Empleado='$nik'") or die(mysqli_error());
 				if($update){
+                    $id_usuario= $_SESSION['ID_Usuario'];
+                    $insert_bitacora = mysqli_query($con, "INSERT INTO tbl_bitacora_evento (id_usuario,id_objeto,Accion,Descripcion)
+                    VALUES ('$id_usuario',1,'Update','SE ACTUALIZÓ UN EMPLEADO')") or die(mysqli_error());
                     echo "<script type='text/javascript'>
                         alert('Ha sido modificado exitosamente');
                         window.location.href= 'Personal.php';

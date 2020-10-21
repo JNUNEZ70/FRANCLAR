@@ -45,6 +45,9 @@ include 'conexion.php'
 				
 				$update = mysqli_query($con, "UPDATE tbl_cargo SET nomb_cargo='$nombre' WHERE ID_Cargo='$nik'") or die(mysqli_error());
 				if($update){
+                    $id_usuario= $_SESSION['ID_Usuario'];
+                    $insert_bitacora = mysqli_query($con, "INSERT INTO tbl_bitacora_evento (id_usuario,id_objeto,Accion,Descripcion)
+                    VALUES ('$id_usuario',10,'Update','SE ACTUALIZÓ EL CARGO')") or die(mysqli_error());
                     echo "<script type='text/javascript'>
                         alert('Ha sido modificado exitosamente');
                         window.location.href= 'Cargos.php';

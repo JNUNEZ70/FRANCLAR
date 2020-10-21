@@ -13,6 +13,7 @@ include ("conexion.php");
                                        VALUES ('$nombre')") or die(mysqli_error());
     
     if($insert){
+        
         echo "<script type='text/javascript'>
             alert('La nueva relogión ha sido registrado exitosamente');
             window.location.href= 'Religion.php';

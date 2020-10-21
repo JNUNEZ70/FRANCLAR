@@ -45,6 +45,9 @@ include 'conexion.php'
 				
 				$update = mysqli_query($con, "UPDATE tbl_estado_civil SET Descripcion_est_civil='$nombre' WHERE ID_Est_Civil='$nik'") or die(mysqli_error());
 				if($update){
+                    $id_usuario= $_SESSION['ID_Usuario'];
+                    $insert_bitacora = mysqli_query($con, "INSERT INTO tbl_bitacora_evento (id_usuario,id_objeto,Accion,Descripcion)
+                    VALUES ('$id_usuario',12,'Update','SE ACTUALIZÓ EL ESTADO CIVIL')") or die(mysqli_error());
                     echo "<script type='text/javascript'>
                         alert('Ha sido modificado exitosamente');
                         window.location.href= 'Estado_Civil.php';

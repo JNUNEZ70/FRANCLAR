@@ -45,6 +45,9 @@ include 'conexion.php'
 				
 				$update = mysqli_query($con, "UPDATE tbl_especialidad SET Descripcion_espec='$nombre' WHERE ID_especialidad='$nik'") or die(mysqli_error());
 				if($update){
+                    $id_usuario= $_SESSION['ID_Usuario'];
+                    $insert_bitacora = mysqli_query($con, "INSERT INTO tbl_bitacora_evento (id_usuario,id_objeto,Accion,Descripcion)
+                    VALUES ('$id_usuario',9,'Update','SE ACTUALIZÓ ESPECIALIDAD')") or die(mysqli_error());
                     echo "<script type='text/javascript'>
                         alert('Ha sido modificado exitosamente');
                         window.location.href= 'Especialidades.php';
