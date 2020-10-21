@@ -41,13 +41,13 @@ include 'conexion.php'
 				$row = mysqli_fetch_assoc($sql);
 			}
 			if(isset($_POST['save'])){
-				$nombre = mysqli_real_escape_string($con,(strip_tags($_POST['Parametro'],ENT_QUOTES))); 
+				$valor = mysqli_real_escape_string($con,(strip_tags($_POST['Valor_Parametro'],ENT_QUOTES))); 
 				
-				$update = mysqli_query($con, "UPDATE tbl_parametros SET parametro='$nombre' WHERE id_parametro='$nik'") or die(mysqli_error());
+				$update = mysqli_query($con, "UPDATE tbl_parametros SET valor='$valor' WHERE id_parametro='$nik'") or die(mysqli_error());
 				if($update){
                     $id_usuario= $_SESSION['ID_Usuario'];
                     $insert_bitacora = mysqli_query($con, "INSERT INTO tbl_bitacora_evento (id_usuario,id_objeto,Accion,Descripcion)
-                    VALUES ('$id_usuario',3,'Update','SE ACTUALIZÓ UN PARAMETRO')") or die(mysqli_error());
+                    VALUES ('$id_usuario',3,'Update','SE ACTUALIZÓ UN PARÁMETRO')") or die(mysqli_error());
                     echo "<script type='text/javascript'>
                         alert('Ha sido modificado exitosamente');
                         window.location.href= 'Parametros.php';
@@ -67,7 +67,11 @@ include 'conexion.php'
                             <h2>Editar Parametros</h2>
                             <div class="form-row">
                                 <div class="form-group col-md-6">
-                                    <input type="text" class="form-control" value="<?php echo $row['parametro']; ?>" id="Nombre_Parametro" maxlength="50" name="Parametro" placeholder="Nombre de Parámetro" required>
+                                    <input type="text" class="form-control" id="NomP" value="<?php echo $row ['parametro']; ?>" name="Parametro"  placeholder="Nombre del parámetro" readonly>
+                                </div>
+
+                                <div class="form-group col-md-6">
+                                    <input type="text" class="form-control" id="ValP" value="<?php echo $row ['valor']; ?>" name="Valor_Parametro" onkeypress="return solonumeros(event)" placeholder="Valor" required>
                                 </div>
 
                                 <div class="regerv_btn col-md-8">

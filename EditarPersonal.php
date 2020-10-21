@@ -99,10 +99,10 @@ include 'conexion.php'
                                     <input type="text" onkeypress="return soloLetras(event)" class="form-control" id="NombreEm" value="<?php echo $row ['Nom_Empleado']; ?>" name="Nombre" placeholder="Nombre" required>
                                 </div>
                                 <div class="form-group col-md-6">
-                                    <input type="text" class="form-control" id="NumeroIDEm" name="NumeroID" value="<?php echo $row ['Cedula']; ?>" placeholder="Número de identidad" disabled="false" required>
+                                    <input type="text" class="form-control" id="NumeroIDEm" name="NumeroID" value="<?php echo $row ['Cedula']; ?>" placeholder="Número de identidad" readonly required>
                                 </div>
                                 <div class="form-group col-md-6">
-                                    <input type="text" id="FechaNEm" name="FechaN" value="<?php echo $row ['Fec_Nacimiento']; ?>" class="input-group date form-control" date="" data-date-format="dd-mm-yyyy" disabled="false" placeholder="Fecha de nacimiento" required>
+                                    <input type="text" id="FechaNEm" name="FechaN" value="<?php echo $row ['Fec_Nacimiento']; ?>" class="input-group form-control" date="" data-date-format="dd-mm-yyyy" readonly placeholder="Fecha de nacimiento" required>
                                 </div>
                                 <div class="form-group col-md-6">
                                     <input type="text" onkeypress="return solonumeros(event)" class="form-control" id="TelefonoEm" name="Telefono" value="<?php echo $row ['Tel_Empleado']; ?>" placeholder="Teléfono fijo">

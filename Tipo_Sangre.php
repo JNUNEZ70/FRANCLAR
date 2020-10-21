@@ -43,6 +43,9 @@ include 'conexion.php'
 				}else{
 					$delete = mysqli_query($con, "DELETE FROM tbl_tipo_sangre WHERE ID_Tipo_Sangre='$nik'");
 					if($delete){
+						$id_usuario= $_SESSION['ID_Usuario'];
+							$insert_bitacora = mysqli_query($con, "INSERT INTO tbl_bitacora_evento (id_usuario,id_objeto,Accion,Descripcion)
+                            VALUES ('$id_usuario',15,'Delete','SE ELIMINÓ UN TIPO DE SANGRE')") or die(mysqli_error());
 						echo '<div class="alert alert-success alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button> Datos eliminado correctamente.</div>';
 					}else{
 						echo '<div class="alert alert-danger alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button> Error, no se pudo eliminar los datos.</div>';
@@ -81,7 +84,7 @@ include 'conexion.php'
 							<td>'.$row['Descripción'].'</td>	
 							<td>							
 								<a href="Editartipo_Sangre.php?nik='.$row['ID_Tipo_Sangre'].'" title="Editar datos" class="btn btn-success btn-sm"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></a>
-								<a href="Tipo_Sangre.php?aksi=delete&nik='.$row['ID_Tipo_Sangre'].'" title="Eliminar" onclick="return confirm(\'¿Esta seguro de borrar los datos del colaborador '.$row['Descripción'].'?\')" class="btn btn-danger btn-sm"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>
+								<a href="Tipo_Sangre.php?aksi=delete&nik='.$row['ID_Tipo_Sangre'].'" title="Eliminar" onclick="return confirm(\'¿Está seguro de borrar los datos del tipo de sangre '.$row['Descripción'].'?\')" class="btn btn-danger btn-sm"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>
 							</td>
 						</tr>
 						';

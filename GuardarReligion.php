@@ -17,7 +17,7 @@ include ("conexion.php");
                         $insert_bitacora = mysqli_query($con, "INSERT INTO tbl_bitacora_evento (id_usuario,id_objeto,Accion,Descripcion)
                         VALUES ('$id_usuario',13,'Insert','SE INGRESÓ UNA RELIGION')") or die(mysqli_error());
         echo "<script type='text/javascript'>
-            alert('La nueva relogión ha sido registrado exitosamente');
+            alert('La nueva religión ha sido registrado exitosamente');
             window.location.href= 'Religiones.php';
         </script>";
     }else{

@@ -39,7 +39,7 @@ include 'head.php'
 				<a href="Especialidades.php" class="btn_2">Especialidades</a>
 				<a href="Servicios.php" class="btn_2">Servicios</a>
                 <a href="Estado_Civil.php" class="btn_2">Estado Civil</a>
-                <a href="Sexos.php" class="btn_2">Sexos</a>
+                <a href="Sexo.php" class="btn_2">Sexos</a>
                 <a href="Religiones.php" class="btn_2">Religiones</a>
                 <a href="Tipo_Sangre.php" class="btn_2">Tipos de Sangre</a>
                 <a href="Diagnosticos.php" class="btn_2">Diagnósticos</a>

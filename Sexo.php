@@ -87,7 +87,7 @@ include 'conexion.php'
 							<td>'.$row['Descripcion_sexo'].'</td>	
 							<td>							
 								<a href="EditarSexo.php?nik='.$row['ID_Sexo'].'" title="Editar datos" class="btn btn-success btn-sm"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></a>
-								<a href="Sexo.php?aksi=delete&nik='.$row['ID_Sexo'].'" title="Eliminar" onclick="return confirm(\'¿Esta seguro de borrar los datos del colaborador '.$row['Descripcion_sexo'].'?\')" class="btn btn-danger btn-sm"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>
+								<a href="Sexo.php?aksi=delete&nik='.$row['ID_Sexo'].'" title="Eliminar" onclick="return confirm(\'¿Está seguro de borrar los datos del sexo '.$row['Descripcion_sexo'].'?\')" class="btn btn-danger btn-sm"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>
 							</td>
 						</tr>
 						';

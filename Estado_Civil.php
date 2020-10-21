@@ -45,7 +45,7 @@ include 'conexion.php'
 					if($delete){
 						$id_usuario= $_SESSION['ID_Usuario'];
 							$insert_bitacora = mysqli_query($con, "INSERT INTO tbl_bitacora_evento (id_usuario,id_objeto,Accion,Descripcion)
-                            VALUES ('$id_usuario',12,'Delete','SE ELIMINÓ ESTADO CIVIL')") or die(mysqli_error());
+                            VALUES ('$id_usuario',12,'Delete','SE ELIMINÓ UN ESTADO CIVIL')") or die(mysqli_error());
 
 						echo '<div class="alert alert-success alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button> Datos eliminado correctamente.</div>';
 					}else{
@@ -88,7 +88,7 @@ include 'conexion.php'
 							<td>'.$row['Descripcion_est_civil'].'</td>		
 							<td>							
 								<a href="EditarEstado_Civil.php?nik='.$row['ID_Est_Civil'].'" title="Editar datos" class="btn btn-success btn-sm"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></a>
-								<a href="Estado_Civil.php?aksi=delete&nik='.$row['ID_Est_Civil'].'" title="Eliminar" onclick="return confirm(\'¿Esta seguro de borrar los datos del colaborador '.$row['Descripcion_est_civil'].'?\')" class="btn btn-danger btn-sm"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>
+								<a href="Estado_Civil.php?aksi=delete&nik='.$row['ID_Est_Civil'].'" title="Eliminar" onclick="return confirm(\'¿Está seguro de borrar los datos del estado civil '.$row['Descripcion_est_civil'].'?\')" class="btn btn-danger btn-sm"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>
 							</td>
 						</tr>
 						';

@@ -17,7 +17,7 @@ include ("conexion.php");
                         $insert_bitacora = mysqli_query($con, "INSERT INTO tbl_bitacora_evento (id_usuario,id_objeto,Accion,Descripcion)
                         VALUES ('$id_usuario',9,'Insert','SE INGRESÓ UNA NUEVA ESPECIALIDAD')") or die(mysqli_error());
         echo "<script type='text/javascript'>
-            alert('La nueva especialidad ha sido registrado exitosamente');
+            alert('La nueva especialidad ha sido registrada exitosamente');
             window.location.href= 'Especialidades.php';
         </script>";
     }else{
