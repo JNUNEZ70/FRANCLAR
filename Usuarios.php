@@ -21,18 +21,12 @@ include 'conexion.php'
     <!-- Header part end-->
 
     <!-- breadcrumb start-->
-    <section class="breadcrumb_part breadcrumb_bg">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="breadcrumb_iner">
-                        <div class="breadcrumb_iner_item">
-                            <h2>Usuarios</h2>
-                        </div>
-                    </div>
-                </div>
-            </div>
+    <section class=" breadcrumb_bg">
+      
+        <div class="breadcrumb_iner_item"> 
+            <h2>Usuarios</h2>
         </div>
+                    
     </section>
     <!-- breadcrumb start-->
 
@@ -79,9 +73,9 @@ include 'conexion.php'
 					}
 				}
             }
-            
+
 	 ?>
-    
+
     <form class="form-inline my-2 my-lg-0 float-left">
         <a href="agregarusuario.php" class="genric-btn info circle">Agregar</a>
     </form>
@@ -104,7 +98,7 @@ include 'conexion.php'
     <?php
         include 'script.php'
     ?>
-    
+
 </body>
 
 </html>

@@ -72,7 +72,7 @@ if (!empty($_POST)) {
 								}
 					}elseif ($_SESSION[("ID_Estado")] == "2"){
 							echo "<script type='text/javascript'>
-									alert('El Usuario esta bloqueado');
+									alert('El Usuario está bloqueado');
 									window.location.href= 'Login.php';
 									</script>";
 							session_destroy();

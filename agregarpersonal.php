@@ -138,8 +138,24 @@ include 'conexion.php'
 
     <?php
         include 'script.php'
+        
     ?>
-    
+    <script>
+    document.getElementById("NombreEm").addEventListener('keyup',sanear2);
+    document.getElementById("DireccionEm").addEventListener('keyup', sanear2);
+    document.getElementById("TelefonoEm").addEventListener('keyup', sanear);
+    document.getElementById("CelularEm").addEventListener('keyup', sanear);
+    document.getElementById("NumeroIDEm").addEventListener('keyup', sanear);
+    document.getElementById("SalarioEm").addEventListener('keyup', sanear);
+    function sanear(e) {
+      let contenido = e.target.value;
+      e.target.value = contenido.toUpperCase().replace(" ", "");
+    }
+    function sanear2(e) {
+      let contenido = e.target.value;
+      e.target.value = contenido.toUpperCase().replace("  ", " ");
+    }
+    </script>
 </body>
 
 </html>

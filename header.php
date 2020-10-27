@@ -40,8 +40,24 @@
                                         <a class="dropdown-item" href="Consulta.php">Consultas</a>
                                     </div>
                                 </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="indexMantenimiento.php">Mantenimiento</a>
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
+                                        role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        Mantenimiento
+                                    </a>
+                                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                        <a href="personal.php" class="dropdown-item">Personal</a>
+                                        <a href="usuarios.php" class="dropdown-item">Usuarios</a>
+                                        <a href="Parametros.php" class="dropdown-item">Parámetros</a>
+                                        <a href="cargos.php" class="dropdown-item">Cargos</a>
+                                        <a href="Especialidades.php" class="dropdown-item">Especialidades</a>
+                                        <a href="Servicios.php" class="dropdown-item">Servicios</a>
+                                        <a href="Estado_Civil.php" class="dropdown-item">Estado Civil</a>
+                                        <a href="Sexo.php" class="dropdown-item">Sexos</a>
+                                        <a href="Religiones.php" class="dropdown-item">Religiones</a>
+                                        <a href="Tipo_Sangre.php" class="dropdown-item">Tipos de Sangre</a>
+                                        <a href="Diagnosticos.php" class="dropdown-item">Diagnósticos</a>
+                                    </div>
                                 </li>
 
 

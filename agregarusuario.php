@@ -16,15 +16,6 @@ include 'conexion.php'
     ?>
     <!-- Header part end-->
 
-    <?php
-        $sql = mysqli_query($con, "SELECT * FROM tbl_roles WHERE ID_Rol=2");
-            if(mysqli_num_rows($sql) > 0){
-               $row = mysqli_fetch_assoc($sql);
-            }
-                    
-    ?>
-
-
     <!-- breadcrumb start-->
     <section class="breadcrumb_part breadcrumb_bg">
         <div class="container">
@@ -63,21 +54,21 @@ include 'conexion.php'
                                     </select>
                                 </div>
                                 <div class="form-group col-md-6">
-                                    <input type="email" class="form-control" id="EmailU" name="Email" placeholder="Email" required>
+                                    <input type="email" class="form-control" id="EmailU" name="Email" maxlength="50" placeholder="Email" required>
                                 </div>
                                 <div class="form-group col-md-4">
-                                    <input type="text"  class="form-control" id="NomU" name="Nom_Usuario"  placeholder="Nombre de usuario"  required>
+                                    <input type="text" class="form-control" id="NomU" name="Nom_Usuario" maxlength="20" onkeypress="return soloLetras(event)" onkeyup="javascript:this.value=this.value.toUpperCase();" placeholder="Nombre de usuario"  required>
                                     
                                 </div>                                
                                 <div class="input-group col-md-4">
-                                    <input value= "<?php echo generar_password_complejo(2) ?>" type="Password" class="form-control" id="passwordU" name="Password"  minlength="8" maxlength="30" placeholder="Contraseña" required>
+                                    <input value= "<?php echo generar_password_complejo(2) ?>" type="Password" class="form-control" id="passwordU" name="Password"  minlength="8" maxlength="30" placeholder="Contraseña" readonly required>
                                     <span id="show-hide-passwd" action="hide" class="input-group-addon glyphicon glyphicon-eye-open"></span>
                                 </div>               
                                 <div class="form-group col-md-4">
                                     <select class="form-control" id="RolU" name="Rol" required>
-                                    <option value="<?php echo $row ['ID_Rol']; ?>"><?php echo $row ['Rol']; ?></option>
+                                        <option value="">Seleccione el rol</option>
                                         <?php
-                                          $sql=$con -> query("Select * from tbl_roles WHERE ID_Rol<>2");
+                                          $sql=$con -> query("Select * from tbl_roles");
 
                                           while($fila=$sql->fetch_array()){
                                               echo "<option value='".$fila['ID_Rol']."'>".$fila['Rol']."</option>";
@@ -107,7 +98,7 @@ include 'conexion.php'
         $mayusc = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
         $minusc = 'abcdefghijklmnopqrstuvwxyz';
         $num = '0123456789';
-        $carac = '!@#%^&*()_,./<>?;:[]{}\|=+';
+        $carac = '!"#$%&()=?*+';
 
         $password = '';
         $limite_mayusc = strlen($mayusc) - 1;
@@ -165,7 +156,19 @@ include 'conexion.php'
         
     // }
     
-    // </script>      
+    // </script>     
+    <script>
+    document.getElementById("NomU").addEventListener('keyup', sanear);
+    document.getElementById("EmailU").addEventListener('keyup', sanear2);
+    function sanear(e) {
+        let contenido = e.target.value;
+        e.target.value = contenido.toUpperCase().replace(" ", "");
+    }
+    function sanear2(e) {
+        let contenido = e.target.value;
+        e.target.value = contenido.replace(" ", "");
+     }
+    </script> 
 
 
     <?php
