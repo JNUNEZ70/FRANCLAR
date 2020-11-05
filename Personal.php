@@ -5,9 +5,13 @@
 session_start();
 include 'head.php'
 ?>
+
 <?php
 include 'conexion.php'
 ?>
+
+
+
 
 <body>
     <!--::header part start::-->
@@ -99,6 +103,11 @@ include 'conexion.php'
 				INNER JOIN tbl_estado_civil on tbl_empleado.ID_Est_Civil = tbl_estado_civil.ID_Est_Civil
 				INNER JOIN tbl_cargo on tbl_empleado.ID_Cargo = tbl_cargo.ID_Cargo
 				INNER JOIN tbl_especialidad on tbl_empleado.ID_Especialidad = tbl_especialidad.ID_especialidad");
+				if($sql){
+					$id_usuario= $_SESSION['ID_Usuario'];
+					$insert_bitacora = mysqli_query($con, "INSERT INTO tbl_bitacora_evento (id_usuario,id_objeto,Accion,Descripcion)
+            			VALUES ('$id_usuario',1,'Consulta','CONSULTÓ EN TABLA EMPLEADO')") or die(mysqli_error());
+				
 				if(mysqli_num_rows($sql) == 0){
 					echo '<tr><td colspan="8">No hay datos.</td></tr>';
 				}else{
@@ -127,6 +136,7 @@ include 'conexion.php'
 						$no++;
 					}
 				}
+			}
 				?>
 			</table>
 		 </div>
