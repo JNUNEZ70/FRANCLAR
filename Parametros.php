@@ -66,15 +66,18 @@ include 'conexion.php'
 	<br>
 			
 		<div class="table-responsive">
-			<table class="table table-striped table-hover">
-				<tr>
+			<table id="datatableUsuarios" class="table table-striped table-hover" cellspacing="0" width="100%">
+            <thead>    
+                <tr>
                     <th>No</th>
 					<th>Nombre Parámetro</th>
 					<th>Valor</th>
                     <th>Acciones</th>
 					
                     
-				</tr>
+                </tr>
+                </thead>
+                <tbody>
 				<?php
 				$sql = mysqli_query($con, "SELECT * FROM tbl_parametros");
 				if(mysqli_num_rows($sql) == 0){
@@ -96,7 +99,8 @@ include 'conexion.php'
 						$no++;
 					}
 				}
-				?>
+                ?>
+                </tbody>
 			</table>
 		 </div>
             <br>

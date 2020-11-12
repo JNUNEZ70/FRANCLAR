@@ -3530,6 +3530,12 @@ ul {
   color: #fff;
 }
 
+.regervation_part .regervation_content h1 {
+  font-size: 18px;
+  margin-bottom: 60px;
+  color: #fff;
+}
+
 @media (max-width: 991px) {
   /* line 32, ../../01 cl html template/03_jun 2019/182_medico_html/sass/_regervation_part.scss */
   .regervation_part .regervation_content h2 {
@@ -4899,7 +4905,7 @@ h1, h2, h3, h4, h5, h6 {
   -moz-transition: all 0.2s;
   -o-transition: all 0.2s;
   transition: all 0.2s;
-  box-shadow: 0px 4px 5px 0px rgba(0, 0, 0, 0.2);
+  box-shadow: 0px 4px 5px 0px #fff;
   cursor: pointer;
 }
 

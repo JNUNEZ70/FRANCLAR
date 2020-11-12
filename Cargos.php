@@ -58,15 +58,13 @@ include 'conexion.php'
         <a href="agregarcargo.php" class="genric-btn info circle">Agregar</a>
     </form>
    <br>
-    <form class="form-inline my-2 my-lg-0 float-right">
-        <input name="buscarpor" class="form-control mr-sm-2" type="search" placeholder="Buscar por nombre" aria-label="Search">
-
-    </form>
+   
 	<br>
 	<br>
 			
 		<div class="table-responsive">
-			<table class="table table-striped table-hover">
+			<table id="datatableUsuarios" class="table table-striped table-hover">
+			<thead>	
 				<tr>
                     <th>No</th>
 					<th>Nombre</th>
@@ -74,6 +72,8 @@ include 'conexion.php'
 					
                     
 				</tr>
+				</thead>
+                <tbody>
 				<?php
 				$sql = mysqli_query($con, "SELECT * FROM tbl_cargo");
 				if(mysqli_num_rows($sql) == 0){
@@ -94,7 +94,9 @@ include 'conexion.php'
 						$no++;
 					}
 				}
+				
 				?>
+				 </tbody>
 			</table>
 		 </div>
             <br>

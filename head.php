@@ -8,6 +8,8 @@
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link href="css/style_nav.css" rel="stylesheet">
     <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <!--font awesome con CDN-->  
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">  
     <!-- animate CSS -->
     <link rel="stylesheet" href="css/animate.css">
     <!-- owl carousel CSS -->
@@ -27,8 +29,18 @@
     <!-- style CSS -->
     <link rel="stylesheet" href="css/style.css">
     <link href="css/bootstrap-datepicker.css" rel="stylesheet">
+    <!-- FullCalendar -->
+    <link href='lib/main.css' rel='stylesheet' />
+    <script src='lib/main.js'></script>
     <!-- search CSS -->
     <link rel="stylesheet" type="text/css" href="css/search.css">
+    <!-- CSS personalizado --> 
+    <link rel="stylesheet" href="css/main.css">  
+    <!--datables CSS básico-->
+    <link rel="stylesheet" type="text/css" href="datatables/datatables.min.css"/>
+    <!--datables estilo bootstrap 4 CSS-->  
+    <link rel="stylesheet"  type="text/css" href="datatables/DataTables-1.10.18/css/dataTables.bootstrap4.min.css">
+       
     
     <?php
         if (!isset($_SESSION["Nom_Usuario"]))
@@ -36,5 +48,26 @@
             header("Location: ../Franclar/login/login.php");
         } 
     ?>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="js/peticion.js"></script>
+    <script src='lib/locales/es.js'></script>
+    <script>
+      
+      document.addEventListener('DOMContentLoaded', function() {
+        var calendarEl = document.getElementById('calendar');
+        var calendar = new FullCalendar.Calendar(calendarEl, {
+          locale: 'es',
+          initialView: 'dayGridMonth',
+          headertoolbar: {
+				left: 'prev,next today',
+				center: 'title',
+				right: 'month,basicWeek,basicDay',
+
+			},
+        });
+        calendar.render();
+      });
+      
+    </script>
     
 </head>

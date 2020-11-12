@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="es">
 
 <?php
 session_start();
@@ -116,7 +116,7 @@ include 'conexion.php'
                                 <h2>Datos Generales</h2>
                                 <div class="form-row">
                                 <div class="form-group col-md-6">
-                                    <select class="form-control" id="SexoEm" name="Sexo" required>
+                                    <select class="form-control" id="SexoEm" name="Sexo" readonly  required>
                                     <option value="<?php echo $row ['ID_Sexo']; ?>"><?php echo $row ['Descripcion_sexo']; ?></option>
                                          <?php
                                        	  $dato= $row ['ID_Sexo'];

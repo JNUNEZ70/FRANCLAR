@@ -6,7 +6,8 @@ session_start();
 include 'head.php'
 ?>
 <?php
-include 'conexion.php'
+include 'conexion.php';
+
 ?>
 
 <body>

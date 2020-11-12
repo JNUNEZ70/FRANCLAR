@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="es">
 
 <?php
 session_start();
@@ -50,54 +50,11 @@ include 'conexion.php'
 			}
 	 ?>
     <h2>Citas</h2>
-    <form class="form-inline my-2 my-lg-0 float-left">
-        <a href="agregarcita.php" class="genric-btn info circle">Agregar</a>
-    </form>
+    <br> 
+        <div class="container">
+            <div id='calendar'></div>
+        </div>
     <br>
-    <form class="form-inline my-2 my-lg-0 float-right">
-        <input name="buscarpor" class="form-control mr-sm-2" type="search" placeholder="Buscar por nombre" aria-label="Search">
-        <a href=""><button class="btn btn-success my-2 my-sm-0" type="submit">Buscar</button></a>
-    </form>
-			<div class="table-responsive">
-			<table class="table table-striped table-hover">
-				<tr>
-                    <th>No</th>
-					<th>Anamnesis</th>
-					<th>Examen Físico</th>
-                    <th>Tratamiento</th>
-                    <th>Próxima Consulta</th>
-                    <th>Acciones</th>
-				</tr>
-				<?php
-				$sql = mysqli_query($con, "SELECT * FROM tbl_consultas ORDER BY ID_Consulta ASC");
-				if(mysqli_num_rows($sql) == 0){
-					echo '<tr><td colspan="8">No hay datos.</td></tr>';
-				}else{
-					$no = 1;
-					while($row = mysqli_fetch_assoc($sql)){
-						echo '
-						<tr>
-                            <td>'.$row['ID_Consulta'].'</td>
-                            <td>'.$row['Anamnesis'].'</td>
-                            <td>'.$row['Exam_Fisico'].'</td>
-                            <td>'.$row['Tratamiento'].'</td>
-                            <td>'.$row['Prox_Cita'].'</td>
-							<td>
-
-							<a href="EditarPersonal.php?nik='.$row['ID_Consulta'].'" title="Editar datos" class="btn btn-success btn-sm"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></a>
-							<a href="Personal.php?aksi=delete&nik='.$row['ID_Consulta'].'" title="Eliminar" onclick="return confirm(\'¿Esta seguro de borrar los datos?\')" class="btn btn-danger btn-sm"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>
-							</td>
-						</tr>
-						';
-						$no++;
-					}
-				}
-				?>
-			</table>
-			</div>
-            <br>
-            <br>
-            <br>
     <?php
         include 'Copyright.php'
     ?>

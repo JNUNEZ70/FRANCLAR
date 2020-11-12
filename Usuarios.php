@@ -1,10 +1,5 @@
 <!doctype html>
-<html lang="es">
-<head>
-
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-    <script src="js/peticion.js"></script>
-</head>
+<html lang="es"> 
 <?php
 session_start();
 include 'head.php'
@@ -21,12 +16,18 @@ include 'conexion.php'
     <!-- Header part end-->
 
     <!-- breadcrumb start-->
-    <section class=" breadcrumb_bg">
-      
-        <div class="breadcrumb_iner_item"> 
-            <h2>Usuarios</h2>
+    <section class="breadcrumb_part breadcrumb_bg">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="breadcrumb_iner">
+                        <div class="breadcrumb_iner_item">
+                            <h2>Usuarios</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-                    
     </section>
     <!-- breadcrumb start-->
 
@@ -43,7 +44,7 @@ include 'conexion.php'
 					if($update){
                         $id_usuario= $_SESSION['ID_Usuario'];
 							$insert_bitacora = mysqli_query($con, "INSERT INTO tbl_bitacora_evento (id_usuario,id_objeto,Accion,Descripcion)
-                            VALUES ('$id_usuario',2,'Update','SE BLOQUEÓ UN USUARIO')") or die(mysqli_error());
+                            VALUES ('$id_usuario',2,'Update','SE BLOQUEÓ UN USUARIO')") ;
                         echo "<script type='text/javascript'>
                         alert('El Usuario ha sido bloqueado exitosamente');
                         window.location.href= 'Usuarios.php';
@@ -63,7 +64,7 @@ include 'conexion.php'
 					if($update){
                         $id_usuario= $_SESSION['ID_Usuario'];
                         $insert_bitacora = mysqli_query($con, "INSERT INTO tbl_bitacora_evento (id_usuario,id_objeto,Accion,Descripcion)
-                            VALUES ('$id_usuario',2,'Update','SE ACTIVÓ UN USUARIO')") or die(mysqli_error());
+                            VALUES ('$id_usuario',2,'Update','SE ACTIVÓ UN USUARIO')");
 						echo "<script type='text/javascript'>
                         alert('El Usuario ha sido activado exitosamente');
                         window.location.href= 'Usuarios.php';
@@ -73,21 +74,90 @@ include 'conexion.php'
 					}
 				}
             }
-
+            
 	 ?>
-
+    
     <form class="form-inline my-2 my-lg-0 float-left">
         <a href="agregarusuario.php" class="genric-btn info circle">Agregar</a>
-    </form>
-   <br>
-  <!-- insertar campo busqueda dinámica -->
-  <section class="form-inline my-2 my-lg-0 float-right" >
-        <input  class="right-align " type="text" name="busqueda" id="busqueda" placeholder="Buscar...">
-  </section>
+	</form>
+	<br>
+	<br>
+	<br>
+   
+   
 
-    <section id="tabla_resultado">
-        <!-- AQUI SE DESPLEGARA NUESTRA TABLA DE CONSULTA -->
-    </section>
+	
+   <div class="table-responsive">
+			<table id="datatableUsuarios" class="table table-striped table-bordered" cellspacing="0" width="100%">
+			    <thead>
+				<tr>
+                    <th>No</th>
+					<th>Nombre de empleado</th>
+					<th>E-mail</th>
+					<th>Nombre Usuario</th>
+					<th>Estado</th>
+					<th>Rol</th>
+					<th>Acciones</th>
+				</tr>
+				</thead>
+				<tbody>
+				<?php
+				$sql = mysqli_query($con, "SELECT tbl_usuario.ID_Usuario,	
+				tbl_empleado.Nom_Empleado,
+	            tbl_usuario.email,
+	            tbl_usuario.Nom_Usuario,
+	            tbl_estado_usuario.Descripcion,
+	            tbl_roles.Rol FROM tbl_usuario
+	            INNER JOIN tbl_empleado on tbl_usuario.ID_Empleado = tbl_empleado.ID_Empleado
+	            INNER JOIN tbl_estado_usuario on tbl_usuario.ID_Estado = tbl_estado_usuario.ID_Estado
+	            INNER JOIN tbl_roles on tbl_usuario.ID_Rol = tbl_roles.ID_Rol");
+			//aqui va el codigo
+
+		
+			if(mysqli_num_rows($sql) == 0){
+				 echo '<tr><td colspan="8">No hay datos.</td></tr>';
+				}else{
+				 $no = 1;
+				 while($row = mysqli_fetch_assoc($sql)){
+									if($row['Descripcion'] == 'Activo'){
+				  echo '
+									<tr>                            
+										<td>'.$row['ID_Usuario'].'</td>
+										<td>'.$row['Nom_Empleado'].'</td>
+										<td>'.$row['email'].'</td>
+										<td>'.$row['Nom_Usuario'].'</td>
+										<td><span class="label label-success">'.$row['Descripcion'].'</span></td>
+										<td><span class="label label-warning">'.$row['Rol'].'</span></td>                            
+										<td>
+												<a href="EditarUsuario.php?nik='.$row['ID_Usuario'].'" title="Editar datos" class="btn btn-success btn-sm"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></a>
+												<a href="Usuarios.php?aksi=bloquear&nik='.$row['ID_Usuario'].'" title="Bloquear Usuario" onclick="return confirm(\'¿Está seguro que desea bloquear al usuario '.$row['Nom_Usuario'].'?\')" class="btn btn-danger btn-sm"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></a>
+										</td>
+				  </tr>
+									';
+								}else{
+									echo '
+									<tr>                            
+										<td>'.$row['ID_Usuario'].'</td>
+										<td>'.$row['Nom_Empleado'].'</td>
+										<td>'.$row['email'].'</td>
+										<td>'.$row['Nom_Usuario'].'</td>
+										<td><span class="label label-danger">'.$row['Descripcion'].'</span></td>
+										<td><span class="label label-warning">'.$row['Rol'].'</span></td>                            
+										<td>
+												<a href="EditarUsuario.php?nik='.$row['ID_Usuario'].'" title="Editar datos" class="btn btn-success btn-sm"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></a>
+												<a href="Usuarios.php?akno=activar&nik='.$row['ID_Usuario'].'" title="Activar Usuario" onclick="return confirm(\'¿Está seguro que desea Activar al usuario '.$row['Nom_Usuario'].'?\')" class="btn btn-success btn-sm"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span></a>
+										</td>
+				  </tr>
+									';
+								}
+				  $no++;
+				 }
+				}
+
+				?>
+				<tbody>
+			</table>
+		 </div>
     <?php
         include 'Copyright.php'
     ?>
@@ -98,7 +168,7 @@ include 'conexion.php'
     <?php
         include 'script.php'
     ?>
-
+    
 </body>
 
 </html>

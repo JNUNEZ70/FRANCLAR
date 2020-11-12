@@ -5,13 +5,9 @@
 session_start();
 include 'head.php'
 ?>
-
 <?php
 include 'conexion.php'
 ?>
-
-
-
 
 <body>
     <!--::header part start::-->
@@ -57,22 +53,18 @@ include 'conexion.php'
 				}
 			}
 	 ?>
-    
     <form class="form-inline my-2 my-lg-0 float-left">
         <a href="agregarpersonal.php" class="genric-btn info circle">Agregar</a>
-    </form>
+	</form>	
+	<br>
+   
    <br>
-    <form class="form-inline my-2 my-lg-0 float-right">
-        <input name="buscarpor" class="form-control mr-sm-2" type="search" placeholder="Buscar por nombre" aria-label="Search">
-
-    </form>
-	<br>
-	<br>
-			
+   <br>
 		<div class="table-responsive">
-			<table class="table table-striped table-hover">
+			<table id="datatableUsuarios" class="table table-striped table-hover" cellspacing="0" width="100%" >
+			    <thead>
 				<tr>
-                    <th>No</th>
+					<th>No</th>
 					<th>Nombre</th>
 					<th>Identidad</th>
                     <th>Fecha de nacimiento</th>
@@ -84,8 +76,10 @@ include 'conexion.php'
 					<th>Cargo</th>
 					<th>Salario</th>
                     <th>Especialidad</th>
-                    <th>Acciones</th>
+				    <th>Acciones</th>
 				</tr>
+				</thead>
+				<tbody>
 				<?php
 				$sql = mysqli_query($con, "SELECT tbl_empleado.ID_Empleado,	
 				tbl_empleado.Nom_Empleado,
@@ -103,11 +97,6 @@ include 'conexion.php'
 				INNER JOIN tbl_estado_civil on tbl_empleado.ID_Est_Civil = tbl_estado_civil.ID_Est_Civil
 				INNER JOIN tbl_cargo on tbl_empleado.ID_Cargo = tbl_cargo.ID_Cargo
 				INNER JOIN tbl_especialidad on tbl_empleado.ID_Especialidad = tbl_especialidad.ID_especialidad");
-				if($sql){
-					$id_usuario= $_SESSION['ID_Usuario'];
-					$insert_bitacora = mysqli_query($con, "INSERT INTO tbl_bitacora_evento (id_usuario,id_objeto,Accion,Descripcion)
-            			VALUES ('$id_usuario',1,'Consulta','CONSULTÓ EN TABLA EMPLEADO')") or die(mysqli_error());
-				
 				if(mysqli_num_rows($sql) == 0){
 					echo '<tr><td colspan="8">No hay datos.</td></tr>';
 				}else{
@@ -115,34 +104,31 @@ include 'conexion.php'
 					while($row = mysqli_fetch_assoc($sql)){
 						echo '
 						<tr>
-                            <td>'.$row['ID_Empleado'].'</td>
-                            <td>'.$row['Nom_Empleado'].'</td>
-                            <td>'.$row['Cedula'].'</td>
-                            <td>'.$row['Fec_Nacimiento'].'</td>
-                            <td>'.$row['Tel_Empleado'].'</td>
-                            <td>'.$row['Cel_Empleado'].'</td>
-							<td>'.$row['Dir_Empleado'].'</td>
-							<td><span class="label label-info">'.$row['Descripcion_sexo'].'</span></td>
-							<td><span class="label label-success">'.$row['Descripcion_est_civil'].'</span></td>
-							<td><span class="label label-warning">'.$row['nomb_cargo'].'</span></td>
-							<td>'.$row['Salario'].'</td>
-							<td><span class="label label-primary">'.$row['Descripcion_espec'].'</span></td>				
-							<td>							
-								<a href="EditarPersonal.php?nik='.$row['ID_Empleado'].'" title="Editar datos" class="btn btn-success btn-sm"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></a>
-								<a href="Personal.php?aksi=delete&nik='.$row['ID_Empleado'].'" title="Eliminar" onclick="return confirm(\'¿Está seguro de borrar los datos del colaborador '.$row['Nom_Empleado'].'?\')" class="btn btn-danger btn-sm"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>
-							</td>
+						<td>'.$row['ID_Empleado'].'</td>
+						<td>'.$row['Nom_Empleado'].'</td>
+						<td>'.$row['Cedula'].'</td>
+						<td>'.$row['Fec_Nacimiento'].'</td>
+						<td>'.$row['Tel_Empleado'].'</td>
+						<td>'.$row['Cel_Empleado'].'</td>
+						<td>'.$row['Dir_Empleado'].'</td>
+						<td><span class="label label-info">'.$row['Descripcion_sexo'].'</span></td>
+						<td><span class="label label-success">'.$row['Descripcion_est_civil'].'</span></td>
+						<td><span class="label label-warning">'.$row['nomb_cargo'].'</span></td>
+						<td>'.$row['Salario'].'</td>
+						<td><span class="label label-primary">'.$row['Descripcion_espec'].'</span></td>				
+						<td>							
+							<a href="EditarPersonal.php?nik='.$row['ID_Empleado'].'" title="Editar datos" class="btn btn-success btn-sm"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></a>
+							<a href="Personal.php?aksi=delete&nik='.$row['ID_Empleado'].'" title="Eliminar" onclick="return confirm(\'¿Está seguro de borrar los datos del colaborador '.$row['Nom_Empleado'].'?\')" class="btn btn-danger btn-sm"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>
+						</td>
 						</tr>
 						';
 						$no++;
 					}
 				}
-			}
 				?>
+				<tbody>
 			</table>
 		 </div>
-            <br>
-            <br>
-            <br>
     <?php
         include 'Copyright.php'
     ?>

@@ -76,6 +76,18 @@ include 'conexion.php'
                                         ?>
                                     </select>
                                 </div>
+                                <div class="input-group col-md-12">
+                                    <h2 class="mb-30">Permisos</h2>
+                                        <h1>Escritorio</h1><input class="primary-checkbox" type="checkbox" name="Escritorio" value="1">
+
+                                        <h1>Preclínica</h1><input class="primary-checkbox" type="checkbox" name="Escritorio" value="1">
+
+                                        <h1>Pacientes</h1><input class="primary-checkbox" type="checkbox" name="Escritorio" value="1">
+
+                                        <h1>Personal</h1><input class="primary-checkbox" type="checkbox" name="Escritorio" value="1">
+
+                                        <h1>Usuarios</h1><input class="primary-checkbox" type="checkbox" name="Escritorio" value="1">
+                                </div>
                                 <br>
                                 <br>
                     
