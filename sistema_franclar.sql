@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 05-11-2020 a las 23:28:58
+-- Tiempo de generación: 18-11-2020 a las 02:19:04
 -- Versión del servidor: 10.4.11-MariaDB
 -- Versión de PHP: 7.4.3
 
@@ -129,376 +129,38 @@ INSERT INTO `tbl_bitacora_evento` (`id_bitacora_evento`, `fecha_evento`, `id_usu
 (98, '2020-10-27 05:58:51', 1, 1, 'Ingreso', 'INGRESÓ A LA PANTALLA PERSONAL'),
 (99, '2020-10-27 05:58:51', 1, 1, 'Consulta', 'CONSULTÓ EN TABLA EMPLEADO'),
 (103, '2020-10-27 06:02:25', 1, 1, 'Consulta', 'CONSULTÓ EN TABLA EMPLEADO'),
-(104, '2020-10-27 06:03:06', 1, 1, 'Consulta', 'CONSULTÓ EN TABLA EMPLEADO');
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `tbl_bitacora_registro`
---
-
-CREATE TABLE `tbl_bitacora_registro` (
-  `id_bitacora` int(11) NOT NULL,
-  `id_tabla` text NOT NULL,
-  `id_registro` int(11) NOT NULL,
-  `fecha` timestamp NOT NULL DEFAULT current_timestamp(),
-  `ejecutor` varchar(20) NOT NULL,
-  `actividad_realizada` varchar(100) NOT NULL,
-  `informacion_actual` text NOT NULL,
-  `informacion_anterior` text NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Volcado de datos para la tabla `tbl_bitacora_registro`
---
-
-INSERT INTO `tbl_bitacora_registro` (`id_bitacora`, `id_tabla`, `id_registro`, `fecha`, `ejecutor`, `actividad_realizada`, `informacion_actual`, `informacion_anterior`) VALUES
-(2, 'tbl_usuario', 1, '2020-10-03 07:43:49', 'root@localhost', 'Se insertó un nuevo usuario', 'Información insertada: 1 1JNUÑEZ123412020-10-0312020-10-03', ''),
-(3, 'tbl_usuario', 1, '2020-10-03 07:48:50', 'root@localhost', 'Se insertó un nuevo usuario', 'Información insertada: 1 1 JNUÑEZ 1234 1 2020-10-03 1 2020-10-03', ''),
-(4, 'tbl_usuario', 1, '2020-10-04 06:07:56', 'root@localhost', 'Se eliminó un usuario', '', 'Información eliminada: 1 1 JNUÑEZ 1234 1 2020-10-03 1 2020-10-03'),
-(5, 'tbl_usuario', 1, '2020-10-04 06:09:24', 'root@localhost', 'Se insertó un nuevo usuario', 'Información insertada: 1 1 JNUÑEZ 1234 1 2020-10-04 1 2020-10-04', ''),
-(6, 'tbl_usuario', 1, '2020-10-04 06:16:17', 'root@localhost', 'Se actualizó un usuario', 'Información actualizada: 1 2 JNUÑEZ 1234 1 2020-10-04 1 2020-10-04', 'Información anterior: 1 1 JNUÑEZ 1234 1 2020-10-04 1 2020-10-04'),
-(7, 'tbl_empleado', 2, '2020-10-04 06:52:01', 'root@localhost', 'Se insertó un nuevo empleado', 'Información insertada: 2 2 1 1 0801199714078 EVELYN GABRIELA TORRES RAMIREZ 1997-07-06 COL VENEZUELA SETORVSSDSDSDSIUDCVNEIFVBEDIVEFVEF  22091139 33876298 nuez.jeancarlos@gmail.com 15000', ''),
-(8, ' tbl_empleado', 2, '2020-10-04 08:04:03', 'root@localhost', 'Se eliminó un empleado', '', 'Información eliminada: 2 2 1 1 0801199714078 EVELYN GABRIELA TORRES RAMIREZ 1997-07-06 COL VENEZUELA SETORVSSDSDSDSIUDCVNEIFVBEDIVEFVEF  22091139 33876298 nuez.jeancarlos@gmail.com 15000'),
-(9, 'tbl_empleado', 1, '2020-10-04 08:07:12', 'root@localhost', 'Se actualizó un empleado', 'Información actualizada: 1 1 1 1 0801199714079 Jean Carlos Núñez Salgado 1997-07-06 Col venezuela sector B..... 22091139 33876298 nuez.jeancarlos@gmail.com 15000', 'Información anterior: 1 1 1 1 0801199714079 Jean Carlos Núñez Ramires 1997-07-06 Col venezuela sector B..... 22091139 33876298 nuez.jeancarlos@gmail.com 15000'),
-(10, 'tbl_parametros', 1, '2020-10-05 01:16:42', 'root@localhost', 'Se insertó un nuevo parámetro', 'Información insertada: ADMIN_INTENTOS 3 1 2020-10-04 2020-10-04', ''),
-(11, 'tbl_parametros', 2, '2020-10-05 01:17:17', 'root@localhost', 'Se insertó un nuevo parámetro', 'Información insertada: ADMIN_PREGUNTAS 3 1 2020-10-04 2020-10-04', ''),
-(12, 'tbl_parametros', 2, '2020-10-05 01:19:17', 'root@localhost', 'Se eliminó un parámetro', '', 'Información eliminada: ADMIN_PREGUNTAS 3 1 2020-10-04 2020-10-04'),
-(13, 'tbl_parametros', 1, '2020-10-05 01:19:43', 'root@localhost', 'Se actualizó un parámetro', 'Información actualizada: ADMIN_INTENTOS 2 1 2020-10-04 2020-10-04', 'Información anterior: ADMIN_INTENTOS 3 1 2020-10-04 2020-10-04'),
-(14, 'tbl_preguntas', 1, '2020-10-05 04:36:48', 'root@localhost', 'Se insertó una nueva pregunta', 'Información insertada: ¿Cuál es el nombre de su mamá?', ''),
-(15, 'tbl_pregunta_usuario', 1, '2020-10-05 04:38:59', 'root@localhost', 'Se insertó una nueva respuesta de un usuario', 'Información insertada: 1 1 Edis', ''),
-(16, 'tbl_empleado', 2, '2020-10-11 02:39:25', 'root@localhost', 'Se insertó un nuevo empleado', 'Información insertada: 1 2 1 1 0801199714078 Carlos Fabricio Núñez Ramires 1997-07-06 fffffffffffffffffffffffffffffffff 22091139 33876298 nuez.jeancarlos@gmail.com 15000', ''),
-(17, 'tbl_usuario', 1, '2020-10-14 06:18:32', 'root@localhost', 'Se actualizó un usuario', 'Información actualizada: 1 2 JNUNEZ 1234 1 2020-10-04 1 2020-10-04', 'Información anterior: 1 2 JNUÑEZ 1234 1 2020-10-04 1 2020-10-04'),
-(18, ' tbl_empleado', 2, '2020-10-15 03:56:04', 'root@localhost', 'Se eliminó un empleado', '', 'Información eliminada: 1 2 1 1 0801199714078 Carlos Fabricio Núñez Ramires 1997-07-06 fffffffffffffffffffffffffffffffff 22091139 33876298 nuez.jeancarlos@gmail.com 15000'),
-(19, 'tbl_empleado', 3, '2020-10-15 04:57:48', 'root@localhost', 'Se insertó un nuevo empleado', 'Información insertada: 1 2 1 1 0801199714079 Carlos Fabricio Nuñez Ramires 1997-10-14 Col. Venezuela Sector B Bloque 8 casa 17 22278000 33876298  15000', ''),
-(20, 'tbl_empleado', 3, '2020-10-16 05:46:45', 'root@localhost', 'Se actualizó un empleado', 'Información actualizada: 1 3 1 1  Carlos Fabricio Nuñez Ramires 0000-00-00 Col. Venezuela Sector B Bloque 8 casa 17 22278000 33876298  15000', 'Información anterior: 1 2 1 1 0801199714079 Carlos Fabricio Nuñez Ramires 1997-10-14 Col. Venezuela Sector B Bloque 8 casa 17 22278000 33876298  15000'),
-(21, 'tbl_empleado', 3, '2020-10-16 05:47:01', 'root@localhost', 'Se actualizó un empleado', 'Información actualizada: 1 1 1 1  Carlos Fabricio Nuñez Ramires 0000-00-00 Col. Venezuela Sector B Bloque 8 casa 17 22278000 33876298  15000', 'Información anterior: 1 3 1 1  Carlos Fabricio Nuñez Ramires 0000-00-00 Col. Venezuela Sector B Bloque 8 casa 17 22278000 33876298  15000'),
-(22, 'tbl_empleado', 8, '2020-10-16 06:20:42', 'root@localhost', 'Se insertó un nuevo empleado', 'Información insertada: 1 1 1 1 0801196800586 CARLOS HUMBERTO NUÑEZ 1963-10-14 SDOVJNBDFUVHDBFUVDFVDFVDF 22222222 99999999  15000', ''),
-(23, 'tbl_empleado', 9, '2020-10-16 06:26:15', 'root@localhost', 'Se insertó un nuevo empleado', 'Información insertada: 1 5 1 1 0801199755555 JIMMY JAVIER RAMOS OSORTO 1990-10-22 SWDPIVJEFVFVDFVDFVDFS 22222222 99999999  20000', ''),
-(24, 'tbl_empleado', 10, '2020-10-16 06:59:28', 'root@localhost', 'Se insertó un nuevo empleado', 'Información insertada: 3 1 2 1 0554169159651 MANUEL RAMOS 1960-10-15 VDCBGFGNFGNFG 22222222 99999999  20000', ''),
-(25, ' tbl_empleado', 9, '2020-10-16 07:34:40', 'root@localhost', 'Se eliminó un empleado', '', 'Información eliminada: 1 5 1 1 0801199755555 JIMMY JAVIER RAMOS OSORTO 1990-10-22 SWDPIVJEFVFVDFVDFVDFS 22222222 99999999 20000'),
-(26, 'tbl_empleado', 1, '2020-10-16 07:45:00', 'root@localhost', 'Se actualizó un empleado', 'Información actualizada: 1 2 1 1  Jean Carlos Núñez Salgado 0000-00-00 Col venezuela sector B..... 22091139 33876298 15000', 'Información anterior: 1 1 1 1 0801199714079 Jean Carlos Núñez Salgado 1997-07-06 Col venezuela sector B..... 22091139 33876298 15000'),
-(27, 'tbl_empleado', 10, '2020-10-17 20:36:22', 'root@localhost', 'Se actualizó un empleado', 'Información actualizada: 3 1 2 5  MANUEL RAMOS 0000-00-00 VDCBGFGNFGNFG 22222222 99999999 20000', 'Información anterior: 3 1 2 1 0554169159651 MANUEL RAMOS 1960-10-15 VDCBGFGNFGNFG 22222222 99999999 20000'),
-(28, 'tbl_empleado', 10, '2020-10-17 20:37:02', 'root@localhost', 'Se actualizó un empleado', 'Información actualizada: 1 1 2 5  MANUEL RAMOS 0000-00-00 VDCBGFGNFGNFG 22222222 99999999 20000', 'Información anterior: 3 1 2 5  MANUEL RAMOS 0000-00-00 VDCBGFGNFGNFG 22222222 99999999 20000'),
-(29, 'tbl_empleado', 10, '2020-10-17 20:37:19', 'root@localhost', 'Se actualizó un empleado', 'Información actualizada: 1 5 2 5  MANUEL RAMOS 0000-00-00 VDCBGFGNFGNFG 22222222 99999999 20000', 'Información anterior: 1 1 2 5  MANUEL RAMOS 0000-00-00 VDCBGFGNFGNFG 22222222 99999999 20000'),
-(30, 'tbl_empleado', 3, '2020-10-17 20:37:55', 'root@localhost', 'Se actualizó un empleado', 'Información actualizada: 1 3 2 6  Carlos Fabricio Nuñez Ramires 0000-00-00 Col. Venezuela Sector B Bloque 8 casa 17 22278000 33876298 30000', 'Información anterior: 1 1 1 1  Carlos Fabricio Nuñez Ramires 0000-00-00 Col. Venezuela Sector B Bloque 8 casa 17 22278000 33876298 15000'),
-(31, ' tbl_empleado', 10, '2020-10-17 20:40:33', 'root@localhost', 'Se eliminó un empleado', '', 'Información eliminada: 1 5 2 5  MANUEL RAMOS 0000-00-00 VDCBGFGNFGNFG 22222222 99999999 20000'),
-(32, 'tbl_empleado', 11, '2020-10-17 20:42:43', 'root@localhost', 'Se insertó un nuevo empleado', 'Información insertada: 1 2 3 3 0801199714588 JOSUE ALLAN GONZALES RAMIRES 1987-10-08 WINFEIUFGEFVDFVDF 22222222 99999999  20000', ''),
-(33, 'tbl_usuario', 1, '2020-10-17 22:01:13', 'root@localhost', 'Se actualizó un usuario', 'Información actualizada: 1 2 JNUNEZ Franclar#2020 1 2020-10-04 1 2020-10-04', 'Información anterior: 1 2 JNUNEZ 1234 1 2020-10-04 1 2020-10-04'),
-(34, 'tbl_usuario', 9, '2020-10-18 19:06:18', 'root@localhost', 'Se insertó un nuevo usuario', 'Información insertada: 11 1 JGONZALES OtvJY]Jf 1 1', ''),
-(35, 'tbl_usuario', 1, '2020-10-18 22:36:21', 'root@localhost', 'Se actualizó un usuario', 'Información actualizada: 1 1 JNUNEZ Franclar#2020 1 1', 'Información anterior: 1 2 JNUNEZ Franclar#2020 1 1'),
-(36, 'tbl_usuario', 1, '2020-10-18 22:42:59', 'root@localhost', 'Se actualizó un usuario', 'Información actualizada: 1 2 JNUNEZ Franclar#2020 1 1', 'Información anterior: 1 1 JNUNEZ Franclar#2020 1 1'),
-(37, 'tbl_usuario', 1, '2020-10-18 22:43:29', 'root@localhost', 'Se actualizó un usuario', 'Información actualizada: 1 2 JNUNEZ Franclar#2020 1 1', 'Información anterior: 1 2 JNUNEZ Franclar#2020 1 1'),
-(38, 'tbl_usuario', 9, '2020-10-18 22:43:54', 'root@localhost', 'Se actualizó un usuario', 'Información actualizada: 11 2 JGONZALES OtvJY]Jf 1 1', 'Información anterior: 11 1 JGONZALES OtvJY]Jf 1 1'),
-(39, 'tbl_usuario', 1, '2020-10-18 22:44:48', 'root@localhost', 'Se actualizó un usuario', 'Información actualizada: 1 1 JNUNEZ Franclar#2020 1 1', 'Información anterior: 1 2 JNUNEZ Franclar#2020 1 1'),
-(40, 'tbl_usuario', 9, '2020-10-18 22:45:20', 'root@localhost', 'Se actualizó un usuario', 'Información actualizada: 11 1 JGONZALES OtvJY]Jf 1 1', 'Información anterior: 11 2 JGONZALES OtvJY]Jf 1 1'),
-(41, 'tbl_usuario', 9, '2020-10-18 22:45:26', 'root@localhost', 'Se actualizó un usuario', 'Información actualizada: 11 2 JGONZALES OtvJY]Jf 1 1', 'Información anterior: 11 1 JGONZALES OtvJY]Jf 1 1'),
-(42, 'tbl_usuario', 9, '2020-10-18 22:45:53', 'root@localhost', 'Se actualizó un usuario', 'Información actualizada: 11 1 JGONZALES OtvJY]Jf 1 1', 'Información anterior: 11 2 JGONZALES OtvJY]Jf 1 1'),
-(43, 'tbl_usuario', 9, '2020-10-18 23:14:52', 'root@localhost', 'Se actualizó un usuario', 'Información actualizada: 11 2 JGONZALES OtvJY]Jf 1 1', 'Información anterior: 11 1 JGONZALES OtvJY]Jf 1 1'),
-(44, 'tbl_usuario', 9, '2020-10-18 23:15:27', 'root@localhost', 'Se actualizó un usuario', 'Información actualizada: 11 1 JGONZALES OtvJY]Jf 1 1', 'Información anterior: 11 2 JGONZALES OtvJY]Jf 1 1'),
-(45, 'tbl_usuario', 9, '2020-10-18 23:15:41', 'root@localhost', 'Se actualizó un usuario', 'Información actualizada: 11 2 JGONZALES OtvJY]Jf 1 1', 'Información anterior: 11 1 JGONZALES OtvJY]Jf 1 1'),
-(46, 'tbl_usuario', 9, '2020-10-18 23:15:46', 'root@localhost', 'Se actualizó un usuario', 'Información actualizada: 11 2 JGONZALES OtvJY]Jf 1 1', 'Información anterior: 11 2 JGONZALES OtvJY]Jf 1 1'),
-(47, 'tbl_usuario', 9, '2020-10-18 23:16:11', 'root@localhost', 'Se actualizó un usuario', 'Información actualizada: 11 1 JGONZALES OtvJY]Jf 1 1', 'Información anterior: 11 2 JGONZALES OtvJY]Jf 1 1'),
-(48, 'tbl_usuario', 9, '2020-10-18 23:17:22', 'root@localhost', 'Se actualizó un usuario', 'Información actualizada: 11 2 JGONZALES OtvJY]Jf 1 1', 'Información anterior: 11 1 JGONZALES OtvJY]Jf 1 1'),
-(49, 'tbl_usuario', 9, '2020-10-18 23:20:09', 'root@localhost', 'Se actualizó un usuario', 'Información actualizada: 11 2 JGONZALES OtvJY]Jf 1 1', 'Información anterior: 11 2 JGONZALES OtvJY]Jf 1 1'),
-(50, 'tbl_usuario', 9, '2020-10-18 23:20:47', 'root@localhost', 'Se actualizó un usuario', 'Información actualizada: 11 2 JGONZALES OtvJY]Jf 1 1', 'Información anterior: 11 2 JGONZALES OtvJY]Jf 1 1'),
-(51, 'tbl_usuario', 9, '2020-10-18 23:20:58', 'root@localhost', 'Se actualizó un usuario', 'Información actualizada: 11 2 JGONZALES OtvJY]Jf 1 1', 'Información anterior: 11 2 JGONZALES OtvJY]Jf 1 1'),
-(52, 'tbl_usuario', 9, '2020-10-18 23:23:35', 'root@localhost', 'Se actualizó un usuario', 'Información actualizada: 11 2 JGONZALES OtvJY]Jf 1 1', 'Información anterior: 11 2 JGONZALES OtvJY]Jf 1 1'),
-(53, 'tbl_usuario', 9, '2020-10-18 23:23:46', 'root@localhost', 'Se actualizó un usuario', 'Información actualizada: 11 2 JGONZALES OtvJY]Jf 1 1', 'Información anterior: 11 2 JGONZALES OtvJY]Jf 1 1'),
-(54, 'tbl_usuario', 1, '2020-10-18 23:25:07', 'root@localhost', 'Se actualizó un usuario', 'Información actualizada: 1 2 JNUNEZ Franclar#2020 1 1', 'Información anterior: 1 1 JNUNEZ Franclar#2020 1 1'),
-(55, 'tbl_usuario', 1, '2020-10-18 23:25:10', 'root@localhost', 'Se actualizó un usuario', 'Información actualizada: 1 2 JNUNEZ Franclar#2020 1 1', 'Información anterior: 1 2 JNUNEZ Franclar#2020 1 1'),
-(56, 'tbl_usuario', 1, '2020-10-18 23:25:40', 'root@localhost', 'Se actualizó un usuario', 'Información actualizada: 1 2 JNUNEZ Franclar#2020 1 1', 'Información anterior: 1 2 JNUNEZ Franclar#2020 1 1'),
-(57, 'tbl_usuario', 9, '2020-10-18 23:25:46', 'root@localhost', 'Se actualizó un usuario', 'Información actualizada: 11 2 JGONZALES OtvJY]Jf 1 1', 'Información anterior: 11 2 JGONZALES OtvJY]Jf 1 1'),
-(58, 'tbl_usuario', 9, '2020-10-18 23:28:01', 'root@localhost', 'Se actualizó un usuario', 'Información actualizada: 11 2 JGONZALES OtvJY]Jf 1 1', 'Información anterior: 11 2 JGONZALES OtvJY]Jf 1 1'),
-(59, 'tbl_usuario', 1, '2020-10-18 23:29:08', 'root@localhost', 'Se actualizó un usuario', 'Información actualizada: 1 2 JNUNEZ Franclar#2020 1 1', 'Información anterior: 1 2 JNUNEZ Franclar#2020 1 1'),
-(60, 'tbl_usuario', 9, '2020-10-18 23:30:16', 'root@localhost', 'Se actualizó un usuario', 'Información actualizada: 11 1 JGONZALES OtvJY]Jf 1 1', 'Información anterior: 11 2 JGONZALES OtvJY]Jf 1 1'),
-(61, 'tbl_usuario', 1, '2020-10-18 23:30:28', 'root@localhost', 'Se actualizó un usuario', 'Información actualizada: 1 1 JNUNEZ Franclar#2020 1 1', 'Información anterior: 1 2 JNUNEZ Franclar#2020 1 1'),
-(62, 'tbl_usuario', 1, '2020-10-18 23:31:45', 'root@localhost', 'Se actualizó un usuario', 'Información actualizada: 1 2 JNUNEZ Franclar#2020 1 1', 'Información anterior: 1 1 JNUNEZ Franclar#2020 1 1'),
-(63, 'tbl_usuario', 1, '2020-10-18 23:31:45', 'root@localhost', 'Se actualizó un usuario', 'Información actualizada: 1 1 JNUNEZ Franclar#2020 1 1', 'Información anterior: 1 2 JNUNEZ Franclar#2020 1 1'),
-(64, 'tbl_usuario', 1, '2020-10-18 23:31:55', 'root@localhost', 'Se actualizó un usuario', 'Información actualizada: 1 2 JNUNEZ Franclar#2020 1 1', 'Información anterior: 1 1 JNUNEZ Franclar#2020 1 1'),
-(65, 'tbl_usuario', 1, '2020-10-18 23:31:56', 'root@localhost', 'Se actualizó un usuario', 'Información actualizada: 1 1 JNUNEZ Franclar#2020 1 1', 'Información anterior: 1 2 JNUNEZ Franclar#2020 1 1'),
-(66, 'tbl_usuario', 9, '2020-10-18 23:32:02', 'root@localhost', 'Se actualizó un usuario', 'Información actualizada: 11 2 JGONZALES OtvJY]Jf 1 1', 'Información anterior: 11 1 JGONZALES OtvJY]Jf 1 1'),
-(67, 'tbl_usuario', 9, '2020-10-18 23:32:02', 'root@localhost', 'Se actualizó un usuario', 'Información actualizada: 11 1 JGONZALES OtvJY]Jf 1 1', 'Información anterior: 11 2 JGONZALES OtvJY]Jf 1 1'),
-(68, 'tbl_usuario', 1, '2020-10-18 23:33:29', 'root@localhost', 'Se actualizó un usuario', 'Información actualizada: 1 2 JNUNEZ Franclar#2020 1 1', 'Información anterior: 1 1 JNUNEZ Franclar#2020 1 1'),
-(69, 'tbl_usuario', 1, '2020-10-18 23:33:43', 'root@localhost', 'Se actualizó un usuario', 'Información actualizada: 1 1 JNUNEZ Franclar#2020 1 1', 'Información anterior: 1 2 JNUNEZ Franclar#2020 1 1'),
-(70, 'tbl_usuario', 1, '2020-10-18 23:34:30', 'root@localhost', 'Se actualizó un usuario', 'Información actualizada: 1 2 JNUNEZ Franclar#2020 1 1', 'Información anterior: 1 1 JNUNEZ Franclar#2020 1 1'),
-(71, 'tbl_usuario', 1, '2020-10-18 23:34:40', 'root@localhost', 'Se actualizó un usuario', 'Información actualizada: 1 1 JNUNEZ Franclar#2020 1 1', 'Información anterior: 1 2 JNUNEZ Franclar#2020 1 1'),
-(72, 'tbl_usuario', 9, '2020-10-18 23:34:50', 'root@localhost', 'Se actualizó un usuario', 'Información actualizada: 11 2 JGONZALES OtvJY]Jf 1 1', 'Información anterior: 11 1 JGONZALES OtvJY]Jf 1 1'),
-(73, 'tbl_usuario', 9, '2020-10-18 23:34:55', 'root@localhost', 'Se actualizó un usuario', 'Información actualizada: 11 1 JGONZALES OtvJY]Jf 1 1', 'Información anterior: 11 2 JGONZALES OtvJY]Jf 1 1'),
-(74, 'tbl_usuario', 9, '2020-10-18 23:37:23', 'root@localhost', 'Se actualizó un usuario', 'Información actualizada: 11 2 JGONZALES OtvJY]Jf 1 1', 'Información anterior: 11 1 JGONZALES OtvJY]Jf 1 1'),
-(75, 'tbl_usuario', 1, '2020-10-18 23:37:25', 'root@localhost', 'Se actualizó un usuario', 'Información actualizada: 1 1 JNUNEZ Franclar#2020 1 1', 'Información anterior: 1 1 JNUNEZ Franclar#2020 1 1'),
-(76, 'tbl_usuario', 1, '2020-10-18 23:39:34', 'root@localhost', 'Se actualizó un usuario', 'Información actualizada: 1 2 JNUNEZ Franclar#2020 1 1', 'Información anterior: 1 1 JNUNEZ Franclar#2020 1 1'),
-(77, 'tbl_usuario', 1, '2020-10-18 23:39:49', 'root@localhost', 'Se actualizó un usuario', 'Información actualizada: 1 1 JNUNEZ Franclar#2020 1 1', 'Información anterior: 1 2 JNUNEZ Franclar#2020 1 1'),
-(78, 'tbl_usuario', 1, '2020-10-18 23:39:54', 'root@localhost', 'Se actualizó un usuario', 'Información actualizada: 1 2 JNUNEZ Franclar#2020 1 1', 'Información anterior: 1 1 JNUNEZ Franclar#2020 1 1'),
-(79, 'tbl_usuario', 1, '2020-10-18 23:41:06', 'root@localhost', 'Se actualizó un usuario', 'Información actualizada: 1 1 JNUNEZ Franclar#2020 1 1', 'Información anterior: 1 2 JNUNEZ Franclar#2020 1 1'),
-(80, 'tbl_usuario', 1, '2020-10-18 23:41:21', 'root@localhost', 'Se actualizó un usuario', 'Información actualizada: 1 2 JNUNEZ Franclar#2020 1 1', 'Información anterior: 1 1 JNUNEZ Franclar#2020 1 1'),
-(81, 'tbl_usuario', 1, '2020-10-18 23:42:57', 'root@localhost', 'Se actualizó un usuario', 'Información actualizada: 1 1 JNUNEZ Franclar#2020 1 1', 'Información anterior: 1 2 JNUNEZ Franclar#2020 1 1'),
-(82, 'tbl_usuario', 9, '2020-10-18 23:46:13', 'root@localhost', 'Se actualizó un usuario', 'Información actualizada: 11 1 JGONZALES OtvJY]Jf 1 1', 'Información anterior: 11 2 JGONZALES OtvJY]Jf 1 1'),
-(83, 'tbl_usuario', 1, '2020-10-18 23:46:26', 'root@localhost', 'Se actualizó un usuario', 'Información actualizada: 1 2 JNUNEZ Franclar#2020 1 1', 'Información anterior: 1 1 JNUNEZ Franclar#2020 1 1'),
-(84, 'tbl_usuario', 1, '2020-10-18 23:46:38', 'root@localhost', 'Se actualizó un usuario', 'Información actualizada: 1 1 JNUNEZ Franclar#2020 1 1', 'Información anterior: 1 2 JNUNEZ Franclar#2020 1 1'),
-(85, 'tbl_usuario', 1, '2020-10-18 23:48:02', 'root@localhost', 'Se actualizó un usuario', 'Información actualizada: 1 2 JNUNEZ Franclar#2020 1 1', 'Información anterior: 1 1 JNUNEZ Franclar#2020 1 1'),
-(86, 'tbl_usuario', 1, '2020-10-18 23:48:19', 'root@localhost', 'Se actualizó un usuario', 'Información actualizada: 1 1 JNUNEZ Franclar#2020 1 1', 'Información anterior: 1 2 JNUNEZ Franclar#2020 1 1'),
-(87, 'tbl_usuario', 1, '2020-10-19 04:44:22', 'root@localhost', 'Se actualizó un usuario', 'Información actualizada: 1 2 JNUNEZ Franclar#2020 1 1', 'Información anterior: 1 1 JNUNEZ Franclar#2020 1 1'),
-(88, 'tbl_usuario', 9, '2020-10-19 04:44:36', 'root@localhost', 'Se actualizó un usuario', 'Información actualizada: 11 2 JGONZALES OtvJY]Jf 1 1', 'Información anterior: 11 1 JGONZALES OtvJY]Jf 1 1'),
-(89, 'tbl_usuario', 9, '2020-10-19 04:45:57', 'root@localhost', 'Se actualizó un usuario', 'Información actualizada: 11 1 JGONZALES OtvJY]Jf 1 1', 'Información anterior: 11 2 JGONZALES OtvJY]Jf 1 1'),
-(90, 'tbl_usuario', 1, '2020-10-19 06:31:55', 'root@localhost', 'Se actualizó un usuario', 'Información actualizada: 1 1 JNUNEZ Franclar#2020 1 1', 'Información anterior: 1 2 JNUNEZ Franclar#2020 1 1'),
-(91, 'tbl_usuario', 10, '2020-10-20 00:07:15', 'root@localhost', 'Se insertó un nuevo usuario', 'Información insertada: 8 1 CNUÑEZ Hf4,Qw9] 1 1', ''),
-(92, 'tbl_usuario', 10, '2020-10-20 02:32:24', 'root@localhost', 'Se actualizó un usuario', 'Información actualizada: 8 2 CNUÑEZ Hf4,Qw9] 1 1', 'Información anterior: 8 1 CNUÑEZ Hf4,Qw9] 1 1'),
-(93, 'tbl_usuario', 10, '2020-10-20 02:32:31', 'root@localhost', 'Se actualizó un usuario', 'Información actualizada: 8 1 CNUÑEZ Hf4,Qw9] 1 1', 'Información anterior: 8 2 CNUÑEZ Hf4,Qw9] 1 1'),
-(94, 'tbl_empleado', 12, '2020-10-20 02:34:30', 'root@localhost', 'Se insertó un nuevo empleado', 'Información insertada: 1 1 5 7 0801199714078 WILDER EDUARDO RAMIRES  1982-09-05 SJDNVSDHOFIVBDVRFGBRGBRFGBGF 22222222 88888888  20000', ''),
-(95, 'tbl_usuario', 11, '2020-10-20 02:35:38', 'root@localhost', 'Se insertó un nuevo usuario', 'Información insertada: 12 1 WRAMIRES Pv5{Qi0} 1 1', ''),
-(96, 'tbl_usuario', 10, '2020-10-20 02:50:38', 'root@localhost', 'Se actualizó un usuario', 'Información actualizada: 8 2 CNUÑEZ Hf4,Qw9] 1 1', 'Información anterior: 8 1 CNUÑEZ Hf4,Qw9] 1 1'),
-(97, 'tbl_usuario', 12, '2020-10-20 04:18:37', 'root@localhost', 'Se insertó un nuevo usuario', 'Información insertada: 3 1 JNUNEZ Yv3%Vr8} 1 1', ''),
-(98, 'tbl_usuario', 13, '2020-10-20 04:19:18', 'root@localhost', 'Se insertó un nuevo usuario', 'Información insertada: 3 1 JNUNEZ Ax3@Xa1& 1 1', ''),
-(99, 'tbl_empleado', 14, '2020-10-20 06:37:06', 'root@localhost', 'Se insertó un nuevo empleado', 'Información insertada: 1 1 6 8 0801549841654 JEAN CARLOS RAMIRES 1980-10-19 SDNS8UDFCDSDSASAS 22222222 88888888  0', ''),
-(100, 'tbl_usuario', 14, '2020-10-20 06:47:47', 'root@localhost', 'Se insertó un nuevo usuario', 'Información insertada: 14 4 JEANRAMIRESXXX Franclar#2020 5 1', ''),
-(101, 'tbl_usuario', 14, '2020-10-20 06:51:36', 'root@localhost', 'Se actualizó un usuario', 'Información actualizada: 14 1 JEANRAMIRESXXX Franclar#2020 5 1', 'Información anterior: 14 4 JEANRAMIRESXXX Franclar#2020 5 1'),
-(102, 'tbl_usuario', 1, '2020-10-20 07:03:00', 'root@localhost', 'Se actualizó un usuario', 'Información actualizada: 1 2 JNUNEZ Franclar#2020 1 1', 'Información anterior: 1 1 JNUNEZ Franclar#2020 1 1'),
-(103, 'tbl_usuario', 1, '2020-10-20 07:03:20', 'root@localhost', 'Se actualizó un usuario', 'Información actualizada: 1 2 JNUNEZ Franclar#2020 1 1', 'Información anterior: 1 2 JNUNEZ Franclar#2020 1 1'),
-(104, 'tbl_usuario', 1, '2020-10-21 16:16:29', 'root@localhost', 'Se actualizó un usuario', 'Información actualizada: 1 2 JNUNEZ Franclar#2020 1 0', 'Información anterior: 1 2 JNUNEZ Franclar#2020 1 1'),
-(105, 'tbl_usuario', 1, '2020-10-21 16:17:07', 'root@localhost', 'Se actualizó un usuario', 'Información actualizada: 1 1 JNUNEZ Franclar#2020 1 0', 'Información anterior: 1 2 JNUNEZ Franclar#2020 1 0'),
-(106, 'tbl_parametros', 1, '2020-10-21 16:18:24', 'root@localhost', 'Se actualizó un parámetro', 'Información actualizada: INTENTOS_INGRESO 2 1 2020-10-04 2020-10-04', 'Información anterior: ADMIN_INTENTOS 2 1 2020-10-04 2020-10-04'),
-(107, 'tbl_parametros', 1, '2020-10-21 16:20:22', 'root@localhost', 'Se actualizó un parámetro', 'Información actualizada: INTENTOS_INGRESO 2 1 2020-10-04 2020-10-04', 'Información anterior: INTENTOS_INGRESO 2 1 2020-10-04 2020-10-04'),
-(108, 'tbl_parametros', 1, '2020-10-21 16:44:41', 'root@localhost', 'Se actualizó un parámetro', 'Información actualizada: INTENTOS_INGR 2 1 2020-10-04 2020-10-04', 'Información anterior: INTENTOS_INGRESO 2 1 2020-10-04 2020-10-04'),
-(109, 'tbl_parametros', 1, '2020-10-21 17:26:10', 'root@localhost', 'Se actualizó un parámetro', 'Información actualizada: INTENTOS_INGRESO 2 1 2020-10-04 2020-10-04', 'Información anterior: INTENTOS_INGR 2 1 2020-10-04 2020-10-04'),
-(110, 'tbl_parametros', 1, '2020-10-21 17:35:15', 'root@localhost', 'Se actualizó un parámetro', 'Información actualizada: INTENTOS_INGRESO 4 1 2020-10-04 2020-10-04', 'Información anterior: INTENTOS_INGRESO 2 1 2020-10-04 2020-10-04'),
-(111, 'tbl_parametros', 2, '2020-10-21 17:39:35', 'root@localhost', 'Se insertó un nuevo parámetro', 'Información insertada: PREGUNTAS_RECUPERACIÓN 3', ''),
-(112, 'tbl_empleado', 15, '2020-10-21 17:57:25', 'root@localhost', 'Se insertó un nuevo empleado', 'Información insertada: 1 1 1 5 8082121561551 DFDGBVGFBFGBFDGBF 1980-10-22 DFVBSDBDFGBDFGBFGFDGDFGFG 22222222 88888888  50000', ''),
-(113, 'tbl_empleado', 15, '2020-10-21 17:58:05', 'root@localhost', 'Se actualizó un empleado', 'Información actualizada: 1 2 5 4  ASASAS 0000-00-00 ASDAS 22222222 88888888 100000', 'Información anterior: 1 1 1 5 8082121561551 DFDGBVGFBFGBFDGBF 1980-10-22 DFVBSDBDFGBDFGBFGFDGDFGFG 22222222 88888888 50000'),
-(114, ' tbl_empleado', 15, '2020-10-21 18:00:52', 'root@localhost', 'Se eliminó un empleado', '', 'Información eliminada: 1 2 5 4  ASASAS 0000-00-00 ASDAS 22222222 88888888 100000'),
-(115, 'tbl_empleado', 16, '2020-10-21 18:01:18', 'root@localhost', 'Se insertó un nuevo empleado', 'Información insertada: 1 4 2 1 0801112124454 DFBDFGBFDGBFG 1987-10-22 GHNFGHNGHGH 22222222 88888888  20000', ''),
-(116, 'tbl_empleado', 16, '2020-10-21 18:01:37', 'root@localhost', 'Se actualizó un empleado', 'Información actualizada: 1 4 2 1  DFBDFGBFD 0000-00-00 GHNFGHNGHGH 22222222 88888888 20000', 'Información anterior: 1 4 2 1 0801112124454 DFBDFGBFDGBFG 1987-10-22 GHNFGHNGHGH 22222222 88888888 20000'),
-(117, 'tbl_empleado', 16, '2020-10-21 18:02:43', 'root@localhost', 'Se actualizó un empleado', 'Información actualizada: 1 4 2 1  DFBDFGBFD 0000-00-00 GHNFGHNGHGH 22222222 88888888 20000', 'Información anterior: 1 4 2 1  DFBDFGBFD 0000-00-00 GHNFGHNGHGH 22222222 88888888 20000'),
-(118, 'tbl_empleado', 16, '2020-10-21 18:02:49', 'root@localhost', 'Se actualizó un empleado', 'Información actualizada: 1 4 2 1  DFBDFGBFD 0000-00-00 GHNFGHNGHGH 22222222 88888888 20000', 'Información anterior: 1 4 2 1  DFBDFGBFD 0000-00-00 GHNFGHNGHGH 22222222 88888888 20000'),
-(119, 'tbl_empleado', 14, '2020-10-21 18:05:58', 'root@localhost', 'Se actualizó un empleado', 'Información actualizada: 1 1 6 8 0801549841654 JEAN CARLOS RAMIRES 1980-10-19 SDNS8UDFCDSDSASAS 22222222 88888888 200000', 'Información anterior: 1 1 6 8 0801549841654 JEAN CARLOS RAMIRES 1980-10-19 SDNS8UDFCDSDSASAS 22222222 88888888 0'),
-(120, 'tbl_empleado', 14, '2020-10-21 18:06:18', 'root@localhost', 'Se actualizó un empleado', 'Información actualizada: 1 1 2 1 0801549841654 JEAN CARLOS RAMIRES 1980-10-19 SDNS8UDFCDSDSASAS 22222222 88888888 200000', 'Información anterior: 1 1 6 8 0801549841654 JEAN CARLOS RAMIRES 1980-10-19 SDNS8UDFCDSDSASAS 22222222 88888888 200000'),
-(121, ' tbl_empleado', 14, '2020-10-21 18:06:27', 'root@localhost', 'Se eliminó un empleado', '', 'Información eliminada: 1 1 2 1 0801549841654 JEAN CARLOS RAMIRES 1980-10-19 SDNS8UDFCDSDSASAS 22222222 88888888 200000'),
-(122, ' tbl_empleado', 16, '2020-10-21 18:06:29', 'root@localhost', 'Se eliminó un empleado', '', 'Información eliminada: 1 4 2 1  DFBDFGBFD 0000-00-00 GHNFGHNGHGH 22222222 88888888 20000'),
-(123, 'tbl_usuario', 13, '2020-10-21 18:07:49', 'root@localhost', 'Se actualizó un usuario', 'Información actualizada: 3 2 JNUNEZ Ax3@Xa1& 1 1', 'Información anterior: 3 1 JNUNEZ Ax3@Xa1& 1 1'),
-(124, 'tbl_usuario', 13, '2020-10-21 18:11:29', 'root@localhost', 'Se actualizó un usuario', 'Información actualizada: 3 1 JNUNEZ Ax3@Xa1& 1 1', 'Información anterior: 3 2 JNUNEZ Ax3@Xa1& 1 1'),
-(125, 'tbl_usuario', 13, '2020-10-21 18:12:21', 'root@localhost', 'Se actualizó un usuario', 'Información actualizada: 3 2 JNUNEZ Ax3@Xa1& 1 1', 'Información anterior: 3 1 JNUNEZ Ax3@Xa1& 1 1'),
-(126, 'tbl_usuario', 12, '2020-10-21 18:12:25', 'root@localhost', 'Se actualizó un usuario', 'Información actualizada: 3 2 JNUNEZ Yv3%Vr8} 1 1', 'Información anterior: 3 1 JNUNEZ Yv3%Vr8} 1 1'),
-(127, 'tbl_usuario', 12, '2020-10-21 18:12:29', 'root@localhost', 'Se actualizó un usuario', 'Información actualizada: 3 1 JNUNEZ Yv3%Vr8} 1 1', 'Información anterior: 3 2 JNUNEZ Yv3%Vr8} 1 1'),
-(128, 'tbl_usuario', 11, '2020-10-21 21:34:26', 'root@localhost', 'Se actualizó un usuario', 'Información actualizada: 12 1 WRAMIRES Pv5{Qi0} 3 1', 'Información anterior: 12 1 WRAMIRES Pv5{Qi0} 1 1'),
-(129, 'tbl_usuario', 11, '2020-10-21 21:34:58', 'root@localhost', 'Se actualizó un usuario', 'Información actualizada: 12 1 WRAMIRES Pv5{Qi0} 4 1', 'Información anterior: 12 1 WRAMIRES Pv5{Qi0} 3 1'),
-(130, 'tbl_preguntas', 2, '2020-10-21 22:27:30', 'root@localhost', 'Se insertó una nueva pregunta', 'Información insertada: ¿Cuál es el nombre de su primer mascota?', ''),
-(131, 'tbl_preguntas', 1, '2020-10-21 22:27:52', 'root@localhost', 'Se actualizó una nueva pregunta', 'Información actualizada: ¿Cuál es el nombre de su mamá?', 'Información anterior: ¿Cuál es el nombre de su mamá?'),
-(132, 'tbl_preguntas', 3, '2020-10-21 22:28:33', 'root@localhost', 'Se insertó una nueva pregunta', 'Información insertada: ¿Cuál es su color favorito?', ''),
-(133, 'tbl_usuario', 10, '2020-10-21 23:24:13', 'root@localhost', 'Se actualizó un usuario', 'Información actualizada: 8 1 CNUÑEZ Hf4,Qw9] 1 1', 'Información anterior: 8 2 CNUÑEZ Hf4,Qw9] 1 1'),
-(134, 'tbl_usuario', 13, '2020-10-21 23:24:47', 'root@localhost', 'Se actualizó un usuario', 'Información actualizada: 3 1 JNUNEZ Ax3@Xa1& 1 1', 'Información anterior: 3 2 JNUNEZ Ax3@Xa1& 1 1'),
-(135, 'tbl_usuario', 1, '2020-10-21 23:24:59', 'root@localhost', 'Se actualizó un usuario', 'Información actualizada: 1 2 JNUNEZ Franclar#2020 1 0', 'Información anterior: 1 1 JNUNEZ Franclar#2020 1 0'),
-(136, 'tbl_usuario', 12, '2020-10-21 23:26:44', 'root@localhost', 'Se eliminó un usuario', '', 'Información eliminada: 3 1 JNUNEZ Yv3%Vr8} 1 1'),
-(137, 'tbl_usuario', 13, '2020-10-21 23:26:45', 'root@localhost', 'Se eliminó un usuario', '', 'Información eliminada: 3 1 JNUNEZ Ax3@Xa1& 1 1'),
-(138, 'tbl_usuario', 1, '2020-10-21 23:27:35', 'root@localhost', 'Se actualizó un usuario', 'Información actualizada: 1 2 JNUNEZ Franclar#2020 1 0', 'Información anterior: 1 2 JNUNEZ Franclar#2020 1 0'),
-(139, 'tbl_usuario', 1, '2020-10-21 23:27:46', 'root@localhost', 'Se actualizó un usuario', 'Información actualizada: 1 1 JNUNEZ Franclar#2020 1 0', 'Información anterior: 1 2 JNUNEZ Franclar#2020 1 0'),
-(140, 'tbl_pregunta_usuario', 1, '2020-10-22 00:10:25', 'root@localhost', 'Se eliminó una respuesta de un usuario', '', 'Información eliminada: 1 1 Edis'),
-(141, 'tbl_pregunta_usuario', 2, '2020-10-22 00:13:50', 'root@localhost', 'Se insertó una nueva respuesta de un usuario', 'Información insertada: 1 1 dddgfbdgdfgfg', ''),
-(142, 'tbl_pregunta_usuario', 3, '2020-10-22 00:13:50', 'root@localhost', 'Se insertó una nueva respuesta de un usuario', 'Información insertada: 2 1 dfgbfgbfbfg', ''),
-(143, 'tbl_empleado', 17, '2020-10-22 01:02:45', 'root@localhost', 'Se insertó un nuevo empleado', 'Información insertada: 1 1 6 8 0801199714079 JEAN CARLOS NUEZ 1980-10-14 ASDSDJNSDSDSDSDD 22222222 99999999  0', ''),
-(144, 'tbl_usuario', 15, '2020-10-22 01:03:52', 'root@localhost', 'Se insertó un nuevo usuario', 'Información insertada: 17 4 JEANNUÑEZ Minuto#2020 5 1', ''),
-(145, 'tbl_usuario', 15, '2020-10-22 01:05:49', 'root@localhost', 'Se actualizó un usuario', 'Información actualizada: 17 4 JEANNUÑEZ Minuto#2020 5 0', 'Información anterior: 17 4 JEANNUÑEZ Minuto#2020 5 1'),
-(146, 'tbl_usuario', 15, '2020-10-22 01:09:41', 'root@localhost', 'Se actualizó un usuario', 'Información actualizada: 17 4 JEANNUNEZ Minuto#2020 5 0', 'Información anterior: 17 4 JEANNUÑEZ Minuto#2020 5 0'),
-(147, 'tbl_usuario', 15, '2020-10-22 01:16:34', 'root@localhost', 'Se actualizó un usuario', 'Información actualizada: 17 1 JEANNUNEZ Minuto#2020 5 0', 'Información anterior: 17 4 JEANNUNEZ Minuto#2020 5 0'),
-(148, 'tbl_usuario', 1, '2020-10-22 01:16:48', 'root@localhost', 'Se actualizó un usuario', 'Información actualizada: 1 1 JNUNEZ Franclar#2020 1 0', 'Información anterior: 1 1 JNUNEZ Franclar#2020 1 0'),
-(149, 'tbl_usuario', 1, '2020-10-22 01:17:01', 'root@localhost', 'Se actualizó un usuario', 'Información actualizada: 1 1 JNUNEZ Franclar#2020 1 0', 'Información anterior: 1 1 JNUNEZ Franclar#2020 1 0'),
-(150, 'tbl_empleado', 18, '2020-10-22 01:19:04', 'root@localhost', 'Se insertó un nuevo empleado', 'Información insertada: 1 1 1 2 0801199714079 JOSUE ROLANDO RAMIRES GONZALES 1997-10-14 AASSDSSSDDSDSSSDSDSD 22222222 99999999  20000', ''),
-(151, 'tbl_usuario', 16, '2020-10-22 01:21:38', 'root@localhost', 'Se insertó un nuevo usuario', 'Información insertada: 18 1 JOSUERAMIRES Xi0_Sa7] 1 1', ''),
-(152, 'tbl_usuario', 10, '2020-10-22 01:23:13', 'root@localhost', 'Se actualizó un usuario', 'Información actualizada: 8 1 CNUÑEZ Hf4,Qw9] 2 0', 'Información anterior: 8 1 CNUÑEZ Hf4,Qw9] 1 1'),
-(153, 'tbl_usuario', 11, '2020-10-22 01:24:39', 'root@localhost', 'Se actualizó un usuario', 'Información actualizada: 12 1 WRAMIRES Minuto.87# 4 0', 'Información anterior: 12 1 WRAMIRES Pv5{Qi0} 4 1'),
-(154, 'tbl_usuario', 11, '2020-10-22 01:25:00', 'root@localhost', 'Se actualizó un usuario', 'Información actualizada: 12 1 WRAMIRES Minuto.87# 2 0', 'Información anterior: 12 1 WRAMIRES Minuto.87# 4 0'),
-(155, 'tbl_empleado', 19, '2020-10-22 01:43:11', 'root@localhost', 'Se insertó un nuevo empleado', 'Información insertada: 1 1 1 1 0801199999999 JEAN JOSUE GONZALES RAMOS 1987-10-12 SKKSSKSKSSSSSSS JSSSS 22222222 99999999  200000', ''),
-(156, 'tbl_usuario', 17, '2020-10-22 01:46:55', 'root@localhost', 'Se insertó un nuevo usuario', 'Información insertada: 19 1 JOSUERAMOS Ep4:Ih8/ 1 1', ''),
-(157, 'tbl_usuario', 17, '2020-10-22 01:47:52', 'root@localhost', 'Se actualizó un usuario', 'Información actualizada: 19 1 JOSUERAMOS Ep4:Ih8/ 1 1', 'Información anterior: 19 1 JOSUERAMOS Ep4:Ih8/ 1 1'),
-(158, 'tbl_usuario', 17, '2020-10-22 01:48:03', 'root@localhost', 'Se actualizó un usuario', 'Información actualizada: 19 2 JOSUERAMOS Ep4:Ih8/ 1 1', 'Información anterior: 19 1 JOSUERAMOS Ep4:Ih8/ 1 1'),
-(159, 'tbl_empleado', 20, '2020-10-22 01:55:47', 'root@localhost', 'Se insertó un nuevo empleado', 'Información insertada: 1 1 6 8 0801115556666 JOSUE CACERES ACOSTA 1980-10-04 SDSDCSDCSDCSD 22222222 99999999  0', ''),
-(160, 'tbl_usuario', 18, '2020-10-22 01:56:25', 'root@localhost', 'Se insertó un nuevo usuario', 'Información insertada: 20 4 JOSUERS Minuto.85 5 1', ''),
-(161, 'tbl_usuario', 18, '2020-10-22 22:00:44', 'root@localhost', 'Se actualizó un usuario', 'Información actualizada: 20 1 JOSUERS Minuto.85 5 1', 'Información anterior: 20 4 JOSUERS Minuto.85 5 1'),
-(162, 'tbl_usuario', 1, '2020-10-23 01:56:57', 'root@localhost', 'Se actualizó un usuario', 'Información actualizada: 1 1 ADMIN Franclar#2020 1 0', 'Información anterior: 1 1 JNUNEZ Franclar#2020 1 0'),
-(163, 'tbl_usuario', 11, '2020-10-23 03:33:17', 'root@localhost', 'Se actualizó un usuario', 'Información actualizada: 12 2 WRAMIRES Minuto.87# 2 0', 'Información anterior: 12 1 WRAMIRES Minuto.87# 2 0'),
-(164, 'tbl_usuario', 18, '2020-10-26 03:44:23', 'root@localhost', 'Se actualizó un usuario', 'Información actualizada: 20 1 JOSUERS Minuto.85# 5 1', 'Información anterior: 20 1 JOSUERS Minuto.85 5 1'),
-(165, 'tbl_pregunta_usuario', 17, '2020-10-26 05:39:28', 'root@localhost', 'Se insertó una nueva respuesta de un usuario', 'Información insertada: 1 18 assasaasas', ''),
-(166, 'tbl_pregunta_usuario', 18, '2020-10-26 05:39:57', 'root@localhost', 'Se insertó una nueva respuesta de un usuario', 'Información insertada: 1 18 assasaasasa', ''),
-(167, 'tbl_pregunta_usuario', 19, '2020-10-26 05:40:56', 'root@localhost', 'Se insertó una nueva respuesta de un usuario', 'Información insertada: 3 18 aaaaaaaaaaaaaaa', ''),
-(168, 'tbl_pregunta_usuario', 20, '2020-10-26 05:49:08', 'root@localhost', 'Se insertó una nueva respuesta de un usuario', 'Información insertada: 2 18 asasasaaa', ''),
-(169, 'tbl_usuario', 18, '2020-10-26 05:49:09', 'root@localhost', 'Se actualizó un usuario', 'Información actualizada: 20 1 JOSUERS Minuto.85# 5 1', 'Información anterior: 20 1 JOSUERS Minuto.85# 5 1'),
-(170, 'tbl_pregunta_usuario', 21, '2020-10-26 05:49:48', 'root@localhost', 'Se insertó una nueva respuesta de un usuario', 'Información insertada: 3 18 aaaaaassfgghng', ''),
-(171, 'tbl_usuario', 18, '2020-10-26 05:49:48', 'root@localhost', 'Se actualizó un usuario', 'Información actualizada: 20 1 JOSUERS Minuto.85# 5 1', 'Información anterior: 20 1 JOSUERS Minuto.85# 5 1'),
-(172, 'tbl_pregunta_usuario', 22, '2020-10-26 05:56:22', 'root@localhost', 'Se insertó una nueva respuesta de un usuario', 'Información insertada: 2 18 sdfivbdfvdsfsdfdf', ''),
-(173, 'tbl_usuario', 18, '2020-10-26 05:56:22', 'root@localhost', 'Se actualizó un usuario', 'Información actualizada: 20 1 JOSUERS Minuto.85# 5 1', 'Información anterior: 20 1 JOSUERS Minuto.85# 5 1'),
-(174, 'tbl_pregunta_usuario', 23, '2020-10-26 05:56:44', 'root@localhost', 'Se insertó una nueva respuesta de un usuario', 'Información insertada: 1 18 lolololololo', ''),
-(175, 'tbl_usuario', 18, '2020-10-26 05:56:44', 'root@localhost', 'Se actualizó un usuario', 'Información actualizada: 20 1 JOSUERS Minuto.85# 5 1', 'Información anterior: 20 1 JOSUERS Minuto.85# 5 1'),
-(176, 'tbl_pregunta_usuario', 24, '2020-10-26 05:57:05', 'root@localhost', 'Se insertó una nueva respuesta de un usuario', 'Información insertada: 2 18 assaeeeewewew', ''),
-(177, 'tbl_usuario', 18, '2020-10-26 05:57:05', 'root@localhost', 'Se actualizó un usuario', 'Información actualizada: 20 1 JOSUERS Minuto.85# 5 1', 'Información anterior: 20 1 JOSUERS Minuto.85# 5 1'),
-(178, 'tbl_pregunta_usuario', 25, '2020-10-26 06:00:25', 'root@localhost', 'Se insertó una nueva respuesta de un usuario', 'Información insertada: 1 18 dsdasawwwwwww', ''),
-(179, 'tbl_usuario', 18, '2020-10-26 06:00:26', 'root@localhost', 'Se actualizó un usuario', 'Información actualizada: 20 1 JOSUERS Minuto.85# 5 1', 'Información anterior: 20 1 JOSUERS Minuto.85# 5 1'),
-(180, 'tbl_pregunta_usuario', 26, '2020-10-26 06:02:28', 'root@localhost', 'Se insertó una nueva respuesta de un usuario', 'Información insertada: 1 18 ñññññññññññññoooooooooooo', ''),
-(181, 'tbl_usuario', 18, '2020-10-26 06:02:28', 'root@localhost', 'Se actualizó un usuario', 'Información actualizada: 20 1 JOSUERS Minuto.85# 5 1', 'Información anterior: 20 1 JOSUERS Minuto.85# 5 1'),
-(182, 'tbl_pregunta_usuario', 27, '2020-10-26 06:07:51', 'root@localhost', 'Se insertó una nueva respuesta de un usuario', 'Información insertada: 2 18 aasassddñññ', ''),
-(183, 'tbl_usuario', 18, '2020-10-26 06:07:51', 'root@localhost', 'Se actualizó un usuario', 'Información actualizada: 20 1 JOSUERS Minuto.85# 5 1', 'Información anterior: 20 1 JOSUERS Minuto.85# 5 1'),
-(184, 'tbl_usuario', 18, '2020-10-26 06:08:11', 'root@localhost', 'Se actualizó un usuario', 'Información actualizada: 20 1 JOSUERS Minuto.85# 5 1', 'Información anterior: 20 1 JOSUERS Minuto.85# 5 1'),
-(185, 'tbl_pregunta_usuario', 28, '2020-10-26 06:08:35', 'root@localhost', 'Se insertó una nueva respuesta de un usuario', 'Información insertada: 1 18 ssdsdrtttyty', ''),
-(186, 'tbl_usuario', 18, '2020-10-26 06:08:35', 'root@localhost', 'Se actualizó un usuario', 'Información actualizada: 20 1 JOSUERS Minuto.85# 5 1', 'Información anterior: 20 1 JOSUERS Minuto.85# 5 1'),
-(187, 'tbl_pregunta_usuario', 29, '2020-10-26 06:08:43', 'root@localhost', 'Se insertó una nueva respuesta de un usuario', 'Información insertada: 2 18 aassdsdtrttss', ''),
-(188, 'tbl_usuario', 18, '2020-10-26 06:08:43', 'root@localhost', 'Se actualizó un usuario', 'Información actualizada: 20 1 JOSUERS Minuto.85# 5 1', 'Información anterior: 20 1 JOSUERS Minuto.85# 5 1'),
-(189, 'tbl_pregunta_usuario', 30, '2020-10-26 06:08:48', 'root@localhost', 'Se insertó una nueva respuesta de un usuario', 'Información insertada: 3 18 sdsdyyhyhyh', ''),
-(190, 'tbl_usuario', 18, '2020-10-26 06:08:48', 'root@localhost', 'Se actualizó un usuario', 'Información actualizada: 20 1 JOSUERS Minuto.85# 5 1', 'Información anterior: 20 1 JOSUERS Minuto.85# 5 1'),
-(191, 'tbl_usuario', 18, '2020-10-27 01:16:37', 'root@localhost', 'Se actualizó un usuario', 'Información actualizada: 20 1 JOSUERS Minuto.85# 3 1', 'Información anterior: 20 1 JOSUERS Minuto.85# 5 1'),
-(192, 'tbl_pregunta_usuario', 2, '2020-10-27 01:17:20', 'root@localhost', 'Se eliminó una respuesta de un usuario', '', 'Información eliminada: 1 1 dddgfbdgdfgfg'),
-(193, 'tbl_pregunta_usuario', 3, '2020-10-27 01:17:20', 'root@localhost', 'Se eliminó una respuesta de un usuario', '', 'Información eliminada: 2 1 dfgbfgbfbfg'),
-(194, 'tbl_pregunta_usuario', 17, '2020-10-27 01:17:20', 'root@localhost', 'Se eliminó una respuesta de un usuario', '', 'Información eliminada: 1 18 assasaasas'),
-(195, 'tbl_pregunta_usuario', 18, '2020-10-27 01:17:20', 'root@localhost', 'Se eliminó una respuesta de un usuario', '', 'Información eliminada: 1 18 assasaasasa'),
-(196, 'tbl_pregunta_usuario', 19, '2020-10-27 01:17:20', 'root@localhost', 'Se eliminó una respuesta de un usuario', '', 'Información eliminada: 3 18 aaaaaaaaaaaaaaa'),
-(197, 'tbl_pregunta_usuario', 20, '2020-10-27 01:17:20', 'root@localhost', 'Se eliminó una respuesta de un usuario', '', 'Información eliminada: 2 18 asasasaaa'),
-(198, 'tbl_pregunta_usuario', 21, '2020-10-27 01:17:20', 'root@localhost', 'Se eliminó una respuesta de un usuario', '', 'Información eliminada: 3 18 aaaaaassfgghng'),
-(199, 'tbl_pregunta_usuario', 22, '2020-10-27 01:17:20', 'root@localhost', 'Se eliminó una respuesta de un usuario', '', 'Información eliminada: 2 18 sdfivbdfvdsfsdfdf'),
-(200, 'tbl_pregunta_usuario', 23, '2020-10-27 01:17:20', 'root@localhost', 'Se eliminó una respuesta de un usuario', '', 'Información eliminada: 1 18 lolololololo'),
-(201, 'tbl_pregunta_usuario', 24, '2020-10-27 01:17:20', 'root@localhost', 'Se eliminó una respuesta de un usuario', '', 'Información eliminada: 2 18 assaeeeewewew'),
-(202, 'tbl_pregunta_usuario', 25, '2020-10-27 01:17:20', 'root@localhost', 'Se eliminó una respuesta de un usuario', '', 'Información eliminada: 1 18 dsdasawwwwwww'),
-(203, 'tbl_pregunta_usuario', 26, '2020-10-27 01:17:20', 'root@localhost', 'Se eliminó una respuesta de un usuario', '', 'Información eliminada: 1 18 ñññññññññññññoooooooooooo'),
-(204, 'tbl_pregunta_usuario', 27, '2020-10-27 01:17:20', 'root@localhost', 'Se eliminó una respuesta de un usuario', '', 'Información eliminada: 2 18 aasassddñññ'),
-(205, 'tbl_pregunta_usuario', 28, '2020-10-27 01:17:20', 'root@localhost', 'Se eliminó una respuesta de un usuario', '', 'Información eliminada: 1 18 ssdsdrtttyty'),
-(206, 'tbl_pregunta_usuario', 29, '2020-10-27 01:17:20', 'root@localhost', 'Se eliminó una respuesta de un usuario', '', 'Información eliminada: 2 18 aassdsdtrttss'),
-(207, 'tbl_pregunta_usuario', 30, '2020-10-27 01:17:20', 'root@localhost', 'Se eliminó una respuesta de un usuario', '', 'Información eliminada: 3 18 sdsdyyhyhyh'),
-(208, 'tbl_preguntas', 4, '2020-10-27 01:21:33', 'root@localhost', 'Se insertó una nueva pregunta', 'Información insertada: ¿Cuál es su comida favorita?', ''),
-(209, 'tbl_preguntas', 5, '2020-10-27 01:36:56', 'root@localhost', 'Se insertó una nueva pregunta', 'Información insertada: ¿Cuál es el nombre de su padre?', ''),
-(210, 'tbl_preguntas', 6, '2020-10-27 01:36:56', 'root@localhost', 'Se insertó una nueva pregunta', 'Información insertada: ¿Cómo se llama su primo mayor?', ''),
-(211, 'tbl_preguntas', 7, '2020-10-27 01:36:56', 'root@localhost', 'Se insertó una nueva pregunta', 'Información insertada: ¿Cómo se llama su tío favorito?', ''),
-(212, 'tbl_preguntas', 8, '2020-10-27 01:36:56', 'root@localhost', 'Se insertó una nueva pregunta', 'Información insertada: ¿Cómo se llama su primera escuela?', ''),
-(213, 'tbl_preguntas', 9, '2020-10-27 01:36:56', 'root@localhost', 'Se insertó una nueva pregunta', 'Información insertada: ¿Cómo se llama su tía favorita?', ''),
-(214, 'tbl_preguntas', 10, '2020-10-27 01:36:56', 'root@localhost', 'Se insertó una nueva pregunta', 'Información insertada: ¿Cuál es el nombre de su primer pareja?', ''),
-(215, 'tbl_pregunta_usuario', 31, '2020-10-27 01:39:44', 'root@localhost', 'Se insertó una nueva respuesta de un usuario', 'Información insertada: 1 18 EDIS', ''),
-(216, 'tbl_usuario', 18, '2020-10-27 01:39:44', 'root@localhost', 'Se actualizó un usuario', 'Información actualizada: 20 1 JOSUERS Minuto.85# 3 1', 'Información anterior: 20 1 JOSUERS Minuto.85# 3 1'),
-(217, 'tbl_pregunta_usuario', 32, '2020-10-27 01:39:55', 'root@localhost', 'Se insertó una nueva respuesta de un usuario', 'Información insertada: 1 18 EDIS', ''),
-(218, 'tbl_usuario', 18, '2020-10-27 01:39:55', 'root@localhost', 'Se actualizó un usuario', 'Información actualizada: 20 1 JOSUERS Minuto.85# 3 1', 'Información anterior: 20 1 JOSUERS Minuto.85# 3 1'),
-(219, 'tbl_pregunta_usuario', 33, '2020-10-27 01:40:05', 'root@localhost', 'Se insertó una nueva respuesta de un usuario', 'Información insertada: 2 18 ROKY', ''),
-(220, 'tbl_usuario', 18, '2020-10-27 01:40:05', 'root@localhost', 'Se actualizó un usuario', 'Información actualizada: 20 1 JOSUERS Minuto.85# 3 1', 'Información anterior: 20 1 JOSUERS Minuto.85# 3 1'),
-(221, 'tbl_pregunta_usuario', 31, '2020-10-27 01:47:35', 'root@localhost', 'Se eliminó una respuesta de un usuario', '', 'Información eliminada: 1 18 EDIS'),
-(222, 'tbl_pregunta_usuario', 32, '2020-10-27 01:47:35', 'root@localhost', 'Se eliminó una respuesta de un usuario', '', 'Información eliminada: 1 18 EDIS'),
-(223, 'tbl_pregunta_usuario', 33, '2020-10-27 01:47:42', 'root@localhost', 'Se eliminó una respuesta de un usuario', '', 'Información eliminada: 2 18 ROKY'),
-(224, 'tbl_pregunta_usuario', 34, '2020-10-27 01:48:02', 'root@localhost', 'Se insertó una nueva respuesta de un usuario', 'Información insertada: 1 18 EDIS', ''),
-(225, 'tbl_usuario', 18, '2020-10-27 01:48:02', 'root@localhost', 'Se actualizó un usuario', 'Información actualizada: 20 1 JOSUERS Minuto.85# 3 1', 'Información anterior: 20 1 JOSUERS Minuto.85# 3 1'),
-(226, 'tbl_pregunta_usuario', 34, '2020-10-27 01:48:18', 'root@localhost', 'Se eliminó una respuesta de un usuario', '', 'Información eliminada: 1 18 EDIS'),
-(227, 'tbl_usuario', 18, '2020-10-27 01:48:35', 'root@localhost', 'Se actualizó un usuario', 'Información actualizada: 20 1 JOSUERS Minuto.85# 3 1', 'Información anterior: 20 1 JOSUERS Minuto.85# 3 1'),
-(228, 'tbl_pregunta_usuario', 35, '2020-10-27 01:48:47', 'root@localhost', 'Se insertó una nueva respuesta de un usuario', 'Información insertada: 1 18 EDIS', ''),
-(229, 'tbl_usuario', 18, '2020-10-27 01:48:47', 'root@localhost', 'Se actualizó un usuario', 'Información actualizada: 20 1 JOSUERS Minuto.85# 3 1', 'Información anterior: 20 1 JOSUERS Minuto.85# 3 1'),
-(230, 'tbl_pregunta_usuario', 35, '2020-10-27 01:49:34', 'root@localhost', 'Se eliminó una respuesta de un usuario', '', 'Información eliminada: 1 18 EDIS'),
-(231, 'tbl_usuario', 18, '2020-10-27 01:49:54', 'root@localhost', 'Se actualizó un usuario', 'Información actualizada: 20 1 JOSUERS Minuto.85# 3 1', 'Información anterior: 20 1 JOSUERS Minuto.85# 3 1'),
-(232, 'tbl_pregunta_usuario', 36, '2020-10-27 01:51:07', 'root@localhost', 'Se insertó una nueva respuesta de un usuario', 'Información insertada: 1 18 EDIS', ''),
-(233, 'tbl_usuario', 18, '2020-10-27 01:51:07', 'root@localhost', 'Se actualizó un usuario', 'Información actualizada: 20 1 JOSUERS Minuto.85# 3 1', 'Información anterior: 20 1 JOSUERS Minuto.85# 3 1'),
-(234, 'tbl_pregunta_usuario', 37, '2020-10-27 01:51:20', 'root@localhost', 'Se insertó una nueva respuesta de un usuario', 'Información insertada: 2 18 ROKY', ''),
-(235, 'tbl_usuario', 18, '2020-10-27 01:51:20', 'root@localhost', 'Se actualizó un usuario', 'Información actualizada: 20 1 JOSUERS Minuto.85# 3 1', 'Información anterior: 20 1 JOSUERS Minuto.85# 3 1'),
-(236, 'tbl_pregunta_usuario', 38, '2020-10-27 01:51:33', 'root@localhost', 'Se insertó una nueva respuesta de un usuario', 'Información insertada: 3 18 ROJO', ''),
-(237, 'tbl_usuario', 18, '2020-10-27 01:51:33', 'root@localhost', 'Se actualizó un usuario', 'Información actualizada: 20 1 JOSUERS Minuto.85# 3 1', 'Información anterior: 20 1 JOSUERS Minuto.85# 3 1'),
-(238, 'tbl_usuario', 18, '2020-10-27 03:25:02', 'root@localhost', 'Se actualizó un usuario', 'Información actualizada: 20 1 JOSUERS Minuto.85# 3 1', 'Información anterior: 20 1 JOSUERS Minuto.85# 3 1'),
-(239, 'tbl_pregunta_usuario', 36, '2020-10-27 03:26:20', 'root@localhost', 'Se eliminó una respuesta de un usuario', '', 'Información eliminada: 1 18 EDIS'),
-(240, 'tbl_pregunta_usuario', 37, '2020-10-27 03:26:21', 'root@localhost', 'Se eliminó una respuesta de un usuario', '', 'Información eliminada: 2 18 ROKY'),
-(241, 'tbl_pregunta_usuario', 38, '2020-10-27 03:26:21', 'root@localhost', 'Se eliminó una respuesta de un usuario', '', 'Información eliminada: 3 18 ROJO'),
-(242, 'tbl_pregunta_usuario', 39, '2020-10-27 03:27:02', 'root@localhost', 'Se insertó una nueva respuesta de un usuario', 'Información insertada: 1 18 PANCHA', ''),
-(243, 'tbl_usuario', 18, '2020-10-27 03:27:02', 'root@localhost', 'Se actualizó un usuario', 'Información actualizada: 20 1 JOSUERS Minuto.85# 3 1', 'Información anterior: 20 1 JOSUERS Minuto.85# 3 1'),
-(244, 'tbl_pregunta_usuario', 40, '2020-10-27 03:27:40', 'root@localhost', 'Se insertó una nueva respuesta de un usuario', 'Información insertada: 2 18 ROKY', ''),
-(245, 'tbl_usuario', 18, '2020-10-27 03:27:40', 'root@localhost', 'Se actualizó un usuario', 'Información actualizada: 20 1 JOSUERS Minuto.85# 3 1', 'Información anterior: 20 1 JOSUERS Minuto.85# 3 1'),
-(246, 'tbl_pregunta_usuario', 41, '2020-10-27 03:28:07', 'root@localhost', 'Se insertó una nueva respuesta de un usuario', 'Información insertada: 3 18 ROJO', ''),
-(247, 'tbl_usuario', 18, '2020-10-27 03:28:07', 'root@localhost', 'Se actualizó un usuario', 'Información actualizada: 20 1 JOSUERS Minuto.85# 3 1', 'Información anterior: 20 1 JOSUERS Minuto.85# 3 1'),
-(248, 'tbl_usuario', 1, '2020-10-27 05:06:05', 'root@localhost', 'Se actualizó un usuario', 'Información actualizada: 1 1 ADMIN Franclar#2020 1 0', 'Información anterior: 1 1 ADMIN Franclar#2020 1 0'),
-(249, 'tbl_usuario', 18, '2020-10-29 05:10:24', 'root@localhost', 'Se actualizó un usuario', 'Información actualizada: 20 1 JOSUERS Minuto.85# 3 1', 'Información anterior: 20 1 JOSUERS Minuto.85# 3 1'),
-(250, 'tbl_usuario', 18, '2020-10-29 05:11:36', 'root@localhost', 'Se actualizó un usuario', 'Información actualizada: 20 1 JOSUERS Minuto.85# 3 1', 'Información anterior: 20 1 JOSUERS Minuto.85# 3 1'),
-(251, 'tbl_pregunta_usuario', 39, '2020-10-29 05:12:25', 'root@localhost', 'Se eliminó una respuesta de un usuario', '', 'Información eliminada: 1 18 PANCHA');
-INSERT INTO `tbl_bitacora_registro` (`id_bitacora`, `id_tabla`, `id_registro`, `fecha`, `ejecutor`, `actividad_realizada`, `informacion_actual`, `informacion_anterior`) VALUES
-(252, 'tbl_pregunta_usuario', 40, '2020-10-29 05:12:26', 'root@localhost', 'Se eliminó una respuesta de un usuario', '', 'Información eliminada: 2 18 ROKY'),
-(253, 'tbl_pregunta_usuario', 41, '2020-10-29 05:12:26', 'root@localhost', 'Se eliminó una respuesta de un usuario', '', 'Información eliminada: 3 18 ROJO'),
-(254, 'tbl_pregunta_usuario', 42, '2020-10-29 05:12:33', 'root@localhost', 'Se insertó una nueva respuesta de un usuario', 'Información insertada: 1 18 asasasas', ''),
-(255, 'tbl_usuario', 18, '2020-10-29 05:12:33', 'root@localhost', 'Se actualizó un usuario', 'Información actualizada: 20 1 JOSUERS Minuto.85# 3 1', 'Información anterior: 20 1 JOSUERS Minuto.85# 3 1'),
-(256, 'tbl_pregunta_usuario', 43, '2020-10-29 05:12:52', 'root@localhost', 'Se insertó una nueva respuesta de un usuario', 'Información insertada: 2 18 sdsdsd', ''),
-(257, 'tbl_usuario', 18, '2020-10-29 05:12:52', 'root@localhost', 'Se actualizó un usuario', 'Información actualizada: 20 1 JOSUERS Minuto.85# 3 1', 'Información anterior: 20 1 JOSUERS Minuto.85# 3 1'),
-(258, 'tbl_pregunta_usuario', 44, '2020-10-29 05:12:58', 'root@localhost', 'Se insertó una nueva respuesta de un usuario', 'Información insertada: 3 18 asasas', ''),
-(259, 'tbl_usuario', 18, '2020-10-29 05:12:58', 'root@localhost', 'Se actualizó un usuario', 'Información actualizada: 20 1 JOSUERS Minuto.85# 3 1', 'Información anterior: 20 1 JOSUERS Minuto.85# 3 1'),
-(260, 'tbl_usuario', 18, '2020-10-29 05:44:07', 'root@localhost', 'Se actualizó un usuario', 'Información actualizada: 20 1 JOSUERS Minuto85# 3 0', 'Información anterior: 20 1 JOSUERS Minuto.85# 3 1'),
-(261, 'tbl_usuario', 18, '2020-10-29 05:45:19', 'root@localhost', 'Se actualizó un usuario', 'Información actualizada: 20 1 JOSUERS Minuto85.# 3 1', 'Información anterior: 20 1 JOSUERS Minuto85# 3 0'),
-(262, 'tbl_pregunta_usuario', 42, '2020-10-29 05:45:49', 'root@localhost', 'Se eliminó una respuesta de un usuario', '', 'Información eliminada: 1 18 asasasas'),
-(263, 'tbl_pregunta_usuario', 43, '2020-10-29 05:45:49', 'root@localhost', 'Se eliminó una respuesta de un usuario', '', 'Información eliminada: 2 18 sdsdsd'),
-(264, 'tbl_pregunta_usuario', 44, '2020-10-29 05:45:49', 'root@localhost', 'Se eliminó una respuesta de un usuario', '', 'Información eliminada: 3 18 asasas'),
-(265, 'tbl_pregunta_usuario', 45, '2020-10-29 05:45:56', 'root@localhost', 'Se insertó una nueva respuesta de un usuario', 'Información insertada: 1 18 asasas', ''),
-(266, 'tbl_usuario', 18, '2020-10-29 05:45:56', 'root@localhost', 'Se actualizó un usuario', 'Información actualizada: 20 1 JOSUERS Minuto85.# 3 1', 'Información anterior: 20 1 JOSUERS Minuto85.# 3 1'),
-(267, 'tbl_pregunta_usuario', 46, '2020-10-29 05:46:01', 'root@localhost', 'Se insertó una nueva respuesta de un usuario', 'Información insertada: 2 18 asasas', ''),
-(268, 'tbl_usuario', 18, '2020-10-29 05:46:01', 'root@localhost', 'Se actualizó un usuario', 'Información actualizada: 20 1 JOSUERS Minuto85.# 3 1', 'Información anterior: 20 1 JOSUERS Minuto85.# 3 1'),
-(269, 'tbl_pregunta_usuario', 47, '2020-10-29 05:46:08', 'root@localhost', 'Se insertó una nueva respuesta de un usuario', 'Información insertada: 3 18 aasas', ''),
-(270, 'tbl_usuario', 18, '2020-10-29 05:46:08', 'root@localhost', 'Se actualizó un usuario', 'Información actualizada: 20 1 JOSUERS Minuto85.# 3 1', 'Información anterior: 20 1 JOSUERS Minuto85.# 3 1'),
-(271, 'tbl_usuario', 18, '2020-10-29 05:47:06', 'root@localhost', 'Se actualizó un usuario', 'Información actualizada: 20 1 JOSUERS Minuto#2020 3 0', 'Información anterior: 20 1 JOSUERS Minuto85.# 3 1'),
-(272, 'tbl_usuario', 18, '2020-10-29 05:48:04', 'root@localhost', 'Se actualizó un usuario', 'Información actualizada: 20 1 JOSUERS Minuto#20201 3 0', 'Información anterior: 20 1 JOSUERS Minuto#2020 3 0'),
-(273, 'tbl_usuario', 18, '2020-11-04 23:19:49', 'root@localhost', 'Se actualizó un usuario', 'Información actualizada: 20 1 JOSUERS Minuto#20201 3 1', 'Información anterior: 20 1 JOSUERS Minuto#20201 3 0'),
-(274, 'tbl_pregunta_usuario', 45, '2020-11-04 23:20:37', 'root@localhost', 'Se eliminó una respuesta de un usuario', '', 'Información eliminada: 1 18 asasas'),
-(275, 'tbl_pregunta_usuario', 46, '2020-11-04 23:20:37', 'root@localhost', 'Se eliminó una respuesta de un usuario', '', 'Información eliminada: 2 18 asasas'),
-(276, 'tbl_pregunta_usuario', 47, '2020-11-04 23:20:37', 'root@localhost', 'Se eliminó una respuesta de un usuario', '', 'Información eliminada: 3 18 aasas'),
-(277, 'tbl_pregunta_usuario', 48, '2020-11-04 23:31:16', 'root@localhost', 'Se insertó una nueva respuesta de un usuario', 'Información insertada: 1 18 sdsdfdsfdf', ''),
-(278, 'tbl_usuario', 18, '2020-11-04 23:31:16', 'root@localhost', 'Se actualizó un usuario', 'Información actualizada: 20 1 JOSUERS Minuto#20201 3 1', 'Información anterior: 20 1 JOSUERS Minuto#20201 3 1'),
-(279, 'tbl_pregunta_usuario', 49, '2020-11-04 23:31:34', 'root@localhost', 'Se insertó una nueva respuesta de un usuario', 'Información insertada: 2 18 sasdsd', ''),
-(280, 'tbl_usuario', 18, '2020-11-04 23:31:34', 'root@localhost', 'Se actualizó un usuario', 'Información actualizada: 20 1 JOSUERS Minuto#20201 3 1', 'Información anterior: 20 1 JOSUERS Minuto#20201 3 1'),
-(281, 'tbl_pregunta_usuario', 50, '2020-11-04 23:31:40', 'root@localhost', 'Se insertó una nueva respuesta de un usuario', 'Información insertada: 3 18 sdsd', ''),
-(282, 'tbl_usuario', 18, '2020-11-04 23:31:40', 'root@localhost', 'Se actualizó un usuario', 'Información actualizada: 20 1 JOSUERS Minuto#20201 3 1', 'Información anterior: 20 1 JOSUERS Minuto#20201 3 1'),
-(283, 'tbl_usuario', 18, '2020-11-04 23:32:45', 'root@localhost', 'Se actualizó un usuario', 'Información actualizada: 20 1 JOSUERS Minuto#20202 3 0', 'Información anterior: 20 1 JOSUERS Minuto#20201 3 1'),
-(284, 'tbl_usuario', 18, '2020-11-05 01:48:19', 'root@localhost', 'Se actualizó un usuario', 'Información actualizada: 20 3 JOSUERS Minuto#20202 3 0', 'Información anterior: 20 1 JOSUERS Minuto#20202 3 0'),
-(285, 'tbl_usuario', 18, '2020-11-05 01:49:51', 'root@localhost', 'Se actualizó un usuario', 'Información actualizada: 20 1 JOSUERS Minuto#2020 3 0', 'Información anterior: 20 3 JOSUERS Minuto#20202 3 0'),
-(286, 'tbl_usuario', 18, '2020-11-05 01:51:47', 'root@localhost', 'Se actualizó un usuario', 'Información actualizada: 20 3 JOSUERS Minuto#2020 3 0', 'Información anterior: 20 1 JOSUERS Minuto#2020 3 0'),
-(287, 'tbl_usuario', 18, '2020-11-05 01:52:40', 'root@localhost', 'Se actualizó un usuario', 'Información actualizada: 20 1 JOSUERS Minuto$2020 3 0', 'Información anterior: 20 3 JOSUERS Minuto#2020 3 0'),
-(288, 'tbl_usuario', 18, '2020-11-05 01:56:09', 'root@localhost', 'Se actualizó un usuario', 'Información actualizada: 20 2 JOSUERS Minuto$2020 3 0', 'Información anterior: 20 1 JOSUERS Minuto$2020 3 0'),
-(289, 'tbl_usuario', 18, '2020-11-05 01:57:00', 'root@localhost', 'Se actualizó un usuario', 'Información actualizada: 20 2 JOSUERS Minuto$2020 3 0', 'Información anterior: 20 2 JOSUERS Minuto$2020 3 0'),
-(290, 'tbl_parametros', 1, '2020-11-05 02:06:18', 'root@localhost', 'Se actualizó un parámetro', 'Información actualizada: INTENTOS_INGRESO 2', 'Información anterior: INTENTOS_INGRESO 4'),
-(291, 'tbl_usuario', 18, '2020-11-05 02:06:27', 'root@localhost', 'Se actualizó un usuario', 'Información actualizada: 20 2 JOSUERS Minuto$2020 3 0', 'Información anterior: 20 2 JOSUERS Minuto$2020 3 0'),
-(292, 'tbl_usuario', 18, '2020-11-05 02:06:50', 'root@localhost', 'Se actualizó un usuario', 'Información actualizada: 20 2 JOSUERS Minuto$2020 3 0', 'Información anterior: 20 2 JOSUERS Minuto$2020 3 0'),
-(293, 'tbl_usuario', 18, '2020-11-05 02:07:22', 'root@localhost', 'Se actualizó un usuario', 'Información actualizada: 20 2 JOSUERS Minuto$2020 3 0', 'Información anterior: 20 2 JOSUERS Minuto$2020 3 0'),
-(294, 'tbl_usuario', 18, '2020-11-05 02:07:48', 'root@localhost', 'Se actualizó un usuario', 'Información actualizada: 20 2 JOSUERS Minuto$2020 3 0', 'Información anterior: 20 2 JOSUERS Minuto$2020 3 0'),
-(295, 'tbl_usuario', 18, '2020-11-05 02:09:26', 'root@localhost', 'Se actualizó un usuario', 'Información actualizada: 20 2 JOSUERS Minuto$2020 3 0', 'Información anterior: 20 2 JOSUERS Minuto$2020 3 0'),
-(296, 'tbl_usuario', 18, '2020-11-05 02:13:13', 'root@localhost', 'Se actualizó un usuario', 'Información actualizada: 20 2 JOSUERS Minuto$2020 3 0', 'Información anterior: 20 2 JOSUERS Minuto$2020 3 0'),
-(297, 'tbl_usuario', 18, '2020-11-05 03:46:34', 'root@localhost', 'Se actualizó un usuario', 'Información actualizada: 20 2 JOSUERS Minuto$2020 3 1', 'Información anterior: 20 2 JOSUERS Minuto$2020 3 0'),
-(298, 'tbl_usuario', 18, '2020-11-05 03:54:28', 'root@localhost', 'Se actualizó un usuario', 'Información actualizada: 20 2 JOSUERS Minuto$2020 3 0', 'Información anterior: 20 2 JOSUERS Minuto$2020 3 1'),
-(299, 'tbl_usuario', 18, '2020-11-05 04:03:43', 'root@localhost', 'Se actualizó un usuario', 'Información actualizada: 20 3 JOSUERS Minuto$2020 3 0', 'Información anterior: 20 2 JOSUERS Minuto$2020 3 0'),
-(300, 'tbl_usuario', 18, '2020-11-05 04:16:31', 'root@localhost', 'Se actualizó un usuario', 'Información actualizada: 20 1 JOSUERS Minuto$2020 3 0', 'Información anterior: 20 3 JOSUERS Minuto$2020 3 0'),
-(301, 'tbl_usuario', 18, '2020-11-05 04:17:16', 'root@localhost', 'Se actualizó un usuario', 'Información actualizada: 20 2 JOSUERS Minuto$2020 3 0', 'Información anterior: 20 1 JOSUERS Minuto$2020 3 0'),
-(302, 'tbl_usuario', 18, '2020-11-05 04:17:39', 'root@localhost', 'Se actualizó un usuario', 'Información actualizada: 20 1 JOSUERS Minuto$2020 3 0', 'Información anterior: 20 2 JOSUERS Minuto$2020 3 0'),
-(303, 'tbl_usuario', 18, '2020-11-05 04:18:02', 'root@localhost', 'Se actualizó un usuario', 'Información actualizada: 20 2 JOSUERS Minuto$2020 3 0', 'Información anterior: 20 1 JOSUERS Minuto$2020 3 0'),
-(304, 'tbl_usuario', 18, '2020-11-05 04:18:56', 'root@localhost', 'Se actualizó un usuario', 'Información actualizada: 20 1 JOSUERS Minuto$2020 3 0', 'Información anterior: 20 2 JOSUERS Minuto$2020 3 0'),
-(305, 'tbl_usuario', 18, '2020-11-05 04:19:50', 'root@localhost', 'Se actualizó un usuario', 'Información actualizada: 20 2 JOSUERS Minuto$2020 3 0', 'Información anterior: 20 1 JOSUERS Minuto$2020 3 0'),
-(306, 'tbl_usuario', 18, '2020-11-05 04:20:03', 'root@localhost', 'Se actualizó un usuario', 'Información actualizada: 20 1 JOSUERS Minuto$2020 3 0', 'Información anterior: 20 2 JOSUERS Minuto$2020 3 0'),
-(307, 'tbl_usuario', 18, '2020-11-05 04:21:51', 'root@localhost', 'Se actualizó un usuario', 'Información actualizada: 20 2 JOSUERS Minuto$2020 3 0', 'Información anterior: 20 1 JOSUERS Minuto$2020 3 0'),
-(308, 'tbl_usuario', 18, '2020-11-05 04:22:02', 'root@localhost', 'Se actualizó un usuario', 'Información actualizada: 20 1 JOSUERS Minuto$2020 3 0', 'Información anterior: 20 2 JOSUERS Minuto$2020 3 0'),
-(309, 'tbl_usuario', 18, '2020-11-05 04:25:34', 'root@localhost', 'Se actualizó un usuario', 'Información actualizada: 20 2 JOSUERS Minuto$2020 3 0', 'Información anterior: 20 1 JOSUERS Minuto$2020 3 0'),
-(310, 'tbl_usuario', 18, '2020-11-05 04:25:47', 'root@localhost', 'Se actualizó un usuario', 'Información actualizada: 20 1 JOSUERS Minuto$2020 3 0', 'Información anterior: 20 2 JOSUERS Minuto$2020 3 0'),
-(311, 'tbl_usuario', 18, '2020-11-05 04:26:17', 'root@localhost', 'Se actualizó un usuario', 'Información actualizada: 20 2 JOSUERS Minuto$2020 3 0', 'Información anterior: 20 1 JOSUERS Minuto$2020 3 0'),
-(312, 'tbl_usuario', 18, '2020-11-05 04:26:25', 'root@localhost', 'Se actualizó un usuario', 'Información actualizada: 20 1 JOSUERS Minuto$2020 3 0', 'Información anterior: 20 2 JOSUERS Minuto$2020 3 0'),
-(313, 'tbl_usuario', 18, '2020-11-05 04:28:43', 'root@localhost', 'Se actualizó un usuario', 'Información actualizada: 20 2 JOSUERS Minuto$2020 3 0', 'Información anterior: 20 1 JOSUERS Minuto$2020 3 0'),
-(314, 'tbl_usuario', 18, '2020-11-05 04:28:52', 'root@localhost', 'Se actualizó un usuario', 'Información actualizada: 20 1 JOSUERS Minuto$2020 3 0', 'Información anterior: 20 2 JOSUERS Minuto$2020 3 0'),
-(315, 'tbl_usuario', 18, '2020-11-05 04:36:30', 'root@localhost', 'Se actualizó un usuario', 'Información actualizada: 20 2 JOSUERS Minuto$2020 3 0', 'Información anterior: 20 1 JOSUERS Minuto$2020 3 0'),
-(316, 'tbl_usuario', 18, '2020-11-05 04:36:48', 'root@localhost', 'Se actualizó un usuario', 'Información actualizada: 20 2 JOSUERS Minuto$2020 3 0', 'Información anterior: 20 2 JOSUERS Minuto$2020 3 0'),
-(317, 'tbl_usuario', 18, '2020-11-05 04:46:35', 'root@localhost', 'Se actualizó un usuario', 'Información actualizada: 20 1 JOSUERS Minuto$2020 3 0', 'Información anterior: 20 2 JOSUERS Minuto$2020 3 0'),
-(318, 'tbl_usuario', 18, '2020-11-05 04:47:33', 'root@localhost', 'Se actualizó un usuario', 'Información actualizada: 20 2 JOSUERS Minuto$2020 3 0', 'Información anterior: 20 1 JOSUERS Minuto$2020 3 0'),
-(319, 'tbl_usuario', 18, '2020-11-05 04:48:05', 'root@localhost', 'Se actualizó un usuario', 'Información actualizada: 20 2 JOSUERS Minuto$2020 3 0', 'Información anterior: 20 2 JOSUERS Minuto$2020 3 0'),
-(320, 'tbl_usuario', 18, '2020-11-05 04:51:31', 'root@localhost', 'Se actualizó un usuario', 'Información actualizada: 20 2 JOSUERS Minuto$2020 3 0', 'Información anterior: 20 2 JOSUERS Minuto$2020 3 0'),
-(321, 'tbl_usuario', 18, '2020-11-05 05:14:02', 'root@localhost', 'Se actualizó un usuario', 'Información actualizada: 20 1 JOSUERS Minuto$2020 3 0', 'Información anterior: 20 2 JOSUERS Minuto$2020 3 0'),
-(322, 'tbl_usuario', 18, '2020-11-05 05:14:12', 'root@localhost', 'Se actualizó un usuario', 'Información actualizada: 20 2 JOSUERS Minuto$2020 3 0', 'Información anterior: 20 1 JOSUERS Minuto$2020 3 0'),
-(323, 'tbl_usuario', 18, '2020-11-05 05:14:54', 'root@localhost', 'Se actualizó un usuario', 'Información actualizada: 20 2 JOSUERS Minuto$2020 3 0', 'Información anterior: 20 2 JOSUERS Minuto$2020 3 0'),
-(324, 'tbl_usuario', 18, '2020-11-05 05:25:00', 'root@localhost', 'Se actualizó un usuario', 'Información actualizada: 20 3 JOSUERS Minuto$2020 3 0', 'Información anterior: 20 2 JOSUERS Minuto$2020 3 0'),
-(325, 'tbl_usuario', 18, '2020-11-05 05:25:38', 'root@localhost', 'Se actualizó un usuario', 'Información actualizada: 20 1 JOSUERS Minuto$2020 3 0', 'Información anterior: 20 3 JOSUERS Minuto$2020 3 0'),
-(326, 'tbl_usuario', 18, '2020-11-05 05:26:14', 'root@localhost', 'Se actualizó un usuario', 'Información actualizada: 20 2 JOSUERS Minuto$2020 3 0', 'Información anterior: 20 1 JOSUERS Minuto$2020 3 0'),
-(327, 'tbl_usuario', 18, '2020-11-05 05:27:19', 'root@localhost', 'Se actualizó un usuario', 'Información actualizada: 20 1 JOSUERS Minuto$2020 3 0', 'Información anterior: 20 2 JOSUERS Minuto$2020 3 0'),
-(328, 'tbl_usuario', 18, '2020-11-05 05:27:38', 'root@localhost', 'Se actualizó un usuario', 'Información actualizada: 20 2 JOSUERS Minuto$2020 3 0', 'Información anterior: 20 1 JOSUERS Minuto$2020 3 0'),
-(329, 'tbl_usuario', 18, '2020-11-05 05:29:10', 'root@localhost', 'Se actualizó un usuario', 'Información actualizada: 20 1 JOSUERS Minuto$2020 3 0', 'Información anterior: 20 2 JOSUERS Minuto$2020 3 0'),
-(330, 'tbl_usuario', 18, '2020-11-05 05:40:32', 'root@localhost', 'Se actualizó un usuario', 'Información actualizada: 20 2 JOSUERS Minuto$2020 3 0', 'Información anterior: 20 1 JOSUERS Minuto$2020 3 0'),
-(331, 'tbl_usuario', 18, '2020-11-05 05:40:40', 'root@localhost', 'Se actualizó un usuario', 'Información actualizada: 20 1 JOSUERS Minuto$2020 3 0', 'Información anterior: 20 2 JOSUERS Minuto$2020 3 0'),
-(332, 'tbl_usuario', 18, '2020-11-05 05:46:25', 'root@localhost', 'Se actualizó un usuario', 'Información actualizada: 20 2 JOSUERS Minuto$2020 3 0', 'Información anterior: 20 1 JOSUERS Minuto$2020 3 0'),
-(333, 'tbl_usuario', 18, '2020-11-05 05:46:40', 'root@localhost', 'Se actualizó un usuario', 'Información actualizada: 20 1 JOSUERS Minuto$2020 3 0', 'Información anterior: 20 2 JOSUERS Minuto$2020 3 0'),
-(334, 'tbl_usuario', 18, '2020-11-05 06:18:41', 'root@localhost', 'Se actualizó un usuario', 'Información actualizada: 20 2 JOSUERS Minuto$2020 3 0', 'Información anterior: 20 1 JOSUERS Minuto$2020 3 0'),
-(335, 'tbl_usuario', 11, '2020-11-05 06:20:09', 'root@localhost', 'Se actualizó un usuario', 'Información actualizada: 12 1 WRAMIRES Minuto.87# 2 1', 'Información anterior: 12 2 WRAMIRES Minuto.87# 2 0'),
-(336, 'tbl_usuario', 11, '2020-11-05 06:21:01', 'root@localhost', 'Se actualizó un usuario', 'Información actualizada: 12 2 WRAMIRES Minuto.87# 2 1', 'Información anterior: 12 1 WRAMIRES Minuto.87# 2 1'),
-(337, 'tbl_pregunta_usuario', 51, '2020-11-05 06:25:20', 'root@localhost', 'Se insertó una nueva respuesta de un usuario', 'Información insertada: 1 11 XXX', ''),
-(338, 'tbl_usuario', 11, '2020-11-05 06:25:20', 'root@localhost', 'Se actualizó un usuario', 'Información actualizada: 12 2 WRAMIRES Minuto.87# 2 1', 'Información anterior: 12 2 WRAMIRES Minuto.87# 2 1'),
-(339, 'tbl_pregunta_usuario', 52, '2020-11-05 06:25:26', 'root@localhost', 'Se insertó una nueva respuesta de un usuario', 'Información insertada: 2 11 XXX', ''),
-(340, 'tbl_usuario', 11, '2020-11-05 06:25:26', 'root@localhost', 'Se actualizó un usuario', 'Información actualizada: 12 2 WRAMIRES Minuto.87# 2 1', 'Información anterior: 12 2 WRAMIRES Minuto.87# 2 1'),
-(341, 'tbl_pregunta_usuario', 53, '2020-11-05 06:25:33', 'root@localhost', 'Se insertó una nueva respuesta de un usuario', 'Información insertada: 3 11 XXX', ''),
-(342, 'tbl_usuario', 11, '2020-11-05 06:25:33', 'root@localhost', 'Se actualizó un usuario', 'Información actualizada: 12 2 WRAMIRES Minuto.87# 2 1', 'Información anterior: 12 2 WRAMIRES Minuto.87# 2 1'),
-(343, 'tbl_usuario', 11, '2020-11-05 06:27:27', 'root@localhost', 'Se actualizó un usuario', 'Información actualizada: 12 1 WRAMIRES Minuto$2020 2 0', 'Información anterior: 12 2 WRAMIRES Minuto.87# 2 1'),
-(344, 'tbl_usuario', 11, '2020-11-05 06:28:33', 'root@localhost', 'Se actualizó un usuario', 'Información actualizada: 12 2 WRAMIRES Minuto$2020 2 0', 'Información anterior: 12 1 WRAMIRES Minuto$2020 2 0'),
-(345, 'tbl_usuario', 11, '2020-11-05 06:29:37', 'root@localhost', 'Se actualizó un usuario', 'Información actualizada: 12 3 WRAMIRES Minuto$2020 2 0', 'Información anterior: 12 2 WRAMIRES Minuto$2020 2 0'),
-(346, 'tbl_usuario', 11, '2020-11-05 06:31:18', 'root@localhost', 'Se actualizó un usuario', 'Información actualizada: 12 1 WRAMIRES Minuto#2020 2 0', 'Información anterior: 12 3 WRAMIRES Minuto$2020 2 0');
+(104, '2020-10-27 06:03:06', 1, 1, 'Consulta', 'CONSULTÓ EN TABLA EMPLEADO'),
+(105, '2020-11-10 02:59:27', 1, 1, 'Consulta', 'CONSULTÓ EN TABLA EMPLEADO'),
+(106, '2020-11-10 03:00:56', 1, 2, 'Update', 'SE ACTIVÓ UN USUARIO'),
+(107, '2020-11-10 03:01:29', 1, 1, 'Consulta', 'CONSULTÓ EN TABLA EMPLEADO'),
+(108, '2020-11-10 03:03:53', 1, 1, 'Consulta', 'CONSULTÓ EN TABLA EMPLEADO'),
+(109, '2020-11-10 04:43:41', 1, 2, 'Update', 'SE BLOQUEÓ UN USUARIO'),
+(110, '2020-11-10 04:45:22', 1, 2, 'Update', 'SE BLOQUEÓ UN USUARIO'),
+(111, '2020-11-10 04:46:31', 1, 2, 'Update', 'SE BLOQUEÓ UN USUARIO'),
+(112, '2020-11-10 04:47:00', 1, 2, 'Update', 'SE BLOQUEÓ UN USUARIO'),
+(113, '2020-11-12 05:09:08', 1, 1, 'Acceso', 'INGRESO A PANTALLA PERSONAL'),
+(114, '2020-11-12 05:09:15', 1, 3, 'Acceso', 'INGRESO A PANTALLA PARAMETROS'),
+(115, '2020-11-12 05:09:20', 1, 3, 'Acceso', 'INGRESO A PANTALLA PARAMETROS'),
+(116, '2020-11-12 05:09:25', 1, 3, 'Acceso', 'INGRESO A PANTALLA PARAMETROS'),
+(117, '2020-11-12 05:09:30', 1, 1, 'Acceso', 'INGRESO A PANTALLA PERSONAL'),
+(118, '2020-11-12 05:09:53', 1, 3, 'Acceso', 'INGRESO A PANTALLA PARAMETROS'),
+(119, '2020-11-15 02:38:13', 1, 1, 'Acceso', 'INGRESO A PANTALLA PERSONAL'),
+(120, '2020-11-15 03:05:21', 1, 1, 'Acceso', 'INGRESO A PANTALLA PERSONAL'),
+(121, '2020-11-15 03:08:58', 1, 3, 'Acceso', 'INGRESO A PANTALLA PARAMETROS'),
+(122, '2020-11-17 07:18:56', 1, 1, 'Acceso', 'INGRESO A PANTALLA PERSONAL'),
+(123, '2020-11-17 07:19:45', 1, 1, 'Acceso', 'INGRESO A PANTALLA PERSONAL'),
+(124, '2020-11-17 07:31:50', 1, 1, 'Acceso', 'INGRESO A PANTALLA PERSONAL'),
+(125, '2020-11-17 08:15:33', 1, 1, 'Acceso', 'INGRESO A PANTALLA PERSONAL'),
+(126, '2020-11-17 21:33:11', 1, 1, 'Acceso', 'INGRESO A PANTALLA PERSONAL'),
+(127, '2020-11-17 22:24:48', 1, 1, 'Acceso', 'INGRESO A PANTALLA PERSONAL'),
+(128, '2020-11-18 00:29:14', 1, 1, 'Acceso', 'INGRESO A PANTALLA PERSONAL'),
+(129, '2020-11-18 00:34:59', 1, 1, 'Acceso', 'INGRESO A PANTALLA PERSONAL'),
+(130, '2020-11-18 00:45:53', 1, 1, 'Acceso', 'INGRESO A PANTALLA PERSONAL'),
+(131, '2020-11-18 00:46:29', 1, 1, 'Acceso', 'INGRESO A PANTALLA PERSONAL'),
+(132, '2020-11-18 01:09:56', 1, 3, 'Acceso', 'INGRESO A PANTALLA PARAMETROS'),
+(133, '2020-11-18 01:09:58', 1, 3, 'Acceso', 'INGRESO A PANTALLA PARAMETROS'),
+(134, '2020-11-18 01:10:08', 1, 3, 'Acceso', 'INGRESO A PANTALLA PARAMETROS'),
+(135, '2020-11-18 01:10:12', 1, 3, 'Acceso', 'INGRESO A PANTALLA PARAMETROS');
 
 -- --------------------------------------------------------
 
@@ -533,11 +195,10 @@ CREATE TABLE `tbl_citas` (
   `ID_Cita` bigint(3) NOT NULL,
   `ID_Paciente` int(3) NOT NULL,
   `ID_Usuario` bigint(3) NOT NULL,
-  `ID_Servicio` int(3) NOT NULL,
   `ID_Empleado` int(3) NOT NULL,
+  `ID_Especialidad` int(3) NOT NULL,
   `ID_Estado` int(3) NOT NULL,
-  `Fec_Creacion` date NOT NULL,
-  `Hora_Creacion` time NOT NULL,
+  `Fec_Creacion` timestamp NOT NULL DEFAULT current_timestamp(),
   `Fec_Atencion` date NOT NULL,
   `Hora_Atencion` time NOT NULL,
   `Precio` int(5) NOT NULL,
@@ -546,6 +207,15 @@ CREATE TABLE `tbl_citas` (
   `Usuario_modif` bigint(3) DEFAULT NULL,
   `Fec_modif` date DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `tbl_citas`
+--
+
+INSERT INTO `tbl_citas` (`ID_Cita`, `ID_Paciente`, `ID_Usuario`, `ID_Empleado`, `ID_Especialidad`, `ID_Estado`, `Fec_Creacion`, `Fec_Atencion`, `Hora_Atencion`, `Precio`, `Usuario_crea`, `Fec_crea`, `Usuario_modif`, `Fec_modif`) VALUES
+(13, 1, 1, 1, 1, 1, '2020-11-18 00:18:36', '2020-11-26', '23:18:00', 5000, NULL, NULL, NULL, NULL),
+(14, 1, 1, 1, 1, 1, '2020-11-18 00:19:36', '2020-11-30', '09:00:00', 300, NULL, NULL, NULL, NULL),
+(15, 1, 1, 18, 2, 1, '2020-11-18 00:40:59', '2020-11-30', '10:40:00', 500, NULL, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -576,7 +246,7 @@ CREATE TABLE `tbl_consultas` (
 CREATE TABLE `tbl_detalle_factura` (
   `id_detalle_factura` bigint(3) NOT NULL,
   `ID_factura` bigint(3) NOT NULL,
-  `ID_servicio` int(3) NOT NULL
+  `ID_Especialidad` int(3) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -622,42 +292,11 @@ CREATE TABLE `tbl_empleado` (
 INSERT INTO `tbl_empleado` (`ID_Empleado`, `Nom_Empleado`, `ID_Sexo`, `ID_Est_Civil`, `ID_Cargo`, `ID_Especialidad`, `Cedula`, `Fec_Nacimiento`, `Dir_Empleado`, `Tel_Empleado`, `Cel_Empleado`, `Salario`, `Usuario_crea`, `Fec_crea`, `Usuario_modif`, `Fec_modif`) VALUES
 (1, 'Jean Carlos Núñez Salgado', 1, 2, 1, 1, '', '0000-00-00', 'Col venezuela sector B.....', 22091139, 33876298, 15000, NULL, NULL, NULL, NULL),
 (3, 'Carlos Fabricio Nuñez Ramires', 1, 3, 2, 6, '', '0000-00-00', 'Col. Venezuela Sector B Bloque 8 casa 17', 22278000, 33876298, 30000, NULL, NULL, NULL, NULL),
-(8, 'CARLOS HUMBERTO NUÑEZ', 1, 1, 1, 1, '0801196800586', '1963-10-14', 'SDOVJNBDFUVHDBFUVDFVDFVDF', 22222222, 99999999, 15000, NULL, NULL, NULL, NULL),
 (11, 'JOSUE ALLAN GONZALES RAMIRES', 1, 2, 3, 3, '0801199714588', '1987-10-08', 'WINFEIUFGEFVDFVDF', 22222222, 99999999, 20000, NULL, NULL, NULL, NULL),
 (12, 'WILDER EDUARDO RAMIRES ', 1, 1, 5, 7, '0801199714078', '1982-09-05', 'SJDNVSDHOFIVBDVRFGBRGBRFGBGF', 22222222, 88888888, 20000, NULL, NULL, NULL, NULL),
 (17, 'JEAN CARLOS NUEZ', 1, 1, 6, 8, '0801199714079', '1980-10-14', 'ASDSDJNSDSDSDSDD', 22222222, 99999999, 0, NULL, NULL, NULL, NULL),
 (18, 'JOSUE ROLANDO RAMIRES GONZALES', 1, 1, 1, 2, '0801199714079', '1997-10-14', 'AASSDSSSDDSDSSSDSDSD', 22222222, 99999999, 20000, NULL, NULL, NULL, NULL),
-(19, 'JEAN JOSUE GONZALES RAMOS', 1, 1, 1, 1, '0801199999999', '1987-10-12', 'SKKSSKSKSSSSSSS JSSSS', 22222222, 99999999, 200000, NULL, NULL, NULL, NULL),
 (20, 'JOSUE CACERES ACOSTA', 1, 1, 6, 8, '0801115556666', '1980-10-04', 'SDSDCSDCSDCSD', 22222222, 99999999, 0, NULL, NULL, NULL, NULL);
-
---
--- Disparadores `tbl_empleado`
---
-DELIMITER $$
-CREATE TRIGGER `trgr_empleado_delete` AFTER DELETE ON `tbl_empleado` FOR EACH ROW BEGIN
-
-INSERT INTO tbl_bitacora_registro(id_tabla,id_registro,ejecutor,actividad_realizada,informacion_anterior)VALUES(' tbl_empleado',OLD.ID_Empleado,CURRENT_USER,'Se eliminó un empleado',concat('Información eliminada: ',OLD.ID_Sexo,' ',OLD.ID_Est_Civil,' ',OLD.ID_Cargo,' ',OLD.ID_Especialidad,' ',OLD.Cedula,' ',OLD.Nom_Empleado,' ',OLD.Fec_Nacimiento,' ',OLD.Dir_Empleado,' ',OLD.Tel_Empleado,' ',OLD.Cel_Empleado,' ',OLD.Salario));
-
-END
-$$
-DELIMITER ;
-DELIMITER $$
-CREATE TRIGGER `trgr_empleado_insert` AFTER INSERT ON `tbl_empleado` FOR EACH ROW BEGIN
-
-INSERT INTO tbl_bitacora_registro(id_tabla,id_registro,ejecutor,actividad_realizada,informacion_actual)VALUES('tbl_empleado',NEW.ID_Empleado,CURRENT_USER,'Se insertó un nuevo empleado',concat('Información insertada: ',NEW.ID_Sexo,' ',NEW.ID_Est_Civil,' ',NEW.ID_Cargo,' ',NEW.ID_Especialidad,' ',NEW.Cedula,' ',NEW.Nom_Empleado,' ',NEW.Fec_Nacimiento,' ',NEW.Dir_Empleado,' ',NEW.Tel_Empleado,' ',NEW.Cel_Empleado,' ',' ',NEW.Salario));
-
-
-END
-$$
-DELIMITER ;
-DELIMITER $$
-CREATE TRIGGER `trgr_empleado_update` AFTER UPDATE ON `tbl_empleado` FOR EACH ROW BEGIN
-
-INSERT INTO tbl_bitacora_registro(id_tabla,id_registro,ejecutor,actividad_realizada,informacion_actual,informacion_anterior)VALUES('tbl_empleado',OLD.ID_Empleado,CURRENT_USER,'Se actualizó un empleado',concat('Información actualizada: ',NEW.ID_Sexo,' ',NEW.ID_Est_Civil,' ',NEW.ID_Cargo,' ',NEW.ID_Especialidad,' ',NEW.Cedula,' ',NEW.Nom_Empleado,' ',NEW.Fec_Nacimiento,' ',NEW.Dir_Empleado,' ',NEW.Tel_Empleado,' ',NEW.Cel_Empleado,' ',NEW.Salario),concat('Información anterior: ',OLD.ID_Sexo,' ',OLD.ID_Est_Civil,' ',OLD.ID_Cargo,' ',OLD.ID_Especialidad,' ',OLD.Cedula,' ',OLD.Nom_Empleado,' ',OLD.Fec_Nacimiento,' ',OLD.Dir_Empleado,' ',OLD.Tel_Empleado,' ',OLD.Cel_Empleado,' ',OLD.Salario));
-
-END
-$$
-DELIMITER ;
 
 -- --------------------------------------------------------
 
@@ -667,22 +306,23 @@ DELIMITER ;
 
 CREATE TABLE `tbl_especialidad` (
   `ID_especialidad` int(3) NOT NULL,
-  `Descripcion_espec` varchar(30) NOT NULL
+  `Descripcion_espec` varchar(30) NOT NULL,
+  `Precio` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Volcado de datos para la tabla `tbl_especialidad`
 --
 
-INSERT INTO `tbl_especialidad` (`ID_especialidad`, `Descripcion_espec`) VALUES
-(1, 'Medicina General'),
-(2, 'Ortopedia'),
-(3, 'Fisioterapia'),
-(4, 'Nutrición'),
-(5, 'Odontología'),
-(6, 'Psicología'),
-(7, 'Podología'),
-(8, 'Auto_Registro');
+INSERT INTO `tbl_especialidad` (`ID_especialidad`, `Descripcion_espec`, `Precio`) VALUES
+(1, 'Medicina General', 0),
+(2, 'Ortopedia', 0),
+(3, 'Fisioterapia', 0),
+(4, 'Nutrición', 0),
+(5, 'Odontología', 0),
+(6, 'Psicología', 0),
+(7, 'Podología', 0),
+(8, 'Auto_Registro', 0);
 
 -- --------------------------------------------------------
 
@@ -692,17 +332,17 @@ INSERT INTO `tbl_especialidad` (`ID_especialidad`, `Descripcion_espec`) VALUES
 
 CREATE TABLE `tbl_estado_cita` (
   `ID_Estado` int(3) NOT NULL,
-  `Descripcion` varchar(10) NOT NULL
+  `Descripcion_est_cita` varchar(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Volcado de datos para la tabla `tbl_estado_cita`
 --
 
-INSERT INTO `tbl_estado_cita` (`ID_Estado`, `Descripcion`) VALUES
+INSERT INTO `tbl_estado_cita` (`ID_Estado`, `Descripcion_est_cita`) VALUES
 (1, 'Registrada'),
-(2, 'Preclínica'),
-(3, 'Pendiente'),
+(2, 'Preclinica'),
+(3, 'Consulta'),
 (4, 'Pagada');
 
 -- --------------------------------------------------------
@@ -856,6 +496,13 @@ CREATE TABLE `tbl_pacientes` (
   `Usuario_modif` bigint(3) DEFAULT NULL,
   `Fec_modif` date DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `tbl_pacientes`
+--
+
+INSERT INTO `tbl_pacientes` (`ID_Paciente`, `cedula`, `ID_Sexo`, `ID_Est_Civil`, `ID_Tipo_Sangre`, `ID_Religion`, `ID_TipoPaciente`, `Nom_Paciente`, `Fec_Nacimiento`, `Edad`, `Dir_Paciente`, `Tel_Paciente`, `Cel_Paciente`, `Email`, `Contacto_Emergencia`, `Parentesco`, `Tel_Emergencia`, `Cel_Emergencia`, `Antecedentes_Personales`, `Antecedentes_Hospitalarios`, `Antecedentes_Alergicos`, `Antecedentes_Familiares`, `Habitos`, `Usuario_crea`, `Fec_crea`, `Usuario_modif`, `Fec_modif`) VALUES
+(1, '0801199714079', 1, 1, 7, 2, 2, 'JEAN CARLOS NUÑEZ RAMIRES', '1997-07-06', 24, 'SADSDMFVIDFVBDFHVBDSFVSDFVDFVSDFDFVDSF', 22222222, 99999999, 'nuez.jeancarlos@gmail.com', 'Juanita Salgado', 'Madre', 22222222, 99999999, 'aaaaaaaaaaaaaaaaaaasddcsd', 'aaaaaaaaaaaaaaaaaaasdssd', 'asssssssssssssssssssssssssxsd', 'asdddddddddddddddddddddddddd', 'assssssssssssssssssssssssssssssssssssssss', NULL, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -1072,14 +719,14 @@ DELIMITER ;
 
 CREATE TABLE `tbl_religion` (
   `ID_Religion` int(3) NOT NULL,
-  `Descripción` varchar(20) NOT NULL
+  `Descripcion_Religion` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Volcado de datos para la tabla `tbl_religion`
 --
 
-INSERT INTO `tbl_religion` (`ID_Religion`, `Descripción`) VALUES
+INSERT INTO `tbl_religion` (`ID_Religion`, `Descripcion_Religion`) VALUES
 (1, 'Católico(a)'),
 (2, 'Evangélico(a)'),
 (3, 'Otros');
@@ -1114,7 +761,7 @@ INSERT INTO `tbl_roles` (`ID_Rol`, `Rol`) VALUES
 
 CREATE TABLE `tbl_servicio` (
   `ID_Servicio` int(3) NOT NULL,
-  `Descripcion` varchar(50) NOT NULL,
+  `Descripcion_servicio` varchar(50) NOT NULL,
   `Precio` int(5) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -1122,8 +769,10 @@ CREATE TABLE `tbl_servicio` (
 -- Volcado de datos para la tabla `tbl_servicio`
 --
 
-INSERT INTO `tbl_servicio` (`ID_Servicio`, `Descripcion`, `Precio`) VALUES
-(1, 'rhbfgbfgbfgb', 5000);
+INSERT INTO `tbl_servicio` (`ID_Servicio`, `Descripcion_servicio`, `Precio`) VALUES
+(1, 'Medicina General', 200),
+(2, 'Psicología', 300),
+(3, 'Pediatría', 400);
 
 -- --------------------------------------------------------
 
@@ -1152,8 +801,17 @@ INSERT INTO `tbl_sexo` (`ID_Sexo`, `Descripcion_sexo`) VALUES
 
 CREATE TABLE `tbl_tipo_paciente` (
   `ID_TipoPaciente` int(3) NOT NULL,
-  `Descripción` varchar(200) NOT NULL
+  `Descripcion_Tipo` varchar(200) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `tbl_tipo_paciente`
+--
+
+INSERT INTO `tbl_tipo_paciente` (`ID_TipoPaciente`, `Descripcion_Tipo`) VALUES
+(1, 'Pediatría'),
+(2, 'Normal'),
+(3, 'diabético');
 
 -- --------------------------------------------------------
 
@@ -1163,14 +821,14 @@ CREATE TABLE `tbl_tipo_paciente` (
 
 CREATE TABLE `tbl_tipo_sangre` (
   `ID_Tipo_Sangre` int(3) NOT NULL,
-  `Descripción` varchar(15) NOT NULL
+  `Descripcion_Sangre` varchar(15) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Volcado de datos para la tabla `tbl_tipo_sangre`
 --
 
-INSERT INTO `tbl_tipo_sangre` (`ID_Tipo_Sangre`, `Descripción`) VALUES
+INSERT INTO `tbl_tipo_sangre` (`ID_Tipo_Sangre`, `Descripcion_Sangre`) VALUES
 (1, 'A Positivo'),
 (2, 'A Negativo'),
 (3, 'B Positivo'),
@@ -1211,11 +869,9 @@ CREATE TABLE `tbl_usuario` (
 INSERT INTO `tbl_usuario` (`ID_Usuario`, `ID_Empleado`, `ID_Estado`, `Nom_Usuario`, `email`, `Contraseña`, `ID_Rol`, `Ult_Conexion`, `Primer_Ingreso`, `Fec_venc`, `Usuario_crea`, `Fec_crea`, `Usuario_modif`, `Fec_modif`, `preguntas_contestadas`) VALUES
 (1, 1, 1, 'ADMIN', 'soportefranclar@gmail.com', 'Franclar#2020', 1, '2020-10-04', 0, '2020-10-04', NULL, NULL, NULL, NULL, 0),
 (9, 11, 1, 'JGONZALES', 'jsdiksndsdsd@gmail.com', 'OtvJY]Jf', 1, NULL, 1, NULL, NULL, NULL, NULL, NULL, 0),
-(10, 8, 1, 'CNUÑEZ', 'dvsdfvdfvdf@gmail.com', 'Hf4,Qw9]', 2, NULL, 0, NULL, NULL, NULL, NULL, NULL, 0),
-(11, 12, 1, 'WRAMIRES', 'jidndf@gmail.com', 'Minuto#2020', 2, NULL, 0, NULL, NULL, NULL, NULL, NULL, 3),
-(15, 17, 1, 'JEANNUNEZ', 'jean.nunez@gmail.com', 'Minuto#2020', 5, NULL, 0, NULL, NULL, NULL, NULL, NULL, 0),
-(16, 18, 1, 'JOSUERAMIRES', 'jenaas.sdsd@gmail.com', 'Xi0_Sa7]', 1, NULL, 1, NULL, NULL, NULL, NULL, NULL, 0),
-(17, 19, 2, 'JOSUERAMOS', 'jejsas@gmail.com', 'Ep4:Ih8/', 1, NULL, 1, NULL, NULL, NULL, NULL, NULL, 0),
+(11, 12, 2, 'WRAMIRES', 'jidndf@gmail.com', 'Minuto#2020', 2, NULL, 0, NULL, NULL, NULL, NULL, NULL, 3),
+(15, 17, 2, 'JEANNUNEZ', 'jean.nunez@gmail.com', 'Minuto#2020', 5, NULL, 0, NULL, NULL, NULL, NULL, NULL, 0),
+(16, 18, 2, 'JOSUERAMIRES', 'jenaas.sdsd@gmail.com', 'Xi0_Sa7]', 1, NULL, 1, NULL, NULL, NULL, NULL, NULL, 0),
 (18, 20, 2, 'JOSUERS', 'sjsdddssd@gmail.com', 'Minuto$2020', 3, NULL, 0, NULL, NULL, NULL, NULL, NULL, 3);
 
 --
@@ -1260,12 +916,6 @@ ALTER TABLE `tbl_bitacora_evento`
   ADD KEY `id_objeto` (`id_objeto`);
 
 --
--- Indices de la tabla `tbl_bitacora_registro`
---
-ALTER TABLE `tbl_bitacora_registro`
-  ADD PRIMARY KEY (`id_bitacora`);
-
---
 -- Indices de la tabla `tbl_cargo`
 --
 ALTER TABLE `tbl_cargo`
@@ -1278,9 +928,9 @@ ALTER TABLE `tbl_citas`
   ADD PRIMARY KEY (`ID_Cita`),
   ADD KEY `ID_Paciente` (`ID_Paciente`),
   ADD KEY `ID_Usuario` (`ID_Usuario`),
-  ADD KEY `ID_Servicio` (`ID_Servicio`),
-  ADD KEY `ID_Empleado` (`ID_Empleado`),
-  ADD KEY `ID_Estado` (`ID_Estado`);
+  ADD KEY `ID_Servicio` (`ID_Especialidad`),
+  ADD KEY `ID_Estado` (`ID_Estado`),
+  ADD KEY `ID_Empleado` (`ID_Empleado`);
 
 --
 -- Indices de la tabla `tbl_consultas`
@@ -1297,7 +947,7 @@ ALTER TABLE `tbl_consultas`
 ALTER TABLE `tbl_detalle_factura`
   ADD PRIMARY KEY (`id_detalle_factura`),
   ADD KEY `ID_factura` (`ID_factura`),
-  ADD KEY `ID_servicio` (`ID_servicio`);
+  ADD KEY `ID_servicio` (`ID_Especialidad`);
 
 --
 -- Indices de la tabla `tbl_diagnosticos`
@@ -1469,13 +1119,7 @@ ALTER TABLE `tbl_usuario`
 -- AUTO_INCREMENT de la tabla `tbl_bitacora_evento`
 --
 ALTER TABLE `tbl_bitacora_evento`
-  MODIFY `id_bitacora_evento` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=105;
-
---
--- AUTO_INCREMENT de la tabla `tbl_bitacora_registro`
---
-ALTER TABLE `tbl_bitacora_registro`
-  MODIFY `id_bitacora` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=347;
+  MODIFY `id_bitacora_evento` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=136;
 
 --
 -- AUTO_INCREMENT de la tabla `tbl_cargo`
@@ -1487,7 +1131,7 @@ ALTER TABLE `tbl_cargo`
 -- AUTO_INCREMENT de la tabla `tbl_citas`
 --
 ALTER TABLE `tbl_citas`
-  MODIFY `ID_Cita` bigint(3) NOT NULL AUTO_INCREMENT;
+  MODIFY `ID_Cita` bigint(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT de la tabla `tbl_consultas`
@@ -1547,7 +1191,7 @@ ALTER TABLE `tbl_hist_contra`
 -- AUTO_INCREMENT de la tabla `tbl_pacientes`
 --
 ALTER TABLE `tbl_pacientes`
-  MODIFY `ID_Paciente` int(3) NOT NULL AUTO_INCREMENT;
+  MODIFY `ID_Paciente` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de la tabla `tbl_parametros`
@@ -1589,7 +1233,7 @@ ALTER TABLE `tbl_religion`
 -- AUTO_INCREMENT de la tabla `tbl_servicio`
 --
 ALTER TABLE `tbl_servicio`
-  MODIFY `ID_Servicio` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `ID_Servicio` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT de la tabla `tbl_sexo`
@@ -1626,9 +1270,9 @@ ALTER TABLE `tbl_bitacora_evento`
 ALTER TABLE `tbl_citas`
   ADD CONSTRAINT `tbl_citas_ibfk_4` FOREIGN KEY (`ID_Estado`) REFERENCES `tbl_estado_cita` (`ID_Estado`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `tbl_citas_ibfk_5` FOREIGN KEY (`ID_Usuario`) REFERENCES `tbl_usuario` (`ID_Usuario`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `tbl_citas_ibfk_6` FOREIGN KEY (`ID_Empleado`) REFERENCES `tbl_empleado` (`ID_Empleado`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `tbl_citas_ibfk_7` FOREIGN KEY (`ID_Paciente`) REFERENCES `tbl_pacientes` (`ID_Paciente`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `tbl_citas_ibfk_8` FOREIGN KEY (`ID_Servicio`) REFERENCES `tbl_servicio` (`ID_Servicio`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `tbl_citas_ibfk_8` FOREIGN KEY (`ID_Especialidad`) REFERENCES `tbl_especialidad` (`ID_especialidad`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `tbl_citas_ibfk_9` FOREIGN KEY (`ID_Empleado`) REFERENCES `tbl_empleado` (`ID_Empleado`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Filtros para la tabla `tbl_consultas`
@@ -1642,7 +1286,7 @@ ALTER TABLE `tbl_consultas`
 --
 ALTER TABLE `tbl_detalle_factura`
   ADD CONSTRAINT `tbl_detalle_factura_ibfk_3` FOREIGN KEY (`ID_factura`) REFERENCES `tbl_facturas` (`ID_factura`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `tbl_detalle_factura_ibfk_4` FOREIGN KEY (`ID_servicio`) REFERENCES `tbl_servicio` (`ID_Servicio`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `tbl_detalle_factura_ibfk_4` FOREIGN KEY (`ID_Especialidad`) REFERENCES `tbl_especialidad` (`ID_especialidad`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Filtros para la tabla `tbl_empleado`

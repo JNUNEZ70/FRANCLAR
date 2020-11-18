@@ -42,7 +42,7 @@ include 'conexion.php'
                             <h2>Datos del usuario</h2>
                             <div class="form-row">
                                 <div class="form-group col-md-6">
-                                    <select class="form-control" id="ColaboradorU" name="Colaborador" required>
+                                    <select class="form-control select_buscador"  id="ColaboradorU" name="Colaborador" required>
                                         <option value="0">Seleccione al Colaborador</option>
                                         <?php
                                           $sql=$con -> query("Select * from tbl_empleado");
@@ -194,6 +194,9 @@ include 'conexion.php'
         include 'script.php'
     ?>
     
+
+
+
 </body>
 
 </html>
