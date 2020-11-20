@@ -142,7 +142,7 @@ class Backup_Database {
                 $tables = is_array($tables) ? $tables : explode(',', str_replace(' ', '', $tables));
             }
 
-            $sql = 'CREATE DATABASE IF NOT EXISTS `'.$this->dbName."`;\n\n";
+            $sql = 'CREATE DATABASE IF NOT EXISTS '.$this->dbName."`;\n\n";
             $sql .= 'USE `'.$this->dbName."`;\n\n";
 
             /**

@@ -45,7 +45,7 @@ include 'conexion.php'
                                     <input type="text" class="form-control" id="NomP" name="Parametro" onkeypress="return soloLetras(event)" placeholder="Nombre del parámetro" required>
                                 </div>
                                 <div class="form-group col-md-6">
-                                    <input type="text" class="form-control" id="ValP" name="Valor_Parametro" onkeypress="return solonumeros(event)" placeholder="Valor" required>
+                                    <input type="text" class="form-control" id="ValP" name="Valor_Parametro"  placeholder="Valor" required>
                                 </div>
             
                                 <div class="regerv_btn">

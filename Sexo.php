@@ -53,29 +53,49 @@ include 'conexion.php'
 				}
 			}
 	 ?>
-    
-    <form class="form-inline my-2 my-lg-0 float-left">
-        <a href="agregarSexo.php" class="genric-btn info circle">Agregar</a>
-    </form>
-   <br>
-    <form class="form-inline my-2 my-lg-0 float-right">
-        <input name="buscarpor" class="form-control mr-sm-2" type="search" placeholder="Buscar por nombre" aria-label="Search">
-
-    </form>
-	<br>
-	<br>
+	<?php
+	//codigo para validar si tiene permisos para agregar 
+	 $rolUsuario=$_SESSION['ID_Rol'];
+	 $sql=("SELECT * FROM tbl_permisos WHERE id_objeto=16 AND id_rol=$rolUsuario");
+		$query=mysqli_query($con,$sql);
+		if(mysqli_num_rows($query)>0){
 			
-		<div class="table-responsive">
-			<table class="table table-striped table-hover">
-				<tr>
-                    <th>No</th>
-					<th>Desccipción De Sexo</th>
-					<th>Acciones</th>
-					
-                    
-				</tr>
+			$row = mysqli_fetch_assoc($query);
+			$permiso= $row['permiso_insertar'];
+		}if ($permiso==0){
+			
+		 echo '<div class="alert alert-danger alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>"usuario no tiene permisos para agregar nuevo"</div>';
+		
+
+		}else{?>
+		
+		<form class="form-inline my-2 my-lg-0 float-left">
+			<a href="agregarSexo.php" class="genric-btn info circle">Agregar</a>
+		</form>
+	   <br>
+	   
+		<br>
+		<br>
+		<?php 
+		
+	}?>
+    
+			
+	<div class="table-responsive">
+			<table id="datatableUsuarios" class="table table-striped table-hover">
+				<thead>
+					<tr>
+						<th>No</th>
+						<th>Desccipción De Sexo</th>
+						<th>Acciones</th>
+						
+						
+					</tr>
+				</thead>
+				<tbody>
 				<?php
 				$sql = mysqli_query($con, "SELECT * FROM tbl_sexo");
+				
 				if(mysqli_num_rows($sql) == 0){
 					echo '<tr><td colspan="8">No hay datos.</td></tr>';
 				}else{
@@ -95,8 +115,9 @@ include 'conexion.php'
 					}
 				}
 				?>
-			</table>
-		 </div>
+			</tbody>
+		</table>
+	</div>
             <br>
             <br>
             <br>

@@ -54,19 +54,35 @@ include 'conexion.php'
 				}
 			}
 	 ?>
-    
-    <form class="form-inline my-2 my-lg-0 float-left">
-        <a href="agregar_Especialidad.php" class="genric-btn info circle">Agregar</a>
-    </form>
-   <br>
-   <form class="form-inline my-2 my-lg-0 float-right">
-        <input name="buscarpor" class="form-control mr-sm-2" type="search" placeholder="Buscar" aria-label="Search">
-    </form>
-	<br>
-	<br>
+	 <?php
+	  $rolUsuario=$_SESSION['ID_Rol'];
+	 $sql=("SELECT * FROM tbl_permisos WHERE id_objeto=9 AND id_rol=$rolUsuario");
+		$query=mysqli_query($con,$sql);
+		if(mysqli_num_rows($query)>0){
 			
+			$row = mysqli_fetch_assoc($query);
+			$permiso= $row['permiso_insertar'];
+		}if ($permiso==0){
+			
+		 echo '<div class="alert alert-danger alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>"usuario no tiene permisos para agregar nuevo"</div>';
+		
+
+		}else{?>
+		
+		
+		
+		<form class="form-inline my-2 my-lg-0 float-left">
+			<a href="agregar_Especialidad.php" class="genric-btn info circle">Agregar</a>
+		</form>
+	   <br>
+		<br>
+		<br>
+				
+		
+		<?php } ?>
 		<div class="table-responsive">
-			<table class="table table-striped table-hover">
+			<table id="datatableUsuarios" class="table table-striped table-hover">
+			<thead>
 				<tr>
                     <th>No</th>
 					<th>Descripción De Especialidad</th>
@@ -74,6 +90,8 @@ include 'conexion.php'
 					
                     
 				</tr>
+				</thead>
+				<tbody>
 				<?php
 				$sql = mysqli_query($con, "SELECT * FROM tbl_especialidad");
 				if(mysqli_num_rows($sql) == 0){
@@ -95,6 +113,7 @@ include 'conexion.php'
 					}
 				}
 				?>
+				</tbody>
 			</table>
 		 </div>
             <br>

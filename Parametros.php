@@ -58,10 +58,7 @@ include 'conexion.php'
         <a href="agregarParametro.php" class="genric-btn info circle">Agregar</a>
     </form>
    <br>
-    <form class="form-inline my-2 my-lg-0 float-right">
-        <input name="buscarpor" class="form-control mr-sm-2" type="search" placeholder="Buscar por nombre" aria-label="Search">
-
-    </form>
+    
 	<br>
 	<br>
 			

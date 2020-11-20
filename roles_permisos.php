@@ -70,8 +70,8 @@ include 'conexion.php'
 				<tr>
                     <th>No</th>
 					<th>Descripción De Rol</th>
-                    <th>Acciones</th>
-                    <th>Permisos</th>
+                    <th>Agregar Permisos</th>
+                    <th>Ver Permisos</th>
 					
                     
 				</tr>
@@ -86,15 +86,14 @@ include 'conexion.php'
 						<tr>
                             <td>'.$row['ID_Rol'].'</td>
 							<td>'.$row['Rol'].'</td>		
-							<td>							
-								<a href="EditarRol.php?nik='.$row['ID_Rol'].'" title="Editar datos" class="btn btn-success btn-sm"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></a>
-                                <a href="roles_permisos.php?aksi=delete&nik='.$row['ID_Rol'].'" title="Eliminar" onclick="return confirm(\'¿Está seguro de borrar los datos del Rol '.$row['Rol'].'?\')" class="btn btn-danger btn-sm"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>
-                                
-                            </td>
                             <td>							
-                            <a href="permisos.php?nik='.$row['ID_Rol'].'" title="permisos" class="btn btn-success btn-sm"><span class="glyphicon glyphicon-cog" aria-hidden="true"></span></a>
+                            <a href="permisos.php?nik='.$row['ID_Rol'].'" title="Agregar permisos" class="btn btn-warning btn-sm"><span class="glyphicon glyphicon-cog" aria-hidden="true"></span></a>
                             
-							</td>
+            
+                            </td>
+                            <td> 
+                            <a href="ver_permisos.php?nik='.$row['ID_Rol'].'" title="Ver permisos" class="btn btn-info btn-sm"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span></a>
+                            </td>
 						</tr>
 						';
 						$no++;

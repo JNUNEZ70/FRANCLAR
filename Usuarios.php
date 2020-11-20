@@ -76,13 +76,31 @@ include 'conexion.php'
             }
             
 	 ?>
+	 <?php
+	  $rolUsuario=$_SESSION['ID_Rol'];
+	 $sql=("SELECT * FROM tbl_permisos WHERE id_objeto=2 AND id_rol=$rolUsuario");
+		$query=mysqli_query($con,$sql);
+		if(mysqli_num_rows($query)>0){
+			
+			$row = mysqli_fetch_assoc($query);
+			$permiso= $row['permiso_insertar'];
+		}if ($permiso==0){
+			
+		 echo '<div class="alert alert-danger alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>"usuario no tiene permisos para agregar nuevo"</div>';
+		
+
+		}else{?>
+		
+		
+	
+		<form class="form-inline my-2 my-lg-0 float-left">
+			<a href="agregarusuario.php" class="genric-btn info circle">Agregar</a>
+		</form>
+		<br>
+		<br>
+		<br>
+		<?php } ?>
     
-    <form class="form-inline my-2 my-lg-0 float-left">
-        <a href="agregarusuario.php" class="genric-btn info circle">Agregar</a>
-	</form>
-	<br>
-	<br>
-	<br>
    
    
 
@@ -132,7 +150,7 @@ include 'conexion.php'
 												<a href="EditarUsuario.php?nik='.$row['ID_Usuario'].'" title="Editar datos" class="btn btn-success btn-sm"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></a>
 												<a href="Usuarios.php?aksi=bloquear&nik='.$row['ID_Usuario'].'" title="Bloquear Usuario" onclick="return confirm(\'¿Está seguro que desea bloquear al usuario '.$row['Nom_Usuario'].'?\')" class="btn btn-danger btn-sm"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></a>
 										</td>
-				  </tr>
+				  					</tr>
 									';
 								}else{
 									echo '
@@ -147,7 +165,7 @@ include 'conexion.php'
 												<a href="EditarUsuario.php?nik='.$row['ID_Usuario'].'" title="Editar datos" class="btn btn-success btn-sm"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></a>
 												<a href="Usuarios.php?akno=activar&nik='.$row['ID_Usuario'].'" title="Activar Usuario" onclick="return confirm(\'¿Está seguro que desea Activar al usuario '.$row['Nom_Usuario'].'?\')" class="btn btn-success btn-sm"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span></a>
 										</td>
-				  </tr>
+				 					</tr>
 									';
 								}
 				  $no++;
@@ -155,7 +173,7 @@ include 'conexion.php'
 				}
 
 				?>
-				<tbody>
+			</tbody>
 			</table>
 		 </div>
     <?php

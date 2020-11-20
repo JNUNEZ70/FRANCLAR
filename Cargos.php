@@ -53,14 +53,32 @@ include 'conexion.php'
 				}
 			}
 	 ?>
+	 <?php
+	  $rolUsuario=$_SESSION['ID_Rol'];
+	 $sql=("SELECT * FROM tbl_permisos WHERE id_objeto=10 AND id_rol=$rolUsuario");
+		$query=mysqli_query($con,$sql);
+		if(mysqli_num_rows($query)>0){
+			
+			$row = mysqli_fetch_assoc($query);
+			$permiso= $row['permiso_insertar'];
+		}if ($permiso==0){
+			
+		 echo '<div class="alert alert-danger alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>"usuario no tiene permisos para agregar nuevo"</div>';
+		
+
+		}else{?>
+		
+		
+		
+		<form class="form-inline my-2 my-lg-0 float-left">
+			<a href="agregarcargo.php" class="genric-btn info circle">Agregar</a>
+		</form>
+	   <br>
+	   
+		<br>
+		<br>
+		<?php } ?>
     
-    <form class="form-inline my-2 my-lg-0 float-left">
-        <a href="agregarcargo.php" class="genric-btn info circle">Agregar</a>
-    </form>
-   <br>
-   
-	<br>
-	<br>
 			
 		<div class="table-responsive">
 			<table id="datatableUsuarios" class="table table-striped table-hover">

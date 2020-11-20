@@ -31,7 +31,12 @@ include 'conexion.php'
         </div>
     </section>
     <!-- breadcrumb start-->
+<?php
+$sql="SELECT * FROM tbl_parametro_sistema";
+$query=mysqli_query($con,$sql);
+$row=mysqli_fetch_all($query);
 
+?>
      <!--::regervation_part start::-->
      <section class="regervation_part section_padding">
         <div class="container">
@@ -41,15 +46,29 @@ include 'conexion.php'
                         <form method="POST" action="modulo_accesoDB.php" autocomplete="off">
                             <h2> Base de Datos</h2>
                             <div class="form-row">
-                                <div class="form-group col-md-6">
-                                        <input type="text" class="form-control" id="Nombre_Rol" maxlength="50" name="server" placeholder="Servidor" required>
+                            <div class="form-group col-md-6">
+                            
+                            
+                            <select id="" name="server" class="form-control" >
+                                        <option value="0" selected >Selecciona el Srvidor</option>                                                                              
+                                        <option value="<?php echo $row[1][2];?>"> <?php echo $row[1][2];?></option>
+                
+                                    </select>
                                 </div> 
 
                                 <div class="form-group col-md-6">
-                                    <input type="text" class="form-control" id="Nombre_Rol" maxlength="50" name="DB" placeholder="Base de Datos" required>
+                                <select id="" name="DB" class="form-control" >
+                                        <option value="0" selected >Selecciona la DB</option>                                                                              
+                                        <option value="<?php echo $row[2][2];?>"> <?php echo $row[2][2];?></option>
+                
+                                    </select>
                                 </div>
                                 <div class="form-group col-md-6">
-                                    <input type="text" class="form-control" id="Nombre_Rol" maxlength="50" name="user" placeholder="Usuario" required>
+                                <select id="" name="user" class="form-control" >
+                                        <option value="0" selected >Selecciona el Usuario</option>                                                                              
+                                        <option value="<?php echo $row[0][2];?>"> <?php echo $row[0][2];?></option>
+                
+                                    </select>
                                 </div>
                                 <div class="form-group col-md-6">
                                     <input type="text" class="form-control " id="Nombre_Rol" maxlength="50" value="" name="password" placeholder="Password">
@@ -62,7 +81,7 @@ include 'conexion.php'
                                     
                                 </div>
                                 
-                                <a href="pruebas.php"class="btn_2" >Puebas</a>
+                                
                             </div>
                         </form>
                     </div>
