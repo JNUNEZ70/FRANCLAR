@@ -140,4 +140,15 @@
             ]	        
         });     
     });
+
+    
+    </script>
+
+    <script>
+
+    // In your Javascript (external .js resource or <script> tag)
+    $(document).ready(function() {
+        $('.select_buscador').select2();
+    });
+    
     </script>

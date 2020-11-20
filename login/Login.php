@@ -59,15 +59,15 @@
                 <!-----Password----->
                 <div class="input-group">
                     <label for="Password">Contraseña</label>
-                    <input type="password" id="LContraseña" name="contraseña" pattern="^(?=.*\d)(?=.*[\u0021-\u002b\u003c-\u0040])(?=.*[A-Z])(?=.*[a-z])\S{8,30}$" title="Debe contener letras mayuscula, minusculas, numeros y caracteres especiales" placeholder="Ingrese su contraseña"  autocomplete="off" required>
+                    <input type="password" id="LContraseña" name="contraseña" pattern="^(?=.*\d)(?=.*[\u0021-\u002b\u003c-\u0040])(?=.*[A-Z])(?=.*[a-z])\S{8,30}$" title="Debe contener letras mayuscula, minusculas, numeros y caracteres especiales" placeholder="INGRESE SU CONTRASEÑA"  autocomplete="off" required>
                     <span id="show-hide-passwd" action="hide" class="input-group-addon glyphicon glyphicon glyphicon-eye-open"></span>
                 </div>
                 <input type="submit"  value="Entrar" >
                 
                 </input>
                 
-                <a href="../login/Recuperacion.php">¿Olvidaste tú Contraseña?</a> <br>
-                <p> No tienes una cuenta &nbsp; <a href="empleado_login.php">Regístrate</a> </p><br>
+                <p> ¿Olvidó su Contraseña? ->> &nbsp; <a href="../login/Recuperacion.php">Recuperar</a> </p>
+                <p> ¿No tiene usuario? ->> &nbsp; <a href="empleado_login.php">Regístrese aquí</a> </p><br>
             </form>
         </div>
     </body>
