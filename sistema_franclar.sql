@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.1
+-- version 5.0.4
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 18-11-2020 a las 02:19:04
--- Versión del servidor: 10.4.11-MariaDB
--- Versión de PHP: 7.4.3
+-- Tiempo de generación: 21-11-2020 a las 23:17:54
+-- Versión del servidor: 10.4.16-MariaDB
+-- Versión de PHP: 7.4.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -160,7 +159,12 @@ INSERT INTO `tbl_bitacora_evento` (`id_bitacora_evento`, `fecha_evento`, `id_usu
 (132, '2020-11-18 01:09:56', 1, 3, 'Acceso', 'INGRESO A PANTALLA PARAMETROS'),
 (133, '2020-11-18 01:09:58', 1, 3, 'Acceso', 'INGRESO A PANTALLA PARAMETROS'),
 (134, '2020-11-18 01:10:08', 1, 3, 'Acceso', 'INGRESO A PANTALLA PARAMETROS'),
-(135, '2020-11-18 01:10:12', 1, 3, 'Acceso', 'INGRESO A PANTALLA PARAMETROS');
+(135, '2020-11-18 01:10:12', 1, 3, 'Acceso', 'INGRESO A PANTALLA PARAMETROS'),
+(136, '2020-11-21 22:11:00', 1, 3, 'Acceso', 'INGRESO A PANTALLA PARAMETROS'),
+(137, '2020-11-21 22:14:47', 1, 3, 'Acceso', 'INGRESO A PANTALLA PARAMETROS'),
+(138, '2020-11-21 22:14:49', 1, 3, 'Acceso', 'INGRESO A PANTALLA PARAMETROS'),
+(139, '2020-11-21 22:16:27', 1, 3, 'Acceso', 'INGRESO A PANTALLA PARAMETROS'),
+(140, '2020-11-21 22:16:40', 1, 3, 'Acceso', 'INGRESO A PANTALLA PARAMETROS');
 
 -- --------------------------------------------------------
 
@@ -554,6 +558,29 @@ INSERT INTO tbl_bitacora_registro(id_tabla,id_registro,ejecutor,actividad_realiz
 END
 $$
 DELIMITER ;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `tbl_parametro_sistema`
+--
+
+CREATE TABLE `tbl_parametro_sistema` (
+  `id_parametro` int(11) NOT NULL,
+  `parametro` varchar(25) NOT NULL,
+  `valor` varchar(25) NOT NULL,
+  `fecha_cra` date NOT NULL,
+  `fecha_modif` date NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `tbl_parametro_sistema`
+--
+
+INSERT INTO `tbl_parametro_sistema` (`id_parametro`, `parametro`, `valor`, `fecha_cra`, `fecha_modif`) VALUES
+(1, 'USUARIODB', 'root', '0000-00-00', '0000-00-00'),
+(2, 'SERVIDORDB', 'localhost', '0000-00-00', '0000-00-00'),
+(3, 'NOMBREDB', 'sistema_franclar', '0000-00-00', '0000-00-00');
 
 -- --------------------------------------------------------
 
@@ -1038,6 +1065,12 @@ ALTER TABLE `tbl_parametros`
   ADD KEY `id_usuario` (`id_usuario`);
 
 --
+-- Indices de la tabla `tbl_parametro_sistema`
+--
+ALTER TABLE `tbl_parametro_sistema`
+  ADD PRIMARY KEY (`id_parametro`);
+
+--
 -- Indices de la tabla `tbl_permisos`
 --
 ALTER TABLE `tbl_permisos`
@@ -1119,7 +1152,7 @@ ALTER TABLE `tbl_usuario`
 -- AUTO_INCREMENT de la tabla `tbl_bitacora_evento`
 --
 ALTER TABLE `tbl_bitacora_evento`
-  MODIFY `id_bitacora_evento` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=136;
+  MODIFY `id_bitacora_evento` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=141;
 
 --
 -- AUTO_INCREMENT de la tabla `tbl_cargo`
@@ -1198,6 +1231,12 @@ ALTER TABLE `tbl_pacientes`
 --
 ALTER TABLE `tbl_parametros`
   MODIFY `id_parametro` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT de la tabla `tbl_parametro_sistema`
+--
+ALTER TABLE `tbl_parametro_sistema`
+  MODIFY `id_parametro` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT de la tabla `tbl_permisos`
