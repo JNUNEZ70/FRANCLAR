@@ -30,7 +30,7 @@ include 'conexion.php'
         </div>
     </section>
     <!-- breadcrumb start-->
-
+    	
     <!-- footer part start-->
     <?php
 			if(isset($_GET['aksi']) == 'delete'){
@@ -50,6 +50,9 @@ include 'conexion.php'
 			}
 	 ?>
     <h2>Citas</h2>
+    <form class="form-inline my-2 my-lg-0 float-left">
+        <a href="Cita.php" class="genric-btn info circle">Ver Tabla</a>
+	</form>
     <br> 
         <div class="container">
             <div id='calendar'></div>

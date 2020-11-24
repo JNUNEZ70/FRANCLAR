@@ -59,10 +59,9 @@ include 'conexion.php'
     <form class="form-inline my-2 my-lg-0 float-left">
         <a href="CalendarioCitas.php" class="genric-btn info circle">Ver Calendario</a>
 	</form>	
+	<br>   
 	<br>
-   
-   <br>
-   <br>
+	<br>
    <div class="table-responsive">
 			<table id="datatableUsuarios" class="table table-striped table-hover" cellspacing="0" width="100%">
             	<thead>    
@@ -87,7 +86,8 @@ include 'conexion.php'
 				tbl_empleado.Nom_Empleado,
 				tbl_citas.Fec_Atencion,	
 				tbl_citas.Hora_Atencion,	
-				tbl_estado_cita.Descripcion_est_cita FROM tbl_citas 
+				tbl_estado_cita.Descripcion_est_cita,
+				tbl_estado_cita.ID_Estado FROM tbl_citas 
 				INNER JOIN tbl_pacientes on tbl_citas.ID_Paciente = tbl_pacientes.ID_Paciente
 				INNER JOIN tbl_especialidad on tbl_citas.ID_Especialidad = tbl_especialidad.ID_Especialidad
 				INNER JOIN tbl_empleado on tbl_citas.ID_Empleado = tbl_empleado.ID_Empleado
@@ -97,22 +97,75 @@ include 'conexion.php'
 				}else{
 					$no = 1;
 					while($row = mysqli_fetch_assoc($sql)){
-						echo '
-						<tr>
-						<td>'.$row['ID_Cita'].'</td>
-						<td>'.$row['Nom_Paciente'].'</td>
-						<td>'.$row['Fec_Creacion'].'</td>
-						<td>'.$row['Descripcion_espec'].'</td>
-						<td>'.$row['Nom_Empleado'].'</td>
-						<td>'.$row['Fec_Atencion'].'</td>
-						<td>'.$row['Hora_Atencion'].'</td>
-						<td><span class="label label-success">'.$row['Descripcion_est_cita'].'</span></td>					
-						<td>							
-							<a href="EditarPersonal.php?nik='.$row['ID_Cita'].'" title="Editar datos" class="btn btn-success btn-sm"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></a>
-							<a href="Personal.php?aksi=delete&nik='.$row['ID_Cita'].'" title="Eliminar" onclick="return confirm(\'¿Está seguro de borrar los datos del colaborador '.$row['Nom_Empleado'].'?\')" class="btn btn-danger btn-sm"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>
-						</td>
-						</tr>
-						';
+						if($row['ID_Estado'] == 1){
+							echo '
+							<tr>
+							<td>'.$row['ID_Cita'].'</td>
+							<td>'.$row['Nom_Paciente'].'</td>
+							<td>'.$row['Fec_Creacion'].'</td>
+							<td>'.$row['Descripcion_espec'].'</td>
+							<td>'.$row['Nom_Empleado'].'</td>
+							<td>'.$row['Fec_Atencion'].'</td>
+							<td>'.$row['Hora_Atencion'].'</td>
+							<td><span class="label label-success">'.$row['Descripcion_est_cita'].'</span></td>					
+							<td>							
+								<a href="EditarPersonal.php?nik='.$row['ID_Cita'].'" title="Editar datos" class="btn btn-success btn-sm"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></a>
+								<a href="Personal.php?aksi=delete&nik='.$row['ID_Cita'].'" title="Eliminar" onclick="return confirm(\'¿Está seguro de borrar los datos del colaborador '.$row['Nom_Empleado'].'?\')" class="btn btn-danger btn-sm"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>
+							</td>
+							</tr>
+							';
+						}elseif($row['ID_Estado'] == 2){
+							echo '
+							<tr>
+							<td>'.$row['ID_Cita'].'</td>
+							<td>'.$row['Nom_Paciente'].'</td>
+							<td>'.$row['Fec_Creacion'].'</td>
+							<td>'.$row['Descripcion_espec'].'</td>
+							<td>'.$row['Nom_Empleado'].'</td>
+							<td>'.$row['Fec_Atencion'].'</td>
+							<td>'.$row['Hora_Atencion'].'</td>
+							<td><span class="label label-info">'.$row['Descripcion_est_cita'].'</span></td>					
+							<td>							
+								<a href="EditarPersonal.php?nik='.$row['ID_Cita'].'" title="Editar datos" class="btn btn-success btn-sm"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></a>
+								<a href="Personal.php?aksi=delete&nik='.$row['ID_Cita'].'" title="Eliminar" onclick="return confirm(\'¿Está seguro de borrar los datos del colaborador '.$row['Nom_Empleado'].'?\')" class="btn btn-danger btn-sm"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>
+							</td>
+							</tr>
+							';
+						}elseif($row['ID_Estado'] == 3){
+							echo '
+							<tr>
+							<td>'.$row['ID_Cita'].'</td>
+							<td>'.$row['Nom_Paciente'].'</td>
+							<td>'.$row['Fec_Creacion'].'</td>
+							<td>'.$row['Descripcion_espec'].'</td>
+							<td>'.$row['Nom_Empleado'].'</td>
+							<td>'.$row['Fec_Atencion'].'</td>
+							<td>'.$row['Hora_Atencion'].'</td>
+							<td><span class="label label-primary">'.$row['Descripcion_est_cita'].'</span></td>					
+							<td>							
+								<a href="EditarPersonal.php?nik='.$row['ID_Cita'].'" title="Editar datos" class="btn btn-success btn-sm"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></a>
+								<a href="Personal.php?aksi=delete&nik='.$row['ID_Cita'].'" title="Eliminar" onclick="return confirm(\'¿Está seguro de borrar los datos del colaborador '.$row['Nom_Empleado'].'?\')" class="btn btn-danger btn-sm"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>
+							</td>
+							</tr>
+							';
+						}elseif($row['ID_Estado'] == 4){
+							echo '
+							<tr>
+							<td>'.$row['ID_Cita'].'</td>
+							<td>'.$row['Nom_Paciente'].'</td>
+							<td>'.$row['Fec_Creacion'].'</td>
+							<td>'.$row['Descripcion_espec'].'</td>
+							<td>'.$row['Nom_Empleado'].'</td>
+							<td>'.$row['Fec_Atencion'].'</td>
+							<td>'.$row['Hora_Atencion'].'</td>
+							<td><span class="label label-warning">'.$row['Descripcion_est_cita'].'</span></td>					
+							<td>							
+								<a href="EditarPersonal.php?nik='.$row['ID_Cita'].'" title="Editar datos" class="btn btn-success btn-sm"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></a>
+								<a href="Personal.php?aksi=delete&nik='.$row['ID_Cita'].'" title="Eliminar" onclick="return confirm(\'¿Está seguro de borrar los datos del colaborador '.$row['Nom_Empleado'].'?\')" class="btn btn-danger btn-sm"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>
+							</td>
+							</tr>
+							';
+						}
 						$no++;
 					}
 				}

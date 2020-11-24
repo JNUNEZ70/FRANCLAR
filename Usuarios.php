@@ -137,37 +137,37 @@ include 'conexion.php'
 				}else{
 				 $no = 1;
 				 while($row = mysqli_fetch_assoc($sql)){
-									if($row['Descripcion'] == 'Activo'){
-				  echo '
-									<tr>                            
-										<td>'.$row['ID_Usuario'].'</td>
-										<td>'.$row['Nom_Empleado'].'</td>
-										<td>'.$row['email'].'</td>
-										<td>'.$row['Nom_Usuario'].'</td>
-										<td><span class="label label-success">'.$row['Descripcion'].'</span></td>
-										<td><span class="label label-warning">'.$row['Rol'].'</span></td>                            
-										<td>
-												<a href="EditarUsuario.php?nik='.$row['ID_Usuario'].'" title="Editar datos" class="btn btn-success btn-sm"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></a>
-												<a href="Usuarios.php?aksi=bloquear&nik='.$row['ID_Usuario'].'" title="Bloquear Usuario" onclick="return confirm(\'¿Está seguro que desea bloquear al usuario '.$row['Nom_Usuario'].'?\')" class="btn btn-danger btn-sm"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></a>
-										</td>
-				  					</tr>
-									';
-								}else{
-									echo '
-									<tr>                            
-										<td>'.$row['ID_Usuario'].'</td>
-										<td>'.$row['Nom_Empleado'].'</td>
-										<td>'.$row['email'].'</td>
-										<td>'.$row['Nom_Usuario'].'</td>
-										<td><span class="label label-danger">'.$row['Descripcion'].'</span></td>
-										<td><span class="label label-warning">'.$row['Rol'].'</span></td>                            
-										<td>
-												<a href="EditarUsuario.php?nik='.$row['ID_Usuario'].'" title="Editar datos" class="btn btn-success btn-sm"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></a>
-												<a href="Usuarios.php?akno=activar&nik='.$row['ID_Usuario'].'" title="Activar Usuario" onclick="return confirm(\'¿Está seguro que desea Activar al usuario '.$row['Nom_Usuario'].'?\')" class="btn btn-success btn-sm"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span></a>
-										</td>
-				 					</tr>
-									';
-								}
+					if($row['Descripcion'] == 'Activo'){
+					echo '
+					<tr>                            
+						<td>'.$row['ID_Usuario'].'</td>
+						<td>'.$row['Nom_Empleado'].'</td>
+						<td>'.$row['email'].'</td>
+						<td>'.$row['Nom_Usuario'].'</td>
+						<td><span class="label label-success">'.$row['Descripcion'].'</span></td>
+						<td><span class="label label-warning">'.$row['Rol'].'</span></td>                            
+						<td>
+								<a href="EditarUsuario.php?nik='.$row['ID_Usuario'].'" title="Editar datos" class="btn btn-success btn-sm"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></a>
+								<a href="Usuarios.php?aksi=bloquear&nik='.$row['ID_Usuario'].'" title="Bloquear Usuario" onclick="return confirm(\'¿Está seguro que desea bloquear al usuario '.$row['Nom_Usuario'].'?\')" class="btn btn-danger btn-sm"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></a>
+						</td>
+					</tr>
+					';
+				}else{
+					echo '
+					<tr>                            
+						<td>'.$row['ID_Usuario'].'</td>
+						<td>'.$row['Nom_Empleado'].'</td>
+						<td>'.$row['email'].'</td>
+						<td>'.$row['Nom_Usuario'].'</td>
+						<td><span class="label label-danger">'.$row['Descripcion'].'</span></td>
+						<td><span class="label label-warning">'.$row['Rol'].'</span></td>                            
+						<td>
+								<a href="EditarUsuario.php?nik='.$row['ID_Usuario'].'" title="Editar datos" class="btn btn-success btn-sm"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></a>
+								<a href="Usuarios.php?akno=activar&nik='.$row['ID_Usuario'].'" title="Activar Usuario" onclick="return confirm(\'¿Está seguro que desea Activar al usuario '.$row['Nom_Usuario'].'?\')" class="btn btn-success btn-sm"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span></a>
+						</td>
+					</tr>
+					';
+				}
 				  $no++;
 				 }
 				}

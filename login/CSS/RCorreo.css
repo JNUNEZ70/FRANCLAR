@@ -8,7 +8,7 @@ body {
  }
  .login-box{  
      width: 450px;
-     height: 320px;
+     height: 400px;
      background: rgba(31, 134 ,173, .8);
      color: #fff;
      top: 50%;
@@ -61,16 +61,17 @@ body {
      color: #fff;
      font-size: 16px;
  }
- .login-box input[type="submit"]{
+ .login-box button[type="submit"]{
      border:none;
      outline: none;
      height: 40px;
+     width: 400px;
      background: #5564eb;
      color: #fff;
      font-size: 18px;
      border-radius: 20px;
  }
- .login-box input[type="submit"]:hover{
+ .login-box button[type="submit"]:hover{
      color: black;
  }
  .login-box ::placeholder{

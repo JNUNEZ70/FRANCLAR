@@ -48,6 +48,7 @@ switch ($rolUsuario) {
                                         <a class="dropdown-item" href="Pacientes.php">Ingresar Pacientes</a>
                                         <a class="dropdown-item" href="Cita.php">Citas</a>
                                         <a class="dropdown-item" href="Consulta.php">Consultas</a>
+                                        <a class="dropdown-item" href="Expediente.php">Expediente</a>
                                     </div>
                                 </li>
                                 
