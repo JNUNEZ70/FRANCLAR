@@ -55,9 +55,7 @@ include 'conexion.php'
 			}
 	 ?>
     
-    <form class="form-inline my-2 my-lg-0 float-left">
-        <a href="agregar_Rol.php" class="genric-btn info circle">Agregar</a>
-    </form>
+ 
    <br>
    <form class="form-inline my-2 my-lg-0 float-right">
         <input name="buscarpor" class="form-control mr-sm-2" type="search" placeholder="Buscar" aria-label="Search">

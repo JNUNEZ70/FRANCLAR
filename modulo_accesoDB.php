@@ -38,6 +38,7 @@ function exportarTablas($host, $usuario, $password, $nombreDeBaseDeDatos){
     if($host===$server && $nombreDeBaseDeDatos===$database && $usuario===$user && $password===$password){
  
         $dir = "respaldos/";
+        $fecha=date("Ymd-His");
         $filename = "backup_" . date("Y-m-d-H-i-s") . ".sql";
         $db_host = $host;
         $db_username = $usuario;
@@ -46,11 +47,18 @@ function exportarTablas($host, $usuario, $password, $nombreDeBaseDeDatos){
 
         $cmd = "mysqldump -h {$db_host} -u {$db_username} --password={$db_password} {$db_database}  > {$dir}{$filename}";
         exec($cmd);
+//pasar el respaldo a zip
+$zip= new ZipArchive();
+$respaldo_zip=$db_database.'_'.$fecha.'.zip';
+if($zip->open($respaldo_zip,ZipArchive::CREATE)===true){
+$zip->addFile($filename);
+$zip->close();
 
-        /* header("Content-type: application/octet-stream");
-        header("Content-Disposition: attachment; filename=\"$filename\"");
-        
-        passthru("cat {$dir}{$filename}");*/
+/*header("Content-type: application/octet-stream");
+header("Content-Disposition: attachment; filename=\"$respaldo_zip\"");
+
+passthru("cat {$dir}{$respaldo_zip}");*/
+}
     }else{
         return false;
     }

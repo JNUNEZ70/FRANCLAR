@@ -16,7 +16,14 @@ include 'conexion.php';
     include 'header.php';
     ?>
     <!-- Header part end-->
+	<?php
+			$nik = mysqli_real_escape_string($con,(strip_tags($_GET["nik"],ENT_QUOTES)));
+			$sql = mysqli_query($con, "SELECT * FROM tbl_roles WHERE ID_Rol='$nik'");
+		
+			$row = mysqli_fetch_assoc($sql);
 
+			
+		?>
     <!-- breadcrumb start-->
     <section class="breadcrumb_part breadcrumb_bg">
         <div class="container">
@@ -24,7 +31,7 @@ include 'conexion.php';
                 <div class="col-lg-12">
                     <div class="breadcrumb_iner">
                         <div class="breadcrumb_iner_item">
-                            <h2>Permisos</h2>
+                            <h2>Rol: <?php echo $row['Rol'];?></h2>
                         </div>
                     </div>
                 </div>
@@ -59,25 +66,18 @@ include 'conexion.php';
 	
 	<form action="modulo_permisos.php" method="post" >
   
-	<button type="submit" name="update_permisos" class="genric-btn info circle" >Confirmar</button>
+	<button id="btn_confirmar" type="submit" name="update_permisos" class="genric-btn info circle" >Confirmar</button>
    
   
 	<br>
 	<br>
 		
-		<?php
-			$nik = mysqli_real_escape_string($con,(strip_tags($_GET["nik"],ENT_QUOTES)));
-			$sql = mysqli_query($con, "SELECT * FROM tbl_roles WHERE ID_Rol='$nik'");
 		
-			$row = mysqli_fetch_assoc($sql);
-
-			
-		?>
 		
 		<div class="table-responsive">
 			<table   class="table table-striped table-hover">
-				<input type="text" value="<?php echo $row['Rol']; ?>" > 
-				<input type="text" value="<?php echo $row['ID_Rol']; ?>" name="id_rol" > 
+				<input class="d-none"  type="text" value="<?php echo $row['Rol']; ?>" > 
+				<input  class="d-none" type="text" value="<?php echo $row['ID_Rol']; ?>" name="id_rol" > 
 				<thead>
 					<tr>
 						<th>ID</th>
@@ -87,7 +87,7 @@ include 'conexion.php';
 						<th>Eliminar</th>
 						<th>Actualizar</th>
 						<th>Consultar</th>
-						<th>Acción</th>
+						
 					</tr>
 				</thead>
 				<tbody>
@@ -184,6 +184,7 @@ include 'conexion.php';
 function activar(insert){
 	let id = insert.id;
 	const $btn_insert=document.getElementById(id);
+	const $btn_confirmar=document.getElementById("btn_confirmar");
 	let clase="."+id;
 	const $input=document.querySelector(clase);
 	
@@ -194,7 +195,10 @@ function activar(insert){
 	 	if (siExiste1 && siExiste2) {
 	 		$btn_insert.classList.replace("glyphicon-ok","glyphicon-remove");
 	 		$btn_insert.classList.replace("btn-success","btn-danger");
-	 		$input.setAttribute("value","0");
+			/**cambio de color del boton confirmar */
+			 $btn_confirmar.classList.remove("info");
+			$btn_confirmar.classList.add("danger"); 
+			 $input.setAttribute("value","0");
 	 		$valor=$input.getAttribute("value");
  		console.log($valor);
 	 	}else{

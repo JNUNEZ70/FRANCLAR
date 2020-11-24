@@ -51,21 +51,31 @@ include 'conexion.php'
 				$row = mysqli_fetch_assoc($sql);
 			}
 			if(isset($_POST['save'])){
-                $corrreo = mysqli_real_escape_string($con,(strip_tags($_POST['Email'],ENT_QUOTES)));
+                $contrasenia_actual = mysqli_real_escape_string($con,(strip_tags($_POST['contra_actual'],ENT_QUOTES)));
                 $contrasenia = mysqli_real_escape_string($con,(strip_tags($_POST['Ncontraseña'],ENT_QUOTES)));
-				
-				$update = mysqli_query($con, "UPDATE tbl_usuario SET email='$corrreo', Contraseña='$contrasenia' WHERE ID_Usuario='$nik'");
-				if($update){
+               
+                $consulta=mysqli_query($con,"SELECT * FROM tbl_usuario WHERE Contraseña='$contrasenia_actual' AND  ID_Usuario='$nik'");
+                $row = mysqli_fetch_assoc($consulta);
+               if (mysqli_num_rows($consulta) == 0 ) {
+                echo '<div class="alert alert-danger alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>La Contraseña actual no coincide con nuestros registros</div>';
+                
+               }else{
+
+                  
+                   
+                    $update = mysqli_query($con, "UPDATE tbl_usuario SET Contraseña='$contrasenia' WHERE ID_Usuario='$nik'");
+                   if($update){
                     $id_usuario= $_SESSION['ID_Usuario'];
-                    $insert_bitacora = mysqli_query($con, "INSERT INTO tbl_bitacora_evento (id_usuario,id_objeto,Accion,Descripcion)
-                    VALUES ('$id_usuario',2,'Update','SE ACTUALIZÓ UN USUARIO')");
-                    echo "<script type='text/javascript'>
-                        alert('Prueba Tú nueva contraseña');
-                        window.location.href= 'login/Login.php';
-                    </script>";
-				}else{
-					echo '<div class="alert alert-danger alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>Error, no se pudo guardar los datos.</div>';
-                }
+                      $insert_bitacora = mysqli_query($con, "INSERT INTO tbl_bitacora_evento (id_usuario,id_objeto,Accion,Descripcion)
+                       VALUES ('$id_usuario',2,'Update','SE ACTUALIZÓ UN USUARIO')");
+                        echo "<script type='text/javascript'>
+                           alert('Prueba Tú nueva contraseña');
+                            window.location.href= 'login/Login.php';
+                        </script>";
+                     }else{
+                 	echo '<div class="alert alert-danger alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>'.$contrasenia.'</div>';
+                     }
+               }
 			}
 		?>
     <!--::regervation_part start::-->
@@ -74,28 +84,32 @@ include 'conexion.php'
             <div class="row align-items-center regervation_content">
                 <div class="col-lg-7">
                     <div class="regervation_part_iner">
-                        <form method="POST" action="" autocomplete="off">
-                            <h2>Datos del usuario</h2>
+                        <form method="POST" action="" autocomplete="off"  >
+                            <h2>Cambio de Contraseña</h2>
                             <div class="form-row">
                                 
+                               
+                            <div class="form-group col-md-6">
+                            <input type="text" class="form-control" name="nombre_usuario" value="<?php echo $row['Nom_Usuario']?>" placeholder="Ingrese una contraseña Actual" readonly>
+                                </div>                                          
+                                <div class="form-group col-md-6">    
+                            <input id="contra_actual" type="password" class="form-control" name="contra_actual"  pattern="^(?=.*\d)(?=.*[\u0021-\u002b\u003c-\u0040])(?=.*[A-Z])(?=.*[a-z])\S{8,30}$" title="Debe contener letras mayuscula, minusculas, numeros y caracteres especiales" placeholder="INGRESE SU CONTRASEÑA ACTUAL"  autocomplete="off" >
+                                </div>                                          
                                 <div class="form-group col-md-6">
-                                    <input type="email" class="form-control" id="EmailU" value="<?php echo $row ['email']; ?>" name="Email" placeholder="Email" required>
+                                <input id="contra_nueva" type="password" class="form-control " name="Ncontraseña"  pattern="^(?=.*\d)(?=.*[\u0021-\u002b\u003c-\u0040])(?=.*[A-Z])(?=.*[a-z])\S{8,30}$" title="Debe contener letras mayuscula, minusculas, numeros y caracteres especiales" placeholder="INGRESE SU NUEVA CONTRASEÑA"  autocomplete="off" >
                                 </div>
-                                <div class="form-group col-md-4">
-                                    <input type="text"  class="form-control" id="NomU" value="<?php echo $row ['Nom_Usuario']; ?>" name="Nom_Usuario"  placeholder="Nombre de usuario" readonly>                                    
-                                </div>                                           
                                 <div class="form-group col-md-6">
-                                <input type="password" class="form-control" name="Ncontraseña" placeholder="Ingrese una contraseña nueva">
+                                <input id="confirmar_contra" type="password" class="form-control" name="Ccontraseña"  pattern="^(?=.*\d)(?=.*[\u0021-\u002b\u003c-\u0040])(?=.*[A-Z])(?=.*[a-z])\S{8,30}$" onkeyup="validar()" title="Debe contener letras mayuscula, minusculas, numeros y caracteres especiales" placeholder="CONFIRME SU NUEVA CONTRASEÑA "  autocomplete="off" >
+                                <p  id="confirmar" class="text-danger d-none">Contraseña no coinciden</p>
                                 </div>
-                                <div class="form-group col-md-4">
-                                <input type="password" class="form-control" name="Ccontraseña" placeholder="Confirme su contraseña">
-                                </div>
+                                <br>
                                 <br>
                                 <br>
                     
                                 <div class="regerv_btn">
-                                    <button type="submit" name="save" class="btn_2">Guardar</button>
-                                    <a href="Usuarios.php" class="btn_2">Cancelar</a>
+                                    <button id="btn_guarda" type="submit" name="save" class="btn_2 d-none"  >Guardar</button>
+                                    <a href="Index.php" class="btn_2">Cancelar</a>
+                                    
                                 </div>
                             </div>
                         </form>
@@ -111,7 +125,11 @@ include 'conexion.php'
     <?php
         include 'script.php'
     ?>
+<script>
 
+
+
+</script>
 </body>
 
 </html>

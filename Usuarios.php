@@ -137,6 +137,7 @@ include 'conexion.php'
 				}else{
 				 $no = 1;
 				 while($row = mysqli_fetch_assoc($sql)){
+					 
 									if($row['Descripcion'] == 'Activo'){
 				  echo '
 									<tr>                            

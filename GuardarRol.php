@@ -24,7 +24,7 @@ try {
                         VALUES ('$id_usuario',9,'Insert','SE INGRESÓ UNA NUEVA ESPECIALIDAD')") or die(mysqli_error());
         echo "<script type='text/javascript'>
             alert('El Nuevo ha sido registrada exitosamente');
-            window.location.href= 'roles_permisos.php';
+            window.location.href= 'Roles.php';
         </script>";
     }else{
         echo '<div class="alert alert-danger alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>Error, no se pudo guardar los datos.</div>';

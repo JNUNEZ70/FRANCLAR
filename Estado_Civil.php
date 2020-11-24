@@ -62,6 +62,8 @@ include 'conexion.php'
 			
 			$row = mysqli_fetch_assoc($query);
 			$permiso= $row['permiso_insertar'];
+			$permiso_eliminar= $row['permiso_eliminar'];
+			$permiso_actualizar=$row['permiso_actualizar'];
 		}if ($permiso==0){
 			
 		 echo '<div class="alert alert-danger alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>"usuario no tiene permisos para agregar nuevo"</div>';
@@ -100,14 +102,15 @@ include 'conexion.php'
 				}else{
 					$no = 1;
 					while($row = mysqli_fetch_assoc($sql)){
+						($permiso_eliminar==1)?$boton='<a href="Estado_Civil.php?aksi=delete&nik='.$row['ID_Est_Civil'].'" title="Eliminar" onclick="return confirm(\'¿Está seguro de borrar los datos del Estado Civil '.$row['Descripcion_est_civil'].'?\')" class="btn btn-danger btn-sm"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>':$boton='<a  title="Eliminar"  onClick="permiso()" class="btn btn-warning btn-sm"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>';
+						($permiso_actualizar==1)?$boton2='<a href="EditarEstado_Civil.php?nik='.$row['ID_Est_Civil'].'" title="Editar datos" class="btn btn-success btn-sm"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></a>':$boton2='<a  title="Editar datos" onClick="permiso()" class="btn btn-warning btn-sm"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></a>';	
+						
 						echo '
 						<tr>
                             <td>'.$row['ID_Est_Civil'].'</td>
 							<td>'.$row['Descripcion_est_civil'].'</td>		
-							<td>							
-								<a href="EditarEstado_Civil.php?nik='.$row['ID_Est_Civil'].'" title="Editar datos" class="btn btn-success btn-sm"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></a>
-								<a href="Estado_Civil.php?aksi=delete&nik='.$row['ID_Est_Civil'].'" title="Eliminar" onclick="return confirm(\'¿Está seguro de borrar los datos del estado civil '.$row['Descripcion_est_civil'].'?\')" class="btn btn-danger btn-sm"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>
-							</td>
+							
+							<td>'.$boton2.' '.$boton.'</td>
 						</tr>
 						';
 						$no++;

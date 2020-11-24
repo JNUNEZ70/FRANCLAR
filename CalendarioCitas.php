@@ -65,6 +65,14 @@ include 'conexion.php'
     <?php
         include 'script.php'
     ?>
+    <!-- <script>
+
+        $(document).ready(function (params) {
+           $('#calendar').fullCalendar({
+
+           }); 
+        });
+    </script> -->
 </body>
 
 </html>

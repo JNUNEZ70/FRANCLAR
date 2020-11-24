@@ -50,7 +50,7 @@ include 'conexion.php'
                     VALUES ('$id_usuario',9,'Update','SE ACTUALIZÓ UNA ESPECIALIDAD')") or die(mysqli_error());
                     echo "<script type='text/javascript'>
                         alert('Ha sido modificado exitosamente');
-                        window.location.href= 'roles_permisos.php';
+                        window.location.href= 'Roles.php';
                     </script>";
 				}else{
 					echo '<div class="alert alert-danger alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>Error, No se pudo actualizar el dato.</div>';

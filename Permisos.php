@@ -16,7 +16,14 @@ include 'conexion.php';
     include 'header.php';
     ?>
     <!-- Header part end-->
+	<?php
+			$nik = mysqli_real_escape_string($con,(strip_tags($_GET["nik"],ENT_QUOTES)));
+			$sql = mysqli_query($con, "SELECT * FROM tbl_roles WHERE ID_Rol='$nik'");
+		
+			$row = mysqli_fetch_assoc($sql);
 
+			
+		?>
     <!-- breadcrumb start-->
     <section class="breadcrumb_part breadcrumb_bg">
         <div class="container">
@@ -24,7 +31,7 @@ include 'conexion.php';
                 <div class="col-lg-12">
                     <div class="breadcrumb_iner">
                         <div class="breadcrumb_iner_item">
-                            <h2>Permisos</h2>
+						<h2>Rol: <?php echo $row['Rol'];?></h2>
                         </div>
                     </div>
                 </div>
@@ -65,19 +72,12 @@ include 'conexion.php';
 	<br>
 	<br>
 		
-		<?php
-			$nik = mysqli_real_escape_string($con,(strip_tags($_GET["nik"],ENT_QUOTES)));
-			$sql = mysqli_query($con, "SELECT * FROM tbl_roles WHERE ID_Rol='$nik'");
 		
-			$row = mysqli_fetch_assoc($sql);
-
-			
-		?>
 		<div class="container">
             <div class="row">
                 <div class="col-lg-12">
-		<input type="text"  value="<?php echo $row['Rol']; ?>" > 
-		<input type="text" value="<?php echo $row['ID_Rol']; ?>" name="id_rol" > 
+		<input class="d-none" type="text"  value="<?php echo $row['Rol']; ?>" > 
+		<input class="d-none" type="text" value="<?php echo $row['ID_Rol']; ?>" name="id_rol" > 
 		</div>
 		</div>
 		</div>
@@ -89,21 +89,21 @@ include 'conexion.php';
 						<th>Vistas</th>
 						<th>
 							<button onclick="todos(this)" id="insert"type="button" class="btn btn-danger btn-xs glyphicon glyphicon-remove inser_todos insert"></button>		
-							
 							Insertar
-					</th>
+						</th>
 						<th>
-						<button onclick="todos(this)" id="update"  type="button" class="btn btn-danger btn-xs glyphicon glyphicon-remove update"></button>		
-							
-							Actualizar</th>
+							<button onclick="todos(this)" id="delet"  type="button" class="btn btn-danger btn-xs glyphicon glyphicon-remove delet "></button>		
+							Eliminar
+						</th>
+						
 						<th>
-						<button onclick="todos(this)" id="delet"  type="button" class="btn btn-danger btn-xs glyphicon glyphicon-remove delet "></button>		
-								
-						Eliminar</th>
+							<button onclick="todos(this)" id="update"  type="button" class="btn btn-danger btn-xs glyphicon glyphicon-remove update"></button>		
+								Actualizar
+						</th>
 						<th>
-						<button onclick="todos(this)" id="query" type="button" class="btn btn-danger btn-xs glyphicon glyphicon-remove query"></button>		
-								
-						Consultar</th>
+							<button onclick="todos(this)" id="query" type="button" class="btn btn-danger btn-xs glyphicon glyphicon-remove query"></button>		
+							Consultar
+						</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -142,23 +142,23 @@ include 'conexion.php';
 						
 						<td>
 						<button onclick="activar(this)" id='."$btnIn".'     type="button" class="btn btn-danger btn-sm glyphicon glyphicon-remove insert"></button>
-						<input type="text" class="d-none '.$btnIn.'" value="0" name="id_permiso[]">
+						<input type="text" class="d-none '.$btnIn.' insert" value="0" name="id_permiso[]">
 						<input type="text" class="d-none" value="'.$row['id_objeto'] .'" name="id_vista[]">
 						</td>
 
 						
 						<td>
-						<input type="text" class="d-none '.$btndel.'" value="0" name="id_permiso[]">
+						<input type="text" class="d-none '.$btndel.' delet " value="0" name="id_permiso[]">
 						<button onclick="activar(this)" id='."$btndel".'  type="button" class="btn btn-danger btn-sm glyphicon glyphicon-remove delet"></button>
 						</td>
 						
 						<td>
-						<input type="text" class="d-none '.$btnupdate.'" value="0" name="id_permiso[]">
+						<input type="text" class="d-none '.$btnupdate.' update" value="0" name="id_permiso[]">
 						<button onclick="activar(this)" id='."$btnupdate".'   type="button" class="btn btn-danger btn-sm glyphicon glyphicon-remove update"></button>
 						</td>
 
 						<td>
-						<input type="text" class="d-none '.$btnquery.'" value="0" name="id_permiso[]">
+						<input type="text" class="d-none '.$btnquery.' query" value="0" name="id_permiso[]">
 						<button onclick="activar(this)" id='."$btnquery".'    type="button" class="btn btn-danger btn-sm glyphicon glyphicon-remove query"></button>
 						</td>
 						
