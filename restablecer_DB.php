@@ -65,14 +65,14 @@ $row=mysqli_fetch_all($query);
                                 <select id="" name="server" class="form-control" >
                                         <option value="0" selected >Selecciona el Srvidor</option>                                                                              
                                         
-                                        <option value="<?php echo $row[2][2];?>"> <?php echo $row[2][2];?></option>
+                                        <option value="<?php echo $row[1][2];?>"> <?php echo $row[1][2];?></option>
                                     </select>
                                 </div> 
-
+                                
                                 <div class="form-group col-md-6">
-                                <select id="" name="DB" class="form-control" >
+                                    <select id="" name="DB" class="form-control" >
                                         <option value="0" selected >Selecciona la DB</option>                                                                              
-                                        <option value="<?php echo $row[1][2];?>"> <?php echo $row[1][2];?></option>
+                                        <option value="<?php echo $row[2][2];?>"> <?php echo $row[2][2];?></option>
                 
                                     </select>
                                 </div>

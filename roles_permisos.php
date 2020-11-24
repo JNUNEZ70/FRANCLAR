@@ -62,6 +62,8 @@ include 'conexion.php'
     </form>
 	<br>
 	<br>
+    <br>
+    
 			
 		<div class="table-responsive">
 			<table class="table table-striped table-hover">

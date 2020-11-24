@@ -101,7 +101,7 @@ include 'conexion.php'
                             </div>
                             <div class="regerv_btn">
                                 <a><button type="submit" name="add" class="btn_2" style="color: #FFFF;">Ingresar</button></a>
-                                <a href="Cita.php" class="btn_2">Cancelar</a>
+                                <a href="Cita.php" ><button type=button class="btn_2" style="color: #FFFF;">Cancelar</button></a>                                
                             </div>
                             
                             </form>

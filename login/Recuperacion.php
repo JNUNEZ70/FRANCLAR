@@ -45,6 +45,35 @@
 
     }
 
+    if(isset($_POST['rcorreo'])){
+                
+        $nomusuario = mysqli_real_escape_string($conn,(strip_tags($_POST['usuario'],ENT_QUOTES)));
+               
+        //$id_usuario= $_SESSION['ID_Usuario']; 
+        
+        $obtener_id = mysqli_query($conn, "SELECT * FROM tbl_usuario WHERE Nom_Usuario='$nomusuario'");
+        $row = mysqli_num_rows($obtener_id);                        
+        
+        if($row == 0){
+            echo "<script type='text/javascript'>
+            alert('Favor ingrese correctamente su usuario');
+            window.location.href= 'Recuperacion.php';
+            </script>";
+        }else{
+            $dato = mysqli_fetch_assoc($obtener_id);
+            $id_usuario = $dato['ID_Usuario'];
+            $_SESSION['ID_Usuario'] = $id_usuario;
+            $update = mysqli_query($conn, "UPDATE tbl_usuario SET ID_Estado=3 WHERE ID_Usuario='$id_usuario'") or die(mysqli_error());
+            if($update){
+                echo "<script type='text/javascript'>
+                alert('Usuario encontrado, proceda a recuperar su contraseña');
+                window.location.href= 'Rcorreo.php';
+                </script>";
+            }
+        }               
+
+    }
+
     ?>
 
         <div class = "login-box">
