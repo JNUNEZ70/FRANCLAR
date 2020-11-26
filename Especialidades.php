@@ -88,6 +88,7 @@ include 'conexion.php'
 				<tr>
                     <th>No</th>
 					<th>Descripción De Especialidad</th>
+					<th>Precio</th>
 					<th>Acciones</th>
 					
                     
@@ -107,7 +108,8 @@ include 'conexion.php'
 						echo '
 						<tr>
                             <td>'.$row['ID_especialidad'].'</td>
-							<td>'.$row['Descripcion_espec'].'</td>		
+							<td>'.$row['Descripcion_espec'].'</td>
+							<td>'.$row['Precio'].'</td>			
 							<td>'.$boton2.' '.$boton.'</td>
 						</tr>
 						';

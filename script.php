@@ -1,4 +1,5 @@
-<script src="js/jquery-1.12.1.min.js"></script>
+<!-- ******** No se encontro el archivo -->
+<!-- <script src="js/jquery-1.12.1.min.js"></script> -->
     <!-- popper js -->
     <script src="js/popper.min.js"></script>
     <!-- bootstrap js -->
@@ -12,7 +13,9 @@
     <script src="js/jquery.validate.min.js"></script>
     <script src="js/mail-script.js"></script>
     <script src="js/contact.js"></script>
-     
+     <!-- ingresados por wilder  -->
+     <script src="js/jquery.min.js"></script>
+     <script src="js/moment.min.js"></script>
     <!-- custom js -->
     <script src="js/custom.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>

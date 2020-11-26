@@ -53,9 +53,20 @@ include 'conexion.php'
     <form class="form-inline my-2 my-lg-0 float-left">
         <a href="Cita.php" class="genric-btn info circle">Ver Tabla</a>
 	</form>
-    <br> 
+    <br>
+     
         <div class="container">
-            <div id='calendar'></div>
+            <div class="row">
+                <div class="col"> </div>
+                    <div class="col-12">
+                        <div id='calendario'>
+            
+                        </div>
+
+                    </div>
+               <div class="col"></div>
+
+            </div>
         </div>
     <br>
     <?php
@@ -68,14 +79,26 @@ include 'conexion.php'
     <?php
         include 'script.php'
     ?>
-    <!-- <script>
-
-        $(document).ready(function (params) {
-           $('#calendar').fullCalendar({
-
-           }); 
-        });
-    </script> -->
+   <script>
+       $(document).ready(function () {
+           $('#calendario').fullCalendar({
+            header:{
+                left:'today,prev,next',
+                center:'title',
+                right:'month,basicWeek,basicDay'
+            },
+            
+            customButtons:{
+                   Miboton:{
+                       text:"Boton 1",
+                       click:function(){
+                           alert("accion");
+                       }
+                   }
+               }
+           });
+       });
+   </script>
 </body>
 
 </html>
