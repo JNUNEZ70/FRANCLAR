@@ -62,6 +62,7 @@ include 'conexion.php'
 				<tr>
 					<th>No</th>
 					<th>Paciente</th>
+					<th>Cédula</th>
 					<th>Número de Cita</th>
 					<th>Fecha de Atención</th>
                     <th>Archivo PDF</th>
@@ -72,6 +73,7 @@ include 'conexion.php'
 				<?php
 				$sql = mysqli_query($con, "SELECT tbl_expediente.ID_expediente,	
 				tbl_pacientes.Nom_Paciente,
+				tbl_pacientes.cedula,
 				tbl_citas.ID_Cita,
 				tbl_expediente.Fec_atencion,
 				tbl_expediente.historia_clinica,
@@ -89,6 +91,7 @@ include 'conexion.php'
 						<tr>
 							<td><?php echo $row['ID_expediente']; ?></td>
 							<td><?php echo $row['Nom_Paciente']; ?></td>
+							<td><?php echo $row['cedula']; ?></td>
 							<td><?php echo $row['ID_Cita']; ?></td>
 							<td><?php echo $row['Fec_atencion']; ?></td>
 							<td><?php echo $row['historia_clinica']; ?></td>							

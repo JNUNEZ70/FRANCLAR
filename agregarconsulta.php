@@ -40,6 +40,8 @@ include 'conexion.php'
             tbl_pacientes.Nom_Paciente,
             tbl_pacientes.cedula,
             tbl_pacientes.ID_Paciente,
+            tbl_pacientes.Fec_Nacimiento,
+            tbl_pacientes.Dir_Paciente,
             tbl_citas.Fec_Creacion,
             tbl_especialidad.Descripcion_espec,
             tbl_empleado.Nom_Empleado,
@@ -52,14 +54,24 @@ include 'conexion.php'
             INNER JOIN tbl_empleado on tbl_citas.ID_Empleado = tbl_empleado.ID_Empleado
             INNER JOIN tbl_estado_cita on tbl_citas.ID_Estado = tbl_estado_cita.ID_Estado WHERE ID_Cita='$nik'");
             $sql2 = mysqli_query($con, "SELECT * FROM tbl_preclinica WHERE ID_Cita='$nik'");
+            
+
 			if(mysqli_num_rows($sql) == 0 or mysqli_num_rows($sql2) == 0){
 				echo"error al hacer consulta";
 			}else{
                 $row = mysqli_fetch_assoc($sql);
                 $row2 = mysqli_fetch_assoc($sql2);
             }
+
+            $id_paciente = $row['ID_Paciente'];
+            $sql3 = mysqli_query($con, "SELECT tbl_Sexo.Descripcion_sexo, 
+            tbl_estado_civil.Descripcion_est_civil FROM tbl_pacientes
+            INNER JOIN tbl_sexo on tbl_pacientes.ID_Sexo = tbl_Sexo.ID_Sexo 
+            INNER JOIN tbl_estado_civil on tbl_pacientes.ID_Est_Civil = tbl_estado_civil.ID_Est_Civil WHERE ID_Paciente='$id_paciente'");
+            $row3 = mysqli_fetch_assoc($sql3);
             
-            
+            date_default_timezone_set('America/Mexico_City');
+            $fecha = date("d-m-Y");
 
 			// if(isset($_POST['save'])){
             //     if(isset($_FILES['foto']['name'])){
@@ -103,19 +115,20 @@ include 'conexion.php'
                     <div class="depertment_content">
                         <div class="row justify-content-center">
                             <div class="col-xl-8">
-                            <form method="POST" action="historia_clinica.php" autocomplete="off" enctype="multipart/form-data">
+                            <form method="POST" action="ficha_cita.php" target="h_blank" autocomplete="off" enctype="multipart/form-data" name="ficha" >
                             <h2>Datos de la consulta</h2>
                                 <p class="col-md-12">Paciente:</p>                                                           
                                 <div class="form-group col-md-12">                                    
-                                    <input type="text" class="form-control" value="<?php echo $row ['Nom_Paciente']; ?>" id="Nombre_pac" readonly>
+                                    <input type="text" class="form-control" name="nombre_pac" value="<?php echo $row ['Nom_Paciente']; ?>" id="Nombre_pac" readonly>
+                               
                                 </div>
                                 <p class="col-md-6">Identidad:</p> 
                                 <p class="col-md-6">Edad:</p>    
                                 <div class="form-group col-md-6">
-                                    <input type="text" class="form-control" value="<?php echo $row ['cedula']; ?>" id="ID_pac" readonly>
+                                    <input type="text" class="form-control" name="cedula" value="<?php echo $row ['cedula']; ?>" id="ID_pac" readonly>
                                 </div>                                
                                 <div class="form-group col-md-6">
-                                    <input type="text" class="form-control" id="Edad_pac" value="<?php echo $row ['Edad'] ." Años"; ?>" readonly>
+                                    <input type="text" class="form-control" name="edad_pac" id="Edad_pac" value="<?php echo $row ['Edad'] ." Años"; ?>" readonly>
                                 </div>
                                 <p class="col-md-6">Especialidad:</p>
                                 <p class="col-md-6">Doctor Asignado:</p>
@@ -186,12 +199,115 @@ include 'conexion.php'
                                 <!-- <div class="form-group col-md-12">
                                     <input type="text" class="form-control" id="IDConsulta" placeholder="Id Consulta">
                                 </div> -->
-                            
+
+                                <input type="text"  class="d-none" name="id_cita" value="<?php echo $nik; ?>">
+                                <input type="text"  class="d-none" name="fec_nac" value="<?php echo $row ['Fec_Nacimiento']; ?>">
+                                <input type="text"  class="d-none" name="fec_atencion" value="<?php echo $fecha; ?>">
+                                <input type="text"  class="d-none" name="sexo" value="<?php echo $row3 ['Descripcion_sexo']; ?>">
+                                <input type="text"  class="d-none" name="est_civil" value="<?php echo $row3 ['Descripcion_est_civil']; ?>">
+                                <input type="text"  class="d-none" name="direccion" value="<?php echo $row ['Dir_Paciente']; ?>">
+                                <input type="text"  class="d-none" name="id_paciente" value="<?php echo $id_paciente; ?>">
+
+                                                                                               
+                                <br>
+                                <br>
+                                
+                                </form>
+                                <form method="POST" action="receta.php" target="_blank" autocomplete="off" id="receta" name="receta">
+                                <p>Agregar Medicamento</p><button type="button" id="bt_add" title="Agregar medicamento" class="btn btn-success btn-sm" ><span class="glyphicon glyphicon-plus" aria-hidden="true" color:white ></span></button>    
+                                
+                                <input type="text" class="form-control d-none " name="nombre_pac" value="<?php echo $row ['Nom_Paciente']; ?>" id="Nombre_pac" readonly>
+                               
+                                <table id="datatable" class="table table-striped table-hover">
+                                        <thead>
+                                        <tr>
+                                            <th>Borrar</th>
+                                            <th>Medicamento</th>
+                                            <th>Dosis</th>
+                                            <th>Duración</th>
+                                            <th>Cantidad</th>                                                                                      
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        <tr id="fila1">
+                                            <td>
+                                            
+                                            <button type="button" id="bt_del" title="Eliminar medicamento" class="btn btn-danger btn-sm" ><span class="glyphicon glyphicon-trash" aria-hidden="true" color:wite ></span></a></button>
+                                            </td>
+                                            <td>
+                                                <input type="text" class="form-control" name="medicamento[]" id="medicamento1">
+                                            </td>		
+                                            <td>
+                                                <input type="text" class="form-control" name="dosis[]" id="dosis1">
+                                            </td>
+                                            <td>
+                                                <input type="text" class="form-control" name="duracion[]" id="duracion1">  
+                                            </td>
+                                            <td>
+                                                <input type="text" class="form-control" name="cantidad[]" id="cantidad1">
+                                            </td>
+                                        
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                                                       
+
+
+                                <script type="text/javascript" src='https://code.jquery.com/jquery-3.5.1.min.js'></script>
+                                
+                                <script>
+
+                                    $(document).ready(function(){
+                                        $('#bt_add').click(function(){
+                                            agregar_fila();
+                                            });
+                                        $('#bt_del').click(function(){
+                                            eliminar_fila(num_fila);
+                                        });
+                                        });
+                                        
+                                    
+                                    var cont=1;
+                                    function agregar_fila() {
+                                        cont++;
+                                        var fila='<tr id="fila'+cont+'"><td><button type="button" id="bt_del" title="Eliminar medicamento" class="btn btn-danger btn-sm" ><span class="glyphicon glyphicon-trash" aria-hidden="true" color:wite ></span></a></button></td><td><input type="text" class="form-control" name="medicamento[]" id="medicamento'+cont+'"></td><td><input type="text" class="form-control" name="dosis[]" id="dosis'+cont+'"></td><td><input type="text" class="form-control" name="duracion[]" id="duracion'+cont+'"></td><td><input type="text" class="form-control" name="cantidad[]" id="medicamento1"></td></tr>';
+                                        $('#datatable').append(fila);
+                                        
+                                        
+                                    }
+
+                                    function eliminar_fila(num_fila) {
+                                       
+                                        
+                                
+                                    }
+                                
+                                </script>
+
+                                </form>
+
                                 <div class="regerv_btn">
-                                    <a><button type="submit" name="save" class="btn_2">Guardar</button></a>
-                                    <a href="Consulta.php" ><button type=button class="btn_2" style="color: #FFFF;">Cancelar</button></a> 
+                                    <a><button onclick="envio()" type="submit"  class="btn_2">Guardar</button></a>
+                                    <a href="Consulta.php"><button type=button class="btn_2" style="color: #FFFF;">Cancelar</button></a> 
                                 </div>
-                            </form>
+                                
+                            <script>
+
+                                function envio() {
+
+                                    
+                                        document.ficha.submit() 
+
+                                    setTimeout(() => {
+                                        
+                                    let $formulario1=document.receta.submit();
+                                    }, 0);
+                                }
+
+
+                            </script>    
+                            
+                            
                             </div>
                         </div>
 
