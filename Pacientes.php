@@ -113,7 +113,7 @@ include 'conexion.php'
                                 <tr>
                                     <td>							
                                         <a href="EditarPersonal.php?nik='.$row['ID_Paciente'].'" title="Editar datos" class="btn btn-success btn-sm"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></a>
-                                        <a href="EditarPersonal.php?nik='.$row['ID_Paciente'].'" title="Editar datos" class="btn btn-success btn-sm"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></a>
+                                        <a href="ver_expediente.php?nik='.$row['ID_Paciente'].'" title="ver expediente" class="btn btn-info btn-sm"><span class="glyphicon glyphicon-folder-open" aria-hidden="true"></span></a>
                                         
                                         <a href="Personal.php?aksi=delete&nik='.$row['ID_Paciente'].'" title="Eliminar" onclick="return confirm(\'¿Está seguro de borrar los datos del colaborador '.$row['Nom_Paciente'].'?\')" class="btn btn-danger btn-sm"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>
                                     </td>

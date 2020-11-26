@@ -100,13 +100,13 @@ include 'conexion.php'
 				}else{
 					$no = 1;
 					while($row = mysqli_fetch_assoc($sql)){
-						($permiso_eliminar==1)?$boton='<a href="Religiones.php?aksi=delete&nik='.$row['ID_Religion'].'" title="Eliminar" onclick="return confirm(\'¿Está seguro de borrar los datos del la religión '.$row['Descripción'].'?\')" class="btn btn-danger btn-sm"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>':$boton='<a  title="Eliminar"  onClick="permiso()" class="btn btn-warning btn-sm"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>';
+						($permiso_eliminar==1)?$boton='<a href="Religiones.php?aksi=delete&nik='.$row['ID_Religion'].'" title="Eliminar" onclick="return confirm(\'¿Está seguro de borrar los datos del la religión '.$row['Descripcion_Religion'].'?\')" class="btn btn-danger btn-sm"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>':$boton='<a  title="Eliminar"  onClick="permiso()" class="btn btn-warning btn-sm"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>';
 						($permiso_actualizar==1)?$boton2='<a href="EditarReligion.php?nik='.$row['ID_Religion'].'" title="Editar datos" class="btn btn-success btn-sm"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></a>':$boton2='<a  title="Editar datos" onClick="permiso()" class="btn btn-warning btn-sm"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></a>';	
 						
 						echo '
 						<tr>
                             <td>'.$row['ID_Religion'].'</td>
-							<td>'.$row['Descripción'].'</td>	
+							<td>'.$row['Descripcion_Religion'].'</td>	
 							<td>'.$boton2.' '.$boton.'</td>
 						</tr>
 						';
