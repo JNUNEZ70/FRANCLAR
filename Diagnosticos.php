@@ -62,6 +62,8 @@ include 'conexion.php';
 			
 			$row = mysqli_fetch_assoc($query);
 			$permiso= $row['permiso_insertar'];
+			$permiso_eliminar= $row['permiso_eliminar'];
+			$permiso_actualizar=$row['permiso_actualizar'];
 		}if ($permiso==0){
 			
 		 echo '<div class="alert alert-danger alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>"usuario no tiene permisos para agregar nuevo"</div>';
@@ -99,15 +101,16 @@ include 'conexion.php';
 					echo '<tr><td colspan="8">No hay datos.</td></tr>';
 				}else{
 					$no = 1;
+				
 					while($row = mysqli_fetch_assoc($sql)){
+						($permiso_eliminar==1)?$boton='<a href="Diagnosticos.php?aksi=delete&nik='.$row['ID_Diagnostico'].'" title="Eliminar" onclick="return confirm(\'¿Está seguro de borrar los datos del sexo '.$row['Descripcion'].'?\')" class="btn btn-danger btn-sm"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>':$boton='<a  title="Eliminar"  onClick="permiso()" class="btn btn-warning btn-sm"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>';
+						($permiso_actualizar==1)?$boton2='<a href="EditarDiagnostico.php?nik='.$row['ID_Diagnostico'].'" title="Editar datos" class="btn btn-success btn-sm"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></a>':$boton2='<a  title="Editar datos" onClick="permiso()" class="btn btn-warning btn-sm"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></a>';	
+							
 						echo '
 						<tr>
                             <td>'.$row['ID_Diagnostico'].'</td>
 							<td>'.$row['Descripcion'].'</td>	
-							<td>							
-								<a href="EditarDiagnostico.php?nik='.$row['ID_Diagnostico'].'" title="Editar datos" class="btn btn-success btn-sm"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></a>
-								<a href="Diagnosticos.php?aksi=delete&nik='.$row['ID_Diagnostico'].'" title="Eliminar" onclick="return confirm(\'¿Está seguro de borrar los datos del diagnóstico '.$row['Descripcion'].'?\')" class="btn btn-danger btn-sm"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>
-							</td>
+							<td>'.$boton2.' '.$boton.'</td>
 						</tr>
 						';
 						$no++;

@@ -72,7 +72,7 @@ include 'conexion.php'
 
                                 <div class="regerv_btn col-md-8">
                                     <button type="submit" name="save" class="btn_2">Guardar</button>
-                                    <a href="Cargos.php" class="btn_2">Cancelar</a>
+                                    <a href="Sexo.php" class="btn_2">Cancelar</a>
                                 </div>
                             </div>
                         </form>

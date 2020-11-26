@@ -32,7 +32,7 @@ if (isset($_POST['permisos'])){
          $id_vista_12,$id_vista_13,$id_vista_14,$id_vista_15
    )=$objetos;
    //obtener el rol
-   
+
    $insert = mysqli_query($con, "INSERT INTO tbl_permisos (id_rol,id_objeto,permiso_insertar,permiso_eliminar,permiso_actualizar,permiso_consultar) 
                                        VALUES ('$rol','$id_vista_0','$id_0','$id_2','$id_1','$id_3'),
                                               ('$rol','$id_vista_1','$id_4','$id_6','$id_5','$id_7'),
@@ -64,6 +64,7 @@ if (isset($_POST['permisos'])){
         echo '<div class="alert alert-danger alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>Error, no se pudo guardar los datos.</div>';
     }  
 }
+
 
 if(isset($_POST['update_permisos'])){
    

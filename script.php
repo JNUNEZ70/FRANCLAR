@@ -63,6 +63,8 @@
             }
         }
     </script>
+<!-- scrip franclar -->
+
 
 <script>
         $(document).on('ready', function(){
@@ -85,14 +87,14 @@
 <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.js"></script>
 <!-- datatables JS -->
 <script type="text/javascript" src="datatables/datatables.min.js"></script>    
-     
-     <!-- para usar botones en datatables JS -->  
-     <script src="datatables/Buttons-1.5.6/js/dataTables.buttons.min.js"></script>  
+<!-- para usar botones en datatables JS -->  
+<script src="datatables/Buttons-1.5.6/js/dataTables.buttons.min.js"></script>  
      <script src="datatables/JSZip-2.5.0/jszip.min.js"></script>    
      <script src="datatables/pdfmake-0.1.36/pdfmake.min.js"></script>    
      <script src="datatables/pdfmake-0.1.36/vfs_fonts.js"></script>
      <script src="datatables/Buttons-1.5.6/js/buttons.html5.min.js"></script>
-
+     
+      
 <script>
     const prueba= document.querySelectorAll("table");
     console.log(prueba);
@@ -152,3 +154,4 @@
     });
     
     </script>
+    <script src="js/franclar.js" > </script>
