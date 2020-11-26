@@ -158,10 +158,10 @@ $factura='<!DOCTYPE html>
              <td colspan="2" class="col1" style="text-align:left">
                  
              </td>
-             <td class="col2" style="text-align:left">
+             <td class="col2" style="text-align:center">
                 Subtotal
              </td>  
-             <td class="col3" style="text-align:left">
+             <td class="col3" style="text-align:center">
                 <p>L.'.$subtotal.'</p>
              </td>  
                       
@@ -170,10 +170,10 @@ $factura='<!DOCTYPE html>
              <td colspan="2" class="col1" style="text-align:left">
                  
              </td>
-             <td class="col2" style="text-align:left">
+             <td class="col2" style="text-align:center">
                 ISV 15%
              </td>  
-             <td class="col3" style="text-align:left">
+             <td class="col3" style="text-align:center">
                 <p>L.'.$isv.'</p>
              </td>  
                       
@@ -186,10 +186,10 @@ $factura='<!DOCTYPE html>
              <td colspan="2" class="col1" style="text-align:left">
                  
              </td>
-             <td class="col2" style="text-align:left">
+             <td class="col2" style="text-align:center">
                 TOTAL
              </td>  
-             <td class="col3" style="text-align:left">
+             <td class="col3" style="text-align:center">
                 <p>L.'.$total.'</p>
              </td>  
                       
