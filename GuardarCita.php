@@ -4,7 +4,7 @@ include ("conexion.php");
 ?>
 <?php
     
-	if(isset($_POST['add'])){
+	if(isset($_POST['save'])){
 
         $nomb_pac = mysqli_real_escape_string($con,(strip_tags($_POST['NombPaciente'],ENT_QUOTES)));
         $especialidad = mysqli_real_escape_string($con,(strip_tags($_POST['Especialidad'],ENT_QUOTES)));
@@ -13,6 +13,7 @@ include ("conexion.php");
         $precio = mysqli_real_escape_string($con,(strip_tags($_POST['precio'],ENT_QUOTES)));
         
         $id_usuario= $_SESSION['ID_Usuario'];
+
 
         $sql = mysqli_query($con, "SELECT * FROM tbl_pacientes WHERE Nom_Paciente='$nomb_pac'");
         $row = mysqli_fetch_assoc($sql);                        

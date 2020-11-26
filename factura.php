@@ -95,12 +95,12 @@ include 'conexion.php'
                     <div class="depertment_content">
                         <div class="row justify-content-center">
                             <div class="col-xl-8">
-                            <form method="POST" action="" autocomplete="off">                                                      
+                            <form id="factura" method="POST" action="prueba_fact.php" target="_blank" autocomplete="off">                                                      
                             <div class="form-row">
                             <h2 class="col-md-12">Datos del Paciente</h2>                                  
                                 <p class="col-md-12">Paciente:</p>                                                           
                                 <div class="form-group col-md-12">                                    
-                                    <input type="text" class="form-control" value="<?php echo $row ['Nom_Paciente']; ?>" id="Nombre_pac" readonly>
+                                    <input type="text" class="form-control" name="Nombre_pac" value="<?php echo $row ['Nom_Paciente']; ?>" id="Nombre_pac" readonly>
                                 </div>
                                 <p class="col-md-6">Identidad:</p> 
                                 <p class="col-md-6">Edad:</p>    
@@ -212,8 +212,13 @@ include 'conexion.php'
                                     </tr>
                                     
                                 </table>
+
+                                <input type="text"  class="d-none" name="id_cita" value="<?php echo $nik; ?>">    
+                                <input type="text"  class="d-none" name="id_factura" value="<?php echo $id_factura; ?>">
+                                    
+
                                 <div class="regerv_btn col-md-12">
-                                        <a><button type="submit" name="save" class="btn_2">Cobrar</button></a>
+                                        <a><button onclick="envio()" type="submit" name="save" class="btn_2">Cobrar</button></a>
                                         <a href="Caja.php" ><button type=button class="btn_2" style="color: #FFFF;">Cancelar</button></a>     
                                 </div>
                             </div>
@@ -226,7 +231,22 @@ include 'conexion.php'
         </div>
     </section>
     <!--::regervation_part end::-->
+<script>
+   function envio() {
 
+  const $ok=  window.confirm('Factura creada con Éxito');
+setTimeout(() => {
+    
+console.log($ok);
+ if ($ok) {
+     window.location.href= 'Caja.php';
+ }else{
+    window.location.href= 'Caja.php';
+ }
+
+}, 1000);
+}
+</script>
     <?php
         include 'Copyright.php'
     ?>

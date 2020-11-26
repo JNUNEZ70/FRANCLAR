@@ -47,7 +47,11 @@
                 $sexo = mysqli_real_escape_string($con,(strip_tags($_POST['sexo'],ENT_QUOTES)));
                 $est_civil = mysqli_real_escape_string($con,(strip_tags($_POST['est_civil'],ENT_QUOTES)));
                 $domicilio = mysqli_real_escape_string($con,(strip_tags($_POST['direccion'],ENT_QUOTES)));
-                $id_paciente = mysqli_real_escape_string($con,(strip_tags($_POST['id_paciente'],ENT_QUOTES)));                
+                $id_paciente = mysqli_real_escape_string($con,(strip_tags($_POST['id_paciente'],ENT_QUOTES)));
+                $id_especialidad = mysqli_real_escape_string($con,(strip_tags($_POST['id_especialidad'],ENT_QUOTES)));
+                $descrip_espec = mysqli_real_escape_string($con,(strip_tags($_POST['descrip_espec'],ENT_QUOTES))); 
+                
+                               
 
                 $pa = mysqli_real_escape_string($con,(strip_tags($_POST['PA'],ENT_QUOTES)));
                 $fc = mysqli_real_escape_string($con,(strip_tags($_POST['FC'],ENT_QUOTES)));
@@ -74,23 +78,44 @@
                 $duracion=$_POST['duracion'];
                 $cantidad=$_POST['cantidad'];
                         
-            
+                
+                $sql = mysqli_query($con, "SELECT * FROM tbl_especialidad WHERE ID_especialidad='$id_especialidad'");
+                $row = mysqli_fetch_assoc($sql);
+                $cobro = $row['Precio'];
+
+
                 $insert = mysqli_query($con, "INSERT INTO tbl_consultas (ID_Cita, Diagnostico, Anamnesis, Exam_Fisico, Tratamiento) 
                                     VALUES ( '$num_cita' , '$diagnostico' , '$anamnesis' , '$exam_fisico' , '$tratamiento')") or die(mysqli_error());
                 $update = mysqli_query($con, "UPDATE tbl_citas SET ID_Estado= 3 WHERE ID_Cita='$num_cita'") or die(mysqli_error());
                 $insert_expe = mysqli_query($con, "INSERT INTO tbl_expediente (ID_paciente, ID_Cita, imagen, tipo_imagen) 
                                     VALUES ( '$id_paciente' , '$num_cita' , '$binariosimagen' , '$tipoimagen')") or die(mysqli_error());
-                if($insert and $update and $insert_expe){                    
-                //   $id_usuario= $_SESSION['ID_Usuario'];
-                //   $insert_bitacora = mysqli_query($con, "INSERT INTO tbl_bitacora_evento (id_usuario,id_objeto,Accion,Descripcion)
-                //   VALUES ('$id_usuario',9,'Update','SE ACTUALIZÓ UNA ESPECIALIDAD')") or die(mysqli_error());
-                    echo "<script type='text/javascript'>
-                        alert('Consulta almacenada correctamente');
-                        window.location.href= 'Consulta.php';
-                    </script>";
-                }else{
-                    echo '<div class="alert alert-danger alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>Error, Preclínica fallida</div>';
-                }
+                
+                
+                
+                $insert_fact = mysqli_query($con, "INSERT INTO tbl_facturas (ID_cita, ID_Paciente, ID_Especialidad, Pago) 
+                                    VALUES ( '$num_cita' , '$id_paciente' , '$id_especialidad' , '$cobro')") or die(mysqli_error());                    
+                
+                $sql2 = mysqli_query($con, "SELECT * FROM tbl_facturas WHERE ID_cita='$num_cita'");
+                $row2 = mysqli_fetch_assoc($sql2);
+                $num_fact = $row2['ID_factura'];
+                
+
+                $insert_detalle_fact = mysqli_query($con, "INSERT INTO tbl_detalle_factura (ID_Factura, descripcion, cobro) 
+                                    VALUES ( '$num_fact' , '$descrip_espec' , '$cobro')") or die(mysqli_error());   
+                
+
+                
+                // if($insert and $update and $insert_expe){                    
+                // //   $id_usuario= $_SESSION['ID_Usuario'];
+                // //   $insert_bitacora = mysqli_query($con, "INSERT INTO tbl_bitacora_evento (id_usuario,id_objeto,Accion,Descripcion)
+                // //   VALUES ('$id_usuario',9,'Update','SE ACTUALIZÓ UNA ESPECIALIDAD')") or die(mysqli_error());
+                //     echo "<script type='text/javascript'>
+                //         alert('Consulta almacenada correctamente');
+                //         window.location.href= 'Consulta.php';
+                //     </script>";
+                // }else{
+                //     echo '<div class="alert alert-danger alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>Error, Preclínica fallida</div>';
+                // }
             }
         }
     

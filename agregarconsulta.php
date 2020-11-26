@@ -44,6 +44,7 @@ include 'conexion.php'
             tbl_pacientes.Dir_Paciente,
             tbl_citas.Fec_Creacion,
             tbl_especialidad.Descripcion_espec,
+            tbl_especialidad.ID_especialidad,
             tbl_empleado.Nom_Empleado,
             tbl_citas.Fec_Atencion,	
             tbl_citas.Hora_Atencion,	
@@ -133,7 +134,7 @@ include 'conexion.php'
                                 <p class="col-md-6">Especialidad:</p>
                                 <p class="col-md-6">Doctor Asignado:</p>
                                 <div class="form-group col-md-6">
-                                    <input type="text" class="form-control" id="Especialidad" value="<?php echo $row ['Descripcion_espec']; ?>" readonly>
+                                    <input type="text" class="form-control" name="descrip_espec" id="Especialidad" value="<?php echo $row ['Descripcion_espec']; ?>" readonly>
                                 </div>
                                 <div class="form-group col-md-6">
                                     <input type="text" class="form-control" id="Doctor" value="<?php echo $row ['Nom_Empleado']; ?>" readonly>
@@ -207,6 +208,7 @@ include 'conexion.php'
                                 <input type="text"  class="d-none" name="est_civil" value="<?php echo $row3 ['Descripcion_est_civil']; ?>">
                                 <input type="text"  class="d-none" name="direccion" value="<?php echo $row ['Dir_Paciente']; ?>">
                                 <input type="text"  class="d-none" name="id_paciente" value="<?php echo $id_paciente; ?>">
+                                <input type="text"  class="d-none" name="id_especialidad" value="<?php echo $row ['ID_especialidad']; ?>">
 
                                                                                                
                                 <br>
@@ -218,7 +220,7 @@ include 'conexion.php'
                                 
                                 <input type="text" class="form-control d-none " name="nombre_pac" value="<?php echo $row ['Nom_Paciente']; ?>" id="Nombre_pac" readonly>
                                 <input type="text"  class="d-none" name="id_cita" value="<?php echo $nik; ?>">
-                                
+
                                 <table id="datatable" class="table table-striped table-hover">
                                         <thead>
                                         <tr>
@@ -299,10 +301,18 @@ include 'conexion.php'
                                     
                                         document.ficha.submit() 
 
-                                    setTimeout(() => {
-                                        
                                     let $formulario1=document.receta.submit();
-                                    }, 0);
+                                    const $ok=  window.confirm('Expediente y ficha médica creadas con Éxito');
+                                            setTimeout(() => {
+                                                
+                                            console.log($ok);
+                                            if ($ok) {
+                                                window.location.href= 'Consulta.php';
+                                            }else{
+                                                window.location.href= 'Consulta.php';
+                                            }
+
+                                            }, 1000);
                                 }
 
 
