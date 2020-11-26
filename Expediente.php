@@ -65,7 +65,9 @@ include 'conexion.php'
 					<th>Cédula</th>
 					<th>Número de Cita</th>
 					<th>Fecha de Atención</th>
-                    <th>Archivo PDF</th>
+                    <th>Ficha de Cita</th>
+					<th>Receta</th>
+					<th>Factura</th>
                     <th>Imagen de la cita</th>
 				</tr>
 				</thead>
@@ -94,9 +96,11 @@ include 'conexion.php'
 							<td><?php echo $row['cedula']; ?></td>
 							<td><?php echo $row['ID_Cita']; ?></td>
 							<td><?php echo $row['Fec_atencion']; ?></td>
-							<td><?php echo $row['historia_clinica']; ?></td>							
+							<td><a href="fichas_citas/ficha<?php echo $row['Nom_Paciente'].$row['ID_Cita']; ?>.pdf" target="_blank">Ficha de Cita</a></td>
+							<td><a href="fichas_citas/receta<?php echo $row['Nom_Paciente'].$row['ID_Cita']; ?>.pdf" target="_blank">Receta</a></td>	
+							<td><a href="fichas_citas/factura<?php echo $row['Nom_Paciente'].$row['ID_Cita']; ?>.pdf" target="_blank">Factura</a></td>								
 							<td>
-								<img width="150" src="data:<?php echo $row['tipo_imagen']; ?>;base64,<?php echo base64_encode($row['imagen']); ?>" >								
+								<img width="100" src="data:<?php echo $row['tipo_imagen']; ?>;base64,<?php echo base64_encode($row['imagen']); ?>" >								
 							</td>							
 						</tr>						
 						<?php

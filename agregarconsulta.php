@@ -217,7 +217,8 @@ include 'conexion.php'
                                 <p>Agregar Medicamento</p><button type="button" id="bt_add" title="Agregar medicamento" class="btn btn-success btn-sm" ><span class="glyphicon glyphicon-plus" aria-hidden="true" color:white ></span></button>    
                                 
                                 <input type="text" class="form-control d-none " name="nombre_pac" value="<?php echo $row ['Nom_Paciente']; ?>" id="Nombre_pac" readonly>
-                               
+                                <input type="text"  class="d-none" name="id_cita" value="<?php echo $nik; ?>">
+                                
                                 <table id="datatable" class="table table-striped table-hover">
                                         <thead>
                                         <tr>
