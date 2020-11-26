@@ -1,7 +1,7 @@
 <?php
 
 include ('conexion.php');
-
+$usuario=$_SESSION['Nom_Usuario'];
 $rolUsuario=$_SESSION['ID_Rol'];
 
 ?>
@@ -56,10 +56,10 @@ switch ($rolUsuario) {
                                 <li class="nav-item dropdown">
                                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
                                     role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    Reportes
+                                   Caja
                                 </a>
                                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="RPacientes.php">Pacientes</a>
+                                    <a class="dropdown-item" href="Caja.php">Cobrar</a>
                                     <a class="dropdown-item" href="RCitas.php">Citas</a>
                                     <a class="dropdown-item" href="RConsultas.php">Consultas</a>
                                     <a class="dropdown-item" href="RPagos.php">Pagos</a>
@@ -86,9 +86,6 @@ switch ($rolUsuario) {
                                         </button>
                                         <button type="submit" name="especialidades" class="dropdown-item">
                                         Especialidades
-                                        </button>
-                                        <button type="submit" name="servicios" class="dropdown-item">
-                                        Servicios
                                         </button>
                                         <button type="submit" name="estado_civil" class="dropdown-item">
                                         Estado Civil
@@ -154,8 +151,7 @@ switch ($rolUsuario) {
                                 <li class="nav-item dropdown ">
                                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
                                     role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            
-                                    <img src="img/author/author_1.png" alt="" class="rounded-circle">
+                                    <?php echo $usuario?>
                                     </a>
                                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                                         <a class="dropdown-item glyphicon glyphicon-off "  href="cerrar.php" > Salir</a>
@@ -249,7 +245,6 @@ switch ($rolUsuario) {
                                         <a href="Parametros.php" class="dropdown-item">Parámetros</a>
                                         <a href="cargos.php" class="dropdown-item">Cargos</a>
                                         <a href="Especialidades.php" class="dropdown-item">Especialidades</a>
-                                        <a href="Servicios.php" class="dropdown-item">Servicios</a>
                                         <a href="Estado_Civil.php" class="dropdown-item">Estado Civil</a>
                                         <a href="Sexo.php" class="dropdown-item">Sexos</a>
                                         <a href="Religiones.php" class="dropdown-item">Religiones</a>
@@ -265,7 +260,7 @@ switch ($rolUsuario) {
                                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
                                     role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             
-                                    <img src="img/author/author_2.png" alt="" class="rounded-circle">
+                                    <?php echo $usuario?>
                                     </a>
                                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                                         <a class="dropdown-item glyphicon glyphicon-off "  href="cerrar.php" > Salir</a>

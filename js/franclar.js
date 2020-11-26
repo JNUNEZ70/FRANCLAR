@@ -1,3 +1,75 @@
+/**esto es para fullcalendar */
+
+
+
+document.addEventListener('DOMContentLoaded', function() {
+    var calendarEl = document.getElementById('calendar');
+
+    var calendar = new FullCalendar.Calendar(calendarEl, {
+        // defaultDate: new Date(2019, 8, 1),
+        plugins: ['dayGrid', 'interaction', 'timeGrid', 'list'],
+        //defaultView:'timeGridDay'
+
+        header: {
+            left: 'prev,next today Miboton',
+            center: 'title',
+            right: 'dayGridMonth,timeGridWeek,timeGridDay'
+        },
+
+        customButtons: {
+            Miboton: {
+                text: 'Boton',
+                click: function() {
+                    alert("accion");
+                    $('#exampleModal').modal('toggle')
+                }
+            }
+        },
+        dateClick: function(date, jsEvent, view) {
+            $('#txt_fecha').val(date.dateStr);
+            console.log(date.dateStr);
+            $('#ModalEventos').modal();
+            // console.log(info);
+            // calendar.addEvent({ title: 'evento x', date: info.dateStr });
+        },
+
+
+
+        /*events:[
+        {
+          title:'reunion',
+          start:'2020-11-24 10:05:00',
+          descripcion:'RRHH'
+        },
+        {
+          title:'entrega de proyecto',
+          start:'2020-11-24 11:05:00'
+        }
+  
+      ]*/
+        events: "http://localhost:8008/Franclar/modulo_citas.php",
+
+        eventClick: function(calEvent, jsEvent, view) {
+            // console.log(info.event.title);
+            // console.log(info.event.start);
+            //console.log(info.event.extendedProps.especialidad);
+            console.log(calEvent.event.title);
+            console.log(calEvent.event.start);
+            console.log(calEvent.event.extendedProps.especialidad);
+            // console.log(info.event.extendedProps.paciente);
+            $('#tituloEvento').html(calEvent.event.title);
+            $('#descripcion').html(calEvent.event.extendedProps.especialidad);
+            $('#exampleModal').modal();
+
+        },
+    });
+
+    calendar.setOption('locale', 'Es');
+    calendar.render();
+});
+
+
+/** fin del funllcalendar */
 function permiso() {
 
     let texto = `Usuario no tiene permisos  Comunicarse con el administrador`;

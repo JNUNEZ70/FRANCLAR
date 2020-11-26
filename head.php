@@ -32,15 +32,14 @@
     <!-- FullCalendar -->
     <link href='lib/main.css' rel='stylesheet' />
     <script src='lib/main.js'></script>
-    <!-- search CSS -->
-    <link rel="stylesheet" type="text/css" href="css/search.css">
+    <!-- search CSS ****** no se encontro el archivo********-->
+    <!-- <link rel="stylesheet" type="text/css" href="css/search.css"> -->
     <!-- CSS personalizado --> 
     <link rel="stylesheet" href="css/main.css">  
     <!--datables CSS básico-->
     <link rel="stylesheet" type="text/css" href="datatables/datatables.min.css"/>
     <!--datables estilo bootstrap 4 CSS-->  
     <link rel="stylesheet"  type="text/css" href="datatables/DataTables-1.10.18/css/dataTables.bootstrap4.min.css">
-    
     
     <?php
         if (!isset($_SESSION["Nom_Usuario"]))

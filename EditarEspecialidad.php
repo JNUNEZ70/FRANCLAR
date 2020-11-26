@@ -41,9 +41,10 @@ include 'conexion.php'
 				$row = mysqli_fetch_assoc($sql);
 			}
 			if(isset($_POST['save'])){
-				$nombre = mysqli_real_escape_string($con,(strip_tags($_POST['Nombre'],ENT_QUOTES))); 
+                $nombre = mysqli_real_escape_string($con,(strip_tags($_POST['Nombre'],ENT_QUOTES)));
+                $precio = mysqli_real_escape_string($con,(strip_tags($_POST['Precio'],ENT_QUOTES))); 
 				
-				$update = mysqli_query($con, "UPDATE tbl_especialidad SET Descripcion_espec='$nombre' WHERE ID_especialidad='$nik'") or die(mysqli_error());
+				$update = mysqli_query($con, "UPDATE tbl_especialidad SET Descripcion_espec='$nombre', Precio=$precio WHERE ID_especialidad='$nik'") or die(mysqli_error());
 				if($update){
                     $id_usuario= $_SESSION['ID_Usuario'];
                     $insert_bitacora = mysqli_query($con, "INSERT INTO tbl_bitacora_evento (id_usuario,id_objeto,Accion,Descripcion)
@@ -68,6 +69,11 @@ include 'conexion.php'
                             <div class="form-row">
                                 <div class="form-group col-md-6">
                                     <input type="text" class="form-control" value="<?php echo $row['Descripcion_espec']; ?>" id="Nombre_Especialidad" maxlength="50" name="Nombre" placeholder="Nombre de Especialidad" required>
+                                </div>
+
+                                <div class="form-group col-md-6">
+                                    <input type="text" class="form-control" value="<?php echo $row['Precio']; ?>" id="Precio" maxlength="50" name="Precio" placeholder="Precio del servicio" required>
+                        
                                 </div>
 
                                 <div class="regerv_btn col-md-8">
