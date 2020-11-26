@@ -43,14 +43,16 @@ include 'conexion.php'
                             <form method="POST" action="GuardarCita.php" autocomplete="off">
                             <h2>Ingresar una cita</h2>
                             <div class="form-row">
-                                <div class="form-group col-md-6">
-                                    <input type="text" class="form-control" id="IDPac" placeholder="Identidad del Paciente(sin guiones)" required>
+                                <div class="input-group col-md-6">
+                                    <input type="text" class="form-control" id="IDPac" onkeypress="return solonumeros(event)" maxlength="13" placeholder="Identidad del Paciente (sin guiones)" required>
+                                    <span class="input-group-btn">
+                                        <button type="button" id="identidad" class="btn btn-default" onclick="consultar_paciente()">
+                                            <span class="input-group-addon glyphicon glyphicon-search"></span>
+                                        </button>
+                                    </span>
                                 </div>
                                 <div class="form-group col-md-6">
-                                    <input type="text" class="form-control" id="NomPac" rows="4" placeholder="Nombre de Paciente" readonly name="NombPaciente">
-                                </div>
-                                <div class="regerv_btn col-md-12">
-                                    <a type="button" class="btn_2" id="identidad" style="color: #FFFF;" onclick="consultar_paciente()" >Consultar</a>
+                                    <input type="text" class="form-control" id="NomPac" name="NombPaciente" rows="4" placeholder="Nombre de Paciente" readonly>
                                 </div>
 
                                 <script type="text/javascript" src='https://code.jquery.com/jquery-3.5.1.min.js'></script>
@@ -74,9 +76,7 @@ include 'conexion.php'
                                 </script>
 
                                 <br>
-                                <br>
-                                <br>
-                                <br>
+
                                 <div class="form-group col-md-12">
                                     <select class="form-control" id="CargoEm" name="Especialidad" required>
                                         <option value="0" selected>Seleccione un Servicio</option>
@@ -89,19 +89,19 @@ include 'conexion.php'
                                         ?>
                                     </select>
                                 </div>
-                                <div class="form-group col-md-6">
+                                <div class="form-group col-md-4">
                                     <input type="text" class="input-group date form-control" date="" data-date-format="dd-mm-yyyy" id="FechaAten" placeholder="Fecha de atención" name="fecha_atenc" required>
                                 </div>
-                                <div class="form-group col-md-6">
+                                <div class="form-group col-md-4">
                                     <input type="time" id="default-picker" class="form-control" placeholder="Seleccione la hora" name="hora_atenc" required>
                                 </div>
-                                <div class="form-group col-md-6">
-                                    <input type="text" class="form-control" id="Precio" placeholder="Precio" name="precio" required>
+                                <div class="form-group col-md-4">
+                                    <input type="text" class="form-control" id="Precio" placeholder="Precio" maxlength="5" onkeypress="return solonumeros(event)" name="precio" required>
                                 </div>
                             </div>
                             <div class="regerv_btn">
-                                <a><button type="submit" name="add" class="btn_2" style="color: #FFFF;">Ingresar</button></a>
-                                <a href="Cita.php" ><button type=button class="btn_2" style="color: #FFFF;">Cancelar</button></a>                                
+                            <a><button type="submit" name="save" class="btn_2">Guardar</button></a>
+                                    <a href="Cita.php" ><button type=button class="btn_2" style="color: #FFFF;">Cancelar</button></a> 
                             </div>
                             
                             </form>
@@ -126,6 +126,14 @@ include 'conexion.php'
     <?php
         include 'script.php'
     ?>
+    <script>
+    document.getElementById("Precio").addEventListener('keyup', sanear);
+    document.getElementById("IDPac").addEventListener('keyup', sanear);
+    function sanear(e) {
+      let contenido = e.target.value;
+      e.target.value = contenido.toUpperCase().replace(" ", "");
+    }
+    </script>
 </body>
 
 </html>
