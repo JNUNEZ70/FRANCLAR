@@ -29,10 +29,10 @@ include ("conexion.php");
         $ant_familiares = mysqli_real_escape_string($con,(strip_tags($_POST['AntFamiliares'],ENT_QUOTES)));
         $habitos = mysqli_real_escape_string($con,(strip_tags($_POST['Habito'],ENT_QUOTES)));
         $usuario = $_SESSION['Nom_Usuario'];
-        $fecha = date();
+        //$fecha = date();
         
-	$insert = mysqli_query($con, "INSERT INTO tbl_pacientes (Nom_Paciente, cedula, Fec_Nacimiento, Edad, Email, Tel_Paciente, Cel_Paciente, Dir_Paciente, ID_Sexo, ID_Est_Civil, ID_Religion, ID_Tipo_Sangre, ID_TipoPaciente, Contacto_Emergencia, Parentesco, Tel_Emergencia, Cel_Emergencia, Antecedentes_Personales, Antecedentes_Hospitalarios, Antecedentes_Alergicos, Antecedentes_Familiares, Habitos, Usuario_crea, Fec_crea) 
-                                       VALUES ('$nombre', '$numeroid', '$fechan', '$edad', '$email', '$telefono', '$celular', '$direccion', '$sexo', '$estado_civil', '$religion', '$sangre', '$tipo', '$contacto', '$parentesco', '$tel_emergencia', '$cel_emergencia', '$ant_personales', '$ant_hospitalarios', '$ant_alergicos', '$ant_familiares', '$habitos', '$usuario', '$fecha')") or die(mysqli_error());
+	$insert = mysqli_query($con, "INSERT INTO tbl_pacientes (Nom_Paciente, cedula, Fec_Nacimiento, Edad, Email, Tel_Paciente, Cel_Paciente, Dir_Paciente, ID_Sexo, ID_Est_Civil, ID_Religion, ID_Tipo_Sangre, ID_TipoPaciente, Contacto_Emergencia, Parentesco, Tel_Emergencia, Cel_Emergencia, Antecedentes_Personales, Antecedentes_Hospitalarios, Antecedentes_Alergicos, Antecedentes_Familiares, Habitos, Usuario_crea) 
+                                       VALUES ('$nombre', '$numeroid', '$fechan', '$edad', '$email', '$telefono', '$celular', '$direccion', '$sexo', '$estado_civil', '$religion', '$sangre', '$tipo', '$contacto', '$parentesco', '$tel_emergencia', '$cel_emergencia', '$ant_personales', '$ant_hospitalarios', '$ant_alergicos', '$ant_familiares', '$habitos', '$usuario')") or die(mysqli_error());
     if($insert){
         $id_usuario= $_SESSION['ID_Usuario'];
                         $insert_bitacora = mysqli_query($con, "INSERT INTO tbl_bitacora_evento (id_usuario,id_objeto,Accion,Descripcion)
