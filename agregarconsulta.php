@@ -116,7 +116,7 @@ include 'conexion.php'
                     <div class="depertment_content">
                         <div class="row justify-content-center">
                             <div class="col-xl-8">
-                            <form method="POST" action="ficha_cita.php" target="h_blank" autocomplete="off" enctype="multipart/form-data" name="ficha" >
+                            <form method="POST" action="ficha_cita.php" target="h_blank" autocomplete="off" enctype="multipart/form-data" id="ficha" name="ficha" >
                             <h2>Datos de la consulta</h2>
                                 <p class="col-md-12">Paciente:</p>                                                           
                                 <div class="form-group col-md-12">                                    
@@ -299,7 +299,6 @@ include 'conexion.php'
                                 function envio() {
 
                                     
-                                        document.ficha.submit() 
 
                                     let $formulario1=document.receta.submit();
                                     const $ok=  window.confirm('Expediente y ficha médica creadas con Éxito');
@@ -307,6 +306,7 @@ include 'conexion.php'
                                                 
                                             console.log($ok);
                                             if ($ok) {
+                                        document.ficha.submit() ;
                                                 window.location.href= 'Consulta.php';
                                             }else{
                                                 window.location.href= 'Consulta.php';
