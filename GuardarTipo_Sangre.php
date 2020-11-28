@@ -9,7 +9,7 @@ include ("conexion.php");
         $nombre = mysqli_real_escape_string($con,(strip_tags($_POST['Nombre'],ENT_QUOTES)));
        
 	
-	$insert = mysqli_query($con, "INSERT INTO tbl_tipo_sangre (Descripción) 
+	$insert = mysqli_query($con, "INSERT INTO tbl_tipo_sangre (Descripcion_Sangre) 
                                        VALUES ('$nombre')") or die(mysqli_error());
     
     if($insert){
