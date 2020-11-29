@@ -43,7 +43,7 @@ include 'conexion.php'
 			if(isset($_POST['save'])){
 				$nombre = mysqli_real_escape_string($con,(strip_tags($_POST['Nombre'],ENT_QUOTES))); 
 				
-				$update = mysqli_query($con, "UPDATE tbl_tipo_sangre SET Descripción='$nombre' WHERE ID_Tipo_Sangre='$nik'") or die(mysqli_error());
+				$update = mysqli_query($con, "UPDATE tbl_tipo_sangre SET Descripcion_Sangre='$nombre' WHERE ID_Tipo_Sangre='$nik'") or die(mysqli_error());
 				if($update){
                     $id_usuario= $_SESSION['ID_Usuario'];
                     $insert_bitacora = mysqli_query($con, "INSERT INTO tbl_bitacora_evento (id_usuario,id_objeto,Accion,Descripcion)
@@ -67,7 +67,7 @@ include 'conexion.php'
                             <h2>Editar Cargo</h2>
                             <div class="form-row">
                                 <div class="form-group col-md-6">
-                                    <input type="text" class="form-control" value="<?php echo $row['Descripción']; ?>" id="Nombre_Tipo_Sangre" maxlength="50" name="Nombre" placeholder="Nombre del tipo de sangre" required>
+                                    <input type="text" class="form-control" value="<?php echo $row['Descripcion_Sangre']; ?>" id="Nombre_Tipo_Sangre" maxlength="15" name="Nombre" onkeypress="return soloLetras(event)" placeholder="Nombre del tipo de sangre" required>
                                 </div>
 
                                 <div class="regerv_btn col-md-8">
@@ -88,7 +88,17 @@ include 'conexion.php'
     <?php
         include 'script.php'
     ?>
-
+    <script>
+    document.getElementById("Nombre_Tipo_Sangre").addEventListener('keyup',sanear2);
+    function sanear(e) {
+      let contenido = e.target.value;
+      e.target.value = contenido.replace(" ", "");
+    }
+    function sanear2(e) {
+      let contenido = e.target.value;
+      e.target.value = contenido.replace("  ", " ");
+    }
+    </script>
 </body>
 
 </html>

@@ -31,7 +31,67 @@
             var key = e.keyCode || e.which,
             tecla = String.fromCharCode(key).toLowerCase(),
             letras = " áéíóúabcdefghijklmnñopqrstuvwxyz",
-            especiales = [8, 37, 39, 46],
+            especiales = [8],
+            tecla_especial = false;
+
+            for (var i in especiales) {
+            if (key == especiales[i]) {
+                tecla_especial = true;
+                break;
+            }
+            }
+
+            if (letras.indexOf(tecla) == -1 && !tecla_especial) {
+            return false;
+            }
+        }
+    </script>
+    <script>
+        function soloLetrasPregunta(e) {
+            var key = e.keyCode || e.which,
+            tecla = String.fromCharCode(key).toLowerCase(),
+            letras = " áéíóúabcdefghijklmnñopqrstuvwxyz",
+            especiales = [8, 63, 191],
+            tecla_especial = false;
+
+            for (var i in especiales) {
+            if (key == especiales[i]) {
+                tecla_especial = true;
+                break;
+            }
+            }
+
+            if (letras.indexOf(tecla) == -1 && !tecla_especial) {
+            return false;
+            }
+        }
+    </script>
+    <script>
+        function Correo(e) {
+            var key = e.keyCode || e.which,
+            tecla = String.fromCharCode(key).toLowerCase(),
+            letras = " áéíóúabcdefghijklmnñopqrstuvwxyz1234567890",
+            especiales = [8, 46, 64, 95],
+            tecla_especial = false;
+
+            for (var i in especiales) {
+            if (key == especiales[i]) {
+                tecla_especial = true;
+                break;
+            }
+            }
+
+            if (letras.indexOf(tecla) == -1 && !tecla_especial) {
+            return false;
+            }
+        }
+    </script>
+    <script>
+        function alfanumerica(e) {
+            var key = e.keyCode || e.which,
+            tecla = String.fromCharCode(key).toLowerCase(),
+            letras = " áéíóúabcdefghijklmnñopqrstuvwxyz1234567890",
+            especiales = [8],
             tecla_especial = false;
 
             for (var i in especiales) {
@@ -51,7 +111,27 @@
             var key = e.keyCode || e.which,
             tecla = String.fromCharCode(key).toLowerCase(),
             numeros = " 1234567890",
-            especiales = [8, 37, 39, 46],
+            especiales = [8],
+            tecla_especial = false;
+
+            for (var i in especiales) {
+            if (key == especiales[i]) {
+                tecla_especial = true;
+                break;
+            }
+            }
+
+            if (numeros.indexOf(tecla) == -1 && !tecla_especial) {
+            return false;
+            }
+        }
+    </script>
+    <script>
+        function solonumerosfecha(e) {
+            var key = e.keyCode || e.which,
+            tecla = String.fromCharCode(key).toLowerCase(),
+            numeros = " 1234567890",
+            especiales = [8, 45],
             tecla_especial = false;
 
             for (var i in especiales) {
@@ -67,25 +147,6 @@
         }
     </script>
 <!-- scrip franclar -->
-
-
-<script>
-        $(document).on('ready', function(){
-            $('#show-hide-passwd').on('click', function(e) {
-
-                var current = $(this).attr('action');
-
-                if (current == 'hide'){
-                    $(this).prev().attr('type','text');
-                    $(this).removeClass('glyphicon-eye-open').addClass('glyphicon-eye-close').attr('action','show');
-                }
-                if (current == 'show'){
-                    $(this).prev().attr('type','password');
-                    $(this).removeClass('glyphicon-eye-close').addClass('glyphicon-eye-open').attr('action','hide');
-                }
-            })
-        })
-</script>
 
 <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.js"></script>
 <!-- datatables JS -->

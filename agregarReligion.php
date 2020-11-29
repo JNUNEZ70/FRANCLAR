@@ -42,12 +42,12 @@ include 'conexion.php'
                             <h2>Ingrese Nueva Religión</h2>
                             <div class="form-row">
                                 <div class="form-group col-md-6">
-                                    <input type="text" class="form-control" id="Nombre_Religion" maxlength="50" name="Nombre" placeholder="Nombre de nueva religión" required>
+                                    <input type="text" class="form-control" id="Nombre_Religion" maxlength="20" name="Nombre" onkeypress="return soloLetras(event)" placeholder="Nombre de nueva religión" required>
                                 </div>
                                
                                 <div class="regerv_btn col-md-8" >
                                     <button type="submit" name="add" class="btn_2">Guardar</button>
-                                    <a href="Religion.php" class="btn_2">Cancelar</a>
+                                    <a href="Religiones.php" class="btn_2">Cancelar</a>
                                 </div>
                             </div>
                         </form>
@@ -70,7 +70,18 @@ include 'conexion.php'
     <?php
         include 'script.php'
     ?>
-    
+    <script>
+    document.getElementById("Nombre_Religion").addEventListener('keyup',sanear2);
+    function sanear(e) {
+      let contenido = e.target.value;
+      e.target.value = contenido.replace(" ", "");
+    }
+    function sanear2(e) {
+      let contenido = e.target.value;
+      e.target.value = contenido.replace("  ", " ");
+    }
+    </script>
+
 </body>
 
 </html>

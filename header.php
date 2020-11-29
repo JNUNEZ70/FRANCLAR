@@ -53,19 +53,9 @@ switch ($rolUsuario) {
                                 </li>
                                 
 
-                                <li class="nav-item dropdown">
-                                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
-                                    role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                   Caja
-                                </a>
-                                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="Caja.php">Cobrar</a>
-                                    <a class="dropdown-item" href="RCitas.php">Citas</a>
-                                    <a class="dropdown-item" href="RConsultas.php">Consultas</a>
-                                    <a class="dropdown-item" href="RPagos.php">Pagos</a>
-                                    <a class="dropdown-item" href="RMantenimiento.php">Mantenimiento</a>
-                                </div>
-                            </li>
+                                <li class="nav-item active">
+                                    <a class="nav-link" href="Caja.php">Caja</a>
+                                </li>
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
                                 role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -99,8 +89,10 @@ switch ($rolUsuario) {
                                         <button type="submit" name="tipo_sangre" class="dropdown-item">
                                         Tipos de Sangre
                                         </button>
-                                        
-                                            <button type="submit" name="diagnostico" class="dropdown-item" >Diagnosticos</button></a>
+                                        <button type="submit" name="parentesco" class="dropdown-item">
+                                        Parentesco
+                                        </button>
+                                            <button type="submit" name="diagnostico" class="dropdown-item" >Diagnósticos</button></a>
                                         </form>
                                     </div>
                                 </li>
@@ -128,6 +120,10 @@ switch ($rolUsuario) {
                                             
                                             <button type="submit" name="p_sistema" class="dropdown-item">
                                                 Parámetros del sistema
+                                            </button>
+
+                                            <button type="submit" name="p_preguntas" class="dropdown-item">
+                                                Preguntas Secretas
                                             </button>
                                             
                                             <p class="dropdown-item" >--ADMINISTRACION--</p>

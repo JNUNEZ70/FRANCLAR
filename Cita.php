@@ -34,33 +34,30 @@ include 'conexion.php'
 
     <!-- footer part start-->
     <?php
-			// if(isset($_GET['aksi']) == 'delete'){
-			// 	// escaping, additionally removing everything that could be (html/javascript-) code
-			// 	$nik = mysqli_real_escape_string($con,(strip_tags($_GET["nik"],ENT_QUOTES)));
-			// 	$cek = mysqli_query($con, "SELECT * FROM tbl_empleado WHERE ID_Empleado='$nik'");
-			// 	if(mysqli_num_rows($cek) == 0){
-			// 		echo '<div class="alert alert-info alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button> No se encontraron datos.</div>';
-			// 	}else{
-			// 		$delete = mysqli_query($con, "DELETE FROM tbl_empleado WHERE ID_Empleado='$nik'");
-			// 		if($delete){
-			// 			$id_usuario= $_SESSION['ID_Usuario'];
-			// 				$insert_bitacora = mysqli_query($con, "INSERT INTO tbl_bitacora_evento (id_usuario,id_objeto,Accion,Descripcion)
-            //                 VALUES ('$id_usuario',1,'Delete','SE ELIMINÓ UN EMPLEADO')") or die(mysqli_error());
-			// 			echo '<div class="alert alert-success alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button> Datos eliminado correctamente.</div>';
-			// 		}else{
-			// 			echo '<div class="alert alert-danger alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button> Error, no se pudo eliminar los datos.</div>';
-			// 		}
-			// 	}
-			// }
+		if(isset($_GET['aksi']) == 'delete'){
+			// escaping, additionally removing everything that could be (html/javascript-) code
+			$nik = mysqli_real_escape_string($con,(strip_tags($_GET["nik"],ENT_QUOTES)));
+			$cek = mysqli_query($con, "SELECT * FROM tbl_citas WHERE ID_Cita='$nik'");
+			if(mysqli_num_rows($cek) == 0){
+				echo '<div class="alert alert-info alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button> No se encontraron datos.</div>';
+			}else{
+				$delete = mysqli_query($con, "DELETE FROM tbl_citas WHERE ID_Cita='$nik'");
+				if($delete){
+					$id_usuario= $_SESSION['ID_Usuario'];
+						$insert_bitacora = mysqli_query($con, "INSERT INTO tbl_bitacora_evento (id_usuario,id_objeto,Accion,Descripcion)
+						VALUES ('$id_usuario',7,'Delete','SE ELIMINÓ UNA CITA')") or die(mysqli_error());
+					echo '<div class="alert alert-success alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button> Datos eliminados correctamente.</div>';
+				}else{
+					echo '<div class="alert alert-danger alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button> Error, no se pudo eliminar los datos.</div>';
+				}
+			}
+		}
 	 ?>
     <form class="form-inline my-2 my-lg-0 float-left">
         <a href="agregarcita.php" class="genric-btn info circle">Agregar</a>
     </form>	
     <form class="form-inline my-2 my-lg-0 float-left">
-        <a href="CalendarioCitas.php" class="genric-btn info circle">Ver Calendario</a>
-	</form>	
-	<form class="form-inline my-2 my-lg-0 float-left">
-        <a href="calendario_prueba.php" class="genric-btn info circle">Ver Calendario de prueba</a>
+        <a href="calendario_prueba.php" class="genric-btn info circle">Ver Calendario</a>
 	</form>	
 	<br>   
 	<br>
@@ -81,99 +78,99 @@ include 'conexion.php'
 				</tr>
 				</thead>
 				<tbody>
-				<?php
-				$sql = mysqli_query($con, "SELECT tbl_citas.ID_Cita,	
-				tbl_pacientes.Nom_Paciente,
-				tbl_citas.Fec_Creacion,
-				tbl_especialidad.Descripcion_espec,
-				tbl_empleado.Nom_Empleado,
-				tbl_citas.Fec_Atencion,	
-				tbl_citas.Hora_Atencion,	
-				tbl_estado_cita.Descripcion_est_cita,
-				tbl_estado_cita.ID_Estado FROM tbl_citas 
-				INNER JOIN tbl_pacientes on tbl_citas.ID_Paciente = tbl_pacientes.ID_Paciente
-				INNER JOIN tbl_especialidad on tbl_citas.ID_Especialidad = tbl_especialidad.ID_Especialidad
-				INNER JOIN tbl_empleado on tbl_citas.ID_Empleado = tbl_empleado.ID_Empleado
-				INNER JOIN tbl_estado_cita on tbl_citas.ID_Estado = tbl_estado_cita.ID_Estado");
-				if(mysqli_num_rows($sql) == 0){
-					echo '<tr><td colspan="8">No hay datos.</td></tr>';
-				}else{
-					$no = 1;
-					while($row = mysqli_fetch_assoc($sql)){
-						if($row['ID_Estado'] == 1){
-							echo '
-							<tr>
-							<td>'.$row['ID_Cita'].'</td>
-							<td>'.$row['Nom_Paciente'].'</td>
-							<td>'.$row['Fec_Creacion'].'</td>
-							<td>'.$row['Descripcion_espec'].'</td>
-							<td>'.$row['Nom_Empleado'].'</td>
-							<td>'.$row['Fec_Atencion'].'</td>
-							<td>'.$row['Hora_Atencion'].'</td>
-							<td><span class="label label-success">'.$row['Descripcion_est_cita'].'</span></td>					
-							<td>							
-								<a href="EditarPersonal.php?nik='.$row['ID_Cita'].'" title="Editar datos" class="btn btn-success btn-sm"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></a>
-								<a href="Personal.php?aksi=delete&nik='.$row['ID_Cita'].'" title="Eliminar" onclick="return confirm(\'¿Está seguro de borrar los datos del colaborador '.$row['Nom_Empleado'].'?\')" class="btn btn-danger btn-sm"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>
-							</td>
-							</tr>
-							';
-						}elseif($row['ID_Estado'] == 2){
-							echo '
-							<tr>
-							<td>'.$row['ID_Cita'].'</td>
-							<td>'.$row['Nom_Paciente'].'</td>
-							<td>'.$row['Fec_Creacion'].'</td>
-							<td>'.$row['Descripcion_espec'].'</td>
-							<td>'.$row['Nom_Empleado'].'</td>
-							<td>'.$row['Fec_Atencion'].'</td>
-							<td>'.$row['Hora_Atencion'].'</td>
-							<td><span class="label label-info">'.$row['Descripcion_est_cita'].'</span></td>					
-							<td>							
-								<a href="EditarPersonal.php?nik='.$row['ID_Cita'].'" title="Editar datos" class="btn btn-success btn-sm"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></a>
-								<a href="Personal.php?aksi=delete&nik='.$row['ID_Cita'].'" title="Eliminar" onclick="return confirm(\'¿Está seguro de borrar los datos del colaborador '.$row['Nom_Empleado'].'?\')" class="btn btn-danger btn-sm"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>
-							</td>
-							</tr>
-							';
-						}elseif($row['ID_Estado'] == 3){
-							echo '
-							<tr>
-							<td>'.$row['ID_Cita'].'</td>
-							<td>'.$row['Nom_Paciente'].'</td>
-							<td>'.$row['Fec_Creacion'].'</td>
-							<td>'.$row['Descripcion_espec'].'</td>
-							<td>'.$row['Nom_Empleado'].'</td>
-							<td>'.$row['Fec_Atencion'].'</td>
-							<td>'.$row['Hora_Atencion'].'</td>
-							<td><span class="label label-primary">'.$row['Descripcion_est_cita'].'</span></td>					
-							<td>							
-								<a href="EditarPersonal.php?nik='.$row['ID_Cita'].'" title="Editar datos" class="btn btn-success btn-sm"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></a>
-								<a href="Personal.php?aksi=delete&nik='.$row['ID_Cita'].'" title="Eliminar" onclick="return confirm(\'¿Está seguro de borrar los datos del colaborador '.$row['Nom_Empleado'].'?\')" class="btn btn-danger btn-sm"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>
-							</td>
-							</tr>
-							';
-						}elseif($row['ID_Estado'] == 4){
-							echo '
-							<tr>
-							<td>'.$row['ID_Cita'].'</td>
-							<td>'.$row['Nom_Paciente'].'</td>
-							<td>'.$row['Fec_Creacion'].'</td>
-							<td>'.$row['Descripcion_espec'].'</td>
-							<td>'.$row['Nom_Empleado'].'</td>
-							<td>'.$row['Fec_Atencion'].'</td>
-							<td>'.$row['Hora_Atencion'].'</td>
-							<td><span class="label label-warning">'.$row['Descripcion_est_cita'].'</span></td>					
-							<td>							
-								<a href="EditarPersonal.php?nik='.$row['ID_Cita'].'" title="Editar datos" class="btn btn-success btn-sm"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></a>
-								<a href="Personal.php?aksi=delete&nik='.$row['ID_Cita'].'" title="Eliminar" onclick="return confirm(\'¿Está seguro de borrar los datos del colaborador '.$row['Nom_Empleado'].'?\')" class="btn btn-danger btn-sm"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>
-							</td>
-							</tr>
-							';
+					<?php
+						$sql = mysqli_query($con, "SELECT tbl_citas.ID_Cita,	
+						tbl_pacientes.Nom_Paciente,
+						tbl_citas.Fec_Creacion,
+						tbl_especialidad.Descripcion_espec,
+						tbl_empleado.Nom_Empleado,
+						tbl_citas.Fec_Atencion,	
+						tbl_citas.Hora_Atencion,	
+						tbl_estado_cita.Descripcion_est_cita,
+						tbl_estado_cita.ID_Estado FROM tbl_citas 
+						INNER JOIN tbl_pacientes on tbl_citas.ID_Paciente = tbl_pacientes.ID_Paciente
+						INNER JOIN tbl_especialidad on tbl_citas.ID_Especialidad = tbl_especialidad.ID_Especialidad
+						INNER JOIN tbl_empleado on tbl_citas.ID_Empleado = tbl_empleado.ID_Empleado
+						INNER JOIN tbl_estado_cita on tbl_citas.ID_Estado = tbl_estado_cita.ID_Estado");
+						if(mysqli_num_rows($sql) == 0){
+							echo '<tr><td colspan="8">No hay datos.</td></tr>';
+						}else{
+							$no = 1;
+							while($row = mysqli_fetch_assoc($sql)){
+								if($row['ID_Estado'] == 1){
+									echo '
+									<tr>
+									<td>'.$row['ID_Cita'].'</td>
+									<td>'.$row['Nom_Paciente'].'</td>
+									<td>'.$row['Fec_Creacion'].'</td>
+									<td>'.$row['Descripcion_espec'].'</td>
+									<td>'.$row['Nom_Empleado'].'</td>
+									<td>'.$row['Fec_Atencion'].'</td>
+									<td>'.$row['Hora_Atencion'].'</td>
+									<td><span class="label label-success">'.$row['Descripcion_est_cita'].'</span></td>					
+									<td>							
+										<a href="EditarCita.php?nik='.$row['ID_Cita'].'" title="Editar datos" class="btn btn-success btn-sm"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></a>
+										<a href="Cita.php?aksi=delete&nik='.$row['ID_Cita'].'" title="Eliminar" onclick="return confirm(\'¿Está seguro de borrar los datos de la cita\')" class="btn btn-danger btn-sm"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>
+									</td>
+									</tr>
+									';
+								}elseif($row['ID_Estado'] == 2){
+									echo '
+									<tr>
+									<td>'.$row['ID_Cita'].'</td>
+									<td>'.$row['Nom_Paciente'].'</td>
+									<td>'.$row['Fec_Creacion'].'</td>
+									<td>'.$row['Descripcion_espec'].'</td>
+									<td>'.$row['Nom_Empleado'].'</td>
+									<td>'.$row['Fec_Atencion'].'</td>
+									<td>'.$row['Hora_Atencion'].'</td>
+									<td><span class="label label-info">'.$row['Descripcion_est_cita'].'</span></td>
+									<td>							
+									<a href="EditarCita.php?nik='.$row['ID_Cita'].'" title="Editar datos" class="btn btn-success btn-sm"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></a>
+									<a href="Cita.php?aksi=delete&nik='.$row['ID_Cita'].'" title="Eliminar" onclick="return confirm(\'¿Está seguro de borrar los datos de la cita\')" class="btn btn-danger btn-sm"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>
+								    </td>
+									</tr>
+									';
+								}elseif($row['ID_Estado'] == 3){
+									echo '
+									<tr>
+									<td>'.$row['ID_Cita'].'</td>
+									<td>'.$row['Nom_Paciente'].'</td>
+									<td>'.$row['Fec_Creacion'].'</td>
+									<td>'.$row['Descripcion_espec'].'</td>
+									<td>'.$row['Nom_Empleado'].'</td>
+									<td>'.$row['Fec_Atencion'].'</td>
+									<td>'.$row['Hora_Atencion'].'</td>
+									<td><span class="label label-primary">'.$row['Descripcion_est_cita'].'</span></td>
+									<td>							
+									<a href="EditarCita.php?nik='.$row['ID_Cita'].'" title="Editar datos" class="btn btn-success btn-sm"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></a>
+									<a href="Cita.php?aksi=delete&nik='.$row['ID_Cita'].'" title="Eliminar" onclick="return confirm(\'¿Está seguro de borrar los datos de la cita\')" class="btn btn-danger btn-sm"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>
+								    </td>
+									</tr>
+									';
+								}elseif($row['ID_Estado'] == 4){
+									echo '
+									<tr>
+									<td>'.$row['ID_Cita'].'</td>
+									<td>'.$row['Nom_Paciente'].'</td>
+									<td>'.$row['Fec_Creacion'].'</td>
+									<td>'.$row['Descripcion_espec'].'</td>
+									<td>'.$row['Nom_Empleado'].'</td>
+									<td>'.$row['Fec_Atencion'].'</td>
+									<td>'.$row['Hora_Atencion'].'</td>
+									<td><span class="label label-warning">'.$row['Descripcion_est_cita'].'</span></td>					
+									<td>							
+									<a href="EditarCita.php?nik='.$row['ID_Cita'].'" title="Editar datos" class="btn btn-success btn-sm"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></a>
+									<a href="Cita.php?aksi=delete&nik='.$row['ID_Cita'].'" title="Eliminar" onclick="return confirm(\'¿Está seguro de borrar los datos de la cita\')" class="btn btn-danger btn-sm"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>
+								    </td>
+									</tr>
+									';
+								}
+								$no++;
+							}
 						}
-						$no++;
-					}
-				}
-				?>
-				<tbody>
+					?>
+				</tbody>
 			</table>
 		 </div>
 		 	<br>

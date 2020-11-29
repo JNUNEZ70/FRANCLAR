@@ -54,15 +54,14 @@ include 'conexion.php'
                                     </select>
                                 </div>
                                 <div class="form-group col-md-6">
-                                    <input type="email" class="form-control" id="EmailU" name="Email" maxlength="50" placeholder="Email" required>
+                                    <input type="email" class="form-control" id="EmailU" name="Email" maxlength="50" onkeypress="return Correo(event)" placeholder="Email" required>
                                 </div>
                                 <div class="form-group col-md-4">
                                     <input type="text" class="form-control" id="NomU" name="Nom_Usuario" maxlength="20" onkeypress="return soloLetras(event)" onkeyup="javascript:this.value=this.value.toUpperCase();" placeholder="Nombre de usuario"  required>
                                     
                                 </div>                                
                                 <div class="input-group col-md-4">
-                                    <input value= "<?php echo generar_password_complejo(2) ?>" type="Password" class="form-control" id="passwordU" name="Password"  minlength="8" maxlength="30" placeholder="Contraseña" readonly required>
-                                    <span id="show-hide-passwd" action="hide" class="input-group-addon glyphicon glyphicon-eye-open"></span>
+                                    <input value= "<?php echo generar_password_complejo(2) ?>" type="text" class="form-control" id="passwordU" name="Password"  minlength="8" maxlength="30" placeholder="Contraseña" readonly required>
                                 </div>               
                                 <div class="form-group col-md-4">
                                     <select class="form-control" id="RolU" name="Rol" required>
@@ -76,20 +75,6 @@ include 'conexion.php'
                                         ?>
                                     </select>
                                 </div>
-                                <div class="input-group col-md-12">
-                                    <h2 class="mb-30">Permisos</h2>
-                                        <h1>Escritorio</h1><input class="primary-checkbox" type="checkbox" name="Escritorio" value="1">
-
-                                        <h1>Preclínica</h1><input class="primary-checkbox" type="checkbox" name="Escritorio" value="1">
-
-                                        <h1>Pacientes</h1><input class="primary-checkbox" type="checkbox" name="Escritorio" value="1">
-
-                                        <h1>Personal</h1><input class="primary-checkbox" type="checkbox" name="Escritorio" value="1">
-
-                                        <h1>Usuarios</h1><input class="primary-checkbox" type="checkbox" name="Escritorio" value="1">
-                                </div>
-                                <br>
-                                <br>
                     
                                 <div class="regerv_btn">
                                     <button type="submit" name="add" class="btn_2">Guardar</button>
@@ -193,10 +178,6 @@ include 'conexion.php'
     <?php
         include 'script.php'
     ?>
-    
-
-
-
 </body>
 
 </html>

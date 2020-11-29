@@ -94,7 +94,7 @@ include 'conexion.php'
 									
 							<td>							
 								<a href="EditarRol.php?nik='.$row['ID_Rol'].'" title="Editar datos" class="btn btn-success btn-sm"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></a>
-								<a href="Roles.php?aksi=delete&nik='.$row['ID_Rol'].'" title="Eliminar" onclick="return confirm(\'¿Está seguro de borrar los datos del servicio '.$row['Rol'].'?\')" class="btn btn-danger btn-sm"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>
+								<a href="Roles.php?aksi=delete&nik='.$row['ID_Rol'].'" title="Eliminar" onclick="return confirm(\'¿Está seguro de borrar los datos del rol '.$row['Rol'].'?\')" class="btn btn-danger btn-sm"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>
 							</td>
 						</tr>
 						';

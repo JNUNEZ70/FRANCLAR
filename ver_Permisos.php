@@ -75,7 +75,7 @@ include 'conexion.php';
 		
 		
 		<div class="table-responsive">
-			<table   class="table table-striped table-hover">
+			<table id="datatableUsuarios"  class="table table-striped table-hover">
 				<input class="d-none"  type="text" value="<?php echo $row['Rol']; ?>" > 
 				<input  class="d-none" type="text" value="<?php echo $row['ID_Rol']; ?>" name="id_rol" > 
 				<thead>

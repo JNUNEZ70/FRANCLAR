@@ -42,10 +42,10 @@ include 'conexion.php'
                             <h2>Datos del parámetro</h2>
                             <div class="form-row">
                                 <div class="form-group col-md-6">
-                                    <input type="text" class="form-control" id="NomP" name="Parametro" onkeypress="return soloLetras(event)" placeholder="Nombre del parámetro" required>
+                                    <input type="text" class="form-control" id="NomP" name="Parametro" onkeypress="return soloLetras(event)" maxlength="25" placeholder="Nombre del parámetro" required>
                                 </div>
                                 <div class="form-group col-md-6">
-                                    <input type="text" class="form-control" id="ValP" name="Valor_Parametro" onkeypress="return solonumeros(event)" placeholder="Valor" required>
+                                    <input type="text" class="form-control" id="ValP" name="Valor_Parametro" onkeypress="return solonumeros(event)" maxlength="3" placeholder="Valor" required>
                                 </div>
             
                                 <div class="regerv_btn">
@@ -72,7 +72,14 @@ include 'conexion.php'
     <?php
         include 'script.php'
     ?>
-    
+    <script>
+    document.getElementById("NomP").addEventListener('keyup', sanear);
+    document.getElementById("ValP").addEventListener('keyup', sanear);
+    function sanear(e) {
+      let contenido = e.target.value;
+      e.target.value = contenido.toUpperCase().replace(" ", "");
+    }
+    </script>
 </body>
 
 </html>

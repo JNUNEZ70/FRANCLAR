@@ -49,16 +49,16 @@ include 'conexion.php'
                                     <input type="text" class="form-control" id="NumeroID" name="NumIDPac" onkeypress="return solonumeros(event)" maxlength="13" placeholder="Número de identidad" required>
                                 </div>
                                 <div class="form-group col-md-6">
-                                    <input type="text" id="FechaN" name="FecPac" class="input-group date form-control" date="" data-date-format="dd-mm-yyyy" placeholder="Fecha de nacimiento" required>
+                                    <input type="text" id="FechaN" name="FecPac" class="input-group date form-control" date="" data-date-format="yyyy-mm-dd" onkeypress="return solonumerosfecha(event)" maxlength="10" placeholder="Fecha de nacimiento" required>
                                 </div>
                                 <div class="form-group col-md-6">
                                     <input type="text" class="form-control" id="Edad" name="EdadPac" onkeypress="return solonumeros(event)" maxlength="3" placeholder="Edad" required>
                                 </div>
                                 <div class="form-group col-md-6">
-                                    <input type="email" class="form-control" id="Email" name="EmailPac" maxlength="50" placeholder="Email" required>
+                                    <input type="email" class="form-control" id="email" name="EmailPac" maxlength="50" onkeypress="return Correo(event)" placeholder="Email" required>
                                 </div>
                                 <div class="form-group col-md-6">
-                                    <input type="tel" class="form-control" id="Teléfono" name="TelPac" onkeypress="return solonumeros(event)" maxlength="8" placeholder="Teléfono fijo">
+                                    <input type="tel" class="form-control" id="Telefono" name="TelPac" onkeypress="return solonumeros(event)" maxlength="8" placeholder="Teléfono fijo">
                                 </div>
                                 <div class="form-group col-md-6">
                                     <input type="text" class="form-control" id="Celular" name="CelPac" onkeypress="return solonumeros(event)" maxlength="8" placeholder="Celular" required>
@@ -70,7 +70,7 @@ include 'conexion.php'
                                 <div class="form-row">
                                 <div class="form-group col-md-6">
                                     <select class="form-control" id="Genero" name="GenPac" required>
-                                        <option value="" selected>Seleccione el Genero</option>
+                                        <option value="" selected>Seleccione el Género</option>
                                         <?php
                                           $sql=$con -> query("Select * from tbl_sexo");
 
@@ -132,16 +132,25 @@ include 'conexion.php'
                                 <h2>Contacto de emergencia</h2>
                                 <div class="form-row">
                                 <div class="form-group col-md-6">
-                                    <input type="text" class="form-control" id="NombreEmer" name="ConEmerg" maxlength="40" placeholder="Nombre de contacto" required>
+                                    <input type="text" class="form-control" id="NombreEmer" name="ConEmerg" maxlength="40" onkeypress="return soloLetras(event)" placeholder="Nombre de contacto" required>
                                 </div>
                                 <div class="form-group col-md-6">
-                                    <input type="text" class="form-control" id="Parentesco" name="Parentesco_Em" maxlength="20" placeholder="Parentesco" required>
+                                    <select class="form-control" id="Parentesco" name="Parentesco_Em" required>
+                                        <option value="" selected>Seleccione el parentesco</option>
+                                        <?php
+                                          $sql=$con -> query("Select * from tbl_parentesco");
+
+                                          while($fila=$sql->fetch_array()){
+                                              echo "<option value='".$fila['ID_Parentesco']."'>".$fila['Parentesco']."</option>";
+                                          }
+                                        ?>
+                                    </select>
                                 </div>
                                 <div class="form-group col-md-6">
-                                    <input type="text" class="form-control" id="Telefono" name="TelEmer" maxlength="8" placeholder="Teléfono fijo">
+                                    <input type="text" class="form-control" id="TelefonoEmer" name="TelEmer" maxlength="8" onkeypress="return solonumeros(event)" placeholder="Teléfono fijo">
                                 </div>
                                 <div class="form-group col-md-6">
-                                    <input type="text" class="form-control" id="Celular" name="CelEmer" maxlength="8" placeholder="Celular" required>
+                                    <input type="text" class="form-control" id="CelularEmer" name="CelEmer" maxlength="8" onkeypress="return solonumeros(event)" placeholder="Celular" required>
                                 </div>
 
                                 <h2>Antecedentes</h2>
@@ -187,6 +196,50 @@ include 'conexion.php'
     <?php
         include 'script.php'
     ?>
+    <script>
+    document.getElementById("Nombre").addEventListener('keyup',sanear2);
+    document.getElementById("Direccion").addEventListener('keyup', sanear2);
+    document.getElementById("NombreEmer").addEventListener('keyup',sanear2);
+    document.getElementById("Telefono").addEventListener('keyup', sanear);
+    document.getElementById("Celular").addEventListener('keyup', sanear);
+    document.getElementById("NumeroID").addEventListener('keyup', sanear);
+    document.getElementById("Edad").addEventListener('keyup', sanear);
+    function sanear(e) {
+      let contenido = e.target.value;
+      e.target.value = contenido.replace(" ", "");
+    }
+    function sanear2(e) {
+      let contenido = e.target.value;
+      e.target.value = contenido.toUpperCase().replace("  ", " ");
+    }
+    </script>
+    <script>
+    document.getElementById("NombreEmer").addEventListener('keyup',sanear2);
+    document.getElementById("Parentesco").addEventListener('keyup', sanear2);
+    document.getElementById("Personales").addEventListener('keyup',sanear2);
+    document.getElementById("Hospitalarios").addEventListener('keyup',sanear2);
+    document.getElementById("Alergicos").addEventListener('keyup',sanear2);
+    document.getElementById("Familiares").addEventListener('keyup',sanear2);
+    document.getElementById("Habitos").addEventListener('keyup',sanear2);
+    document.getElementById("TelefonoEmer").addEventListener('keyup', sanear);
+    document.getElementById("CelularEmer").addEventListener('keyup', sanear);
+    function sanear(e) {
+      let contenido = e.target.value;
+      e.target.value = contenido.replace(" ", "");
+    }
+    function sanear2(e) {
+      let contenido = e.target.value;
+      e.target.value = contenido.toUpperCase().replace("  ", " ");
+    }
+    </script>
+    <script>
+    document.getElementById("FechaN").addEventListener('keyup',sanear);
+    document.getElementById("emailpac").addEventListener('keyup',sanear);
+    function sanear(e) {
+      let contenido = e.target.value;
+      e.target.value = contenido.replace(" ", "");
+    }
+    </script>
 </body>
 
 </html>

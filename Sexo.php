@@ -23,7 +23,7 @@ include 'conexion.php'
                 <div class="col-lg-12">
                     <div class="breadcrumb_iner">
                         <div class="breadcrumb_iner_item">
-                            <h2>Sexos</h2>
+                            <h2>Géneros</h2>
                         </div>
                     </div>
                 </div>
@@ -88,7 +88,7 @@ include 'conexion.php'
 				<thead>
 					<tr>
 						<th>No</th>
-						<th>Desccipción De Sexo</th>
+						<th>Desccipción Del Género</th>
 						<th>Acciones</th>
 						
 						

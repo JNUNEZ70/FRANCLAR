@@ -93,13 +93,13 @@ include 'conexion.php'
                             <input type="text" class="form-control" name="nombre_usuario" value="<?php echo $row['Nom_Usuario']?>" placeholder="Ingrese una contraseña Actual" readonly>
                                 </div>                                          
                                 <div class="form-group col-md-6">    
-                            <input id="contra_actual" type="password" class="form-control" name="contra_actual"  pattern="^(?=.*\d)(?=.*[\u0021-\u002b\u003c-\u0040])(?=.*[A-Z])(?=.*[a-z])\S{8,30}$" title="Debe contener letras mayuscula, minusculas, numeros y caracteres especiales" placeholder="INGRESE SU CONTRASEÑA ACTUAL"  autocomplete="off" >
+                            <input id="contra_actual" type="password" class="form-control"  name="contra_actual" maxlength="30"  pattern="^(?=.*\d)(?=.*[\u0021-\u002b\u003c-\u0040])(?=.*[A-Z])(?=.*[a-z])\S{8,30}$" title="Debe contener letras mayúsculas, minúsculas, números y caracteres especiales" placeholder="INGRESE SU CONTRASEÑA ACTUAL"  autocomplete="off" >
                                 </div>                                          
                                 <div class="form-group col-md-6">
-                                <input id="contra_nueva" type="password" class="form-control " name="Ncontraseña"  pattern="^(?=.*\d)(?=.*[\u0021-\u002b\u003c-\u0040])(?=.*[A-Z])(?=.*[a-z])\S{8,30}$" title="Debe contener letras mayuscula, minusculas, numeros y caracteres especiales" placeholder="INGRESE SU NUEVA CONTRASEÑA"  autocomplete="off" >
+                            <input id="contra_nueva" type="password" class="form-control" name="Ncontraseña" maxlength="30" pattern="^(?=.*\d)(?=.*[\u0021-\u002b\u003c-\u0040])(?=.*[A-Z])(?=.*[a-z])\S{8,30}$" title="Debe contener letras mayúsculas, minúsculas, números y caracteres especiales" placeholder="INGRESE SU NUEVA CONTRASEÑA"  autocomplete="off" >
                                 </div>
                                 <div class="form-group col-md-6">
-                                <input id="confirmar_contra" type="password" class="form-control" name="Ccontraseña"  pattern="^(?=.*\d)(?=.*[\u0021-\u002b\u003c-\u0040])(?=.*[A-Z])(?=.*[a-z])\S{8,30}$" onkeyup="validar()" title="Debe contener letras mayuscula, minusculas, numeros y caracteres especiales" placeholder="CONFIRME SU NUEVA CONTRASEÑA "  autocomplete="off" >
+                            <input id="confirmar_contra" type="password" class="form-control" name="Ccontraseña" maxlength="30"  pattern="^(?=.*\d)(?=.*[\u0021-\u002b\u003c-\u0040])(?=.*[A-Z])(?=.*[a-z])\S{8,30}$" onkeyup="validar()" title="Debe contener letras mayúsculas, minúsculas, números numeros y caracteres especiales" placeholder="CONFIRME SU NUEVA CONTRASEÑA "  autocomplete="off" >
                                 <p  id="confirmar" class="text-danger d-none">Contraseña no coinciden</p>
                                 </div>
                                 <br>
@@ -125,11 +125,15 @@ include 'conexion.php'
     <?php
         include 'script.php'
     ?>
-<script>
-
-
-
-</script>
+    <script>
+    document.getElementById("contra_actual").addEventListener('keyup', contaseña);
+    document.getElementById("contra_nueva").addEventListener('keyup', contaseña);
+    document.getElementById("confirmar_contra").addEventListener('keyup', contaseña);
+    function contaseña(e) {
+      let contenido = e.target.value;
+      e.target.value = contenido.replace(" ", "");
+    }
+    </script>
 </body>
 
 </html>

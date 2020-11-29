@@ -43,7 +43,7 @@ include 'conexion.php'
 			if(isset($_POST['save'])){
 				$nombre = mysqli_real_escape_string($con,(strip_tags($_POST['Nombre'],ENT_QUOTES))); 
 				
-				$update = mysqli_query($con, "UPDATE tbl_religion SET Descripción='$nombre' WHERE ID_Religion='$nik'") or die(mysqli_error());
+				$update = mysqli_query($con, "UPDATE tbl_religion SET Descripcion_Religion='$nombre' WHERE ID_Religion='$nik'") or die(mysqli_error());
 				if($update){
                     $id_usuario= $_SESSION['ID_Usuario'];
                     $insert_bitacora = mysqli_query($con, "INSERT INTO tbl_bitacora_evento (id_usuario,id_objeto,Accion,Descripcion)
@@ -67,12 +67,12 @@ include 'conexion.php'
                             <h2>Editar Religión</h2>
                             <div class="form-row">
                                 <div class="form-group col-md-6">
-                                    <input type="text" class="form-control" value="<?php echo $row['Descripción']; ?>" id="Nombre_Religion" maxlength="50" name="Nombre" placeholder="Nombre de Religión" required>
+                                    <input type="text" class="form-control" value="<?php echo $row['Descripcion_Religion']; ?>" id="Nombre_Religion" maxlength="20" onkeypress="return soloLetras(event)" name="Nombre" placeholder="Nombre de Religión" required>
                                 </div>
 
                                 <div class="regerv_btn col-md-8">
                                     <button type="submit" name="save" class="btn_2">Guardar</button>
-                                    <a href="Religion.php" class="btn_2">Cancelar</a>
+                                    <a href="Religiones.php" class="btn_2">Cancelar</a>
                                 </div>
                             </div>
                         </form>
@@ -88,7 +88,17 @@ include 'conexion.php'
     <?php
         include 'script.php'
     ?>
-
+    <script>
+    document.getElementById("Nombre_Religion").addEventListener('keyup',sanear2);
+    function sanear(e) {
+      let contenido = e.target.value;
+      e.target.value = contenido.replace(" ", "");
+    }
+    function sanear2(e) {
+      let contenido = e.target.value;
+      e.target.value = contenido.replace("  ", " ");
+    }
+    </script>
 </body>
 
 </html>

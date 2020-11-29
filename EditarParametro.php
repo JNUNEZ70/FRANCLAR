@@ -71,7 +71,7 @@ include 'conexion.php'
                                 </div>
 
                                 <div class="form-group col-md-6">
-                                    <input type="text" class="form-control" id="ValP" value="<?php echo $row ['valor']; ?>" name="Valor_Parametro" onkeypress="return solonumeros(event)" placeholder="Valor" required>
+                                    <input type="text" class="form-control" id="ValP" value="<?php echo $row ['valor']; ?>" name="Valor_Parametro" onkeypress="return solonumeros(event)" maxlength="3" placeholder="Valor" required>
                                 </div>
 
                                 <div class="regerv_btn col-md-8">
@@ -92,7 +92,14 @@ include 'conexion.php'
     <?php
         include 'script.php'
     ?>
-
+    <script>
+    document.getElementById("NomP").addEventListener('keyup', sanear);
+    document.getElementById("ValP").addEventListener('keyup', sanear);
+    function sanear(e) {
+      let contenido = e.target.value;
+      e.target.value = contenido.toUpperCase().replace(" ", "");
+    }
+    </script>
 </body>
 
 </html>

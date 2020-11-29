@@ -42,7 +42,7 @@ include 'conexion.php'
                             <h2>Ingrese Nuevo Diagnóstico</h2>
                             <div class="form-row">
                                 <div class="form-group col-md-6">
-                                    <input type="text" class="form-control" id="Nombre_Diagnostico" maxlength="50" name="Nombre" placeholder="Nombre del diagnóstico" required>
+                                    <input type="text" class="form-control" id="Nombre_Diagnostico" maxlength="255" name="Nombre" onkeypress="return soloLetras(event)" placeholder="Nombre del diagnóstico" required>
                                 </div>
                                
                                 <div class="regerv_btn col-md-8" >
@@ -70,7 +70,18 @@ include 'conexion.php'
     <?php
         include 'script.php'
     ?>
-    
+    <script>
+    document.getElementById("Nombre_Diagnostico").addEventListener('keyup',sanear2);
+    function sanear(e) {
+      let contenido = e.target.value;
+      e.target.value = contenido.replace(" ", "");
+    }
+    function sanear2(e) {
+      let contenido = e.target.value;
+      e.target.value = contenido.toUpperCase().replace("  ", " ");
+    }
+    </script>
+
 </body>
 
 </html>

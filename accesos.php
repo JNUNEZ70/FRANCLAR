@@ -91,6 +91,14 @@ if(isset($_POST['tipo_sangre']) ){
     
      header('Location:Tipo_Sangre.php');
 }
+if(isset($_POST['parentesco']) ){
+    session_start();
+    $id_usuario= $_SESSION['ID_Usuario'];
+    $insert_bitacora = mysqli_query($con, "INSERT INTO tbl_bitacora_evento (id_usuario,id_objeto,Accion,Descripcion)
+    VALUES ('$id_usuario',18,'Acceso','INGRESO A PANTALLA PARENTESCO')");
+    
+     header('Location:Parentesco.php');
+}
 //MODULO SGURIDAD
 //cambiar el insert de bitacora a la pantalla que corresponde.
 if(isset($_POST['roles']) ){
@@ -128,6 +136,15 @@ if(isset($_POST['p_sistema']) ){
    
 
     header('Location:Parametros_sistema.php');
+}
+if(isset($_POST['p_preguntas']) ){
+    session_start();
+    $id_usuario= $_SESSION['ID_Usuario'];
+    $insert_bitacora = mysqli_query($con, "INSERT INTO tbl_bitacora_evento (id_usuario,id_objeto,Accion,Descripcion)
+    VALUES ('$id_usuario',16,'Acceso','INGRESO A PANTALLA PREGUNTAS SECRETAS')");
+   
+
+    header('Location:Preguntas.php');
 }
 //MODULO ADMINISTRACION
 if(isset($_POST['gestion_bd']) ){

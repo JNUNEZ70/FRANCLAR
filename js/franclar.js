@@ -47,7 +47,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
   
       ]*/
-        events: "http://localhost:8008/Franclar/modulo_citas.php",
+        events: "http://localhost:80/Franclar/modulo_citas.php",
 
         eventClick: function(calEvent, jsEvent, view) {
             // console.log(info.event.title);

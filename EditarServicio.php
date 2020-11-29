@@ -71,12 +71,12 @@ include 'conexion.php'
                                 
 
                                 <div class="form-group col-md-6">
-                                    <input type="text" class="form-control" value="<?php echo $row['Descripcion']; ?>" id="Nombre_Servicio" maxlength="50" name="Nombre" placeholder="Nombre de servicio" required>
+                                    <input type="text" class="form-control" value="<?php echo $row['Descripcion_servicio']; ?>" id="Nombre_Servicio" maxlength="50" name="Nombre" onkeypress="return soloLetras(event)" placeholder="Nombre de servicio" required>
                                     
                                 </div>
 
                                 <div class="form-group col-md-6">
-                                    <input type="text" class="form-control" value="<?php echo $row['Precio']; ?>" id="Precio" maxlength="50" name="Precio" placeholder="Precio del servicio" required>
+                                    <input type="text" class="form-control" value="<?php echo $row['Precio']; ?>" id="Precio" maxlength="5" onkeypress="return solonumeros(event)" name="Precio" placeholder="Precio del servicio" required>
                         
                                 </div>
 
@@ -98,7 +98,18 @@ include 'conexion.php'
     <?php
         include 'script.php'
     ?>
-
+    <script>
+    document.getElementById("Precio").addEventListener('keyup',sanear);
+    document.getElementById("Nombre_Servicio").addEventListener('keyup',sanear2);
+    function sanear(e) {
+      let contenido = e.target.value;
+      e.target.value = contenido.replace(" ", "");
+    }
+    function sanear2(e) {
+      let contenido = e.target.value;
+      e.target.value = contenido.replace("  ", " ");
+    }
+    </script>
 </body>
 
 </html>

@@ -64,15 +64,15 @@ include 'conexion.php'
                 <div class="col-lg-7">
                     <div class="regervation_part_iner">
                         <form method="POST" action="" autocomplete="off">
-                            <h2>Editar Especialidad</h2>
+                            <h2>Editar Rol</h2>
                             <div class="form-row">
                                 <div class="form-group col-md-6">
-                                    <input type="text" class="form-control" value="<?php echo $row['Rol']; ?>" id="Rol" maxlength="50" name="Nombre" placeholder="Nombre de Rol" required>
+                                    <input type="text" class="form-control" value="<?php echo $row['Rol']; ?>" id="Nombre_Rol" onkeypress="return soloLetras(event)" maxlength="30" name="Nombre" placeholder="Nombre de Rol" required>
                                 </div>
 
                                 <div class="regerv_btn col-md-8">
                                     <button type="submit" name="save" class="btn_2">Guardar</button>
-                                    <a href="roles_permisos.php" class="btn_2">Cancelar</a>
+                                    <a href="Roles.php" class="btn_2">Cancelar</a>
                                 </div>
                             </div>
                         </form>
@@ -88,7 +88,17 @@ include 'conexion.php'
     <?php
         include 'script.php'
     ?>
-
+    <script>
+    document.getElementById("Nombre_Rol").addEventListener('keyup',sanear);
+    function sanear(e) {
+      let contenido = e.target.value;
+      e.target.value = contenido.replace(" ", "");
+    }
+    function sanear2(e) {
+      let contenido = e.target.value;
+      e.target.value = contenido.replace("  ", " ");
+    }
+    </script>
 </body>
 
 </html>

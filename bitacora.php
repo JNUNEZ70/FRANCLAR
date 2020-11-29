@@ -34,7 +34,7 @@ include 'conexion.php'
 
     <!-- footer part start-->
 		<div class="table-responsive">
-			<table id="datatable" class="table table-striped table-hover">
+			<table id="datatableUsuarios" class="table table-striped table-hover">
 			    <thead>
 				<tr>
 				    <th>No</th>

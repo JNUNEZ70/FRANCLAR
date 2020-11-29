@@ -42,11 +42,11 @@ include 'conexion.php'
                             <h2>Ingrese Nuevo Servicio</h2>
                             <div class="form-row">
                                 <div class="form-group col-md-6">
-                                    <input type="text" class="form-control" id="Nombre_Servicio" maxlength="50" name="Nombre" placeholder="Nombre de Servicio" required>
+                                    <input type="text" class="form-control" id="Nombre_Servicio" maxlength="50" name="Nombre" onkeypress="return soloLetras(event)" placeholder="Nombre de Servicio" required>
                                 </div>
                                 
                                 <div class="form-group col-md-6">
-                                    <input type="text" class="form-control" id="Precio" name="Precio" placeholder="Precio del servicio" required>
+                                    <input type="text" class="form-control" id="Precio" name="Precio" maxlength="5" onkeypress="return solonumeros(event)" placeholder="Precio del servicio" required>
                                 </div>
 
                                 <div class="regerv_btn col-md-8" >
@@ -74,7 +74,18 @@ include 'conexion.php'
     <?php
         include 'script.php'
     ?>
-    
+    <script>
+    document.getElementById("Precio").addEventListener('keyup',sanear);
+    document.getElementById("Nombre_Servicio").addEventListener('keyup',sanear2);
+    function sanear(e) {
+      let contenido = e.target.value;
+      e.target.value = contenido.replace(" ", "");
+    }
+    function sanear2(e) {
+      let contenido = e.target.value;
+      e.target.value = contenido.replace("  ", " ");
+    }
+    </script>
 </body>
 
 </html>

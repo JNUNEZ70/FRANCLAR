@@ -90,10 +90,10 @@ include 'conexion.php'
                                     </select>
                                 </div>
                                 <div class="form-group col-md-4">
-                                    <input type="text" class="input-group date form-control" date="" data-date-format="dd-mm-yyyy" id="FechaAten" placeholder="Fecha de atención" name="fecha_atenc" required>
+                                    <input type="text" class="input-group date form-control" date="" data-date-format="dd-mm-yyyy" id="FechaAten" onkeypress="return solonumerosfecha(event)" maxlength="10" placeholder="Fecha de atención" name="fecha_atenc" required>
                                 </div>
                                 <div class="form-group col-md-4">
-                                    <input type="time" id="default-picker" class="form-control" placeholder="Seleccione la hora" name="hora_atenc" required>
+                                    <input type="time" id="default-picker" class="form-control" placeholder="Seleccione la hora" name="hora_atenc" onkeypress="return solonumeros(event)" required>
                                 </div>
                                 <div class="form-group col-md-4">
                                     <input type="text" class="form-control" id="Precio" placeholder="Precio" maxlength="5" onkeypress="return solonumeros(event)" name="precio" required>
@@ -127,11 +127,12 @@ include 'conexion.php'
         include 'script.php'
     ?>
     <script>
+    document.getElementById("FechaAten").addEventListener('keyup', sanear);
     document.getElementById("Precio").addEventListener('keyup', sanear);
     document.getElementById("IDPac").addEventListener('keyup', sanear);
     function sanear(e) {
       let contenido = e.target.value;
-      e.target.value = contenido.toUpperCase().replace(" ", "");
+      e.target.value = contenido.replace(" ", "");
     }
     </script>
 </body>

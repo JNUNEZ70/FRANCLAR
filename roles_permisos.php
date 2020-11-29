@@ -82,6 +82,9 @@ include 'conexion.php'
 				}else{
 					$no = 1;
 					while($row = mysqli_fetch_assoc($sql)){
+                        if ($row['Rol']=="Admin") {
+                            continue;
+                        }
 						echo '
 						<tr>
                             <td>'.$row['ID_Rol'].'</td>

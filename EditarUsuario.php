@@ -80,7 +80,7 @@ include 'conexion.php'
                                 <input type="text" class="form-control" id="NombreEm" value="<?php echo $row ['Nom_Empleado']; ?>" name="Nombre" placeholder="Nombre" readonly>
                                 </div>
                                 <div class="form-group col-md-6">
-                                    <input type="email" class="form-control" id="EmailU" value="<?php echo $row ['email']; ?>" name="Email" placeholder="Email" required>
+                                    <input type="email" class="form-control" id="EmailU" value="<?php echo $row ['email']; ?>" name="Email" onkeypress="return Correo(event)" placeholder="Email" required>
                                 </div>
                                 <div class="form-group col-md-4">
                                     <input type="text"  class="form-control" id="NomU" value="<?php echo $row ['Nom_Usuario']; ?>" name="Nom_Usuario"  placeholder="Nombre de usuario"  readonly>                                    
