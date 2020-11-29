@@ -137,7 +137,7 @@ include 'conexion.php'
                                     <input type="text" class="form-control" name="descrip_espec" id="Especialidad" value="<?php echo $row ['Descripcion_espec']; ?>" readonly>
                                 </div>
                                 <div class="form-group col-md-6">
-                                    <input type="text" class="form-control" id="Doctor" value="<?php echo $row ['Nom_Empleado']; ?>" readonly>
+                                    <input type="text" class="form-control" name="doctor" id="Doctor" value="<?php echo $row ['Nom_Empleado']; ?>" readonly>
                                 </div>
                                 <p class="col-md-4">PA:</p>
                                 <p class="col-md-4">FC:</p>
@@ -218,8 +218,11 @@ include 'conexion.php'
                                 <form method="POST" action="receta.php" target="_blank" autocomplete="off" id="receta" name="receta">
                                 <p>Agregar Medicamento</p><button type="button" id="bt_add" title="Agregar medicamento" class="btn btn-success btn-sm" ><span class="glyphicon glyphicon-plus" aria-hidden="true" color:white ></span></button>    
                                 
-                                <input type="text" class="form-control d-none " name="nombre_pac" value="<?php echo $row ['Nom_Paciente']; ?>" id="Nombre_pac" readonly>
+                                <input type="text" class="form-control d-none " name="nombre_pac" value="<?php echo $row ['Nom_Paciente']; ?>" id="Nombre_pac" >
+                                <input type="text" class="form-control d-none " name="nombre_pac" value="<?php echo $row ['Nom_Paciente']; ?>" id="Nombre_pac" >
                                 <input type="text"  class="d-none" name="id_cita" value="<?php echo $nik; ?>">
+                                <input type="text" class="form-control d-none " name="doctor" value="<?php echo $row ['Nom_Empleado']; ?>" id="doctor" >
+                                
 
                                 <table id="datatable" class="table table-striped table-hover">
                                         <thead>

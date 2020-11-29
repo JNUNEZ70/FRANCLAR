@@ -64,7 +64,7 @@ include 'conexion.php'
                 <div class="col-lg-7">
                     <div class="regervation_part_iner">
                         <form method="POST" action="" autocomplete="off">
-                            <h2>Editar Cargo</h2>
+                            <h2>Editar Diagnóstico</h2>
                             <div class="form-row">
                                 <div class="form-group col-md-6">
                                     <input type="text" class="form-control" value="<?php echo $row['Descripcion']; ?>" id="Nombre_Diagnosticos" maxlength="255" name="Nombre" onkeypress="return soloLetras(event)" placeholder="Nombre del diagnóstico" required>

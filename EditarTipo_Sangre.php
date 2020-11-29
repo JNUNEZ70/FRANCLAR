@@ -64,7 +64,7 @@ include 'conexion.php'
                 <div class="col-lg-7">
                     <div class="regervation_part_iner">
                         <form method="POST" action="" autocomplete="off">
-                            <h2>Editar Cargo</h2>
+                            <h2>Editar Tipo de Sangre</h2>
                             <div class="form-row">
                                 <div class="form-group col-md-6">
                                     <input type="text" class="form-control" value="<?php echo $row['Descripcion_Sangre']; ?>" id="Nombre_Tipo_Sangre" maxlength="15" name="Nombre" onkeypress="return soloLetras(event)" placeholder="Nombre del tipo de sangre" required>

@@ -98,7 +98,7 @@ include 'conexion.php'
 						<td>'.$row['Hora_Atencion'].'</td>
 						<td><span class="label label-success">'.$row['Descripcion_est_cita'].'</span></td>					
 						<td>							
-                            <a href="factura.php?nik='.$row['ID_Cita'].'" title="Realizar Consulta" class="btn btn-success btn-sm"><span class="glyphicon glyphicon-open" aria-hidden="true"></span></a>
+                            <a href="Facturacion.php?nik='.$row['ID_Cita'].'" title="Realizar Consulta" class="btn btn-success btn-sm"><span class="glyphicon glyphicon-open" aria-hidden="true"></span></a>
                             
 						</td>
 						</tr>

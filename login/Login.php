@@ -59,7 +59,7 @@
                 <!-----Password----->
                 <div class="input-group">
                     <label for="Password">Contraseña</label>
-                    <input type="password" id="LContraseña" name="contraseña" pattern="^(?=.*\d)(?=.*[\u0021-\u002b\u003c-\u0040])(?=.*[A-Z])(?=.*[a-z])\S{8,30}$" title="Debe contener letras mayuscula, minusculas, numeros y caracteres especiales" placeholder="INGRESE SU CONTRASEÑA"  autocomplete="off" required>
+                    <input type="password" id="LContraseña" name="contraseña" placeholder="INGRESE SU CONTRASEÑA"  autocomplete="off" required>
                     <span id="show-hide-passwd" action="hide" class="input-group-addon glyphicon glyphicon glyphicon-eye-open"></span>
                 </div>
                 <input type="submit"  value="Entrar" >

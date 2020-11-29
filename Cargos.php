@@ -101,7 +101,7 @@ include 'conexion.php'
 				}else{
 					$no = 1;
 					while($row = mysqli_fetch_assoc($sql)){
-						($permiso_eliminar==1)?$boton='<a href="cargo.php?aksi=delete&nik='.$row['ID_Cargo'].'" title="Eliminar" onclick="return confirm(\'¿Está seguro de borrar los datos del cargo '.$row['nomb_cargo'].'?\')" class="btn btn-danger btn-sm"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>':$boton='<a  title="Eliminar"  onClick="permiso()" class="btn btn-warning btn-sm"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>';
+						($permiso_eliminar==1)?$boton='<a href="cargos.php?aksi=delete&nik='.$row['ID_Cargo'].'" title="Eliminar" onclick="return confirm(\'¿Está seguro de borrar los datos del cargo '.$row['nomb_cargo'].'?\')" class="btn btn-danger btn-sm"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>':$boton='<a  title="Eliminar"  onClick="permiso()" class="btn btn-warning btn-sm"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>';
 						($permiso_actualizar==1)?$boton2='<a href="EditarCargo.php?nik='.$row['ID_Cargo'].'" title="Editar datos" class="btn btn-success btn-sm"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></a>':$boton2='<a  title="Editar datos" onClick="permiso()" class="btn btn-warning btn-sm"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></a>';	
 						
 						echo '

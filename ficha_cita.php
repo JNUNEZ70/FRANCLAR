@@ -103,6 +103,9 @@
                 $insert_detalle_fact = mysqli_query($con, "INSERT INTO tbl_detalle_factura (ID_Factura, descripcion, cobro) 
                                     VALUES ( '$num_fact' , '$descrip_espec' , '$cobro')") or die(mysqli_error());   
                 
+                $sql3 = mysqli_query($con, "SELECT * FROM tbl_expediente WHERE ID_cita='$num_cita'");
+                $row3 = mysqli_fetch_assoc($sql3);
+                $Fecha_atencion = $row3['Fec_atencion'];
 
                 
                 // if($insert and $update and $insert_expe){                    
@@ -127,7 +130,7 @@ $ficha= '<!DOCTYPE html>
  <head>
      <meta charset="UTF-8">
      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-     <title>ejemplo historia clínica</title>
+     <title>Ficha de Cita No '.$num_cita.'</title>
  </head>
  <style type= "text/css">
 
@@ -162,13 +165,10 @@ $ficha= '<!DOCTYPE html>
              <td  colspan="4" style="text-align:center">
                  <p>COMPLEJO MÉDICO FRANCLAR</p>
                  <br>
+                 <p>FICHA DE CITA</p>
+                 <br>
                  <img src="img/franclar_logo.png">
              </td>            
-         </tr>
-         <tr>
-             <td colspan="4" style="text-align:center">
-                 <p>FICHA DE CITA</p>
-             </td>          
          </tr>
          <tr>
              <td class="col1" style="text-align:left">
@@ -211,7 +211,7 @@ $ficha= '<!DOCTYPE html>
                  <p>FECHA DE ATENCIÓN</p>
              </td>  
              <td class="col4" style="text-align:left">
-                '.$fec_atencion.'
+                '.$Fecha_atencion.'
              </td>          
          </tr>
          <tr>
@@ -232,7 +232,7 @@ $ficha= '<!DOCTYPE html>
              <td class="col1" style="text-align:left">
                  <p>DOMICILIO</p>
              </td>   
-             <td colspan="3" style="text-align:center">
+             <td colspan="3" style="text-align:left">
                 '.$domicilio.'
              </td>         
          </tr>
@@ -299,7 +299,7 @@ $ficha= '<!DOCTYPE html>
          </tr>
          <tr>
              <td  colspan="4" style="text-align:center">
-                 <p>DETALLE DE LA CONSULTA</p>
+                 <p>DETALLES DE LA CONSULTA</p>
              </td>          
          </tr>
          <tr>

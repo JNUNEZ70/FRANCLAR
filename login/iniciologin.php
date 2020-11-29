@@ -20,16 +20,16 @@ if (!empty($_POST)) {
 			session_destroy();
 		}
 
-		if(!$uppercase || !$lowercase || !$number || strlen($password) < 8 && strlen($password) > 30) {
-			echo "<script> alert('Contraseña incorrecta');window.history.go(-1);
-			</script>"; 
+		// if(!$uppercase || !$lowercase || !$number || strlen($password) < 8 && strlen($password) > 30) {
+		// 	echo "<script> alert('Contraseña incorrecta');window.history.go(-1);
+		// 	</script>"; 
 			
 
 
-			session_destroy();
+		// 	session_destroy();
 
 				
-		}
+		// }
 		
 		$query = mysqli_query($conn,"SELECT * FROM tbl_usuario WHERE Nom_Usuario = '$usuario' 
 			                  AND Contraseña = '$contraseña'"); //consulta y comprobacion a la base de datos
@@ -72,8 +72,15 @@ if (!empty($_POST)) {
 				}
 			}	
 		}
-	    }else{
+	    }else{			
 			$data = mysqli_fetch_array($query); // recorrer el arreglo
+			if($data['ID_Estado'] == 2 or $data['ID_Estado'] == 3){
+				echo "<script type='text/javascript'>
+				alert('El Usuario está bloqueado, no puede acceder');
+				window.location.href= 'Login.php';
+				</script>";
+				session_destroy();	
+			}else{
 			//guardar los datos necesarios en variables SESSION
 			$_SESSION['active'] = true;
 			$_SESSION['ID_Usuario'] = $data['ID_Usuario'];
@@ -111,7 +118,7 @@ if (!empty($_POST)) {
 								// default:
 								// 	break;
 
-							
+						}		
 				 }
 			}
 
