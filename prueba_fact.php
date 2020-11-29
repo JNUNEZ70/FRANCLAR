@@ -136,17 +136,17 @@ $factura='<!DOCTYPE html>
                 $subtotal = $subtotal + $cobro;
                 $isv = $subtotal * 0.15;
                 $total = $subtotal + $isv;                
-             $factura.='<tr>                
-                         <td colspan="2" class="col1" style="text-align:left">'.
-                            $row3['descripcion']
-                        .'</td>
-                        <td class="col2" style="text-align:center">
-                            L. '.$row3['cobro']
-                        .'</td>  
-                        <td class="col3" style="text-align:center">
-                            L. '.$row3['cobro']
-                      .'</td>';                           
-             }
+                $factura.='<tr>                
+                                <td colspan="2" class="col1" style="text-align:left">'.
+                                    $row3['descripcion']
+                                .'</td>
+                                <td class="col2" style="text-align:center">
+                                    L. '.$row3['cobro']
+                                .'</td>  
+                                <td class="col3" style="text-align:center">
+                                    L. '.$row3['cobro']
+                            .'</td>';                           
+                }
                    
              $factura.='</tr>
              <tr class="divisor">
