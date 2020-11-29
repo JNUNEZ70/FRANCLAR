@@ -14,7 +14,13 @@ include 'head.php'
     <!-- Header part end-->
 
     <!-- banner part start-->
-    <section class="banner_part">
+    <div class="container"> 
+    <div class="container ">
+        <a href="Pacientes.php" class="btn_2">Ingresar Paciente</a>
+        <a href="Cita.php" class="btn_2">Ingresar Cita</a>
+    </div>
+    </div>
+    <!-- <section class="banner_part">
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-lg-5 col-xl-5">
@@ -22,7 +28,7 @@ include 'head.php'
                         <div class="banner_text_iner">
                             <h1>Médicos y personal especializados para atender tus necesidades y las de tu familia.</h1>
                             <h3>Estamos aquí para su cuidado</h3>
-                            <a href="Pacientes.php" class="btn_2">Ingresar Paciente</a>
+                            
 
                         </div>
                     </div>
@@ -34,7 +40,7 @@ include 'head.php'
                 </div>
             </div>
         </div>
-    </section>
+    </section> -->
     <!-- banner part start-->
 
     <!-- about us part start-->

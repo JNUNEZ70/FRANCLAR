@@ -56,23 +56,52 @@ include 'conexion.php'
                                 </div>
 
                                 <script type="text/javascript" src='https://code.jquery.com/jquery-3.5.1.min.js'></script>
+                               
                                 <script type="text/javascript">
                                 
                                     function consultar_paciente() {
                                         var identidad = document.getElementById('IDPac').value;
                                         var enlace='consulta_paciente.php';
+                                        let $nombre=document.getElementById('NomPac').value,
+                                        $boton_paciente=document.getElementById('btn_registra_paciente');
+                                        
                                         $.ajax({
                                             type:'POST',
                                             url:enlace,
                                             data: 'id='+identidad,
                                             success:function(response){
                                                 document.getElementById('NomPac').value = response;
-                                                // alert(response);
+                                                 //alert(response);
+                                    
                                             }
 
                                         });
+
+
+                                        if ($nombre=="La identidad no existe") {
+                                            
+                                        $boton_paciente.classList.remove("d-none");
+                                       console.log($boton_paciente);
+                                        }else if($nombre!=="La identidad no existe"){
+                                            console.log($nombre);
+                                            $boton_paciente.classList.add("d-none");
+                                        }else{
+
+                                        }
+                                    
                                     }
+                                    
+                                    
+                                    setTimeout(() => {
+                                        consultar_paciente();
+                                    }, 1000);
                                 
+                                </script>
+
+                                <script>
+
+                              
+
                                 </script>
 
                                 <br>
@@ -102,6 +131,7 @@ include 'conexion.php'
                             <div class="regerv_btn">
                             <a><button type="submit" name="save" class="btn_2">Guardar</button></a>
                                     <a href="Cita.php" ><button type=button class="btn_2" style="color: #FFFF;">Cancelar</button></a> 
+                                    <a href="agregarpaciente.php" ><button id="btn_registra_paciente" type="button" name="save" class="btn_2  d-none">Registrar Paciente</button></a>
                             </div>
                             
                             </form>

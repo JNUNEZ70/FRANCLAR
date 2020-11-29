@@ -1,87 +1,128 @@
-<?php
- require_once('Citas/bdd.php');
-
-
- $sql = "SELECT id, title, start, end, color FROM events ";
-
- $req = $bdd->prepare($sql);
- $req->execute();
-
- $events = $req->fetchAll();
-
-?>
-<?php
-session_start();
-?>
-<?php
-include 'conexion.php'
-?>
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
 
+
+<?php
+session_start();
+include 'conexion.php'
+?>
 <head>
-    
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>FRANCLAR</title>
-    <link rel="icon" href="img/franclar.png">	
-	<!-- FullCalendar -->
-	<link href="Citas/css/fullcalendar.css" rel="stylesheet">
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <!-- animate CSS -->
-    <link rel="stylesheet" href="css/animate.css">
-    <!-- owl carousel CSS -->
-    <link rel="stylesheet" href="css/owl.carousel.min.css">
-    <!-- themify CSS -->
-    <link rel="stylesheet" href="css/themify-icons.css">
-    <!-- flaticon CSS -->
-    <link rel="stylesheet" href="css/flaticon.css">
-    <!-- magnific popup CSS -->
-    <link rel="stylesheet" href="css/magnific-popup.css">
-    <!-- nice select CSS -->
-    <link rel="stylesheet" href="css/nice-select.css">
-    <!-- swiper CSS -->
-    <link rel="stylesheet" href="css/slick.css">
-	<!-- glyphicon -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
-    <!-- style CSS -->
-    <link rel="stylesheet" href="css/style.css">
-    <!-- style CSS -->
-    <link rel="stylesheet" href="css/style.css">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Citas | Calendario</title>
+<link rel="icon" href="img/franclar.png">
+<!-- calendario de prueba -->
+ <link href='fullcalendar/core/main.css' rel='stylesheet' />
+    <link href='fullcalendar/daygrid/main.css' rel='stylesheet' />
+    <link href='fullcalendar/list/main.css' rel='stylesheet' />
+    <link href='fullcalendar/timegrid/main.css' rel='stylesheet' />
+    <script src='fullcalendar/core/main.js'></script>
+    <script src='fullcalendar/daygrid/main.js'></script>
+    <script src='fullcalendar/interaction/main.js'></script>
+    <!-- plugins fullcalendar -->
+    <script src='fullcalendar/list/main.js'></script>
+    <script src='fullcalendar/timegrid/main.js'></script>
+    <!-- boostrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <!-- fin boostrap -->
+    <!-- estlos css propios del sistema  -->
+    <link href='css/style_nav.css' rel='stylesheet'>
+    <link href='css/style.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="css/bootstrap-datepicker.css" rel="stylesheet">
-    <!-- Custom CSS -->
+    <!-- fin de los estilos franclar -->
+    <script src="js/franclar.js">
+    <script src='fullcalendar/core/main.js'></script>
+    <script src='fullcalendar/core/locales/es.js'></script>
+    <?php
+        if (!isset($_SESSION["Nom_Usuario"]))
+        {
+            header("Location: ../Franclar/login/login.php");
+        } 
+    ?>
+
+</script>
+
+    <!-- fin del calenario de prueba -->
 
 </head>
-
 <body>
+    <!--::header part start::-->
     <?php
     include 'header.php';
     ?>
-    <div class="container">
-                <div id="calendar" class="col-md-12">
+    <!-- Header part end-->
+
+    <!-- breadcrumb start-->
+    <section class="breadcrumb_part breadcrumb_bg">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="breadcrumb_iner">
+                        <div class="breadcrumb_iner_item">
+                            <h2>Calendario</h2>
+                        </div>
+                    </div>
+                </div>
             </div>
-			
-        <!-- /.row -->
-		
-		<div class="modal" id="ModalAdd" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-			<div class="modal-dialog" role="document">
-				<div class="modal-content">
-					<form class="form-horizontal" method="POST" action="GuardarCalendario.php">
-						<div class="modal-header">
-							<h5 class="modal-title">Agregar Cita</h5>
-							<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-							<span aria-hidden="true">&times;</span>
-							</button>
-						</div>
-						<div class="modal-body">
+        </div>
+    </section>
+    <!-- breadcrumb start-->
+    	
+    <!-- footer part start-->
+    
+   
+     
+      <!-- modal -->
+      <!-- Button trigger modal -->
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="tituloEvento"></h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div id="tituloEvento"></div>
+        <div id="descripcion"></div>
+      </div>
+      <div class="modal-footer">
+      <button id="btn_agregar" class="btn btn-success " >Agregar</button>
+      <button id="btn_actualizar" class="btn btn-warning" >Actualizar</button>
+      <button id="btn_eliminar" class="btn btn-danger">Eliminar</button>
+      <button id="btn_cancelar" class="btn btn-default">Cancelar</button>
+  
+      </div>
+    </div>
+  </div>
+</div>
+      <!-- fin del modal -->
+      
+      <!-- modal para modificar, eliminar y agregar -->
+<!-- Modal -->
+<div class="modal fade" id="ModalEventos" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+    <form class="form-horizontal" method="POST" action="GuardarCalendario.php" autocomplete="off">
+				<div class="modal-header">
+				<h5 class="modal-title">Agregar Cita</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
 							<div class="form-group">
 								<label for="id" class="col-sm-2 control-label">Identidad</label>
 								<div class="input-group col-sm-10">
 									<input type="text" name="title" class="form-control" id="IDPac" onkeypress="return solonumeros(event)" maxlength="13" placeholder="Identidad del paciente">
 										<span class="input-group-btn">
 											<button type="button" id="identidad" class="btn btn-default" onclick="consultar_paciente()">
-												<span class="input-group-addon glyphicon glyphicon-search"></span>
+                      <i class="fa fa-search" aria-hidden="true"></i>
 											</button>
 										</span>
 								</div>
@@ -109,7 +150,7 @@ include 'conexion.php'
 
 											});
 										}
-									
+									</script>
 							</script>
 							<br>
 							<div class="form-group">
@@ -134,13 +175,13 @@ include 'conexion.php'
 							<div class="form-group">
 								<label for="start" class="col-sm-2 control-label">Fecha</label>
 								<div class="col-sm-10">
-								<input type="text" class="form-control" id="start" name="fecha_atenc" readonly>
+								<input type="text" class="form-control" id="txt_fecha" name="fecha_atenc" readonly>
 								</div>
 							</div>
 							<div class="form-group">
 								<label for="hour" class="col-sm-2 control-label">Hora</label>
 								<div class="col-sm-10">
-								<input type="time" id="default-picker" class="form-control" placeholder="Seleccione la hora" name="hora_atenc" required>
+								<input type="time" id="txt_hora" class="form-control" placeholder="Seleccione la hora" name="hora_atenc" required>
 								</div>
 							</div>
 							<div class="form-group">
@@ -154,191 +195,42 @@ include 'conexion.php'
 							<button type="button" class="btn btn-info" data-dismiss="modal">Cerrar</button>
 							<button type="submit" name="add" class="btn btn-primary">Guardar</button>
 						</div>
-					</form>
-				</div>
-			</div>
-		</div>
-		
-		
-		
-		<!-- Modal -->
-		<div class="modal" id="ModalEdit" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-		  <div class="modal-dialog" role="document">
-			<div class="modal-content">
-			<form class="form-horizontal" method="POST" action="editEventTitle.php">
-			  <div class="modal-header">
-				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-				<h4 class="modal-title" id="myModalLabel">Modificar Evento</h4>
-			  </div>
-			  <div class="modal-body">
-				
-				  <div class="form-group">
-					<label for="title" class="col-sm-2 control-label">Titulo</label>
-					<div class="col-sm-10">
-					  <input type="text" name="title" class="form-control" id="title" placeholder="Titulo">
-					</div>
-				  </div>
-				  <div class="form-group">
-					<label for="color" class="col-sm-2 control-label">Color</label>
-					<div class="col-sm-10">
-					  <select name="color" class="form-control" id="color">
-						  <option value="">Seleccionar</option>
-						  <option style="color:#0071c5;" value="#0071c5">&#9724; Azul oscuro</option>
-						  <option style="color:#40E0D0;" value="#40E0D0">&#9724; Turquesa</option>
-						  <option style="color:#008000;" value="#008000">&#9724; Verde</option>						  
-						  <option style="color:#FFD700;" value="#FFD700">&#9724; Amarillo</option>
-						  <option style="color:#FF8C00;" value="#FF8C00">&#9724; Naranja</option>
-						  <option style="color:#FF0000;" value="#FF0000">&#9724; Rojo</option>
-						  <option style="color:#000;" value="#000">&#9724; Negro</option>
-						  
-						</select>
-					</div>
-				  </div>
-				    <div class="form-group"> 
-						<div class="col-sm-offset-2 col-sm-10">
-						  <div class="checkbox">
-							<label class="text-danger"><input type="checkbox"  name="delete"> Eliminar Evento</label>
-						  </div>
-						</div>
-					</div>
-				  
-				  <input type="hidden" name="id" class="form-control" id="id">
-				
-				
-			  </div>
-			  <div class="modal-footer">
-				<button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
-				<button type="submit" class="btn btn-primary">Guardar</button>
-			  </div>
-			</form>
-			</div>
-		  </div>
-		</div>
-
+      </form>
     </div>
-    <!-- /.container -->
+  </div>
+</div>
+      <!-- fin del modal para modificar, eliminar y agregar -->
+    <form class="form-inline my-2 my-lg-0 float-left">
+      <a href="Cita.php" class="genric-btn info circle">Ver tabla de citas</a>
+    </form>	
+    <br>   
+   	<br>
+	  <br>
+    <div class="row">
+        <div class="col"></div>
+            <div class="col-10">
 
-    <!-- jQuery Version 1.11.1 -->
-    <script src="Citas/js/jquery.js"></script>
+                <div id='calendar'>
+                
+                </div>
+            </div>
+        <div class="col"></div>
+    </div>
 
-    <!-- Bootstrap Core JavaScript -->
-    <script src="Citas/js/bootstrap.min.js"></script>
-	
-	<!-- FullCalendar -->
-	<script src="Citas/js/moment.min.js"></script>
-	<script src="Citas/js/fullcalendar/fullcalendar.min.js"></script>
-	<script src="Citas/js/fullcalendar/fullcalendar.js"></script>
-	<script src="Citas/js/fullcalendar/locale/es.js"></script>
-	<script src="js/bootstrap-datepicker.js"></script>
-    <script>
-    $('.date').datepicker({
+    <?php
+        include 'Copyright.php'
+    ?>
+    <!-- footer part end-->
+
+    <!-- jquery plugins here-->
+<!-- bootstrap js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<script src="js/bootstrap-datepicker.js"></script>
+<script>
+  $('.date').datepicker({
 		format: 'yyyy-mm-dd',
 	})
-    </script>
-	
-	<script>
-
-	$(document).ready(function() {
-
-		var date = new Date();
-       var yyyy = date.getFullYear().toString();
-       var mm = (date.getMonth()+1).toString().length == 1 ? "0"+(date.getMonth()+1).toString() : (date.getMonth()+1).toString();
-       var dd  = (date.getDate()).toString().length == 1 ? "0"+(date.getDate()).toString() : (date.getDate()).toString();
-		
-		$('#calendar').fullCalendar({
-			header: {
-				 language: 'es',
-				left: 'prev,next today',
-				center: 'title',
-				right: 'month,basicWeek,basicDay',
-
-			},
-			defaultDate: yyyy+"-"+mm+"-"+dd,
-			editable: true,
-			eventLimit: true, // allow "more" link when too many events
-			selectable: true,
-			selectHelper: true,
-			select: function(start, end) {
-				
-				$('#ModalAdd #start').val(moment(start).format('YYYY-MM-DD'));
-				$('#ModalAdd').modal();
-			},
-			eventRender: function(event, element) {
-				element.bind('dblclick', function() {
-					$('#ModalEdit #id').val(event.id);
-					$('#ModalEdit #title').val(event.title);
-					$('#ModalEdit #color').val(event.color);
-					$('#ModalEdit').modal('show');
-				});
-			},
-			eventDrop: function(event, delta, revertFunc) { // si changement de position
-
-				edit(event);
-
-			},
-			eventResize: function(event,dayDelta,minuteDelta,revertFunc) { // si changement de longueur
-
-				edit(event);
-
-			},
-			events: [
-			<?php foreach($events as $event): 
-			
-				$start = explode(" ", $event['start']);
-				$end = explode(" ", $event['end']);
-				if($start[1] == '00:00:00'){
-					$start = $start[0];
-				}else{
-					$start = $event['start'];
-				}
-				if($end[1] == '00:00:00'){
-					$end = $end[0];
-				}else{
-					$end = $event['end'];
-				}
-			?>
-				{
-					id: '<?php echo $event['id']; ?>',
-					title: '<?php echo $event['title']; ?>',
-					start: '<?php echo $start; ?>',
-					end: '<?php echo $end; ?>',
-					color: '<?php echo $event['color']; ?>',
-				},
-			<?php endforeach; ?>
-			]
-		});
-		
-		function edit(event){
-			start = event.start.format('YYYY-MM-DD HH:mm:ss');
-			if(event.end){
-				end = event.end.format('YYYY-MM-DD HH:mm:ss');
-			}else{
-				end = start;
-			}
-			
-			id =  event.id;
-			
-			Event = [];
-			Event[0] = id;
-			Event[1] = start;
-			Event[2] = end;
-			
-			$.ajax({
-			 url: 'editEventDate.php',
-			 type: "POST",
-			 data: {Event:Event},
-			 success: function(rep) {
-					if(rep == 'OK'){
-						alert('Evento se ha guardado correctamente');
-					}else{
-						alert('No se pudo guardar. Inténtalo de nuevo.'); 
-					}
-				}
-			});
-		}
-		
-	});
-
 </script>
 <script>
     document.getElementById("Precio").addEventListener('keyup', sanear);
@@ -347,26 +239,6 @@ include 'conexion.php'
       let contenido = e.target.value;
       e.target.value = contenido.toUpperCase().replace(" ", "");
     }
-</script>
-    <script>
-        function solonumeros(e) {
-            var key = e.keyCode || e.which,
-            tecla = String.fromCharCode(key).toLowerCase(),
-            numeros = " 1234567890",
-            especiales = [8, 37, 39, 46],
-            tecla_especial = false;
-
-            for (var i in especiales) {
-            if (key == especiales[i]) {
-                tecla_especial = true;
-                break;
-            }
-            }
-
-            if (numeros.indexOf(tecla) == -1 && !tecla_especial) {
-            return false;
-            }
-        }
     </script>
 </body>
 

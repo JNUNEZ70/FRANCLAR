@@ -23,7 +23,7 @@ include 'conexion.php'
                 <div class="col-lg-12">
                     <div class="breadcrumb_iner">
                         <div class="breadcrumb_iner_item">
-                        <h2>Configuracion DB</h2>
+                        <h2>Configuración DB</h2>
                         </div>
                     </div>
                 </div>
@@ -50,7 +50,7 @@ $row=mysqli_fetch_all($query);
                             
                             
                             <select id="" name="server" class="form-control" >
-                                        <option value="0" selected >Selecciona el Srvidor</option>                                                                              
+                                        <option value="0" selected >Selecciona el Servidor</option>                                                                              
                                         <option value="<?php echo $row[1][2];?>"> <?php echo $row[1][2];?></option>
                                         
                                     </select>

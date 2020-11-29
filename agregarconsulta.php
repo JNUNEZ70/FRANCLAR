@@ -174,19 +174,19 @@ include 'conexion.php'
                                                         
                                 
                                 <div class="form-group col-md-12">
-                                    <textarea class="form-control" id="Anamnesis" name="anamnesis" maxlength="500"  rows="4"
+                                    <textarea class="form-control" id="Anamnesis" name="anamnesis" rows="4"
                                         placeholder="Anamnesis"></textarea>
                                 </div>
                                 <div class="form-group col-md-12">
-                                <textarea class="form-control" id="Examenfisico" name="exam_fisico" maxlength="500"  rows="4"
+                                <textarea class="form-control" id="Examenfisico" name="exam_fisico" rows="4"
                                         placeholder="Examen Físico"></textarea>
                                 </div>
                                 <div class="form-group col-md-12">
-                                <textarea class="form-control" id="diagnostico" name="diagnostico" maxlength="200"  rows="4"
+                                <textarea class="form-control" id="diagnostico" name="diagnostico" rows="4"
                                         placeholder="Diagnóstico"></textarea>
                                 </div>
                                 <div class="form-group col-md-12">
-                                    <textarea class="form-control" id="Tratamiento" name="tratamiento" maxlength="200"  rows="4"
+                                    <textarea class="form-control" id="Tratamiento" name="tratamiento" rows="4"
                                         placeholder="Tratamiento"></textarea>
                                 </div>
                                 <p style="color: black;">Imagen:</p>
@@ -238,16 +238,16 @@ include 'conexion.php'
                                             <button type="button" id="bt_del" title="Eliminar medicamento" class="btn btn-danger btn-sm" ><span class="glyphicon glyphicon-trash" aria-hidden="true" color:wite ></span></a></button>
                                             </td>
                                             <td>
-                                                <input type="text" class="form-control" name="medicamento[]" id="medicamento1" onkeypress="return alfanumerica(event)" placeholder="Medicamento">
+                                                <input type="text" class="form-control" name="medicamento[]" id="medicamento1">
                                             </td>		
                                             <td>
-                                                <input type="text" class="form-control" name="dosis[]" id="dosis1" onkeypress="return alfanumerica(event)" placeholder="Cada 8 horas">
+                                                <input type="text" class="form-control" name="dosis[]" id="dosis1">
                                             </td>
                                             <td>
-                                                <input type="text" class="form-control" name="duracion[]" id="duracion1" onkeypress="return alfanumerica(event)" placeholder="1 día">  
+                                                <input type="text" class="form-control" name="duracion[]" id="duracion1">  
                                             </td>
                                             <td>
-                                                <input type="text" class="form-control" name="cantidad[]" id="cantidad1" onkeypress="return alfanumerica(event)" placeholder="Cantidad de dosis">
+                                                <input type="text" class="form-control" name="cantidad[]" id="cantidad1">
                                             </td>
                                         
                                         </tr>
@@ -340,20 +340,6 @@ include 'conexion.php'
     <?php
         include 'script.php'
     ?>
-    <script>
-    document.getElementById("Anamnesis").addEventListener('keyup',sanear2);
-    document.getElementById("Examenfisico").addEventListener('keyup',sanear2);
-    document.getElementById("diagnostico").addEventListener('keyup',sanear2);
-    document.getElementById("Tratamiento").addEventListener('keyup',sanear2);
-    document.getElementById("medicamento1").addEventListener('keyup',sanear2);
-    document.getElementById("dosis1").addEventListener('keyup',sanear2);
-    document.getElementById("duracion1").addEventListener('keyup',sanear2);
-    document.getElementById("cantidad1").addEventListener('keyup',sanear2);
-    function sanear2(e) {
-      let contenido = e.target.value;
-      e.target.value = contenido.toUpperCase().replace("  ", " ");
-    }
-    </script>
 </body>
 
 </html>

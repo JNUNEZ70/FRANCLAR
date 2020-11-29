@@ -63,7 +63,7 @@ $row=mysqli_fetch_all($query);
                             <div class="form-row">
                                 <div class="form-group col-md-6">
                                 <select id="" name="server" class="form-control" >
-                                        <option value="0" selected >Selecciona el Srvidor</option>                                                                              
+                                        <option value="0" selected >Selecciona el Servidor</option>                                                                              
                                         
                                         <option value="<?php echo $row[1][2];?>"> <?php echo $row[1][2];?></option>
                                     </select>

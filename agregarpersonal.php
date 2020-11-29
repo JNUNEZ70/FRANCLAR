@@ -103,7 +103,7 @@ include 'conexion.php'
                                     <input type="text" class="form-control" id="SalarioEm" name="Salario" maxlength="6" onkeypress="return solonumeros(event)" placeholder="Salario" required>
                                 </div>
                                 <div class="form-group col-md-12">
-                                    <select class="form-control" id="EspecialidadEm" name="Especialidad" required>
+                                    <select class="form-control"  id="EspecialidadEm" name="Especialidad" required>
                                         <option value="" selected>Seleccione una especialidad</option>
                                         <?php
                                           $sql=$con -> query("Select * from tbl_especialidad");

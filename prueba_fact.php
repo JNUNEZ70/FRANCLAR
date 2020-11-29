@@ -136,17 +136,17 @@ $factura='<!DOCTYPE html>
                 $subtotal = $subtotal + $cobro;
                 $isv = $subtotal * 0.15;
                 $total = $subtotal + $isv;                
-             $factura.='<tr>                
-                         <td colspan="2" class="col1" style="text-align:left">'.
-                            $row3['descripcion']
-                        .'</td>
-                        <td class="col2" style="text-align:center">
-                            L. '.$row3['cobro']
-                        .'</td>  
-                        <td class="col3" style="text-align:center">
-                            L. '.$row3['cobro']
-                      .'</td>';                           
-             }
+                $factura.='<tr>                
+                                <td colspan="2" class="col1" style="text-align:left">'.
+                                    $row3['descripcion']
+                                .'</td>
+                                <td class="col2" style="text-align:center">
+                                    L. '.$row3['cobro']
+                                .'</td>  
+                                <td class="col3" style="text-align:center">
+                                    L. '.$row3['cobro']
+                            .'</td>';                           
+                }
                    
              $factura.='</tr>
              <tr class="divisor">
@@ -158,10 +158,10 @@ $factura='<!DOCTYPE html>
              <td colspan="2" class="col1" style="text-align:left">
                  
              </td>
-             <td class="col2" style="text-align:left">
+             <td class="col2" style="text-align:center">
                 Subtotal
              </td>  
-             <td class="col3" style="text-align:left">
+             <td class="col3" style="text-align:center">
                 <p>L.'.$subtotal.'</p>
              </td>  
                       
@@ -170,10 +170,10 @@ $factura='<!DOCTYPE html>
              <td colspan="2" class="col1" style="text-align:left">
                  
              </td>
-             <td class="col2" style="text-align:left">
+             <td class="col2" style="text-align:center">
                 ISV 15%
              </td>  
-             <td class="col3" style="text-align:left">
+             <td class="col3" style="text-align:center">
                 <p>L.'.$isv.'</p>
              </td>  
                       
@@ -186,10 +186,10 @@ $factura='<!DOCTYPE html>
              <td colspan="2" class="col1" style="text-align:left">
                  
              </td>
-             <td class="col2" style="text-align:left">
+             <td class="col2" style="text-align:center">
                 TOTAL
              </td>  
-             <td class="col3" style="text-align:left">
+             <td class="col3" style="text-align:center">
                 <p>L.'.$total.'</p>
              </td>  
                       

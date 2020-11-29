@@ -57,7 +57,7 @@ include 'conexion.php'
         <a href="agregarcita.php" class="genric-btn info circle">Agregar</a>
     </form>	
     <form class="form-inline my-2 my-lg-0 float-left">
-        <a href="calendario_prueba.php" class="genric-btn info circle">Ver Calendario</a>
+        <a href="CalendarioCitas.php" class="genric-btn info circle">Ver Calendario</a>
 	</form>	
 	<br>   
 	<br>
