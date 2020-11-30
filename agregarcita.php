@@ -57,8 +57,9 @@ include 'conexion.php'
 
                                 <script type="text/javascript" src='https://code.jquery.com/jquery-3.5.1.min.js'></script>
                                
-                                <script type="text/javascript">
+                                <script type="text/javascript"></script> 
                                 
+                            <script>
                                 function consultar_paciente() {
                                         var identidad = document.getElementById('IDPac').value;
                                         var enlace='consulta_paciente.php';
@@ -71,12 +72,24 @@ include 'conexion.php'
                                             success:function(response){
                                                 document.getElementById('NomPac').value = response;
                                                  //alert(response);
-                                                btnAgregar();
-                                                }
-                                            });                                            
-                                    }
+                                    
+                                            }
+
+                                        });
+                                        $.ajax({
+                                            type:'POST',
+                                            url:enlace,
+                                            data: 'id2='+identidad,
+                                            success:function(response){
+                                                document.getElementById('id_paciente').value = response;
+                                                 //alert(response);
+                                    
+                                            }
+
+                                        });
 
 
+                                }
                                        
                                 </script>
 
@@ -104,7 +117,7 @@ include 'conexion.php'
                                 <br>
 
                                 <div class="form-group col-md-12">
-                                    <select class="form-control" id="CargoEm" name="Especialidad" required>
+                                    <select class="form-control" id="espec" name="Especialidad" onchange="doctores_precio(value)" required>
                                         <option value="0" selected>Seleccione un Servicio</option>
                                         <?php
                                           $sql=$con -> query("Select * from tbl_especialidad where ID_Especialidad <> 8");
@@ -115,6 +128,43 @@ include 'conexion.php'
                                         ?>
                                     </select>
                                 </div>
+                                <p class="col-md-12">Seleccione el Doctor a asignar</p>
+                                <div class="form-group col-md-12" id="selectdoctor">
+                                    
+                                </div>
+                                
+                                <script type="text/javascript">
+                                    
+                                    function doctores_precio(espec) {
+                                        //alert(espec);
+                                        var id_espec = espec;
+                                        var enlace='consulta_paciente.php';
+                                        
+                                        var fila = 0;
+                                    
+                                        $.ajax({
+                                            type:'POST',
+                                            url:enlace,
+                                            data: 'id_espec_precio='+id_espec,
+                                            success:function(response){
+                                                document.getElementById('Precio').value = response;
+                                                //alert(response);
+                                
+                                            }
+
+                                        });
+                                         $.ajax({
+                                             type:'POST',
+                                             url:enlace,
+                                             data: 'id_espec_doctor='+id_espec,
+                                             success:function(response){                                                 
+                                                 $('#selectdoctor').html(response);                                                 
+                                             }
+
+                                         });
+                                    }
+                                </script>
+
                                 <div class="form-group col-md-4">
                                     <!-- <input type="text" class="input-group date form-control" date="" data-date-format="dd-mm-yyyy" id="FechaAten" onkeypress="return solonumerosfecha(event)" maxlength="10" placeholder="Fecha de atención" name="fecha_atenc" required> -->
                                     <input onclick="fechaMinima(this)" onkeypress="fechaMinima(this)"  type="date" class="input-group  form-control" date="" data-date-format="dd-mm-yyyy" id="FechaAten" placeholder="Fecha de atención" name="fecha_atenc" required>
@@ -125,7 +175,12 @@ include 'conexion.php'
                                 <div class="form-group col-md-4">
                                     <input type="text" class="form-control" id="Precio" placeholder="Precio" maxlength="5" onkeypress="return solonumeros(event)" name="precio" required>
                                 </div>
+                                
                             </div>
+
+                            <input type="text"  class="d-none" id="id_paciente" name="id_paciente">
+
+
                             <div class="regerv_btn">
                             <a><button id="guardar" type="submit" name="save" class="btn_2">Guardar</button></a>
                                     <a href="Cita.php" ><button type=button class="btn_2" style="color: #FFFF;">Cancelar</button></a> 

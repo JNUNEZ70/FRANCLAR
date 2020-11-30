@@ -34,8 +34,8 @@ include 'conexion.php'
             //                 $insert_bitacora = mysqli_query($con, "INSERT INTO tbl_bitacora_evento (id_usuario,id_objeto,Accion,Descripcion)
             //                 VALUES ('$id_usuario',14,'Insert','SE INGRESÓ UN NUEVO SERVICIO')") or die(mysqli_error());
             echo "<script type='text/javascript'>
-                alert('El nuevo Servicio ha sido registrado exitosamente');
-                window.location.href= 'factura.php?nik=".$id_cita."';
+                alert('El cobro adicional ha sido registrado exitosamente');
+                window.location.href= 'Facturacion.php?nik=".$id_cita."';
             </script>";
         }else{
             echo '<div class="alert alert-danger alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>Error, no se pudo guardar los datos.</div>';
@@ -80,7 +80,7 @@ include 'conexion.php'
                                
                                 <div class="regerv_btn col-md-8" >
                                     <button type="submit" name="add" class="btn_2">Guardar</button>
-                                    <?php echo'<a href="factura.php?nik='.$id_cita.'" class="btn_2">Cancelar</a>
+                                    <?php echo'<a href="Facturacion.php?nik='.$id_cita.'" class="btn_2">Cancelar</a>
                                     '?>
                                 </div>
                             </div>

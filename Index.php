@@ -16,6 +16,8 @@ include 'head.php'
     <!-- banner part start-->
     <div class="container"> 
     <div class="container ">
+        <br>
+        <br>
         <a href="Pacientes.php" class="btn_2">Ingresar Paciente</a>
         <a href="Cita.php" class="btn_2">Ingresar Cita</a>
     </div>

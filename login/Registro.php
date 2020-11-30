@@ -51,7 +51,7 @@ include ("conexionPDO.php");
                 
                 </input>
                 
-                <p> Ya tienes una cuenta &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href="../login/Login.php">Ingresar</a></p> <br>
+                <p> Ya tienes una cuenta &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href="../login/Login.php">Inicie sesión aquí</a></p> <br>
             </form>
         </div>
 

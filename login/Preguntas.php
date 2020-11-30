@@ -108,7 +108,7 @@
                         }     
                     ?>
                 </select>
-                <input type="text" name="respuesta" placeholder="Ingrese su respuesta">
+                <input type="text" id="respuesta" name="respuesta" onkeypress="return alfanumerica(event)" onkeyup="javascript:this.value=this.value.toUpperCase();" placeholder="Ingrese su respuesta" required>
                 <!-- <select class="form-control" id="Pregunta2" name="preguntas" required>
                     <option value="0" selected>Seleccione una pregunta</option>
                 </select>
@@ -124,4 +124,18 @@
             </form>
         </div>
     </body>
+    
+    <?php
+        include '../script.php';
+    ?>
+
+    <script>
+        document.getElementById("respuesta").addEventListener('keyup', sanear2);
+        
+        function sanear2(e) {
+        let contenido = e.target.value;
+        e.target.value = contenido.toUpperCase().replace("  ", " ");
+        }
+    </script>
+
 </html>

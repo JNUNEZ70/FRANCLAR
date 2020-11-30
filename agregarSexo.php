@@ -42,7 +42,7 @@ include 'conexion.php'
                             <h2>Ingrese Nuevo Género</h2>
                             <div class="form-row">
                                 <div class="form-group col-md-6">
-                                    <input type="text" class="form-control" id="Nombre_Sexo" maxlength="15" name="Nombre" onkeypress="return soloLetras(event)" placeholder="Sexo" required>
+                                    <input type="text" class="form-control" id="Nombre_Sexo" maxlength="15" name="Nombre" onkeypress="return soloLetras(event)" placeholder="Género" required>
                                 </div>
                                
                                 <div class="regerv_btn col-md-8" >
