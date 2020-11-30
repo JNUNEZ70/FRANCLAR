@@ -47,7 +47,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
   
       ]*/
-        events: "http://localhost:80/Franclar/modulo_citas.php",
+        events: "http://localhost:8008/Franclar/modulo_citas.php",
 
         eventClick: function(calEvent, jsEvent, view) {
             // console.log(info.event.title);
@@ -109,4 +109,44 @@ function validar() {
 
     }
 
+}
+
+function fechaMaxima(id) {
+    let $id = id.id;
+    const $calendario = document.getElementById($id);
+    //console.log($calendario);
+    let fecha = new Date();
+    dia = fecha.getDate();
+    //console.log(dia);
+    mes = fecha.getMonth() + 1;
+    //console.log(mes);
+    anio = fecha.getFullYear();
+    //console.log(anio);
+    $fecha = `${anio}-${mes}-${dia}`;
+    $calendario.setAttribute("max", $fecha);
+    // if ($calendario.onkeypress == true) {
+    //     //     alert("la fecha no puede ser mayor");
+    //     alert("Favor, usa el calendario y no  ingrese la fecha por teclado");
+
+    // }
+}
+
+function fechaMinima(id) {
+    let $id = id.id;
+    const $calendario = document.getElementById($id);
+    //console.log($calendario);
+    let fecha = new Date();
+    dia = fecha.getDate();
+    //console.log(dia);
+    mes = fecha.getMonth() + 1;
+    //console.log(mes);
+    anio = fecha.getFullYear();
+    //console.log(anio);
+    $fecha = `${anio}-${mes}-${dia}`;
+    $calendario.setAttribute("min", $fecha);
+    // if ($calendario.onkeypress == true) {
+    //     //     alert("la fecha no puede ser mayor");
+    //     alert("Favor, usa el calendario y no  ingrese la fecha por teclado");
+
+    // }
 }

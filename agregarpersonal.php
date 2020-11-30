@@ -48,7 +48,8 @@ include 'conexion.php'
                                     <input type="text" class="form-control" maxlength="13" onkeypress="return solonumeros(event)" id="NumeroIDEm" name="NumeroID" placeholder="Número de identidad" required>
                                 </div>
                                 <div class="form-group col-md-6">
-                                    <input type="text" id="FechaNEm" name="FechaN" class="input-group date form-control" date="" data-date-format="dd-mm-yyyy" maxlength="10" onkeypress="return solonumerosfecha(event)" placeholder="Fecha de nacimiento" required>
+                                    <!-- <input type="text" id="FechaNEm" name="FechaN" class="input-group date form-control" date="" data-date-format="dd-mm-yyyy" maxlength="10" onkeypress="return solonumerosfecha(event)" placeholder="Fecha de nacimiento" required> -->
+                                    <input type="date" onclick="fechaMaxima(this)" onkeypress="fechaMaxima(this)" id="FechaEmpleado" name="FechaN" class="input-group  form-control"  placeholder="Fecha de nacimiento" required>
                                 </div>
                                 <div class="form-group col-md-6">
                                     <input type="tel" class="form-control" maxlength="8" onkeypress="return solonumeros(event)" id="TelefonoEm" name="Telefono" placeholder="Teléfono fijo">

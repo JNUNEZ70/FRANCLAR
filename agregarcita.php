@@ -59,11 +59,10 @@ include 'conexion.php'
                                
                                 <script type="text/javascript">
                                 
-                                    function consultar_paciente() {
+                                function consultar_paciente() {
                                         var identidad = document.getElementById('IDPac').value;
                                         var enlace='consulta_paciente.php';
-                                        let $nombre=document.getElementById('NomPac').value,
-                                        $boton_paciente=document.getElementById('btn_registra_paciente');
+                                        
                                         
                                         $.ajax({
                                             type:'POST',
@@ -72,35 +71,33 @@ include 'conexion.php'
                                             success:function(response){
                                                 document.getElementById('NomPac').value = response;
                                                  //alert(response);
-                                    
-                                            }
-
-                                        });
-
-
-                                        if ($nombre=="La identidad no existe") {
-                                            
-                                        $boton_paciente.classList.remove("d-none");
-                                       console.log($boton_paciente);
-                                        }else if($nombre!=="La identidad no existe"){
-                                            console.log($nombre);
-                                            $boton_paciente.classList.add("d-none");
-                                        }else{
-
-                                        }
-                                    
+                                                btnAgregar();
+                                                }
+                                            });                                            
                                     }
-                                    
-                                    
-                                    setTimeout(() => {
-                                        consultar_paciente();
-                                    }, 1000);
-                                
+
+
+                                       
                                 </script>
 
                                 <script>
 
-                              
+                                function btnAgregar() {
+                                            let identidad = document.getElementById('IDPac'),
+                                             $nombre=document.getElementById('NomPac').value,
+                                             $boton_paciente=document.getElementById('btn_registra_paciente'),
+                                             $boton_guardar=document.getElementById('guardar');
+                                             if ($nombre=="La identidad no existe") {
+                                                    
+                                                 $boton_paciente.classList.remove("d-none");
+                                                 $boton_guardar.classList.add("d-none");
+                                               
+                                                 }else {
+                                                     
+                                                     $boton_guardar.classList.remove("d-none");
+                                                     $boton_paciente.classList.add("d-none");
+                                                 }
+                                    }           
 
                                 </script>
 
@@ -119,7 +116,8 @@ include 'conexion.php'
                                     </select>
                                 </div>
                                 <div class="form-group col-md-4">
-                                    <input type="text" class="input-group date form-control" date="" data-date-format="dd-mm-yyyy" id="FechaAten" onkeypress="return solonumerosfecha(event)" maxlength="10" placeholder="Fecha de atención" name="fecha_atenc" required>
+                                    <!-- <input type="text" class="input-group date form-control" date="" data-date-format="dd-mm-yyyy" id="FechaAten" onkeypress="return solonumerosfecha(event)" maxlength="10" placeholder="Fecha de atención" name="fecha_atenc" required> -->
+                                    <input onclick="fechaMinima(this)" onkeypress="fechaMinima(this)"  type="date" class="input-group  form-control" date="" data-date-format="dd-mm-yyyy" id="FechaAten" placeholder="Fecha de atención" name="fecha_atenc" required>
                                 </div>
                                 <div class="form-group col-md-4">
                                     <input type="time" id="default-picker" class="form-control" placeholder="Seleccione la hora" name="hora_atenc" onkeypress="return solonumeros(event)" required>
@@ -129,9 +127,9 @@ include 'conexion.php'
                                 </div>
                             </div>
                             <div class="regerv_btn">
-                            <a><button type="submit" name="save" class="btn_2">Guardar</button></a>
+                            <a><button id="guardar" type="submit" name="save" class="btn_2">Guardar</button></a>
                                     <a href="Cita.php" ><button type=button class="btn_2" style="color: #FFFF;">Cancelar</button></a> 
-                                    <a href="agregarpaciente.php" ><button id="btn_registra_paciente" type="button" name="save" class="btn_2  d-none">Registrar Paciente</button></a>
+                                    <a href="agregarpaciente.php" ><button id="btn_registra_paciente" type="button" name="save" class="btn_2 btn-success d-none">Registrar Paciente</button></a>
                             </div>
                             
                             </form>
