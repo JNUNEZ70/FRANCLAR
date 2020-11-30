@@ -70,7 +70,7 @@ include 'conexion.php'
                     <div class="depertment_content">
                         <div class="row justify-content-center">
                             <div class="col-xl-8">
-                                <form method="POST" action="" id="myForm" autocomplete="off">
+                                <form method="POST" action="" id="miForm" autocomplete="off">
                                     <h2>Registrar cobro adicional</h2>
                                     <div class="form-row">
                                         <div class="form-group col-md-6" id="selectcobros">
@@ -149,7 +149,7 @@ include 'conexion.php'
                                                              //document.getElementById('Precio_cobro_exist').value = response;
                                                              alert(response);
                                                              listar();  
-                                                             document.getElementById("myForm").reset();                                                        
+                                                             document.getElementById("miForm").reset();                                                        
                                                          }
 
                                                      });
