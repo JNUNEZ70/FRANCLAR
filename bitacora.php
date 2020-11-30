@@ -23,7 +23,7 @@ include 'conexion.php'
                 <div class="col-lg-12">
                     <div class="breadcrumb_iner">
                         <div class="breadcrumb_iner_item">
-                            <h2>Bitácora</h2>
+                            <h2>Bitacora</h2>
                         </div>
                     </div>
                 </div>
@@ -31,26 +31,33 @@ include 'conexion.php'
         </div>
     </section>
     <!-- breadcrumb start-->
-    <form method="POST" action="bitacora_por_fecha.php" target="_blank" autocomplete="off">
-  <br>
-    <div class="form-group col-md-4" > 
-        <label for="inicio_fecha">Fecha Inicial</label>
-        <input onclick="fechaMaxima(this)" onkeypress="fechaMaxima(this)" type="date" id="inicio_fecha" name="inicio_fecha" value="">
-        </div>
 
-        <div class="form-group col-md-4" >
-        <label for="final_fecha">Fecha Final</label>
-        <input onclick="fechaMaxima(this)" onkeypress="fechaMaxima(this)" type="date" id="final_fecha" name="final_fecha" value="">
-        </div>
-        <div class="form-group col-md-4" >
-        <input type="submit" id="btn_submit" class="genric-btn info circle" name="enviar" value="Consultar" >
-        </div>    
-    </form>
     <!-- footer part start-->
- 
-    <div class="table-responsive">
-    <br>             
-        <table id="datatableUsuarios" class="table table-striped table-hover">
+        <form method="POST" action="bitacora_por_fecha.php" autocomplete="off">
+        <br>
+            <div class="form-group col-md-4" > 
+                <label for="inicio_fecha">Fecha Inicial</label>
+                <input type="date" id="inicio_fecha" name="inicio_fecha" value="">
+                </div>
+
+                <div class="form-group col-md-4" >
+                <label for="final_fecha">Fecha Final</label>
+                <input type="date" id="final_fecha" name="final_fecha" value="">
+                </div>
+                <div class="form-group col-md-4" >
+                <input type="submit" id="btn_submit" class="genric-btn info circle" name="enviar" value="Consultar" >
+                </div>
+                <div class="form-group col-md-4">
+                <a class="genric-btn btn-danger circle" href="../FRANCLAR/Reportes-PDF/ReporteBitacora.php">
+                <i class="fas fa-file-pdf fa-lg"> </i> Generar Reporte</a>
+            </div>	
+            </div>    
+        </form>
+	    <br>
+		<br>
+		<br>
+		<div class="table-responsive">
+			<table id="datatableUsuarios" class="table table-striped table-hover">
 			    <thead>
 				<tr>
 				    <th>No</th>
@@ -64,8 +71,10 @@ include 'conexion.php'
 				<tbody>
 				<?php
 				$sql = mysqli_query($con, "SELECT tbl_bitacora_evento.id_bitacora_evento,	
-				tbl_usuario.Nom_Usuario,
-				tbl_objetos.objeto,
+				tbl_usuario.id_usuario,
+                tbl_usuario.Nom_Usuario,
+				tbl_objetos.id_objeto,
+                tbl_objetos.objeto,
 				tbl_bitacora_evento.Accion,	
 				tbl_bitacora_evento.Descripcion,	
 				tbl_bitacora_evento.fecha_evento FROM tbl_bitacora_evento

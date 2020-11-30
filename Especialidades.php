@@ -76,6 +76,10 @@ include 'conexion.php'
 		<form class="form-inline my-2 my-lg-0 float-left">
 			<a href="agregar_Especialidad.php" class="genric-btn info circle">Agregar</a>
 		</form>
+		<form class="form-inline my-2 my-lg-0 float-left">
+			<a class="genric-btn btn-danger circle" href="../FRANCLAR/Reportes-PDF/ReporteEspecialidades.php">
+			<i class="fas fa-file-pdf fa-lg"> </i> Generar Reporte</a>
+	    </form>	
 	   <br>
 		<br>
 		<br>
@@ -96,7 +100,7 @@ include 'conexion.php'
 				</thead>
 				<tbody>
 				<?php
-				$sql = mysqli_query($con, "SELECT * FROM tbl_especialidad WHERE ID_especialidad <> 8 AND ID_especialidad <> 9");
+				$sql = mysqli_query($con, "SELECT * FROM tbl_especialidad");
 				if(mysqli_num_rows($sql) == 0){
 					echo '<tr><td colspan="8">No hay datos.</td></tr>';
 				}else{

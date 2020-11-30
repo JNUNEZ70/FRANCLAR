@@ -46,7 +46,7 @@ include 'script.php';
                                     <input onkeypress="return soloLetras(event)" onkeyup="sanear2(this)" type="text" class="form-control" id="Nombre_Especialidad" maxlength="50" name="Nombre" placeholder="Nombre del Cobro" required>
                                 </div>
                                 <div class="form-group col-md-6">
-                                    <input onkeypress="return solonumeros(event)" onkeyup="sanear2(this)" type="text" class="form-control" id="precio_cobro" maxlength="50" name="precio" placeholder="Precion del Cobro" required>
+                                    <input onkeypress="return solonumeros(event)" onkeyup="sanear2(this)" type="text" class="form-control" id="precio_cobro" maxlength="50" name="precio" placeholder="Precio del Cobro" required>
                                 </div>
                                 <div class="regerv_btn col-md-8" >
                                     <button type="submit" name="add" class="btn_2">Guardar</button>

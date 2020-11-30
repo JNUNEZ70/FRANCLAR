@@ -52,6 +52,12 @@ if (isset($_POST['enviar'])) {
     </section>
     <!-- breadcrumb start-->
     <!-- footer part start-->
+        <form class="form-inline my-2 my-lg-0 float-left">
+			<a href="bitacora.php" class="genric-btn info circle">Volver a bitacora</a>
+		</form>
+	    <br>
+		<br>
+		<br>
 		<div class="table-responsive">
 			<table id="datatableUsuarios" class="table table-striped table-hover">
 			    <thead>

@@ -96,6 +96,10 @@ include 'conexion.php'
 		<form class="form-inline my-2 my-lg-0 float-left">
 			<a href="agregarusuario.php" class="genric-btn info circle">Agregar</a>
 		</form>
+		<form class="form-inline my-2 my-lg-0 float-left">
+			<a class="genric-btn btn-danger circle" href="../FRANCLAR/Reportes-PDF/ReporteUsuarios.php">
+			<i class="fas fa-file-pdf fa-lg"> </i> Generar Reporte</a>
+	    </form>
 		<br>
 		<br>
 		<br>
