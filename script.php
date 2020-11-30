@@ -160,8 +160,8 @@
      
       
 <script>
-    const prueba= document.querySelectorAll("table");
-    console.log(prueba);
+    // const prueba= document.querySelectorAll("table");
+    // console.log(prueba);
         $(document).ready(function() {    
         $('#datatableUsuarios').DataTable({        
             language: {

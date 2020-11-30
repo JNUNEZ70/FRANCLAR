@@ -49,7 +49,8 @@ include 'conexion.php'
                                     <input type="text" class="form-control" id="NumeroID" name="NumIDPac" onkeypress="return solonumeros(event)" maxlength="13" placeholder="Número de identidad" required>
                                 </div>
                                 <div class="form-group col-md-6">
-                                    <input type="text" id="FechaN" name="FecPac" class="input-group date form-control" date="" data-date-format="yyyy-mm-dd" onkeypress="return solonumerosfecha(event)" maxlength="10" placeholder="Fecha de nacimiento" required>
+                                    <!-- <input type="text" id="FechaN" name="FecPac" class="input-group date form-control" date="" data-date-format="yyyy-mm-dd" onkeypress="return solonumerosfecha(event)" maxlength="10" placeholder="Fecha de nacimiento" required> -->
+                                    <input name="FecPac" onclick="fechaMaxima(this)" onkeypress="fechaMaxima(this)" id="fecha_prueba" type="date"  class=" form-control" min="" max="" step="">
                                 </div>
                                 <div class="form-group col-md-6">
                                     <input type="text" class="form-control" id="Edad" name="EdadPac" onkeypress="return solonumeros(event)" maxlength="3" placeholder="Edad" required>
