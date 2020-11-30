@@ -72,7 +72,7 @@ include 'conexion.php'
                                             success:function(response){
                                                 document.getElementById('NomPac').value = response;
                                                  //alert(response);
-                                    
+                                                 btnAgregar();
                                             }
 
                                         });
