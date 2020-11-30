@@ -89,10 +89,10 @@ include 'conexion.php'
                                 <h2>Datos Específicos</h2>
                                 <div class="form-row">
                                 <div class="form-group col-md-6">
-                                    <select class="form-control" id="CargoEm" name="Cargo" required>
+                                    <select class="form-control" id="CargoEm" name="Cargo" onchange="consulta_especialidad(value)" required>
                                         <option value="0" selected>Seleccione un cargo</option>
                                         <?php
-                                          $sql=$con -> query("Select * from tbl_cargo");
+                                          $sql=$con -> query("Select * from tbl_cargo where ID_Cargo <> 6");
 
                                           while($fila=$sql->fetch_array()){
                                               echo "<option value='".$fila['ID_Cargo']."'>".$fila['nomb_cargo']."</option>";
@@ -100,14 +100,44 @@ include 'conexion.php'
                                         ?>
                                     </select>
                                 </div>
+
+                                <script type="text/javascript" src='https://code.jquery.com/jquery-3.5.1.min.js'></script>
+                                                         
+                                <script>
+                                    function consulta_especialidad(id_cargo) {
+                                            
+                                            var id = id_cargo;
+                                            var enlace='consulta_espec_cargo.php';                                            
+                                            
+                                            $.ajax({
+                                                type:'POST',
+                                                url:enlace,
+                                                data: 'id='+id,
+                                                success:function(response){
+                                                    // document.getElementById('NomPac').value = response;
+                                                    // alert(response);
+                                                    $('#select_espec').html(response);                                                      
+                                                }
+
+                                            });                                            
+
+
+                                    }
+                                        
+                                </script>
+
+
+
+
+
                                 <div class="form-group col-md-6">
                                     <input type="text" class="form-control" id="SalarioEm" name="Salario" maxlength="6" onkeypress="return solonumeros(event)" placeholder="Salario" required>
                                 </div>
-                                <div class="form-group col-md-12">
+                                <div class="form-group col-md-12" id="select_espec">
                                     <select class="form-control"  id="EspecialidadEm" name="Especialidad" required>
                                         <option value="" selected>Seleccione una especialidad</option>
                                         <?php
-                                          $sql=$con -> query("Select * from tbl_especialidad");
+                                          $sql=$con -> query("Select * from tbl_especialidad where ID_especialidad <> 8 and ID_especialidad <> 9");
 
                                           while($fila=$sql->fetch_array()){
                                               echo "<option value='".$fila['ID_especialidad']."'>".$fila['Descripcion_espec']."</option>";

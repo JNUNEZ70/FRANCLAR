@@ -107,9 +107,9 @@ include 'conexion.php'
 							<td><?php echo $row['cedula']; ?></td>
 							<td><?php echo $row['ID_Cita']; ?></td>
 							<td><?php echo $row['Fec_atencion']; ?></td>
-							<td><a href="fichas_citas/ficha<?php echo $row['Nom_Paciente'].$row['ID_Cita']; ?>.pdf" target="_blank">Ficha de Cita</a></td>
-							<td><a href="fichas_citas/receta<?php echo $row['Nom_Paciente'].$row['ID_Cita']; ?>.pdf" target="_blank">Receta</a></td>	
-							<td><a href="fichas_citas/factura<?php echo $row['Nom_Paciente'].$row['ID_Cita']; ?>.pdf" target="_blank">Factura</a></td>								
+							<td><a href="Expedientes/ficha<?php echo $row['Nom_Paciente'].$row['ID_Cita']; ?>.pdf" target="_blank">Ficha de Cita</a></td>
+							<td><a href="Expedientes/receta<?php echo $row['Nom_Paciente'].$row['ID_Cita']; ?>.pdf" target="_blank">Receta</a></td>	
+							<td><a href="Expedientes/factura<?php echo $row['Nom_Paciente'].$row['ID_Cita']; ?>.pdf" target="_blank">Factura</a></td>								
 							<td>
 								<img width="100" src="data:<?php echo $row['tipo_imagen']; ?>;base64,<?php echo base64_encode($row['imagen']); ?>" >								
 							</td>							

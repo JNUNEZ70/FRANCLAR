@@ -92,7 +92,12 @@ switch ($rolUsuario) {
                                         <button type="submit" name="parentesco" class="dropdown-item">
                                         Parentesco
                                         </button>
-                                            <button type="submit" name="diagnostico" class="dropdown-item" >Diagnósticos</button></a>
+                                        <button type="submit" name="diagnostico" class="dropdown-item" >
+                                        Diagnósticos
+                                        </button>
+                                        <button type="submit" name="cobros_adicionales" class="dropdown-item">
+                                        Cobros Adicionales
+                                        </button>    
                                         </form>
                                     </div>
                                 </li>

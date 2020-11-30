@@ -56,61 +56,59 @@ include 'conexion.php'
                                 </div>
 
                                 <script type="text/javascript" src='https://code.jquery.com/jquery-3.5.1.min.js'></script>
-                               
-                                <script type="text/javascript"></script> 
-                                
-                            <script>
-                                function consultar_paciente() {
-                                        var identidad = document.getElementById('IDPac').value;
-                                        var enlace='consulta_paciente.php';
+                                                         
+                                <script>
+                                    function consultar_paciente() {
+                                            var identidad = document.getElementById('IDPac').value;
+                                            var enlace='consulta_paciente.php';
+                                            
+                                            
+                                            $.ajax({
+                                                type:'POST',
+                                                url:enlace,
+                                                data: 'id='+identidad,
+                                                success:function(response){
+                                                    document.getElementById('NomPac').value = response;
+                                                    //alert(response);
+                                                    btnAgregar();
+                                                }
+
+                                            });
+                                            $.ajax({
+                                                type:'POST',
+                                                url:enlace,
+                                                data: 'id2='+identidad,
+                                                success:function(response){
+                                                    document.getElementById('id_paciente').value = response;
+                                                    //alert(response);
                                         
+                                                }
+
+                                            });
+
+
+                                    }
                                         
-                                        $.ajax({
-                                            type:'POST',
-                                            url:enlace,
-                                            data: 'id='+identidad,
-                                            success:function(response){
-                                                document.getElementById('NomPac').value = response;
-                                                 //alert(response);
-                                                 btnAgregar();
-                                            }
-
-                                        });
-                                        $.ajax({
-                                            type:'POST',
-                                            url:enlace,
-                                            data: 'id2='+identidad,
-                                            success:function(response){
-                                                document.getElementById('id_paciente').value = response;
-                                                 //alert(response);
-                                    
-                                            }
-
-                                        });
-
-
-                                }
-                                       
                                 </script>
 
                                 <script>
 
-                                function btnAgregar() {
-                                            let identidad = document.getElementById('IDPac'),
-                                             $nombre=document.getElementById('NomPac').value,
-                                             $boton_paciente=document.getElementById('btn_registra_paciente'),
-                                             $boton_guardar=document.getElementById('guardar');
-                                             if ($nombre=="La identidad no existe") {
-                                                    
-                                                 $boton_paciente.classList.remove("d-none");
-                                                 $boton_guardar.classList.add("d-none");
-                                               
-                                                 }else {
-                                                     
-                                                     $boton_guardar.classList.remove("d-none");
-                                                     $boton_paciente.classList.add("d-none");
-                                                 }
-                                    }           
+                                    function btnAgregar() {
+                                                let identidad = document.getElementById('IDPac'),
+                                                $nombre=document.getElementById('NomPac').value,
+                                                $boton_paciente=document.getElementById('btn_registra_paciente'),
+                                                $boton_guardar=document.getElementById('guardar');
+                                                if ($nombre=="La identidad no existe") {
+                                                        
+                                                    $boton_paciente.classList.remove("d-none");
+                                                    $boton_guardar.classList.add("d-none");
+                                                
+                                                    }else {
+                                                        
+                                                        $boton_guardar.classList.remove("d-none");
+                                                        $boton_paciente.classList.add("d-none");
+                                                    }
+                                        }           
 
                                 </script>
 
@@ -120,7 +118,7 @@ include 'conexion.php'
                                     <select class="form-control" id="espec" name="Especialidad" onchange="doctores_precio(value)" required>
                                         <option value="0" selected>Seleccione un Servicio</option>
                                         <?php
-                                          $sql=$con -> query("Select * from tbl_especialidad where ID_Especialidad <> 8");
+                                          $sql=$con -> query("Select * from tbl_especialidad where ID_especialidad <> 8 and ID_especialidad <> 9");
 
                                           while($fila=$sql->fetch_array()){
                                               echo "<option value='".$fila['ID_especialidad']."'>".$fila['Descripcion_espec']."</option>";
@@ -182,7 +180,7 @@ include 'conexion.php'
 
 
                             <div class="regerv_btn">
-                            <a><button id="guardar" type="submit" name="save" class="btn_2">Guardar</button></a>
+                                    <a><button id="guardar" type="submit" name="save" class="btn_2">Guardar</button></a>
                                     <a href="Cita.php" ><button type=button class="btn_2" style="color: #FFFF;">Cancelar</button></a> 
                                     <a href="agregarpaciente.php" ><button id="btn_registra_paciente" type="button" name="save" class="btn_2 btn-success d-none">Registrar Paciente</button></a>
                             </div>

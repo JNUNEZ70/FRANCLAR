@@ -127,6 +127,46 @@
         }
     </script>
     <script>
+        function solonumeros_conpuntoypleca(e) {
+            var key = e.keyCode || e.which,
+            tecla = String.fromCharCode(key).toLowerCase(),
+            numeros = " 1234567890",
+            especiales = [8 , 46 ,47],
+            tecla_especial = false;
+
+            for (var i in especiales) {
+            if (key == especiales[i]) {
+                tecla_especial = true;
+                break;
+            }
+            }
+
+            if (numeros.indexOf(tecla) == -1 && !tecla_especial) {
+            return false;
+            }
+        }
+    </script>
+    <script>
+        function solonumeros_conpunto(e) {
+            var key = e.keyCode || e.which,
+            tecla = String.fromCharCode(key).toLowerCase(),
+            numeros = " 1234567890",
+            especiales = [8 , 46],
+            tecla_especial = false;
+
+            for (var i in especiales) {
+            if (key == especiales[i]) {
+                tecla_especial = true;
+                break;
+            }
+            }
+
+            if (numeros.indexOf(tecla) == -1 && !tecla_especial) {
+            return false;
+            }
+        }
+    </script>
+    <script>
         function solonumerosfecha(e) {
             var key = e.keyCode || e.which,
             tecla = String.fromCharCode(key).toLowerCase(),

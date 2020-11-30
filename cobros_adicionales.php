@@ -23,7 +23,7 @@ include 'conexion.php'
                 <div class="col-lg-12">
                     <div class="breadcrumb_iner">
                         <div class="breadcrumb_iner_item">
-                            <h2>Especialidades</h2>
+                            <h2>Cobros Adicionales</h2>
                         </div>
                     </div>
                 </div>
@@ -37,11 +37,11 @@ include 'conexion.php'
 			if(isset($_GET['aksi']) == 'delete'){
 				// escaping, additionally removing everything that could be (html/javascript-) code
 				$nik = mysqli_real_escape_string($con,(strip_tags($_GET["nik"],ENT_QUOTES)));
-				$cek = mysqli_query($con, "SELECT * FROM tbl_especialidad WHERE ID_especialidad='$nik'");
+				$cek = mysqli_query($con, "SELECT * FROM tbl_cobros_adicionales WHERE ID_cobro_adicional='$nik'");
 				if(mysqli_num_rows($cek) == 0){
 					echo '<div class="alert alert-info alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button> No se encontraron datos.</div>';
 				}else{
-					$delete = mysqli_query($con, "DELETE FROM tbl_especialidad WHERE ID_especialidad='$nik'");
+					$delete = mysqli_query($con, "DELETE FROM tbl_cobros_adicionales WHERE ID_cobro_adicional='$nik'");
 					if($delete){
 						$id_usuario= $_SESSION['ID_Usuario'];
 							$insert_bitacora = mysqli_query($con, "INSERT INTO tbl_bitacora_evento (id_usuario,id_objeto,Accion,Descripcion)
@@ -74,7 +74,7 @@ include 'conexion.php'
 		
 		
 		<form class="form-inline my-2 my-lg-0 float-left">
-			<a href="agregar_Especialidad.php" class="genric-btn info circle">Agregar</a>
+			<a href="agregar_cobro_adicional.php" class="genric-btn info circle">Agregar</a>
 		</form>
 	   <br>
 		<br>
@@ -87,7 +87,7 @@ include 'conexion.php'
 			<thead>
 				<tr>
                     <th>No</th>
-					<th>Descripción De Especialidad</th>
+					<th>Descripción De Cobro</th>
 					<th>Precio</th>
 					<th>Acciones</th>
 					
@@ -96,20 +96,20 @@ include 'conexion.php'
 				</thead>
 				<tbody>
 				<?php
-				$sql = mysqli_query($con, "SELECT * FROM tbl_especialidad WHERE ID_especialidad <> 8 AND ID_especialidad <> 9");
+				$sql = mysqli_query($con, "SELECT * FROM tbl_cobros_adicionales");
 				if(mysqli_num_rows($sql) == 0){
 					echo '<tr><td colspan="8">No hay datos.</td></tr>';
 				}else{
 					$no = 1;
 					while($row = mysqli_fetch_assoc($sql)){
-						($permiso_eliminar==1)?$boton='<a href="Especialidades.php?aksi=delete&nik='.$row['ID_especialidad'].'" title="Eliminar" onclick="return confirm(\'¿Está seguro de borrar los datos del cargo '.$row['Descripcion_espec'].'?\')" class="btn btn-danger btn-sm"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>':$boton='<a  title="Eliminar"  onClick="permiso()" class="btn btn-warning btn-sm"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>';
-						($permiso_actualizar==1)?$boton2='<a href="EditarEspecialidad.php?nik='.$row['ID_especialidad'].'" title="Editar datos" class="btn btn-success btn-sm"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></a>':$boton2='<a  title="Editar datos" onClick="permiso()" class="btn btn-warning btn-sm"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></a>';	
+						($permiso_eliminar==1)?$boton='<a href="cobros_adicionales.php?aksi=delete&nik='.$row['ID_cobro_adicional'].'" title="Eliminar" onclick="return confirm(\'¿Está seguro de borrar los datos del cobro adicional '.$row['Descripcion_cobro'].'?\')" class="btn btn-danger btn-sm"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>':$boton='<a  title="Eliminar"  onClick="permiso()" class="btn btn-warning btn-sm"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>';
+						($permiso_actualizar==1)?$boton2='<a href="editar_cobro_adicional.php?nik='.$row['ID_cobro_adicional'].'" title="Editar datos" class="btn btn-success btn-sm"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></a>':$boton2='<a  title="Editar datos" onClick="permiso()" class="btn btn-warning btn-sm"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></a>';	
 						
 						echo '
 						<tr>
-                            <td>'.$row['ID_especialidad'].'</td>
-							<td>'.$row['Descripcion_espec'].'</td>
-							<td>'.$row['Precio'].'</td>			
+                            <td>'.$row['ID_cobro_adicional'].'</td>
+							<td>'.$row['Descripcion_cobro'].'</td>
+							<td>'.$row['Precio_cobro'].'</td>			
 							<td>'.$boton2.' '.$boton.'</td>
 						</tr>
 						';

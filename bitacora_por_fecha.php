@@ -15,7 +15,27 @@ include 'conexion.php'
     include 'header.php';
     ?>
     <!-- Header part end-->
+<?php
 
+if (isset($_POST['enviar'])) {
+    $fechaInicial=$_POST['inicio_fecha'];
+    $fechaFinal=$_POST['final_fecha'];
+
+   
+    
+    $sql = mysqli_query($con, "SELECT tbl_bitacora_evento.id_bitacora_evento,	
+    tbl_usuario.Nom_Usuario,
+    tbl_objetos.objeto,
+    tbl_bitacora_evento.Accion,	
+    tbl_bitacora_evento.Descripcion,	
+    tbl_bitacora_evento.fecha_evento FROM tbl_bitacora_evento
+    INNER JOIN tbl_usuario on tbl_bitacora_evento.id_usuario = tbl_usuario.ID_Usuario
+    INNER JOIN tbl_objetos on tbl_bitacora_evento.id_objeto = tbl_objetos.id_objeto
+    WHERE tbl_bitacora_evento.fecha_evento BETWEEN '$fechaInicial' AND '$fechaFinal' ");
+
+}
+
+?>
     <!-- breadcrumb start-->
     <section class="breadcrumb_part breadcrumb_bg">
         <div class="container">
@@ -23,7 +43,7 @@ include 'conexion.php'
                 <div class="col-lg-12">
                     <div class="breadcrumb_iner">
                         <div class="breadcrumb_iner_item">
-                            <h2>Bitácora</h2>
+                            <h2>Consulta Bitacora</h2>
                         </div>
                     </div>
                 </div>
@@ -31,26 +51,9 @@ include 'conexion.php'
         </div>
     </section>
     <!-- breadcrumb start-->
-    <form method="POST" action="bitacora_por_fecha.php" target="_blank" autocomplete="off">
-  <br>
-    <div class="form-group col-md-4" > 
-        <label for="inicio_fecha">Fecha Inicial</label>
-        <input onclick="fechaMaxima(this)" onkeypress="fechaMaxima(this)" type="date" id="inicio_fecha" name="inicio_fecha" value="">
-        </div>
-
-        <div class="form-group col-md-4" >
-        <label for="final_fecha">Fecha Final</label>
-        <input onclick="fechaMaxima(this)" onkeypress="fechaMaxima(this)" type="date" id="final_fecha" name="final_fecha" value="">
-        </div>
-        <div class="form-group col-md-4" >
-        <input type="submit" id="btn_submit" class="genric-btn info circle" name="enviar" value="Consultar" >
-        </div>    
-    </form>
     <!-- footer part start-->
- 
-    <div class="table-responsive">
-    <br>             
-        <table id="datatableUsuarios" class="table table-striped table-hover">
+		<div class="table-responsive">
+			<table id="datatableUsuarios" class="table table-striped table-hover">
 			    <thead>
 				<tr>
 				    <th>No</th>
@@ -62,15 +65,9 @@ include 'conexion.php'
 				</tr>
 				</thead>
 				<tbody>
-				<?php
-				$sql = mysqli_query($con, "SELECT tbl_bitacora_evento.id_bitacora_evento,	
-				tbl_usuario.Nom_Usuario,
-				tbl_objetos.objeto,
-				tbl_bitacora_evento.Accion,	
-				tbl_bitacora_evento.Descripcion,	
-				tbl_bitacora_evento.fecha_evento FROM tbl_bitacora_evento
-				INNER JOIN tbl_usuario on tbl_bitacora_evento.id_usuario = tbl_usuario.ID_Usuario
-				INNER JOIN tbl_objetos on tbl_bitacora_evento.id_objeto = tbl_objetos.id_objeto");
+                <?php
+                
+				
 				if(mysqli_num_rows($sql) == 0){
 					echo '<tr><td colspan="8">No hay datos.</td></tr>';
 				}else{

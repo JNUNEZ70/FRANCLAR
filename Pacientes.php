@@ -64,6 +64,7 @@ include 'conexion.php'
             <table id="datatableUsuarios" class="table table-striped table-hover">
                 <thead>
                 <tr>
+                    <th>Acciones</th>
                     <th>No</th>
                     <th>Nombre</th>
                     <th>Identidad</th>
@@ -86,8 +87,7 @@ include 'conexion.php'
                     <th>Antecendentes Hospitalarios</th>
                     <th>Antecendentes Alérgicos</th>
                     <th>Antecendentes Familiares</th>
-                    <th>Hábitos</th>
-                    <th>Acciones</th>
+                    <th>Hábitos</th>                    
                 </tr>
                 </thead>
                 <tbody>
@@ -159,11 +159,7 @@ include 'conexion.php'
                                     <td>'.$row['Antecedentes_Hospitalarios'].'</td>
                                     <td>'.$row['Antecedentes_Alergicos'].'</td>	
                                     <td>'.$row['Antecedentes_Familiares'].'</td>
-                                    <td>'.$row['Habitos'].'</td>
-                                    <td>							
-                                        <a href="EditarPaciente.php?nik='.$row['ID_Paciente'].'" title="Editar datos" class="btn btn-success btn-sm"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></a>
-                                        <a href="Pacientes.php?aksi=delete&nik='.$row['ID_Paciente'].'" title="Eliminar" onclick="return confirm(\'¿Está seguro de borrar los datos del paciente '.$row['Nom_Paciente'].'?\')" class="btn btn-danger btn-sm"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>
-                                    </td>				
+                                    <td>'.$row['Habitos'].'</td>                                    			
                                 </tr>
                                 ';
                                 $no++;

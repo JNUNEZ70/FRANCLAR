@@ -68,6 +68,13 @@
                     padding: 1px;
                     font-size: 14px;
                 }
+
+                .tabla_inferior{
+                    border: none;
+                    border-collapse: collapse;
+                    padding: 1px;
+                    font-size: 14px;
+                }
             
                 .divisor{
                     background-color: #D3D0CF;
@@ -184,11 +191,26 @@
             </body>';         
             
             
-        
+                
             $mpdf2 = new \Mpdf\Mpdf();
+
+            $mpdf2->SetHTMLHeader('
+            <div style="text-align: right; font-weight: bold;">
+                Receta original
+            </div>');
+            $mpdf2->SetHTMLFooter('
+            <table class="tabla_inferior" width="100%">
+                <tr class="tabla_inferior">
+                    <td class="tabla_inferior" width="33%">{DATE j-m-Y}</td>
+                    <td class="tabla_inferior" width="33%" align="center">Página {PAGENO} de {nbpg}</td>
+                    <td class="tabla_inferior" width="33%" style="text-align: right;">Receta</td>
+                </tr>
+            </table>');
+
+
             $mpdf2->WriteHTML($receta);
             ob_clean();
-            $mpdf2->Output('fichas_citas/receta'.$nombre_pac.''.$num_cita.'.pdf', \Mpdf\Output\Destination::FILE);
+            $mpdf2->Output('Expedientes/receta'.$nombre_pac.''.$num_cita.'.pdf', \Mpdf\Output\Destination::FILE);
             
             
             $mpdf2 ->output();

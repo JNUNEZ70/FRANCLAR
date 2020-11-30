@@ -170,10 +170,19 @@ if(isset($_POST['restablecer_bd']) ){
 if(isset($_POST['bitacora']) ){
     session_start();
     $id_usuario= $_SESSION['ID_Usuario'];
+    // $insert_bitacora = mysqli_query($con, "INSERT INTO tbl_bitacora_evento (id_usuario,id_objeto,Accion,Descripcion)
+    // VALUES ('$id_usuario',3,'Acceso','INGRESO A PANTALLA PARAMETROS')");
+   
+
+    header('Location:bitacora.php');
+}
+if(isset($_POST['cobros_adicionales']) ){
+    session_start();
+    $id_usuario= $_SESSION['ID_Usuario'];
     $insert_bitacora = mysqli_query($con, "INSERT INTO tbl_bitacora_evento (id_usuario,id_objeto,Accion,Descripcion)
     VALUES ('$id_usuario',3,'Acceso','INGRESO A PANTALLA PARAMETROS')");
    
 
-    header('Location:bitacora.php');
+    header('Location:cobros_adicionales.php');
 }
 ?>

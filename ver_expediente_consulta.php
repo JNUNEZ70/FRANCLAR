@@ -23,7 +23,7 @@ include 'conexion.php'
                 <div class="col-lg-12">
                     <div class="breadcrumb_iner">
                         <div class="breadcrumb_iner_item">
-                            <h2>Expedientes</h2>
+                            <h2> Ver Expedientes</h2>
                         </div>
                     </div>
                 </div>
@@ -34,26 +34,27 @@ include 'conexion.php'
 
     <!-- footer part start-->
     <?php
-			// if(isset($_GET['aksi']) == 'delete'){
-			// 	// escaping, additionally removing everything that could be (html/javascript-) code
-			// 	$nik = mysqli_real_escape_string($con,(strip_tags($_GET["nik"],ENT_QUOTES)));
-			// 	$cek = mysqli_query($con, "SELECT * FROM tbl_empleado WHERE ID_Empleado='$nik'");
-			// 	if(mysqli_num_rows($cek) == 0){
-			// 		echo '<div class="alert alert-info alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button> No se encontraron datos.</div>';
-			// 	}else{
-			// 		$delete = mysqli_query($con, "DELETE FROM tbl_empleado WHERE ID_Empleado='$nik'");
-			// 		if($delete){
-			// 			$id_usuario= $_SESSION['ID_Usuario'];
-			// 				$insert_bitacora = mysqli_query($con, "INSERT INTO tbl_bitacora_evento (id_usuario,id_objeto,Accion,Descripcion)
-            //                 VALUES ('$id_usuario',1,'Delete','SE ELIMINÓ UN EMPLEADO')") or die(mysqli_error());
-			// 			echo '<div class="alert alert-success alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button> Datos eliminado correctamente.</div>';
-			// 		}else{
-			// 			echo '<div class="alert alert-danger alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button> Error, no se pudo eliminar los datos.</div>';
-			// 		}
-			// 	}
-			// }
-	 ?>
-    
+	$nik = mysqli_real_escape_string($con,(strip_tags($_GET["nik"],ENT_QUOTES)));
+	$sql = mysqli_query($con, "SELECT tbl_expediente.ID_expediente,	
+	tbl_pacientes.Nom_Paciente,
+	tbl_pacientes.cedula,
+	tbl_citas.ID_Cita,
+	tbl_expediente.Fec_atencion,
+	tbl_expediente.historia_clinica,
+	tbl_expediente.tipo_imagen,
+	tbl_expediente.imagen FROM tbl_expediente 
+	INNER JOIN tbl_pacientes on tbl_expediente.ID_Paciente = tbl_pacientes.ID_Paciente
+	INNER JOIN tbl_citas on tbl_expediente.ID_Cita = tbl_citas.ID_Cita WHERE tbl_expediente.ID_paciente='$nik'");
+
+			
+	$cita = mysqli_real_escape_string($con,(strip_tags($_GET["cita"],ENT_QUOTES)));
+	
+	
+	?>
+    	<form class="form-inline my-2 my-lg-0 float-left">
+			<?php echo '<a href="agregarconsulta.php?nik='.$cita.'" class="genric-btn info circle">Regresar a Consulta</a>' ?>
+		</form>	
+	<br>
 	<br>
 	<br>
    <div class="table-responsive">
@@ -73,16 +74,16 @@ include 'conexion.php'
 				</thead>
 				<tbody>
 				<?php
-				$sql = mysqli_query($con, "SELECT tbl_expediente.ID_expediente,	
-				tbl_pacientes.Nom_Paciente,
-				tbl_pacientes.cedula,
-				tbl_citas.ID_Cita,
-				tbl_expediente.Fec_atencion,
-				tbl_expediente.historia_clinica,
-				tbl_expediente.tipo_imagen,
-				tbl_expediente.imagen FROM tbl_expediente 
-				INNER JOIN tbl_pacientes on tbl_expediente.ID_Paciente = tbl_pacientes.ID_Paciente
-				INNER JOIN tbl_citas on tbl_expediente.ID_Cita = tbl_citas.ID_Cita");
+				// $sql = mysqli_query($con, "SELECT tbl_expediente.ID_expediente,	
+				// tbl_pacientes.Nom_Paciente,
+				// tbl_pacientes.cedula,
+				// tbl_citas.ID_Cita,
+				// tbl_expediente.Fec_atencion,
+				// tbl_expediente.historia_clinica,
+				// tbl_expediente.tipo_imagen,
+				// tbl_expediente.imagen FROM tbl_expediente 
+				// INNER JOIN tbl_pacientes on tbl_expediente.ID_Paciente = tbl_pacientes.ID_Paciente
+				// INNER JOIN tbl_citas on tbl_expediente.ID_Cita = tbl_citas.ID_Cita");
 				
 				if(mysqli_num_rows($sql) == 0){
 					echo '<tr><td colspan="8">No hay datos.</td></tr>';

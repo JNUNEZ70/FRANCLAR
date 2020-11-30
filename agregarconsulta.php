@@ -14,6 +14,7 @@ include 'conexion.php'
     <!--::header part start::-->
     <?php
     include 'header.php';
+    include 'script.php'
     ?>
     <!-- Header part end-->
 
@@ -74,6 +75,10 @@ include 'conexion.php'
             date_default_timezone_set('America/Mexico_City');
             $fecha = date("d-m-Y");
 
+            $id_cita = $row['ID_Cita'];
+
+            $expediente = ["$id_paciente","$id_cita"];
+
 			// if(isset($_POST['save'])){
             //     if(isset($_FILES['foto']['name'])){
             //         $diagnostico = mysqli_real_escape_string($con,(strip_tags($_POST['diagnostico'],ENT_QUOTES)));
@@ -121,7 +126,8 @@ include 'conexion.php'
                                 <p class="col-md-12">Paciente:</p>                                                           
                                 <div class="form-group col-md-12">                                    
                                     <input type="text" class="form-control" name="nombre_pac" value="<?php echo $row ['Nom_Paciente']; ?>" id="Nombre_pac" readonly>
-                               
+                                    <p>Ver historial de paciente</p>
+                                    <?php echo '<a href="ver_expediente_consulta.php?nik='.$id_paciente.'&cita='.$id_cita.'" title="ver expediente" class="btn btn-info btn-sm"><span class="glyphicon glyphicon-folder-open" aria-hidden="true"></span></a>' ?>
                                 </div>
                                 <p class="col-md-6">Identidad:</p> 
                                 <p class="col-md-6">Edad:</p>    
@@ -174,19 +180,19 @@ include 'conexion.php'
                                                         
                                 
                                 <div class="form-group col-md-12">
-                                    <textarea class="form-control" id="Anamnesis" name="anamnesis" rows="4"
+                                    <textarea class="form-control" id="Anamnesis" name="anamnesis" onkeypress="return alfanumerica(event)" onkeyup="sanear2(this)" rows="4"
                                         placeholder="Anamnesis"></textarea>
                                 </div>
                                 <div class="form-group col-md-12">
-                                <textarea class="form-control" id="Examenfisico" name="exam_fisico" rows="4"
+                                <textarea class="form-control" id="Examenfisico" name="exam_fisico" onkeypress="return alfanumerica(event)" onkeyup="sanear2(this)" rows="4"
                                         placeholder="Examen Físico"></textarea>
                                 </div>
                                 <div class="form-group col-md-12">
-                                <textarea class="form-control" id="diagnostico" name="diagnostico" rows="4"
+                                <textarea class="form-control" id="diagnostico" name="diagnostico" onkeypress="return alfanumerica(event)" onkeyup="sanear2(this)" rows="4"
                                         placeholder="Diagnóstico"></textarea>
                                 </div>
                                 <div class="form-group col-md-12">
-                                    <textarea class="form-control" id="Tratamiento" name="tratamiento" rows="4"
+                                    <textarea class="form-control" id="Tratamiento" name="tratamiento" onkeypress="return alfanumerica(event)" onkeyup="sanear2(this)" rows="4"
                                         placeholder="Tratamiento"></textarea>
                                 </div>
                                 <p style="color: black;">Imagen:</p>
@@ -241,16 +247,16 @@ include 'conexion.php'
                                             <button type="button" id="bt_del" title="Eliminar medicamento" class="btn btn-danger btn-sm" ><span class="glyphicon glyphicon-trash" aria-hidden="true" color:wite ></span></a></button>
                                             </td>
                                             <td>
-                                                <input type="text" class="form-control" name="medicamento[]" id="medicamento1">
+                                                <input onkeypress="return alfanumerica(event)" onkeyup="sanear2(this)" type="text" class="form-control" name="medicamento[]" id="medicamento1">
                                             </td>		
                                             <td>
-                                                <input type="text" class="form-control" name="dosis[]" id="dosis1">
+                                                <input onkeypress="return alfanumerica(event)" onkeyup="sanear2(this)" type="text" class="form-control" name="dosis[]" id="dosis1">
                                             </td>
                                             <td>
-                                                <input type="text" class="form-control" name="duracion[]" id="duracion1">  
+                                                <input onkeypress="return alfanumerica(event)" onkeyup="sanear2(this)" type="text" class="form-control" name="duracion[]" id="duracion1">  
                                             </td>
                                             <td>
-                                                <input type="text" class="form-control" name="cantidad[]" id="cantidad1">
+                                                <input onkeypress="return alfanumerica(event)" onkeyup="sanear2(this)" type="text" class="form-control cantidad" name="cantidad[]" id="cantidad">
                                             </td>
                                         
                                         </tr>
@@ -276,7 +282,7 @@ include 'conexion.php'
                                     var cont=1;
                                     function agregar_fila() {
                                         cont++;
-                                        var fila='<tr id="fila'+cont+'"><td><button type="button" id="bt_del" title="Eliminar medicamento" class="btn btn-danger btn-sm" ><span class="glyphicon glyphicon-trash" aria-hidden="true" color:wite ></span></a></button></td><td><input type="text" class="form-control" name="medicamento[]" id="medicamento'+cont+'"></td><td><input type="text" class="form-control" name="dosis[]" id="dosis'+cont+'"></td><td><input type="text" class="form-control" name="duracion[]" id="duracion'+cont+'"></td><td><input type="text" class="form-control" name="cantidad[]" id="medicamento1"></td></tr>';
+                                        var fila='<tr id="fila'+cont+'"><td><button type="button" id="bt_del" title="Eliminar medicamento" class="btn btn-danger btn-sm" ><span class="glyphicon glyphicon-trash" aria-hidden="true" color:wite ></span></a></button></td><td><input  onkeypress="return alfanumerica(event)" onkeyup="sanear2(this)" type="text" class="form-control" name="medicamento[]" id="medicamento'+cont+'"></td><td><input onkeypress="return alfanumerica(event)" onkeyup="sanear2(this)" type="text" class="form-control" name="dosis[]" id="dosis'+cont+'"></td><td><input  onkeypress="return alfanumerica(event)" onkeyup="sanear2(this)" type="text" class="form-control" name="duracion[]" id="duracion'+cont+'"></td><td><input onkeypress="return alfanumerica(event)"  onkeyup="sanear2(this)" type="text" class="form-control cantidad " name="cantidad[]" id="cantidad'+cont+'"></td></tr>';
                                         $('#datatable').append(fila);
                                         
                                         
@@ -302,12 +308,12 @@ include 'conexion.php'
                                 function envio() {
 
                                     
-                                        document.ficha.submit() 
+                                        
 
-                                    let $formulario1=document.receta.submit();
+                                    let $formulario1=document.ficha.submit();
                                     const $ok=  window.confirm('Expediente y ficha médica creadas con Éxito');
                                             setTimeout(() => {
-                                                
+                                                document.receta.submit();    
                                             console.log($ok);
                                             if ($ok) {
                                                 window.location.href= 'Consulta.php';
@@ -343,6 +349,35 @@ include 'conexion.php'
     <?php
         include 'script.php'
     ?>
+
+
+    <script>
+    // document.getElementById("Anamnesis").addEventListener('keyup',sanear2);
+    // document.getElementById("Examenfisico").addEventListener('keyup',sanear2);
+    // document.getElementById("diagnostico").addEventListener('keyup',sanear2);
+    // document.getElementById("Tratamiento").addEventListener('keyup',sanear2);
+    // document.getElementById("medicamento").addEventListener('keyup',sanear2);
+    // document.getElementById("dosis").addEventListener('keyup',sanear2);
+    // document.getElementById("duracion").addEventListener('keyup',sanear2);
+    
+    
+    function sanear2(e) {
+      let id=e.id;
+      
+      let $cantidad=document.getElementById(id);
+
+    let contenido = $cantidad.value;
+    e.value = contenido.toUpperCase().replace("  ", " ");
+    contenido.toUpperCase().replace("  ", " ");
+      
+    
+    }
+    </script>
+
+
+
+
+
 </body>
 
 </html>

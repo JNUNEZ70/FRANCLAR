@@ -51,8 +51,8 @@ include 'conexion.php'
 	 ?>
     
     <br>
-     <br>
-     <br>
+	<br>
+	
     <div class="table-responsive">
 			<table id="datatableUsuarios" class="table table-striped table-hover" cellspacing="0" width="100%">
             	<thead>    

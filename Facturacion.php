@@ -54,6 +54,8 @@ include 'conexion.php'
             $sql2 = mysqli_query($con, "SELECT * FROM tbl_facturas WHERE ID_Cita='$nik'");
             $row2 = mysqli_fetch_assoc($sql2);
             $id_factura = $row2['ID_factura'];
+
+            $doctor = $row['Nom_Empleado'];
             
             
 
@@ -215,6 +217,7 @@ include 'conexion.php'
 
                                 <input type="text"  class="d-none" name="id_cita" value="<?php echo $nik; ?>">    
                                 <input type="text"  class="d-none" name="id_factura" value="<?php echo $id_factura; ?>">
+                                <input type="text"  class="d-none" name="doctor" value="<?php echo $doctor; ?>">
                                     
 
                                 <div class="regerv_btn col-md-12">

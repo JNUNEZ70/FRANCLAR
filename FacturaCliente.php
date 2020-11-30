@@ -8,11 +8,16 @@
 <?php
           if(isset($_POST)){      
 
+            date_default_timezone_set('America/Mexico_City');
                 $id_factura = $_POST['id_factura']; 
                 $fecha = date('d-m-Y');
                 $hora = date('H:i:s');
                 $Nombre_pac=$_POST['Nombre_pac'];
                 $id_cita=$_POST['id_cita'];
+                $doctor=$_POST['doctor'];
+                
+                
+                
             //   echo $id_cita;
             //     return false;
 
@@ -36,12 +41,12 @@ $factura='<!DOCTYPE html>
      }
 
      .contenedor{
-        border: 1px solid black;
+        border: none;
      }
 
      .divisor{
         background-color: #D3D0CF;
-        height: 80px;
+        height: 50px;
      }
  
 
@@ -66,50 +71,65 @@ $factura='<!DOCTYPE html>
  <body> 
      <div class="contenedor">   
      <table style="width: 100%">
+        <tr>
+             <td  colspan="4" style="text-align:right">
+                 <p>FACTURA #'.$id_factura.'</p>                 
+             </td>            
+         </tr>
          <tr>
-             <td  colspan="4" style="text-align:center">
-                 <p>FACTURA</p>
-                 <br>
+             <td  colspan="4" style="text-align:center">               
                  <p>COMPLEJO MÉDICO FRANCLAR</p>
                  <br>
                  <img src="img/franclar_logo.png">
              </td>            
          </tr>
-         <tr class="divisor">
-             <td colspan="4" style="text-align:center">                 
+         <tr>
+             <td colspan="4" class="divisor" style="text-align:center">                 
              </td>          
          </tr>
          <tr>
-             <td class="col1" style="text-align:left">
-                 <p>Factura No</p>
+             <td colspan="2"  style="text-align:left">
+                 <p>Número de Cita</p>
              </td>   
-             <td colspan="3" style="text-align:center">'.
-             $id_factura
+             <td colspan="2" style="text-align:left">'.
+             $id_cita
              .'</td>         
          </tr>
          <tr>
-             <td class="col1" style="text-align:left">
-                 <p>Fecha</p>
+             <td colspan="2"  style="text-align:left">
+                 <p>Nombre del Doctor</p>
              </td>   
-             <td colspan="3" style="text-align:center">'.
+             <td colspan="2" style="text-align:left">'.
+             $doctor
+             .'</td>         
+         </tr>
+         <tr>
+             <td colspan="2" style="text-align:left">
+                 <p>Fecha de emisión</p>
+             </td>   
+             <td colspan="2" style="text-align:left">'.
               $fecha
              .'</td>         
          </tr>
          <tr>
-             <td class="col1" style="text-align:left">
-                 <p>Hora</p>
-                 <td colspan="3" style="text-align:center">'.
+             <td colspan="2" style="text-align:left">
+                 <p>Hora de emisión</p>
+                 <td colspan="2" style="text-align:left">'.
                  $hora
                 .'</td>          
 
          </tr>
          <tr>
-             <td class="col1" style="text-align:left">
+             <td colspan="2" style="text-align:left">
                  <p>Nombre de Paciente</p>
              </td>   
-             <td colspan="3" style="text-align:center">'.
+             <td colspan="2" style="text-align:left">'.
              $Nombre_pac
              .'</td>         
+         </tr>
+         <tr>
+             <td colspan="4" class="divisor" style="text-align:center">                 
+             </td>          
          </tr>
          <tr class="divisor">
              <td colspan="4" style="text-align:center">                 
@@ -201,10 +221,24 @@ $factura='<!DOCTYPE html>
  </html>';
 
         $mpdf3 = new \Mpdf\Mpdf();
+
+        $mpdf3->SetHTMLHeader('
+        <div style="text-align: right; font-weight: bold;">
+            Factura original
+        </div>');
+        $mpdf3->SetHTMLFooter('
+        <table width="100%">
+            <tr>
+                <td width="33%">{DATE j-m-Y}</td>
+                <td width="33%" align="center">Página {PAGENO} de {nbpg}</td>
+                <td width="33%" style="text-align: right;">FACTURA N° '.$id_factura.'</td>
+            </tr>
+        </table>');
+
+
         $mpdf3->WriteHTML($factura);
         ob_clean();
-        $mpdf3->Output('fichas_citas/factura'.$Nombre_pac.''.$id_cita.'.pdf', \Mpdf\Output\Destination::FILE);
-    
+        $mpdf3->Output('Expedientes/factura'.$Nombre_pac.''.$id_cita.'.pdf', \Mpdf\Output\Destination::FILE);
     
         $mpdf3 ->output();
             
