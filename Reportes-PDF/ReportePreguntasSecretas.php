@@ -24,7 +24,7 @@ function Header()
     // Título
     $this->Cell(100,10,utf8_decode('REPORTE DE PREGUNTAS SECRETAS'),0,0,'C');
     // Salto de línea
-    $this->Ln(15);
+    $this->Ln(20);
 }
 
 // Pie de página
@@ -35,7 +35,7 @@ function Footer()
     // Arial italic 8
     $this->SetFont('Arial','I',10);
     // Número de página
-    $this->Cell(0,10,utf8_decode('Página ').$this->PageNo().' de {nb}',0,0,'C');
+    $this->Cell(0,10,''. date('d') . ' / '. date('m'). ' / '. date('Y'). '                                                              '. utf8_decode('Página ').$this->PageNo().' de {nb} '.'                                                           '. date('h:i:s'). ' '.date('A') ,0,0,'L');
 }
 }
 
@@ -47,9 +47,6 @@ $pdf = new PDF();
 // Carga de datos
 $pdf->AliasNbPages();
 $pdf->AddPage();
-$pdf->Cell(200, 5,''. date('d') . ' de '. date('F'). ' de '. date('Y'). ' a las '. date('h:i:s'). ' '.date('A') , 0,1,'C');
-// Salto de línea
-$pdf->Ln(5);
 $pdf->SetFillColor(232,232,232);
 $pdf->SetFont('Times','',12);
 

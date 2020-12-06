@@ -213,7 +213,7 @@ include 'conexion.php'
     document.getElementById("IDPac").addEventListener('keyup', sanear);
     function sanear(e) {
       let contenido = e.target.value;
-      e.target.value = contenido.replace(" ", "");
+      e.target.value = contenido.toUpperCase().replace(" ", "");
     }
     </script>
 </body>

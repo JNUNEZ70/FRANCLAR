@@ -35,7 +35,7 @@ function Footer()
     // Arial italic 8
     $this->SetFont('Arial','I',10);
     // Número de página
-    $this->Cell(0,10,utf8_decode('Página ').$this->PageNo().' de {nb}',0,0,'C');
+    $this->Cell(0,10,''. date('d') . ' / '. date('m'). ' / '. date('Y'). '                                                                                                         '. utf8_decode('Página ').$this->PageNo().' de {nb} '.'                                                                                                '. date('h:i:s'). ' '.date('A') ,0,0,'L');
 }
 }
 
@@ -59,7 +59,6 @@ $pdf = new PDF();
 // Carga de datos
 $pdf->AliasNbPages();
 $pdf->AddPage('L');
-$pdf->Cell(270, 5,''. date('d') . ' de '. date('F'). ' de '. date('Y'). ' a las '. date('h:i:s'). ' '.date('A') , 0,1,'C');
 // Salto de línea
 $pdf->Ln(5);
 $pdf->SetFillColor(232,232,232);
@@ -73,8 +72,7 @@ $pdf->Cell(70, 10, utf8_decode('Especialista'), 1, 0, 'C', 1);
 $pdf->Cell(25, 10, utf8_decode('Fecha de Atención'), 1, 0, 'C', 1);
 $pdf->Cell(25, 10, utf8_decode('Hora de Atención'), 1, 0, 'C', 1);
 $pdf->Cell(22, 10, utf8_decode('Estado de la Cita'), 1, 1, 'C', 1);
-
-while($row = mysqli_fetch_assoc($consulta)){
+    while($row = mysqli_fetch_assoc($consulta)){
     $pdf->Cell(8, 10, $row['ID_Cita'], 1, 0, 'C', 0);
     $pdf->Cell(60, 10, utf8_decode($row['Nom_Paciente']), 1, 0, 'C', 0);
     $pdf->Cell(28, 10, $row['Fec_Creacion'], 1, 0, 'C', 0);
@@ -84,6 +82,5 @@ while($row = mysqli_fetch_assoc($consulta)){
     $pdf->Cell(25, 10, utf8_decode($row['Hora_Atencion']), 1, 0, 'C', 0);
     $pdf->Cell(22, 10, utf8_decode($row['Descripcion_est_cita']), 1, 1, 'C', 0);
 }
-
 $pdf->Output('Reporte_Citas.pdf', 'I');
 ?>

@@ -83,7 +83,7 @@ include 'conexion.php'
     }
     function sanear2(e) {
       let contenido = e.target.value;
-      e.target.value = contenido.replace("  ", " ");
+      e.target.value = contenido.toUpperCase().replace("  ", " ");
     }
     </script>
 </body>
