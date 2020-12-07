@@ -59,6 +59,7 @@ include 'conexion.php'
 				<tr>
 					<th>No</th>
 					<th>Paciente</th>
+					<th>Teléfono</th>
 					<th>Fecha de Ingreso</th>
 					<th>Especialidad</th>
                     <th>Doctor</th>
@@ -72,6 +73,7 @@ include 'conexion.php'
 				<?php
 				$sql = mysqli_query($con, "SELECT tbl_citas.ID_Cita,	
 				tbl_pacientes.Nom_Paciente,
+				tbl_pacientes.Cel_Paciente,
 				tbl_citas.Fec_Creacion,
 				tbl_especialidad.Descripcion_espec,
 				tbl_empleado.Nom_Empleado,
@@ -81,7 +83,7 @@ include 'conexion.php'
 				INNER JOIN tbl_pacientes on tbl_citas.ID_Paciente = tbl_pacientes.ID_Paciente
 				INNER JOIN tbl_especialidad on tbl_citas.ID_Especialidad = tbl_especialidad.ID_Especialidad
 				INNER JOIN tbl_empleado on tbl_citas.ID_Empleado = tbl_empleado.ID_Empleado
-				INNER JOIN tbl_estado_cita on tbl_citas.ID_Estado = tbl_estado_cita.ID_Estado WHERE tbl_estado_cita.ID_Estado = 2");
+				INNER JOIN tbl_estado_cita on tbl_citas.ID_Estado = tbl_estado_cita.ID_Estado WHERE tbl_estado_cita.ID_Estado = 2 ORDER BY tbl_citas.Fec_Creacion DESC");
 				if(mysqli_num_rows($sql) == 0){
 					echo '<tr><td colspan="8">No hay datos.</td></tr>';
 				}else{
@@ -91,6 +93,7 @@ include 'conexion.php'
 						<tr>
 						<td>'.$row['ID_Cita'].'</td>
 						<td>'.$row['Nom_Paciente'].'</td>
+						<td>'.$row['Cel_Paciente'].'</td>
 						<td>'.$row['Fec_Creacion'].'</td>
 						<td>'.$row['Descripcion_espec'].'</td>
 						<td>'.$row['Nom_Empleado'].'</td>

@@ -15,7 +15,24 @@ include 'conexion.php'
     include 'header.php';
     ?>
     <!-- Header part end-->
+	<?php
+	$nik = mysqli_real_escape_string($con,(strip_tags($_GET["nik"],ENT_QUOTES)));
+	$sql = mysqli_query($con, "SELECT tbl_expediente.ID_expediente,	
+	tbl_pacientes.Nom_Paciente,
+	tbl_pacientes.cedula,
+	tbl_citas.ID_Cita,
+	tbl_expediente.Fec_atencion,
+	tbl_expediente.tipo_imagen,
+	tbl_expediente.imagen FROM tbl_expediente 
+	INNER JOIN tbl_pacientes on tbl_expediente.ID_Paciente = tbl_pacientes.ID_Paciente
+	INNER JOIN tbl_citas on tbl_expediente.ID_Cita = tbl_citas.ID_Cita WHERE tbl_expediente.ID_paciente='$nik'");
 
+	$row1 = mysqli_fetch_assoc($sql);
+	
+	$cita = mysqli_real_escape_string($con,(strip_tags($_GET["cita"],ENT_QUOTES)));
+	
+	
+	?>
     <!-- breadcrumb start-->
     <section class="breadcrumb_part breadcrumb_bg">
         <div class="container">
@@ -23,7 +40,7 @@ include 'conexion.php'
                 <div class="col-lg-12">
                     <div class="breadcrumb_iner">
                         <div class="breadcrumb_iner_item">
-                            <h2> Ver Expedientes</h2>
+						<?php echo '<h3 style="color: #ffff;" >Expediente de Paciente: '.$row1['Nom_Paciente'].'</h3>';  ?>
                         </div>
                     </div>
                 </div>
@@ -33,24 +50,7 @@ include 'conexion.php'
     <!-- breadcrumb start-->
 
     <!-- footer part start-->
-    <?php
-	$nik = mysqli_real_escape_string($con,(strip_tags($_GET["nik"],ENT_QUOTES)));
-	$sql = mysqli_query($con, "SELECT tbl_expediente.ID_expediente,	
-	tbl_pacientes.Nom_Paciente,
-	tbl_pacientes.cedula,
-	tbl_citas.ID_Cita,
-	tbl_expediente.Fec_atencion,
-	tbl_expediente.historia_clinica,
-	tbl_expediente.tipo_imagen,
-	tbl_expediente.imagen FROM tbl_expediente 
-	INNER JOIN tbl_pacientes on tbl_expediente.ID_Paciente = tbl_pacientes.ID_Paciente
-	INNER JOIN tbl_citas on tbl_expediente.ID_Cita = tbl_citas.ID_Cita WHERE tbl_expediente.ID_paciente='$nik'");
-
-			
-	$cita = mysqli_real_escape_string($con,(strip_tags($_GET["cita"],ENT_QUOTES)));
-	
-	
-	?>
+    
     	<form class="form-inline my-2 my-lg-0 float-left">
 			<?php echo '<a href="agregarconsulta.php?nik='.$cita.'" class="genric-btn info circle">Regresar a Consulta</a>' ?>
 		</form>	
@@ -101,8 +101,9 @@ include 'conexion.php'
 							<td><a href="Expedientes/receta<?php echo $row['Nom_Paciente'].$row['ID_Cita']; ?>.pdf" target="_blank">Receta</a></td>	
 							<td><a href="Expedientes/factura<?php echo $row['Nom_Paciente'].$row['ID_Cita']; ?>.pdf" target="_blank">Factura</a></td>								
 							<td>
-								<img width="100" src="data:<?php echo $row['tipo_imagen']; ?>;base64,<?php echo base64_encode($row['imagen']); ?>" >								
-							</td>							
+								<?php echo '<a target="_blank" href="ver_imagen_exp.php?nik='.$row['ID_Cita'].'" title="Ver Imagen" class="btn btn-info btn-sm"><span class="glyphicon glyphicon-folder-open" aria-hidden="true"></span></a>'; ?>							
+								<p>Ver Fotos</p>
+								</td>							
 						</tr>						
 						<?php
 						$no++;

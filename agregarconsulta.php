@@ -195,11 +195,14 @@ include 'conexion.php'
                                     <textarea class="form-control" id="Tratamiento" name="tratamiento" onkeypress="return alfanumerica(event)" onkeyup="sanear2(this)" rows="4"
                                         placeholder="Tratamiento"></textarea>
                                 </div>
-                                <p style="color: black;">Imagen:</p>
-                                <div class="form-group col-md-12">
-                                    <input type="file" name="foto">
+                                <p style="color: black;">Imagenes:</p>
+                                <div class="form-group col-md-8" id="foto_add">
+                                    <input type="file" name="foto[]">
+                                </div>                                
+                                <div class="form-group col-md-4">
+                                    <p>Agregar otro foto</p><button type="button" id="agregar_foto" title="Agregar medicamento" class="btn btn-success btn-sm" ><span class="glyphicon glyphicon-plus" aria-hidden="true" color:white ></span></button>
                                 </div>
-                                
+                               
                                 <!-- <div class="form-group col-md-4">
                                     <input type="text" class="form-control" id="ProCita" placeholder="Próxima Consulta">
                                 </div> -->
@@ -207,7 +210,7 @@ include 'conexion.php'
                                     <input type="text" class="form-control" id="IDConsulta" placeholder="Id Consulta">
                                 </div> -->
 
-                                <input type="text"  class="d-none" name="id_cita" value="<?php echo $nik; ?>">
+                                <input type="text"  class="d-none" id="id_cita" name="id_cita" value="<?php echo $nik; ?>">
                                 <input type="text"  class="d-none" name="fec_nac" value="<?php echo $row ['Fec_Nacimiento']; ?>">
                                 <input type="text"  class="d-none" name="fec_atencion" value="<?php echo $fecha; ?>">
                                 <input type="text"  class="d-none" name="sexo" value="<?php echo $row3 ['Descripcion_sexo']; ?>">
@@ -215,15 +218,16 @@ include 'conexion.php'
                                 <input type="text"  class="d-none" name="direccion" value="<?php echo $row ['Dir_Paciente']; ?>">
                                 <input type="text"  class="d-none" name="id_paciente" value="<?php echo $id_paciente; ?>">
                                 <input type="text"  class="d-none" name="id_especialidad" value="<?php echo $row ['ID_especialidad']; ?>">
-
+                                
                                                                                                
                                 <br>
                                 <br>
                                 
                                 </form>
                                 <form method="POST" action="receta.php" target="_blank" autocomplete="off" id="receta" name="receta">
+                                <div class="form-group col-md-12">                              
                                 <p>Agregar Medicamento</p><button type="button" id="bt_add" title="Agregar medicamento" class="btn btn-success btn-sm" ><span class="glyphicon glyphicon-plus" aria-hidden="true" color:white ></span></button>    
-                                
+                                </div> 
                                 <input type="text" class="form-control d-none " name="nombre_pac" value="<?php echo $row ['Nom_Paciente']; ?>" id="Nombre_pac" >
                                 <input type="text" class="form-control d-none " name="nombre_pac" value="<?php echo $row ['Nom_Paciente']; ?>" id="Nombre_pac" >
                                 <input type="text"  class="d-none" name="id_cita" value="<?php echo $nik; ?>">
@@ -276,6 +280,9 @@ include 'conexion.php'
                                         $('#bt_del').click(function(){
                                             eliminar_fila(num_fila);
                                         });
+                                        $('#agregar_foto').click(function(){
+                                            agregar_input();
+                                            });
                                         });
                                         
                                     
@@ -288,10 +295,15 @@ include 'conexion.php'
                                         
                                     }
 
-                                    function eliminar_fila(num_fila) {
-                                       
+                                    function eliminar_fila(num_fila) {                                     
                                         
-                                
+                                    }                                    
+            
+                                    var cont2=1;
+                                    function agregar_input() {
+                                        cont2++;
+                                        var input='<input type="file" name="foto[]">';
+                                        $('#foto_add').append(input);                                                                         
                                     }
                                 
                                 </script>
@@ -316,9 +328,9 @@ include 'conexion.php'
                                                 document.receta.submit();    
                                             console.log($ok);
                                             if ($ok) {
-                                                window.location.href= 'Consulta.php';
+                                                window.location.href= 'agregarcita.php';
                                             }else{
-                                                window.location.href= 'Consulta.php';
+                                                window.location.href= 'agregarcita.php';
                                             }
 
                                             }, 1000);

@@ -68,7 +68,7 @@ include 'conexion.php'
                     <th>Ficha de Cita</th>
 					<th>Receta</th>
 					<th>Factura</th>
-                    <th>Imagen de la cita</th>
+                    <th>Fotos de la cita</th>
 				</tr>
 				</thead>
 				<tbody>
@@ -78,7 +78,6 @@ include 'conexion.php'
 				tbl_pacientes.cedula,
 				tbl_citas.ID_Cita,
 				tbl_expediente.Fec_atencion,
-				tbl_expediente.historia_clinica,
 				tbl_expediente.tipo_imagen,
 				tbl_expediente.imagen FROM tbl_expediente 
 				INNER JOIN tbl_pacientes on tbl_expediente.ID_Paciente = tbl_pacientes.ID_Paciente
@@ -100,7 +99,8 @@ include 'conexion.php'
 							<td><a href="Expedientes/receta<?php echo $row['Nom_Paciente'].$row['ID_Cita']; ?>.pdf" target="_blank">Receta</a></td>	
 							<td><a href="Expedientes/factura<?php echo $row['Nom_Paciente'].$row['ID_Cita']; ?>.pdf" target="_blank">Factura</a></td>								
 							<td>
-								<img width="100" src="data:<?php echo $row['tipo_imagen']; ?>;base64,<?php echo base64_encode($row['imagen']); ?>" >								
+								<?php echo '<a target="_blank" href="ver_imagen_exp.php?nik='.$row['ID_Cita'].'" title="Ver Imagen" class="btn btn-info btn-sm"><span class="glyphicon glyphicon-folder-open" aria-hidden="true"></span></a>'; ?>							
+								<p>Ver Fotos</p>
 							</td>							
 						</tr>						
 						<?php

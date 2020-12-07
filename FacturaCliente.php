@@ -9,7 +9,8 @@
           if(isset($_POST)){      
 
             date_default_timezone_set('America/Mexico_City');
-                $id_factura = $_POST['id_factura']; 
+                $id_factura = $_POST['id_factura'];
+                $num_factura = $_POST['num_factura'];       
                 $fecha = date('d-m-Y');
                 $hora = date('H:i:s');
                 $Nombre_pac=$_POST['Nombre_pac'];
@@ -28,7 +29,7 @@ $factura='<!DOCTYPE html>
  <head>
      <meta charset="UTF-8">
      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-     <title>Factura No '.$id_factura.'</title>
+     <title>Recibo No '.$id_factura.'</title>
  </head>
  <style type= "text/css">
 
@@ -73,7 +74,12 @@ $factura='<!DOCTYPE html>
      <table style="width: 100%">
         <tr>
              <td  colspan="4" style="text-align:right">
-                 <p>FACTURA #'.$id_factura.'</p>                 
+                 <p>Recibo Número '.$id_factura.'</p>                 
+             </td>            
+         </tr>
+         <tr>
+             <td  colspan="4" style="text-align:right">
+                 <p>Factura Número '.$num_factura.'</p>                 
              </td>            
          </tr>
          <tr>
@@ -154,8 +160,8 @@ $factura='<!DOCTYPE html>
              while($row3 = mysqli_fetch_assoc($sql3)){  
                 $cobro = $row3['cobro'];
                 $subtotal = $subtotal + $cobro;
-                $isv = $subtotal * 0.15;
-                $total = $subtotal + $isv;                
+                // $isv = $subtotal * 0.15;
+                $total = $subtotal;                
                 $factura.='<tr>                
                                 <td colspan="2" class="col1" style="text-align:left">'.
                                     $row3['descripcion']
@@ -186,18 +192,7 @@ $factura='<!DOCTYPE html>
              </td>  
                       
          </tr>
-         <tr>
-             <td colspan="2" class="col1" style="text-align:left">
-                 
-             </td>
-             <td class="col2" style="text-align:center">
-                ISV 15%
-             </td>  
-             <td class="col3" style="text-align:center">
-                <p>L.'.$isv.'</p>
-             </td>  
-                      
-         </tr>
+         
          <tr class="divisor">
              <td colspan="4" style="text-align:center">                 
              </td>          
@@ -224,14 +219,21 @@ $factura='<!DOCTYPE html>
 
         $mpdf3->SetHTMLHeader('
         <div style="text-align: right; font-weight: bold;">
-            Factura original
+            Comprobante de Pago
         </div>');
         $mpdf3->SetHTMLFooter('
         <table width="100%">
             <tr>
                 <td width="33%">{DATE j-m-Y}</td>
                 <td width="33%" align="center">Página {PAGENO} de {nbpg}</td>
-                <td width="33%" style="text-align: right;">FACTURA N° '.$id_factura.'</td>
+                <td width="33%" style="text-align: right;">Recibo Número '.$id_factura.'</td>
+            </tr>
+            <tr>
+                <td  colspan="4" style="text-align:center">
+                    <br>               
+                    <p>Este comprobante de pago no reemplaza la factura original emitida por la clínica</p>
+                    <br>                    
+                </td>   
             </tr>
         </table>');
 

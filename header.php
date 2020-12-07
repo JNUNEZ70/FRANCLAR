@@ -30,15 +30,9 @@ switch ($rolUsuario) {
                                 <li class="nav-item active">
                                     <a class="nav-link" href="Index.php">Home</a>
                                 </li>
-                                <li class="nav-item dropdown">
-                                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
-                                    role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    Preclínica
-                                </a>
-                                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                        <a class="dropdown-item" href="Preclinica.php">Preclínica General</a>
-                                    </div>
-                                </li>
+                                <li class="nav-item active">
+                                    <a class="nav-link" href="Preclinica.php">Preclínica</a>
+                                </li>                                
                                 <li class="nav-item dropdown">
                                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
                                         role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -91,10 +85,7 @@ switch ($rolUsuario) {
                                         </button>
                                         <button type="submit" name="parentesco" class="dropdown-item">
                                         Parentesco
-                                        </button>
-                                        <button type="submit" name="diagnostico" class="dropdown-item" >
-                                        Diagnósticos
-                                        </button>
+                                        </button>                                        
                                         <button type="submit" name="cobros_adicionales" class="dropdown-item">
                                         Cobros Adicionales
                                         </button>    
@@ -131,7 +122,7 @@ switch ($rolUsuario) {
                                                 Preguntas Secretas
                                             </button>
                                             
-                                            <p class="dropdown-item" >--ADMINISTRACION--</p>
+                                            <p class="dropdown-item" >--ADMINISTRACIÓN--</p>
                                             
                                             <button type="submit" name="gestion_bd" class="dropdown-item">
                                                Respaldo DB
@@ -142,7 +133,7 @@ switch ($rolUsuario) {
                                             </button>
                                             
                                             <button type="submit" name="bitacora" class="dropdown-item">
-                                                Bitacora
+                                                Bitácora
                                             </button>
                                             
                                         </form>
@@ -196,15 +187,9 @@ switch ($rolUsuario) {
                                 <li class="nav-item active">
                                     <a class="nav-link" href="Index.php">Home</a>
                                 </li>
-                                <li class="nav-item dropdown">
-                                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
-                                    role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    Preclínica
-                                </a>
-                                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                        <a class="dropdown-item" href="Preclinica.php">Preclínica General</a>
-                                    </div>
-                                </li>
+                                <li class="nav-item active">
+                                    <a class="nav-link" href="Preclinica.php">Preclínica</a>
+                                </li>                                
                                 <li class="nav-item dropdown">
                                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
                                         role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -214,23 +199,14 @@ switch ($rolUsuario) {
                                         <a class="dropdown-item" href="Pacientes.php">Ingresar Pacientes</a>
                                         <a class="dropdown-item" href="Cita.php">Citas</a>
                                         <a class="dropdown-item" href="Consulta.php">Consultas</a>
+                                        <a class="dropdown-item" href="Expediente.php">Expediente</a>
                                     </div>
                                 </li>
                                 
 
-                                <li class="nav-item dropdown">
-                                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
-                                    role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    Reportes
-                                </a>
-                                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="RPacientes.php">Pacientes</a>
-                                    <a class="dropdown-item" href="RCitas.php">Citas</a>
-                                    <a class="dropdown-item" href="RConsultas.php">Consultas</a>
-                                    <a class="dropdown-item" href="RPagos.php">Pagos</a>
-                                    <a class="dropdown-item" href="RMantenimiento.php">Mantenimiento</a>
-                                </div>
-                            </li>
+                                <li class="nav-item active">
+                                    <a class="nav-link" href="Caja.php">Caja</a>
+                                </li>
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
                                 role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -238,29 +214,45 @@ switch ($rolUsuario) {
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                                 <form action="accesos.php" method="post">
-                                    <a href="personal.php">
+                                    
                                         <button type="submit" name="personal" class="dropdown-item">
                                             Personal
-                                        </button></a>
-                                        <a href="usuarios.php" class="dropdown-item">Usuarios</a>
-                                        <a href="Parametros.php" class="dropdown-item">Parámetros</a>
-                                        <a href="cargos.php" class="dropdown-item">Cargos</a>
-                                        <a href="Especialidades.php" class="dropdown-item">Especialidades</a>
-                                        <a href="Estado_Civil.php" class="dropdown-item">Estado Civil</a>
-                                        <a href="Sexo.php" class="dropdown-item">Sexos</a>
-                                        <a href="Religiones.php" class="dropdown-item">Religiones</a>
-                                        <a href="Tipo_Sangre.php" class="dropdown-item">Tipos de Sangre</a>
-                                        <a href="Diagnosticos.php"  >
-                                            <button type="submit" name="diagnostico" class="dropdown-item" >Diagnosticos</button></a>
+                                        </button>
+                                        <button type="submit" name="usuarios" class="dropdown-item">
+                                            Usuarios
+                                        </button>
+                                        
+                                        <button type="submit" name="cargos" class="dropdown-item">
+                                            Cargos
+                                        </button>
+                                        <button type="submit" name="especialidades" class="dropdown-item">
+                                        Especialidades
+                                        </button>
+                                        <button type="submit" name="estado_civil" class="dropdown-item">
+                                        Estado Civil
+                                        </button>
+                                        <button type="submit" name="genero" class="dropdown-item">
+                                        Género
+                                        </button>
+                                        <button type="submit" name="religion" class="dropdown-item">
+                                        Religión
+                                        </button>
+                                        <button type="submit" name="tipo_sangre" class="dropdown-item">
+                                        Tipos de Sangre
+                                        </button>
+                                        <button type="submit" name="parentesco" class="dropdown-item">
+                                        Parentesco
+                                        </button>                                        
+                                        <button type="submit" name="cobros_adicionales" class="dropdown-item">
+                                        Cobros Adicionales
+                                        </button>    
                                         </form>
                                     </div>
-                                </li>
-                               
+                                </li>                                
                                 
-                                <li class="nav-item dropdown  ">
+                                <li class="nav-item dropdown float-right">
                                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
                                     role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            
                                     <?php echo $usuario?>
                                     </a>
                                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -275,7 +267,8 @@ switch ($rolUsuario) {
                 </div>
             </div>
         </div>
-    </header>       
+    </header> 
+           
         <?php break;
         ?>
 

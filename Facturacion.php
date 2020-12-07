@@ -121,16 +121,19 @@ include 'conexion.php'
                                     <input type="text" class="form-control" id="Doctor" value="<?php echo $row ['Nom_Empleado']; ?>" readonly>
                                 </div>   
                                 <h2 class="col-md-12">Cobros a Realizar</h2>
-                                
-                                
-                                <form class="form-inline my-2 my-lg-0 float-left">
-                                    <?php echo'<a href="agregarcobro.php?nik='.$id_factura.'" class="genric-btn info circle">Agregar Cobro Adicional</a>
-                                '?>
-                                </form>
+                                <p class="col-md-12">Ingrese el número de Factura</p>
+                                <div class="form-group col-md-12">
+                                    <input type="text" class="form-control" name="num_factura" id="Doctor">
+                                </div> 
+                                <div class="form-group col-md-12">
+                                    <form class="form-inline my-2 my-lg-0 float-left">
+                                        <?php echo'<a href="agregarcobro.php?nik='.$id_factura.'" class="genric-btn info circle">Agregar Cobro Adicional</a>
+                                    '?>
+                                    </form>
+                                </div>
                                 
                                 <br>
                                 <br>
-
 
                                 <table class="table table-striped table-hover">
                                     <tr>
@@ -154,8 +157,8 @@ include 'conexion.php'
                                     while($row3 = mysqli_fetch_assoc($sql3)){
                                         $cobro = $row3['cobro'];
                                         $subtotal = $subtotal + $cobro;
-                                        $isv = $subtotal * 0.15;
-                                        $total = $subtotal + $isv;
+                                        // $isv = $subtotal * 0.15;
+                                        $total = $subtotal;
 
                                     echo'
                                     <tr>                                        
@@ -183,19 +186,7 @@ include 'conexion.php'
                                             <p>L. <?php echo $subtotal; ?></p>
                                         </td>  
                                                 
-                                    </tr>
-                                    <tr>
-                                        <td colspan="2" class="col1" style="text-align:left">
-                                            
-                                        </td>
-                                        <td class="col2" style="text-align:left">
-                                            ISV 15%
-                                        </td>  
-                                        <td class="col3" style="text-align:left">
-                                        <p>L. <?php echo $isv; ?></p>
-                                        </td>  
-                                                
-                                    </tr>
+                                    </tr>                                    
                                     <tr class="divisor">
                                         <td colspan="4" style="text-align:center">                 
                                         </td>          
@@ -221,7 +212,7 @@ include 'conexion.php'
                                     
 
                                 <div class="regerv_btn col-md-12">
-                                        <a><button onclick="envio()" type="submit" name="save" class="btn_2">Cobrar</button></a>
+                                        <a><button onclick="envio()" type="submit" name="save" class="btn_2">Pagar</button></a>
                                         <a href="Caja.php" ><button type=button class="btn_2" style="color: #FFFF;">Cancelar</button></a>     
                                 </div>
                             </div>

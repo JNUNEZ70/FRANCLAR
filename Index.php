@@ -57,7 +57,7 @@ include 'head.php'
                 <div class="col-md-6 col-lg-5">
                     <div class="about_us_text">
                         <h2>Sobre nosotros</h2>
-                        <p>Somos un equipo de trabajo brindando una atención medica integral con calidad y calidez, satisfaciendo las necesidades en las diferentes áreas que el complejo medico ofrece.</p>
+                        <p>Somos un equipo de trabajo brindando una atención médica integral con calidad y calidez, satisfaciendo las necesidades en las diferentes áreas que el complejo médico ofrece.</p>
                         <div class="banner_item">
                             <div class="single_item">
                                 <img src="img/icon/banner_1.svg" alt="">
@@ -81,7 +81,7 @@ include 'head.php'
 
     <!-- footer part start-->
     <?php
-        include 'footer.php'
+        include 'Copyright.php'
     ?>
     <!-- footer part end-->
 
