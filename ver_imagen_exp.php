@@ -15,6 +15,10 @@ include 'conexion.php'
     include 'header.php';
     ?>
     <!-- Header part end-->
+    <?php
+	$nik = mysqli_real_escape_string($con,(strip_tags($_GET["nik"],ENT_QUOTES)));
+				
+	 ?>
 
     <!-- breadcrumb start-->
     <section class="breadcrumb_part breadcrumb_bg">
@@ -23,7 +27,7 @@ include 'conexion.php'
                 <div class="col-lg-12">
                     <div class="breadcrumb_iner">
                         <div class="breadcrumb_iner_item">
-                            <h3 style="color: #ffff;"> Imagenes tomadas del día </h3>
+                            <?php echo '<h3 style="color: #ffff;"> Imagenes tomadas en la cita Número '.$nik.' </h3>' ?>
                         </div>
                     </div>
                 </div>
@@ -33,10 +37,7 @@ include 'conexion.php'
     <!-- breadcrumb start-->
 
     <!-- footer part start-->
-    <?php
-	$nik = mysqli_real_escape_string($con,(strip_tags($_GET["nik"],ENT_QUOTES)));
-				
-	 ?>
+    
     
     
     <?php

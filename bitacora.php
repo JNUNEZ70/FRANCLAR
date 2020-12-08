@@ -23,7 +23,7 @@ include 'conexion.php'
                 <div class="col-lg-12">
                     <div class="breadcrumb_iner">
                         <div class="breadcrumb_iner_item">
-                            <h2>Bitacora</h2>
+                            <h2>Bitácora</h2>
                         </div>
                     </div>
                 </div>
@@ -50,7 +50,10 @@ include 'conexion.php'
                 <div class="form-group col-md-4">
                 <a class="genric-btn btn-danger circle" href="../FRANCLAR/Reportes-PDF/ReporteBitacora.php">
                 <i class="fas fa-file-pdf fa-lg"> </i> Generar Reporte</a>
-            </div>	
+                </div>	
+                <div class="form-group col-md-4">
+                <a class="genric-btn btn-danger circle" href="#">Depurar Bitácora</a>
+                </div>	
             </div>    
         </form>
 	    <br>

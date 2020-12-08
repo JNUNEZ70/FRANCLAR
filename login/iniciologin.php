@@ -101,25 +101,29 @@ if (!empty($_POST)) {
 						$usuario = $_SESSION['Nom_Usuario'];
 						$nik = $_SESSION['ID_Usuario'];
 						$rol = $_SESSION['ID_Rol'];
-							// switch ($rol) {
-							// 	case 1:
+							 switch ($rol) {
+							 	case 1:
 									header("location: ../Index.php");
-								// break;
-								// case 2:
-								// 	header("location: ../Consulta.php");
-								// break;
-								// case 3:
-								// 		header("location: ../Facturacion.php");
-								// 	break;	
-								// case 4:
-								// 		header("location: ../Preclinica.php");
-								// 	break;	
+								 break;
+								 case 2:
+								 	header("location: ../Index.php");
+								 break;
+								 case 3:
+								 		header("location: ../Index.php");
+								 	break;	
+								 case 4:
+								 		header("location: ../Index.php");
+									 break;
+								 case 5:
+									header("location: ../Index.php");
+									 break;	
 									
-								// default:
-								// 	break;
+								 default:
+								 	break;
 
 						}		
 				 }
+				}
 			}
 
 		}

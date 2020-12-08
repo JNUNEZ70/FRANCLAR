@@ -6,14 +6,6 @@ session_start();
 include 'head.php'
 ?>
 
-<?php
-
-include ('conexion.php');
-$usuario=$_SESSION['Nom_Usuario'];
-$rolUsuario=$_SESSION['ID_Rol'];
-
-?>
-
 <body>
     <!--::header part start::-->
     <?php
@@ -22,47 +14,37 @@ $rolUsuario=$_SESSION['ID_Rol'];
     <!-- Header part end-->
 
     <!-- banner part start-->
-    <?php
-    if ($rolUsuario == 2 or $rolUsuario == 4 or $rolUsuario == 5) {?>
-    
-    <div class="container d-none" id="botones" > 
-    <div class="container">
+    <div class="container"> 
+    <div class="container ">
         <br>
         <br>
-        <a href="Pacientes.php" class="btn_2">Ingresar Paciente</a>
-        <a href="Cita.php" class="btn_2">Ingresar Cita</a>
+        <p>Su usuario aún no tiene un rol asignado dentro del sistema, comuníquese con el administrador.</p>
     </div>
-    </div> 
-
-    <?php
-     if ($rolUsuario == 5) {?>
-
-        <div class="container"> 
-        <div class="container ">
-            <br>
-            <br>
-            <p>Su usuario aún no tiene un rol asignado dentro del sistema, comuníquese con el administrador.</p>
-        </div>
-        </div>
-        
-    <?php
-     }       
-    }else{?>
-        <div class="container" id="botones" > 
+    </div>
+    <!-- <section class="banner_part">
         <div class="container">
-        <br>
-        <br>
-        <a href="Pacientes.php" class="btn_2">Ingresar Paciente</a>
-        <a href="Cita.php" class="btn_2">Ingresar Cita</a>
-    </div>
-    </div> 
+            <div class="row align-items-center">
+                <div class="col-lg-5 col-xl-5">
+                    <div class="banner_text">
+                        <div class="banner_text_iner">
+                            <h1>Médicos y personal especializados para atender tus necesidades y las de tu familia.</h1>
+                            <h3>Estamos aquí para su cuidado</h3>
+                            
 
-    <?php    
-    }
-    ?>
-    
-    
-    
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-7">
+                    <div class="banner_img">
+                        <img src="img/banner_img.png" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section> -->
+    <!-- banner part start-->
+
+    <!-- about us part start-->
     <section class="about_us padding_top">
         <div class="container">
             <div class="row justify-content-between align-items-center">
