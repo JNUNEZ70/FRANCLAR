@@ -129,8 +129,6 @@ include 'conexion.php'
     ?>
 </body>
 
-<?php
-        include 'Copyright.php'
-?>
+
 
 </html>

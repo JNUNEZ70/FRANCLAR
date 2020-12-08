@@ -116,9 +116,7 @@ include 'conexion.php'
          <br>
      <br>
      <br>
-    <?php
-        include 'Copyright.php'
-    ?>
+    
     <!-- footer part end-->
 
     <!-- jquery plugins here-->

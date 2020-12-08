@@ -23,7 +23,7 @@ include 'conexion.php'
                 <div class="col-lg-12">
                     <div class="breadcrumb_iner">
                         <div class="breadcrumb_iner_item">
-                            <h2>Factura Pendiente</h2>
+                            <h2>Pagar Consulta</h2>
                         </div>
                     </div>
                 </div>
@@ -228,7 +228,7 @@ include 'conexion.php'
 <script>
    function envio() {
 
-  const $ok=  window.confirm('Factura creada con Éxito');
+  const $ok=  window.confirm('Comprobante creado con Éxito');
     setTimeout(() => {
         
     console.log($ok);

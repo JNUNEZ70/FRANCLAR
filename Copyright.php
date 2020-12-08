@@ -1,3 +1,4 @@
+
 <footer class="footer-area">
     <div class="copyright_part">
                 <div class="container">
