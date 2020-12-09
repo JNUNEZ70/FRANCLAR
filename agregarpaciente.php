@@ -32,7 +32,7 @@ include 'conexion.php'
         </div>
     </section>
     <!-- breadcrumb start-->
-  
+
     <!--::regervation_part start::-->
     <section class="regervation_part section_padding">
         <div class="container">
@@ -50,10 +50,10 @@ include 'conexion.php'
                                 </div>
                                 <div class="form-group col-md-6">
                                     <!-- <input type="text" id="FechaN" name="FecPac" class="input-group date form-control" date="" data-date-format="yyyy-mm-dd" onkeypress="return solonumerosfecha(event)" maxlength="10" placeholder="Fecha de nacimiento" required> -->
-                                    <input name="FecPac" onclick="fechaMaxima(this)" onkeypress="fechaMaxima(this)" id="fecha_prueba" type="date"  class=" form-control" min="" max="" step="">
+                                    <input name="FecPac"  id="fecha_prueba" type="date"  class=" form-control" min=" " max="2020-12-4" >
                                 </div>
                                 <div class="form-group col-md-6">
-                                    <input type="text" class="form-control" id="Edad" name="EdadPac" onkeypress="return solonumeros(event)" maxlength="3" placeholder="Edad" required>
+                                    <input type="text" class="form-control" id="Edad" name="EdadPac"   placeholder="Edad" required  readonly>
                                 </div>
                                 <div class="form-group col-md-6">
                                     <input type="email" class="form-control" id="email" name="EmailPac" maxlength="50" onkeypress="return Correo(event)" placeholder="Email" required>
@@ -204,7 +204,7 @@ include 'conexion.php'
     document.getElementById("Telefono").addEventListener('keyup', sanear);
     document.getElementById("Celular").addEventListener('keyup', sanear);
     document.getElementById("NumeroID").addEventListener('keyup', sanear);
-    document.getElementById("Edad").addEventListener('keyup', sanear);
+ 
     function sanear(e) {
       let contenido = e.target.value;
       e.target.value = contenido.replace(" ", "");
@@ -234,12 +234,28 @@ include 'conexion.php'
     }
     </script>
     <script>
-    document.getElementById("FechaN").addEventListener('keyup',sanear);
+    //document.getElementById("FechaN").addEventListener('keyup',sanear);
     document.getElementById("emailpac").addEventListener('keyup',sanear);
     function sanear(e) {
       let contenido = e.target.value;
       e.target.value = contenido.replace(" ", "");
     }
+    </script>
+
+    <script>
+    const $fechaNacimiento= document.getElementById("fecha_prueba");
+       $fechaNacimiento.addEventListener("click",()=>{
+           fechaMaxima($fechaNacimiento);  
+        });
+        $fechaNacimiento.addEventListener("keypress",()=>{
+            
+            fechaMaxima($fechaNacimiento);  
+        });
+        $fechaNacimiento.addEventListener("blur",()=>{
+            let campoEdad= document.getElementById("Edad");
+            edad($fechaNacimiento.value,campoEdad) 
+            
+    });
     </script>
 </body>
 

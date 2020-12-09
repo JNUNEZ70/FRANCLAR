@@ -44,7 +44,7 @@ include 'conexion.php'
                             <h2>Ingresar una cita</h2>
                             <div class="form-row">
                                 <div class="input-group col-md-6">
-                                    <input type="text" class="form-control" id="IDPac" onkeypress="return solonumeros(event)" maxlength="13" placeholder="Identidad del Paciente (sin guiones)" required>
+                                    <input onkeyup="consultar_paciente()" type="text" class="form-control" id="IDPac" onkeypress="return solonumeros(event)" maxlength="13" placeholder="Identidad del Paciente (sin guiones)" required>
                                     <span class="input-group-btn">
                                         <button type="button" id="identidad" class="btn btn-default" onclick="consultar_paciente()">
                                             <span class="input-group-addon glyphicon glyphicon-search"></span>
@@ -165,7 +165,7 @@ include 'conexion.php'
 
                                 <div class="form-group col-md-4">
                                     <!-- <input type="text" class="input-group date form-control" date="" data-date-format="dd-mm-yyyy" id="FechaAten" onkeypress="return solonumerosfecha(event)" maxlength="10" placeholder="Fecha de atención" name="fecha_atenc" required> -->
-                                    <input onclick="fechaMinima(this)" onkeypress="fechaMinima(this)"  type="date" class="input-group  form-control" date="" data-date-format="dd-mm-yyyy" id="FechaAten" placeholder="Fecha de atención" name="fecha_atenc" required>
+                                    <input  type="date" class="input-group  form-control"   id="FechaAten" placeholder="Fecha de atención" name="fecha_atenc" required>
                                 </div>
                                 <div class="form-group col-md-4">
                                     <input type="time" id="default-picker" class="form-control" placeholder="Seleccione la hora" name="hora_atenc" onkeypress="return solonumeros(event)" required>
@@ -208,13 +208,24 @@ include 'conexion.php'
         include 'script.php'
     ?>
     <script>
-    document.getElementById("FechaAten").addEventListener('keyup', sanear);
+   
     document.getElementById("Precio").addEventListener('keyup', sanear);
     document.getElementById("IDPac").addEventListener('keyup', sanear);
     function sanear(e) {
       let contenido = e.target.value;
-      e.target.value = contenido.toUpperCase().replace(" ", "");
+      e.target.value = contenido.replace(" ", "");
     }
+
+    </script>
+    <script>
+         const $fechaAtencion=  document.getElementById("FechaAten");
+       $fechaAtencion.addEventListener("click",()=>{
+        fechaMinima($fechaAtencion); 
+        
+        });
+        $fechaAtencion.addEventListener("keypress",()=>{
+        fechaMinima($fechaAtencion);  
+        });
     </script>
 </body>
 

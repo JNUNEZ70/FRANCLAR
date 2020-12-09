@@ -237,24 +237,24 @@ include 'conexion.php'
 
                                 <h2>Antecedentes</h2>
                                 <div class="form-group col-md-12">
-                                    <textarea class="form-control" id="Personales" name="AntPersonales" <?php echo $row ['Antecedentes_Personales'] ?>
-                                    maxlength="500" placeholder="Personales"></textarea>
+                                    <textarea class="form-control" id="Personales" name="AntPersonales" 
+                                    maxlength="500" placeholder="Personales"><?php echo $row ['Antecedentes_Personales'] ?></textarea>
                                 </div>
                                 <div class="form-group col-md-12">
-                                    <textarea class="form-control" id="Hospitalarios" name="AntHospitalarios" <?php echo $row ['Antecedentes_Hospitalarios'] ?> 
-                                    maxlength="500" placeholder="Hospitalarios"></textarea>
+                                    <textarea class="form-control" id="Hospitalarios" name="AntHospitalarios"  
+                                    maxlength="500" placeholder="Hospitalarios"><?php echo $row ['Antecedentes_Hospitalarios'] ?> </textarea>
                                 </div>
                                 <div class="form-group col-md-12">
-                                    <textarea class="form-control" id="Alergicos" name="AntAlergicos" <?php echo $row ['Antecedentes_Alergicos'] ?> 
-                                    maxlength="500" placeholder="Alérgicos"></textarea>
+                                    <textarea class="form-control" id="Alergicos" name="AntAlergicos"  
+                                    maxlength="500" placeholder="Alérgicos"><?php echo $row ['Antecedentes_Alergicos'] ?> </textarea>
                                 </div>
                                 <div class="form-group col-md-12">
-                                    <textarea class="form-control" id="Familiares" name="AntFamiliares" <?php echo $row ['Antecedentes_Familiares'] ?> 
-                                    maxlength="500" placeholder="Familiares"></textarea>
+                                    <textarea class="form-control" id="Familiares" name="AntFamiliares"  
+                                    maxlength="500" placeholder="Familiares"><?php echo $row ['Antecedentes_Familiares'] ?></textarea>
                                 </div>
                                 <div class="form-group col-md-12">
-                                    <textarea class="form-control" id="Habitos" name="Habito" <?php echo $row ['Habitos'] ?> 
-                                    maxlength="500" placeholder="Hábitos"></textarea>
+                                    <textarea class="form-control" id="Habitos" name="Habito"  
+                                    maxlength="500" placeholder="Hábitos"><?php echo $row ['Habitos'] ?></textarea>
                                 </div>
                                 <div class="regerv_btn">
                                     <button type="submit" name="save" class="btn_2">Guardar</button>

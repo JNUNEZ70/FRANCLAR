@@ -66,8 +66,9 @@ include 'conexion.php';
 	
 	<form action="modulo_permisos.php" method="post" >
   
-	<button type="submit" name="permisos" class="genric-btn info circle" >Confirmar</button>
-   
+	<button  id="btn_confirmar"  type="submit" name="permisos" class="genric-btn info circle d-none" >Confirmar</button>
+	 
+   <a href="roles_permisos.php" id="btn_regresar"   type="button" name="permisos" class="genric-btn info circle d-none" >Regresar</a>
   
 	<br>
 	<br>
@@ -169,7 +170,7 @@ include 'conexion.php';
 						$no++;
 					}
 				}else{
-					echo '<tr><td colspan="8">Rol Ya tiene permisos.</td></tr>';
+					echo '<tr id="noHayDatos" ><td colspan="8">Rol Ya tiene permisos.</td></tr>';
 					
 				}
 				?>
@@ -254,6 +255,26 @@ function todos(boton){
 	};
 
 }
+</script>
+
+<script>
+
+	function noHayDatos() {
+		let	$confirmar= document.getElementById("noHayDatos"),
+	$btn_confirmar=document.getElementById("btn_confirmar"),
+
+	$btn_regresar=document.getElementById("btn_regresar");
+	if ($confirmar) {
+		
+		$btn_regresar.classList.remove("d-none");
+		
+	}else{
+		$btn_confirmar.classList.remove("d-none");
+		
+	}
+}
+noHayDatos()
+
 </script>
 </body>
 

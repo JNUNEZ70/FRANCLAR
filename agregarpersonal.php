@@ -49,7 +49,7 @@ include 'conexion.php'
                                 </div>
                                 <div class="form-group col-md-6">
                                     <!-- <input type="text" id="FechaNEm" name="FechaN" class="input-group date form-control" date="" data-date-format="dd-mm-yyyy" maxlength="10" onkeypress="return solonumerosfecha(event)" placeholder="Fecha de nacimiento" required> -->
-                                    <input type="date" onclick="fechaMaxima(this)" onkeypress="fechaMaxima(this)" id="FechaEmpleado" name="FechaN" class="input-group  form-control"  placeholder="Fecha de nacimiento" required>
+                                    <input type="date"  id="FechaEmpleado" name="FechaN" class="input-group  form-control"  placeholder="Fecha de nacimiento" required>
                                 </div>
                                 <div class="form-group col-md-6">
                                     <input type="tel" class="form-control" maxlength="8" onkeypress="return solonumeros(event)" id="TelefonoEm" name="Telefono" placeholder="Teléfono fijo">
@@ -174,7 +174,7 @@ include 'conexion.php'
     <script>
     document.getElementById("NombreEm").addEventListener('keyup',sanear2);
     document.getElementById("DireccionEm").addEventListener('keyup', sanear2);
-    document.getElementById("FechaNEm").addEventListener('keyup', sanear);
+   
     document.getElementById("TelefonoEm").addEventListener('keyup', sanear);
     document.getElementById("CelularEm").addEventListener('keyup', sanear);
     document.getElementById("NumeroIDEm").addEventListener('keyup', sanear);
@@ -187,6 +187,21 @@ include 'conexion.php'
       let contenido = e.target.value;
       e.target.value = contenido.toUpperCase().replace("  ", " ");
     }
+    </script>
+    <script>
+    const $fechaNacimiento=  document.getElementById("FechaEmpleado");
+       $fechaNacimiento.addEventListener("click",()=>{
+           fechaMaxima($fechaNacimiento);  
+        });
+        $fechaNacimiento.addEventListener("keypress",()=>{
+            
+            fechaMaxima($fechaNacimiento);  
+        });
+        $fechaNacimiento.addEventListener("blur",()=>{
+            let campoEdad= document.getElementById("Edad");
+            edad($fechaNacimiento.value,campoEdad) 
+            
+    });
     </script>
 </body>
 

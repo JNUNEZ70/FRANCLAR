@@ -112,41 +112,119 @@ function validar() {
 }
 
 function fechaMaxima(id) {
-    let $id = id.id;
-    const $calendario = document.getElementById($id);
+    let $calendario = id;
     //console.log($calendario);
+
     let fecha = new Date();
     dia = fecha.getDate();
-    //console.log(dia);
-    mes = fecha.getMonth() + 1;
-    //console.log(mes);
-    anio = fecha.getFullYear();
-    //console.log(anio);
-    $fecha = `${anio}-${mes}-${dia}`;
-    $calendario.setAttribute("max", $fecha);
-    // if ($calendario.onkeypress == true) {
-    //     //     alert("la fecha no puede ser mayor");
-    //     alert("Favor, usa el calendario y no  ingrese la fecha por teclado");
+    if (dia <= 9) {
+        dia = "0" + dia;
+        mes = fecha.getMonth() + 1;
+        console.log(dia);
+        //console.log(mes);
+        anio = fecha.getFullYear();
+        rangoMinimo = anio - 120;
+        $fechaRango = `${rangoMinimo}-${mes}-${dia}`;
+        $calendario.setAttribute("min", $fechaRango);
+        //console.log(anio);
+        $fecha = `${anio}-${mes}-${dia}`;
+        $calendario.setAttribute("max", $fecha);
+    } else {
+        mes = fecha.getMonth() + 1;
+        console.log(dia);
+        //console.log(mes);
+        anio = fecha.getFullYear();
+        //console.log(anio);
+        $fecha = `${anio}-${mes}-${dia}`;
+        $calendario.setAttribute("max", $fecha);
+    }
 
-    // }
+
 }
 
 function fechaMinima(id) {
-    let $id = id.id;
-    const $calendario = document.getElementById($id);
+    let $calendario = id;
+
+    console.log($calendario);
+
+
     //console.log($calendario);
     let fecha = new Date();
     dia = fecha.getDate();
-    //console.log(dia);
-    mes = fecha.getMonth() + 1;
-    //console.log(mes);
-    anio = fecha.getFullYear();
-    //console.log(anio);
-    $fecha = `${anio}-${mes}-${dia}`;
-    $calendario.setAttribute("min", $fecha);
-    // if ($calendario.onkeypress == true) {
-    //     //     alert("la fecha no puede ser mayor");
-    //     alert("Favor, usa el calendario y no  ingrese la fecha por teclado");
+    console.log(dia);
+    if (dia <= 9) {
+        dia = "0" + dia;
+        //console.log(dia);
+        mes = fecha.getMonth() + 1;
+        //console.log(mes);
+        anio = fecha.getFullYear();
+        //console.log(anio);
+        rangoFecha = anio + 4;
+        $fecha = `${anio}-${mes}-${dia}`;
+        $fechaRango = `${rangoFecha}-${mes}-${dia}`;
+        $calendario.setAttribute("min", $fecha);
+        $calendario.setAttribute("max", $fechaRango);
+    } else {
 
-    // }
+        //console.log(dia);
+        mes = fecha.getMonth() + 1;
+        //console.log(mes);
+        anio = fecha.getFullYear();
+        //console.log(anio);
+        rangoFecha = anio + 4;
+        $fecha = `${anio}-${mes}-${dia}`;
+        $fechaRango = `${rangoFecha}-${mes}-${dia}`;
+        $calendario.setAttribute("min", $fecha);
+        $calendario.setAttribute("max", $fechaRango);
+    }
+}
+
+//funciones de sweet alert
+
+function edad(fecha, campo = undefined) {
+    let campoEdad = campo;
+    let hoy = new Date();
+    let cumpleanos = new Date(fecha);
+    let edad = hoy.getFullYear() - cumpleanos.getFullYear();
+    let m = hoy.getMonth() - cumpleanos.getMonth();
+
+    if (m < 0 || (m === 0 && hoy.getDate() < cumpleanos.getDate())) {
+        edad--;
+    }
+    if (campoEdad == undefined) {
+
+        console.log(campoEdad);
+    } else {
+
+        campoEdad.value = edad;
+    }
+}
+
+function aceptar() {
+    Swal.fire({
+        title: 'Do you want to save the changes?',
+        showDenyButton: true,
+        showCancelButton: true,
+        confirmButtonText: `Save`,
+        denyButtonText: `Don't save`,
+    }).then((result) => {
+        /* Read more about isConfirmed, isDenied below */
+        if (result.isConfirmed) {
+            Swal.fire('Saved!', '', 'success')
+        } else if (result.isDenied) {
+            Swal.fire('Changes are not saved', '', 'info')
+        }
+    })
+};
+
+function envio_prueba() {
+    let $formulario = document.prueba_imagen.submit();
+    console.log($formulario);
+
+}
+
+function envio_prueba2() {
+    let $formulario = document.prueba_imagen2.submit();
+    console.log($formulario);
+
 }
