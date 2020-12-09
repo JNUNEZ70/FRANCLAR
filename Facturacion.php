@@ -123,7 +123,7 @@ include 'conexion.php'
                                 <h2 class="col-md-12">Cobros a Realizar</h2>
                                 <p class="col-md-12">Ingrese el número de Factura</p>
                                 <div class="form-group col-md-12">
-                                    <input type="text" class="form-control" name="num_factura" id="Doctor">
+                                    <input type="text" class="form-control" name="num_factura" id="num_factura" required>
                                 </div> 
                                 <div class="form-group col-md-12">
                                     <form class="form-inline my-2 my-lg-0 float-left">
@@ -213,7 +213,7 @@ include 'conexion.php'
 
                                 <div class="regerv_btn col-md-12">
                                         <a><button onclick="envio()" type="submit" name="save" class="btn_2">Pagar</button></a>
-                                        <a href="Caja.php" ><button type=button class="btn_2" style="color: #FFFF;">Cancelar</button></a>     
+                                        <a href="Caja.php" ><button type="button" class="btn_2" style="color: #FFFF;">Cancelar</button></a>     
                                 </div>
                             </div>
                         </form>
@@ -227,10 +227,11 @@ include 'conexion.php'
     <!--::regervation_part end::-->
 <script>
    function envio() {
-
+    
   const $ok=  window.confirm('Comprobante creado con Éxito');
+   
     setTimeout(() => {
-        
+    
     console.log($ok);
     if ($ok) {
         window.location.href= 'Caja.php';

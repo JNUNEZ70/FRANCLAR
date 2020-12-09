@@ -43,11 +43,43 @@ include 'conexion.php'
                             <h2>Datos Personales</h2>
                             <div class="form-row">
                                 <div class="form-group col-md-12">
-                                    <input type="text" class="form-control" id="Nombre" name="NomPac" onkeypress="return soloLetras(event)" maxlength="255" placeholder="Nombre" required>
+                                    <input type="text" class="form-control" id="Nombre" name="NomPac"  maxlength="70" placeholder="Nombre" required>
                                 </div>
-                                <div class="form-group col-md-6">
-                                    <input type="text" class="form-control" id="NumeroID" name="NumIDPac" onkeypress="return solonumeros(event)" maxlength="13" placeholder="Número de identidad" required>
+                                <div class="form-group col-md-12">
+                                    <select class="form-control" id="tipo_documento" name="tipo_documento" onchange="cambionum_id(value)" required>
+                                        <option value="" selected>Seleccione el tipo de identificación</option>
+                                        <?php
+                                          $sql=$con -> query("Select * from tbl_tipo_documento");
+
+                                          while($fila=$sql->fetch_array()){
+                                              echo "<option value='".$fila['ID_tipo_documento']."'>".$fila['Descripcion_tipo_documento']."</option>";
+                                          }
+                                        ?>
+                                    </select>
                                 </div>
+
+                                <script>
+                                    function cambionum_id(id) {
+                                        var id = id;
+                                        var enlace='consulta_documento.php'; 
+                                                                                        
+                                        $.ajax({
+                                            type:'POST',
+                                            url:enlace,
+                                            data: 'id='+id,                                                      
+                                            success:function(response){
+                                                $('#num_id').html(response);                                                          
+                                            }
+
+                                        });
+                                    }
+                                
+                                </script>                                
+
+                                <div class="form-group col-md-6" id=num_id>
+                                    <input type="text" class="form-control" id="NumeroID" name="NumIDPac" onkeypress="return solonumeros(event)" maxlength="13" placeholder="Seleccione antes un tipo de documento" readonly>
+                                </div>
+                                
                                 <div class="form-group col-md-6">
                                     <!-- <input type="text" id="FechaN" name="FecPac" class="input-group date form-control" date="" data-date-format="yyyy-mm-dd" onkeypress="return solonumerosfecha(event)" maxlength="10" placeholder="Fecha de nacimiento" required> -->
                                     <input name="FecPac"  id="fecha_prueba" type="date"  class=" form-control" min=" " max="2020-12-4" >
@@ -117,18 +149,7 @@ include 'conexion.php'
                                         ?>
                                     </select>
                                 </div>
-                                <div class="form-group col-md-12">
-                                    <select class="form-control" id="TPaciente" name="TipPac" required>
-                                        <option value="" selected>Seleccione el tipo de pacientes</option>
-                                        <?php
-                                          $sql=$con -> query("Select * from tbl_tipo_paciente");
-
-                                          while($fila=$sql->fetch_array()){
-                                              echo "<option value='".$fila['ID_TipoPaciente']."'>".$fila['Descripcion_Tipo']."</option>";
-                                          }
-                                        ?>
-                                    </select>
-                                </div>
+                               
                                 
                                 <h2>Contacto de emergencia</h2>
                                 <div class="form-row">
@@ -199,6 +220,7 @@ include 'conexion.php'
     ?>
     <script>
     document.getElementById("Nombre").addEventListener('keyup',sanear2);
+    document.getElementById("Nombre").addEventListener('keypress',soloLetras);
     document.getElementById("Direccion").addEventListener('keyup', sanear2);
     document.getElementById("NombreEmer").addEventListener('keyup',sanear2);
     document.getElementById("Telefono").addEventListener('keyup', sanear);

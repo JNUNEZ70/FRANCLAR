@@ -82,7 +82,6 @@ include 'conexion.php'
                     <th>Estado Civil</th>
                     <th>Religión</th>
                     <th>Tipo de Sangre</th>
-                    <th>Tipo de Paciente</th>
                     <th>Contacto</th>
                     <th>Parentesco</th>
                     <th>Teléfono Fijo</th>
@@ -109,7 +108,6 @@ include 'conexion.php'
                         tbl_estado_civil.Descripcion_est_civil,
                         tbl_religion.Descripcion_Religion,
                         tbl_tipo_sangre.Descripcion_Sangre,
-                        tbl_tipo_paciente.Descripcion_Tipo,
                         tbl_pacientes.Contacto_Emergencia,	
                         tbl_parentesco.ID_Parentesco,
                         tbl_parentesco.Parentesco,
@@ -124,8 +122,7 @@ include 'conexion.php'
                         INNER JOIN tbl_estado_civil on tbl_pacientes.ID_Est_Civil = tbl_estado_civil.ID_Est_Civil
                         INNER JOIN tbl_parentesco on tbl_pacientes.ID_Parentesco = tbl_parentesco.ID_Parentesco
                         INNER JOIN tbl_religion on tbl_pacientes.ID_Religion = tbl_religion.ID_Religion
-                        INNER JOIN tbl_tipo_sangre on tbl_pacientes.ID_Tipo_Sangre = tbl_tipo_sangre.ID_Tipo_Sangre
-                        INNER JOIN tbl_tipo_paciente on tbl_pacientes.ID_TipoPaciente = tbl_tipo_paciente.ID_TipoPaciente");
+                        INNER JOIN tbl_tipo_sangre on tbl_pacientes.ID_Tipo_Sangre = tbl_tipo_sangre.ID_Tipo_Sangre");
                        
                            error_reporting(0);
                         if(mysqli_num_rows($sql) == 0){
@@ -153,8 +150,7 @@ include 'conexion.php'
                                     <td><span class="label label-info">'.$row['Descripcion_sexo'].'</span></td>
                                     <td><span class="label label-success">'.$row['Descripcion_est_civil'].'</span></td>
                                     <td><span class="label label-warning">'.$row['Descripcion_Religion'].'</span></td>
-                                    <td><span class="label label-danger">'.$row['Descripcion_Sangre'].'</span></td>	
-                                    <td><span class="label label-primary">'.$row['Descripcion_Tipo'].'</span></td>
+                                    <td><span class="label label-danger">'.$row['Descripcion_Sangre'].'</span></td>
                                     <td>'.$row['Contacto_Emergencia'].'</td>
                                     <td><span class="label label-default">'.$row['Parentesco'].'</span></td>
                                     <td>'.$row['Tel_Emergencia'].'</td>

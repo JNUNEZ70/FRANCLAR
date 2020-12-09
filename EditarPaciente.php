@@ -48,8 +48,6 @@ include 'conexion.php'
             tbl_religion.Descripcion_Religion,
             tbl_tipo_sangre.ID_Tipo_Sangre,
             tbl_tipo_sangre.Descripcion_Sangre,
-            tbl_tipo_paciente.ID_TipoPaciente,
-            tbl_tipo_paciente.Descripcion_Tipo,
             tbl_pacientes.Contacto_Emergencia,	
             tbl_parentesco.ID_Parentesco,
             tbl_parentesco.Parentesco,
@@ -64,8 +62,7 @@ include 'conexion.php'
             INNER JOIN tbl_estado_civil on tbl_pacientes.ID_Est_Civil = tbl_estado_civil.ID_Est_Civil
             INNER JOIN tbl_parentesco on tbl_pacientes.ID_Parentesco = tbl_parentesco.ID_Parentesco
             INNER JOIN tbl_religion on tbl_pacientes.ID_Religion = tbl_religion.ID_Religion
-            INNER JOIN tbl_tipo_sangre on tbl_pacientes.ID_Tipo_Sangre = tbl_tipo_sangre.ID_Tipo_Sangre
-            INNER JOIN tbl_tipo_paciente on tbl_pacientes.ID_TipoPaciente = tbl_tipo_paciente.ID_TipoPaciente WHERE ID_Paciente='$nik'");
+            INNER JOIN tbl_tipo_sangre on tbl_pacientes.ID_Tipo_Sangre = tbl_tipo_sangre.ID_Tipo_Sangre WHERE ID_Paciente='$nik'");
             if(mysqli_num_rows($sql) == 0){
 				header("Location: index.php");
 			}else{
@@ -84,7 +81,6 @@ include 'conexion.php'
                 $estado_civil = mysqli_real_escape_string($con,(strip_tags($_POST['CivilPac'],ENT_QUOTES)));
                 $religion = mysqli_real_escape_string($con,(strip_tags($_POST['RelPac'],ENT_QUOTES)));
                 $sangre = mysqli_real_escape_string($con,(strip_tags($_POST['SangrePac'],ENT_QUOTES)));
-                $tipo = mysqli_real_escape_string($con,(strip_tags($_POST['TipPac'],ENT_QUOTES)));
                 $contacto = mysqli_real_escape_string($con,(strip_tags($_POST['ConEmerg'],ENT_QUOTES)));
                 $parentesco = mysqli_real_escape_string($con,(strip_tags($_POST['Parentesco_Em'],ENT_QUOTES)));
                 $tel_emergencia = mysqli_real_escape_string($con,(strip_tags($_POST['TelEmer'],ENT_QUOTES)));
@@ -95,7 +91,7 @@ include 'conexion.php'
                 $ant_familiares = mysqli_real_escape_string($con,(strip_tags($_POST['AntFamiliares'],ENT_QUOTES)));
                 $habitos = mysqli_real_escape_string($con,(strip_tags($_POST['Habito'],ENT_QUOTES)));
  
-                $update = mysqli_query($con, "UPDATE tbl_pacientes SET Nom_Paciente='$nombre', cedula='$numeroid', Fec_Nacimiento='$fechan', Edad='$edad', Email='$email', Tel_Paciente='$telefono', Cel_Paciente='$celular', Dir_Paciente='$direccion', ID_Sexo='$sexo', ID_Est_Civil='$estado_civil', ID_Religion='$religion', ID_Tipo_Sangre='$sangre', ID_TipoPaciente='$tipo', Contacto_Emergencia='$contacto', ID_Parentesco='$parentesco', Tel_Emergencia='$tel_emergencia', Cel_Emergencia='$cel_emergencia', Antecedentes_Personales='$ant_personales', Antecedentes_Hospitalarios='$ant_hospitalarios', Antecedentes_Alergicos='$ant_alergicos', Antecedentes_Familiares='$ant_familiares', Habitos='$habitos' WHERE ID_Paciente='$nik'") or die(mysqli_error($con));
+                $update = mysqli_query($con, "UPDATE tbl_pacientes SET Nom_Paciente='$nombre', cedula='$numeroid', Fec_Nacimiento='$fechan', Edad='$edad', Email='$email', Tel_Paciente='$telefono', Cel_Paciente='$celular', Dir_Paciente='$direccion', ID_Sexo='$sexo', ID_Est_Civil='$estado_civil', ID_Religion='$religion', ID_Tipo_Sangre='$sangre', Contacto_Emergencia='$contacto', ID_Parentesco='$parentesco', Tel_Emergencia='$tel_emergencia', Cel_Emergencia='$cel_emergencia', Antecedentes_Personales='$ant_personales', Antecedentes_Hospitalarios='$ant_hospitalarios', Antecedentes_Alergicos='$ant_alergicos', Antecedentes_Familiares='$ant_familiares', Habitos='$habitos' WHERE ID_Paciente='$nik'") or die(mysqli_error($con));
                 if($update){
                     $id_usuario= $_SESSION['ID_Usuario'];
                     $insert_bitacora = mysqli_query($con, "INSERT INTO tbl_bitacora_evento (id_usuario,id_objeto,Accion,Descripcion)
@@ -122,10 +118,10 @@ include 'conexion.php'
                                     <input type="text" class="form-control" id="Nombre" name="NomPac" value="<?php echo $row ['Nom_Paciente']; ?>" onkeypress="return soloLetras(event)" maxlength="255" placeholder="Nombre" required>
                                 </div>
                                 <div class="form-group col-md-6">
-                                    <input type="text" class="form-control" id="NumeroID" name="NumIDPac" value="<?php echo $row ['cedula']; ?>" onkeypress="return solonumeros(event)" maxlength="13" placeholder="Número de identidad" required>
+                                    <input type="text" class="form-control" id="NumeroID" name="NumIDPac" value="<?php echo $row ['cedula']; ?>" onkeypress="return solonumeros(event)" maxlength="13" placeholder="Número de identidad" required readonly>
                                 </div>
                                 <div class="form-group col-md-6">
-                                    <input type="text" id="FechaN" name="FecPac" class="input-group date form-control" date="" data-date-format="dd-mm-yyyy" onkeypress="return solonumerosfecha(event)" maxlength="10" value="<?php echo $row ['Fec_Nacimiento']; ?>" placeholder="Fecha de nacimiento" required>
+                                    <input type="text" id="FechaN" name="FecPac" class="input-group date form-control" date="" data-date-format="dd-mm-yyyy" onkeypress="return solonumerosfecha(event)" maxlength="10" value="<?php echo $row ['Fec_Nacimiento']; ?>" placeholder="Fecha de nacimiento" required readonly>
                                 </div>
                                 <div class="form-group col-md-6">
                                     <input type="text" class="form-control" id="Edad" name="EdadPac" value="<?php echo $row ['Edad']; ?>" onkeypress="return solonumeros(event)" maxlength="3" placeholder="Edad" required>
@@ -192,19 +188,6 @@ include 'conexion.php'
 
                                           while($fila=$sql->fetch_array()){
                                               echo "<option value='".$fila['ID_Tipo_Sangre']."'>".$fila['Descripcion_Sangre']."</option>";
-                                          }
-                                        ?>
-                                    </select>
-                                </div>
-                                <div class="form-group col-md-12">
-                                    <select class="form-control" id="TPaciente" name="TipPac" required>
-                                        <option value="<?php echo $row ['ID_TipoPaciente']; ?>"><?php echo $row ['Descripcion_Tipo']; ?></option>
-                                        <?php
-                                          $dato= $row ['ID_TipoPaciente'];
-                                          $sql=mysqli_query($con,"SELECT * FROM tbl_tipo_paciente WHERE ID_TipoPaciente<>'$dato'");
-
-                                          while($fila=$sql->fetch_array()){
-                                              echo "<option value='".$fila['ID_TipoPaciente']."'>".$fila['Descripcion_Tipo']."</option>";
                                           }
                                         ?>
                                     </select>
