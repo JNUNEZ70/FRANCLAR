@@ -17,6 +17,8 @@ include 'conexion.php'
     <!-- Header part end-->
 	<?php
 	$nik = mysqli_real_escape_string($con,(strip_tags($_GET["nik"],ENT_QUOTES)));
+	$cita = mysqli_real_escape_string($con,(strip_tags($_GET["cita"],ENT_QUOTES)));
+
 	$sql = mysqli_query($con, "SELECT tbl_expediente.ID_expediente,	
 	tbl_pacientes.Nom_Paciente,
 	tbl_pacientes.cedula,
@@ -27,9 +29,12 @@ include 'conexion.php'
 	INNER JOIN tbl_pacientes on tbl_expediente.ID_Paciente = tbl_pacientes.ID_Paciente
 	INNER JOIN tbl_citas on tbl_expediente.ID_Cita = tbl_citas.ID_Cita WHERE tbl_expediente.ID_paciente='$nik'");
 
+	$sql2 = mysqli_query($con, "SELECT * FROM tbl_pacientes WHERE ID_Paciente='$nik'");
+
 	$row1 = mysqli_fetch_assoc($sql);
+	$row2 = mysqli_fetch_assoc($sql2);
 	
-	$cita = mysqli_real_escape_string($con,(strip_tags($_GET["cita"],ENT_QUOTES)));
+	
 	
 	
 	?>
@@ -40,7 +45,7 @@ include 'conexion.php'
                 <div class="col-lg-12">
                     <div class="breadcrumb_iner">
                         <div class="breadcrumb_iner_item">
-						<?php echo '<h3 style="color: #ffff;" >Expediente de Paciente: '.$row1['Nom_Paciente'].'</h3>';  ?>
+                            <?php echo '<h3 style="color: #ffff;" >Expediente de Paciente: '.$row2['Nom_Paciente'].'</h3>';  ?>
                         </div>
                     </div>
                 </div>

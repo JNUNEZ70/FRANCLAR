@@ -26,25 +26,11 @@ include 'conexion.php'
 	tbl_expediente.imagen FROM tbl_expediente 
 	INNER JOIN tbl_pacientes on tbl_expediente.ID_Paciente = tbl_pacientes.ID_Paciente
 	INNER JOIN tbl_citas on tbl_expediente.ID_Cita = tbl_citas.ID_Cita WHERE tbl_expediente.ID_paciente='$nik'");
-			// if(isset($_GET['aksi']) == 'delete'){
-			// 	// escaping, additionally removing everything that could be (html/javascript-) code
-			// 	$nik = mysqli_real_escape_string($con,(strip_tags($_GET["nik"],ENT_QUOTES)));
-			// 	$cek = mysqli_query($con, "SELECT * FROM tbl_empleado WHERE ID_Empleado='$nik'");
-			// 	if(mysqli_num_rows($cek) == 0){
-			// 		echo '<div class="alert alert-info alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button> No se encontraron datos.</div>';
-			// 	}else{
-			// 		$delete = mysqli_query($con, "DELETE FROM tbl_empleado WHERE ID_Empleado='$nik'");
-			// 		if($delete){
-			// 			$id_usuario= $_SESSION['ID_Usuario'];
-			// 				$insert_bitacora = mysqli_query($con, "INSERT INTO tbl_bitacora_evento (id_usuario,id_objeto,Accion,Descripcion)
-            //                 VALUES ('$id_usuario',1,'Delete','SE ELIMINÓ UN EMPLEADO')") or die(mysqli_error());
-			// 			echo '<div class="alert alert-success alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button> Datos eliminado correctamente.</div>';
-			// 		}else{
-			// 			echo '<div class="alert alert-danger alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button> Error, no se pudo eliminar los datos.</div>';
-			// 		}
-			// 	}
-			// }
+	
+	$sql2 = mysqli_query($con, "SELECT * FROM tbl_pacientes WHERE ID_Paciente='$nik'");
+
 	$row1 = mysqli_fetch_assoc($sql);
+	$row2 = mysqli_fetch_assoc($sql2);
 	
 	?>
     <!-- breadcrumb start-->
@@ -54,7 +40,7 @@ include 'conexion.php'
                 <div class="col-lg-12">
                     <div class="breadcrumb_iner">
                         <div class="breadcrumb_iner_item">
-                            <?php echo '<h3 style="color: #ffff;" >Expediente de Paciente: '.$row1['Nom_Paciente'].'</h3>';  ?>
+                            <?php echo '<h3 style="color: #ffff;" >Expediente de Paciente: '.$row2['Nom_Paciente'].'</h3>';  ?>
                         </div>
                     </div>
                 </div>
