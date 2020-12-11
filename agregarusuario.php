@@ -61,7 +61,7 @@ include 'conexion.php'
                                     
                                 </div>                                
                                 <div class="input-group col-md-4">
-                                    <input value= "<?php echo generar_password_complejo(2) ?>" type="text" class="form-control" id="passwordU" name="Password"  minlength="8" maxlength="30" placeholder="Contraseña" readonly required>
+                                    <input value= "<?php echo generar_password_complejo(3) ?>" type="text" class="form-control" id="passwordU" name="Password"  minlength="8" maxlength="30" placeholder="Contraseña" readonly required>
                                 </div>               
                                 <div class="form-group col-md-4">
                                     <select class="form-control" id="RolU" name="Rol" required>

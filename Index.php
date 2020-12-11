@@ -27,8 +27,7 @@ $rolUsuario=$_SESSION['ID_Rol'];
     
     <div class="container d-none" id="botones" > 
     <div class="container">
-        <br>
-        <br>
+        <br>        
         <a href="Pacientes.php" class="btn_2">Ingresar Paciente</a>
         <a href="Cita.php" class="btn_2">Ingresar Cita</a>
     </div>

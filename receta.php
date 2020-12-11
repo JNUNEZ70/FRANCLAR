@@ -49,10 +49,8 @@
 
     ';
     $n++;
-    }
-        
-            
-        
+    }        
+                 
             $receta='<!DOCTYPE html>
             <html lang="en">
             <head>
@@ -181,7 +179,7 @@
                     $receta.='</tr>                    
                     <tr>
                         <td style="text-align:left">
-                            <p>Firma y sello de Médico</p>
+                            <p>Firma y sello de médico</p>
                         </td>  
                         <td Class="firma" colspan="3" style="text-align:center">                 
                         </td>      
