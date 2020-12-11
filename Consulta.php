@@ -33,22 +33,13 @@ include 'conexion.php'
 
     <!-- footer part start-->
     <?php
-			// if(isset($_GET['aksi']) == 'delete'){
-			// 	// escaping, additionally removing everything that could be (html/javascript-) code
-			// 	$nik = mysqli_real_escape_string($con,(strip_tags($_GET["nik"],ENT_QUOTES)));
-			// 	$cek = mysqli_query($con, "SELECT * FROM tbl_preclinica WHERE ID_Preclinica='$nik'");
-			// 	if(mysqli_num_rows($cek) == 0){
-			// 		echo '<div class="alert alert-info alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button> No se encontraron datos.</div>';
-			// 	}else{
-			// 		$delete = mysqli_query($con, "DELETE FROM empleado WHERE ID_Empleado='$nik'");
-			// 		if($delete){
-			// 			echo '<div class="alert alert-success alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button> Datos eliminado correctamente.</div>';
-			// 		}else{
-			// 			echo '<div class="alert alert-danger alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button> Error, no se pudo eliminar los datos.</div>';
-			// 		}
-			// 	}
-			// }
-	 ?>
+		$id_usuario = $_SESSION['ID_Usuario'];
+		$sql2 = mysqli_query($con, "SELECT tbl_empleado.ID_Especialidad FROM tbl_usuario 
+		INNER JOIN tbl_empleado on tbl_usuario.ID_Empleado = tbl_empleado.ID_Empleado WHERE tbl_usuario.ID_Usuario = '$id_usuario'");
+		$row2 = mysqli_fetch_assoc($sql2);
+		$id_espec = $row2['ID_Especialidad'];
+
+	?>
     
     <br>
 	<br>
@@ -83,7 +74,7 @@ include 'conexion.php'
 				INNER JOIN tbl_pacientes on tbl_citas.ID_Paciente = tbl_pacientes.ID_Paciente
 				INNER JOIN tbl_especialidad on tbl_citas.ID_Especialidad = tbl_especialidad.ID_Especialidad
 				INNER JOIN tbl_empleado on tbl_citas.ID_Empleado = tbl_empleado.ID_Empleado
-				INNER JOIN tbl_estado_cita on tbl_citas.ID_Estado = tbl_estado_cita.ID_Estado WHERE tbl_estado_cita.ID_Estado = 2 ORDER BY tbl_citas.Fec_Creacion DESC");
+				INNER JOIN tbl_estado_cita on tbl_citas.ID_Estado = tbl_estado_cita.ID_Estado WHERE tbl_estado_cita.ID_Estado = 2 AND tbl_especialidad.ID_Especialidad = '$id_espec'  ORDER BY tbl_citas.Fec_Creacion DESC");
 				if(mysqli_num_rows($sql) == 0){
 					echo '<tr><td colspan="8">No hay datos.</td></tr>';
 				}else{
@@ -113,17 +104,18 @@ include 'conexion.php'
 				<tbody>
 			</table>
 		 </div>
-         <br>
-     <br>
-     <br>
+		
     
     <!-- footer part end-->
-
+	
     <!-- jquery plugins here-->
 
     <?php
         include 'script.php'
     ?>
+
 </body>
 
+	
+	
 </html>

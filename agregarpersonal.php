@@ -42,7 +42,7 @@ include 'conexion.php'
                             <h2>Datos Personales</h2>
                             <div class="form-row">
                                 <div class="form-group col-md-6">
-                                    <input type="text" class="form-control" id="NombreEm" maxlength="50" onkeypress="return soloLetras(event)" name="Nombre" placeholder="Nombre" required>
+                                    <input type="text" class="form-control" id="NombreEm" maxlength="50"  name="Nombre" placeholder="Nombre" required>
                                 </div>
                                 <div class="form-group col-md-6">
                                     <input type="text" class="form-control" maxlength="13" onkeypress="return solonumeros(event)" id="NumeroIDEm" name="NumeroID" placeholder="Número de identidad" required>
@@ -173,6 +173,9 @@ include 'conexion.php'
     ?>
     <script>
     document.getElementById("NombreEm").addEventListener('keyup',sanear2);
+    document.getElementById("NombreEm").addEventListener('keypress',soloLetras);
+
+    
     document.getElementById("DireccionEm").addEventListener('keyup', sanear2);
    
     document.getElementById("TelefonoEm").addEventListener('keyup', sanear);

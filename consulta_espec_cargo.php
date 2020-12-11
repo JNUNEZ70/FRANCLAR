@@ -15,7 +15,7 @@ if(isset($_POST['id'])){
         $cadena = $cadena.'<option value="9">No Aplica</option>';
         echo $cadena.'</select>';
     }else{
-        $cadena = $cadena.'<option value="0" selected>Seleccione un cargo</option>';
+        $cadena = $cadena.'<option value="0" selected>Seleccione una especialidad</option>';
         while($fila=mysqli_fetch_assoc($sql)){
             $cadena = $cadena.'<option value= '.$fila['ID_especialidad'].'>'.$fila['Descripcion_espec'].'</option>';
         }

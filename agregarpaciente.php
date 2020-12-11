@@ -154,7 +154,7 @@ include 'conexion.php'
                                 <h2>Contacto de emergencia</h2>
                                 <div class="form-row">
                                 <div class="form-group col-md-6">
-                                    <input type="text" class="form-control" id="NombreEmer" name="ConEmerg" maxlength="40" onkeypress="return soloLetras(event)" placeholder="Nombre de contacto" required>
+                                    <input type="text" class="form-control" id="NombreEmer" name="ConEmerg" maxlength="40"  placeholder="Nombre de contacto" required>
                                 </div>
                                 <div class="form-group col-md-6">
                                     <select class="form-control" id="Parentesco" name="Parentesco_Em" required>
@@ -223,6 +223,7 @@ include 'conexion.php'
     document.getElementById("Nombre").addEventListener('keypress',soloLetras);
     document.getElementById("Direccion").addEventListener('keyup', sanear2);
     document.getElementById("NombreEmer").addEventListener('keyup',sanear2);
+    document.getElementById("NombreEmer").addEventListener('keypress',soloLetras);
     document.getElementById("Telefono").addEventListener('keyup', sanear);
     document.getElementById("Celular").addEventListener('keyup', sanear);
     document.getElementById("NumeroID").addEventListener('keyup', sanear);
@@ -237,7 +238,6 @@ include 'conexion.php'
     }
     </script>
     <script>
-    document.getElementById("NombreEmer").addEventListener('keyup',sanear2);
     document.getElementById("Parentesco").addEventListener('keyup', sanear2);
     document.getElementById("Personales").addEventListener('keyup',sanear2);
     document.getElementById("Hospitalarios").addEventListener('keyup',sanear2);

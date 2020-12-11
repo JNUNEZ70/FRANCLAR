@@ -115,7 +115,7 @@ include 'conexion.php'
                             <h2>Datos Personales</h2>
                             <div class="form-row">
                                 <div class="form-group col-md-12">
-                                    <input type="text" class="form-control" id="Nombre" name="NomPac" value="<?php echo $row ['Nom_Paciente']; ?>" onkeypress="return soloLetras(event)" maxlength="255" placeholder="Nombre" required>
+                                    <input type="text" class="form-control" id="Nombre" name="NomPac" value="<?php echo $row ['Nom_Paciente']; ?>" maxlength="70" placeholder="Nombre" required>
                                 </div>
                                 <div class="form-group col-md-6">
                                     <input type="text" class="form-control" id="NumeroID" name="NumIDPac" value="<?php echo $row ['cedula']; ?>" onkeypress="return solonumeros(event)" maxlength="13" placeholder="Número de identidad" required readonly>
@@ -196,7 +196,7 @@ include 'conexion.php'
                                 <h2>Contacto de emergencia</h2>
                                 <div class="form-row">
                                 <div class="form-group col-md-6">
-                                    <input type="text" class="form-control" id="NombreEmer" name="ConEmerg" value="<?php echo $row ['Contacto_Emergencia']; ?>" maxlength="40" onkeypress="return soloLetras(event)" placeholder="Nombre de contacto" required>
+                                    <input type="text" class="form-control" id="NombreEmer" name="ConEmerg" value="<?php echo $row ['Contacto_Emergencia']; ?>" maxlength="40"  placeholder="Nombre de contacto" required>
                                 </div>
                                 <div class="form-group col-md-6">
                                     <select class="form-control" id="Parentesco" name="Parentesco_Em" required>
@@ -263,8 +263,10 @@ include 'conexion.php'
     ?>
     <script>
     document.getElementById("Nombre").addEventListener('keyup',sanear2);
+    document.getElementById("Nombre").addEventListener('keypress',soloLetras);
     document.getElementById("Direccion").addEventListener('keyup', sanear2);
     document.getElementById("NombreEmer").addEventListener('keyup',sanear2);
+    document.getElementById("NombreEmer").addEventListener('keypress',soloLetras);
     document.getElementById("Telefono").addEventListener('keyup', sanear);
     document.getElementById("Celular").addEventListener('keyup', sanear);
     document.getElementById("NumeroID").addEventListener('keyup', sanear);

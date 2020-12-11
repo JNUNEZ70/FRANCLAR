@@ -110,14 +110,12 @@ include 'conexion.php'
 				<tbody>
 			</table>
 		 </div>
-         <br>
-     <br>
-     <br>
-    <?php
+         <br><br><br><br><br>
+    
+    <!-- footer part end-->
+	<?php
         include 'Copyright.php'
     ?>
-    <!-- footer part end-->
-
     <!-- jquery plugins here-->
 
     <?php

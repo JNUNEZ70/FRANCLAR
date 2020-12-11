@@ -121,9 +121,7 @@ include 'conexion.php'
 				<tbody>
 			</table>
 		 </div>
-		 	<br>
-            <br>
-            <br>
+		 <br><br><br><br><br><br><br>
     <?php
         include 'Copyright.php'
     ?>
