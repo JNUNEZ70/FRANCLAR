@@ -45,7 +45,7 @@ include 'conexion.php'
 					if($delete){
 						$id_usuario= $_SESSION['ID_Usuario'];
 							$insert_bitacora = mysqli_query($con, "INSERT INTO tbl_bitacora_evento (id_usuario,id_objeto,Accion,Descripcion)
-                            VALUES ('$id_usuario',14,'Delete','SE ELIMINÓ UN SERVICIO')") or die(mysqli_error());
+                            VALUES ('$id_usuario',19,'Delete','SE ELIMINÓ UN ROL')") or die(mysqli_error());
 						echo '<div class="alert alert-success alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button> Datos eliminado correctamente.</div>';
 					}else{
 						echo '<div class="alert alert-danger alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button> Error, no se pudo eliminar los datos.</div>';
@@ -85,7 +85,7 @@ include 'conexion.php'
 				</thead>
 				<tbody>
 				<?php
-				$sql = mysqli_query($con, "SELECT * FROM tbl_roles");
+				$sql = mysqli_query($con, "SELECT * FROM tbl_roles WHERE ID_Rol !=5");
 				if(mysqli_num_rows($sql) == 0){
 					echo '<tr><td colspan="8">No hay datos.</td></tr>';
 				}else{

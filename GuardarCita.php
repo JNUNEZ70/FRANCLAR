@@ -21,9 +21,9 @@ include ("conexion.php");
                                        VALUES ( '$id_paciente' , '$id_usuario' , '$id_empleado' , '$especialidad' , 1 , '$fecha_atenc' , '$hora_atenc' , '$precio')") or die(mysqli_error());
     
     if($insert){
-        // $id_usuario= $_SESSION['ID_Usuario'];
-        //     $insert_bitacora = mysqli_query($con, "INSERT INTO tbl_bitacora_evento (id_usuario,id_objeto,Accion,Descripcion)
-        //     VALUES ('$id_usuario',1,'Insert','SE INGRESÓ UN NUEVO EMPLEADO')") or die(mysqli_error());
+        $id_usuario= $_SESSION['ID_Usuario'];
+             $insert_bitacora = mysqli_query($con, "INSERT INTO tbl_bitacora_evento (id_usuario,id_objeto,Accion,Descripcion)
+             VALUES ('$id_usuario',7,'Insert','SE INGRESÓ UNA NUEVA CITA')") or die(mysqli_error());
         echo "<script type='text/javascript'>
             alert('La cita ha sido registrada exitosamente');
             window.location.href= 'Cita.php';

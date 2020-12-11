@@ -47,7 +47,7 @@ include 'conexion.php'
 				if($update){
                     $id_usuario= $_SESSION['ID_Usuario'];
                     $insert_bitacora = mysqli_query($con, "INSERT INTO tbl_bitacora_evento (id_usuario,id_objeto,Accion,Descripcion)
-                    VALUES ('$id_usuario',3,'Update','SE ACTUALIZÓ UN PARÁMETRO')") or die(mysqli_error());
+                    VALUES ('$id_usuario',20,'Update','SE ACTUALIZÓ UN PARÁMETRO DEL SISTEMA')") or die(mysqli_error());
                     echo "<script type='text/javascript'>
                         alert('Ha sido modificado exitosamente');
                         window.location.href= 'Parametros_sistema.php';

@@ -7,10 +7,10 @@ include ("conexion.php");
 	if(isset($_POST['add'])){
 
         $nombre = mysqli_real_escape_string($con,(strip_tags($_POST['Nombre'],ENT_QUOTES)));
-       
+        $Precio = mysqli_real_escape_string($con,(strip_tags($_POST['Precio'],ENT_QUOTES)));
 	
-	$insert = mysqli_query($con, "INSERT INTO tbl_especialidad (Descripcion_espec) 
-                                       VALUES ('$nombre')") or die(mysqli_error());
+	$insert = mysqli_query($con, "INSERT INTO tbl_especialidad (Descripcion_espec,Precio) 
+                                       VALUES ('$nombre','$Precio')") or die(mysqli_error());
     
     if($insert){
         $id_usuario= $_SESSION['ID_Usuario'];

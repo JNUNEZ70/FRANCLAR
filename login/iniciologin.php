@@ -102,19 +102,41 @@ if (!empty($_POST)) {
 						$nik = $_SESSION['ID_Usuario'];
 						$rol = $_SESSION['ID_Rol'];
 							 switch ($rol) {
-							 	case 1:
+								 case 1:
+									$id_usuario= $_SESSION['ID_Usuario'];
+									$insert_bitacora = mysqli_query($conn, "INSERT INTO tbl_bitacora_evento (id_usuario,id_objeto,Accion,Descripcion)
+									VALUES ('$id_usuario',25,'	Acceso','INICIÓ SESIÓN')") or die(mysqli_error());
+									
 									header("location: ../Index.php");
 								 break;
 								 case 2:
+									$id_usuario= $_SESSION['ID_Usuario'];
+									$insert_bitacora = mysqli_query($conn, "INSERT INTO tbl_bitacora_evento (id_usuario,id_objeto,Accion,Descripcion)
+									VALUES ('$id_usuario',25,'	Acceso','INICIÓ SESIÓN')") or die(mysqli_error());
+									
 								 	header("location: ../Index.php");
 								 break;
+								
+									
 								 case 3:
+									$id_usuario= $_SESSION['ID_Usuario'];
+									$insert_bitacora = mysqli_query($conn, "INSERT INTO tbl_bitacora_evento (id_usuario,id_objeto,Accion,Descripcion)
+									VALUES ('$id_usuario',25,'	Acceso','INICIÓ SESIÓN')") or die(mysqli_error());
+									
 								 		header("location: ../Index.php");
 								 	break;	
 								 case 4:
+									$id_usuario= $_SESSION['ID_Usuario'];
+									$insert_bitacora = mysqli_query($conn, "INSERT INTO tbl_bitacora_evento (id_usuario,id_objeto,Accion,Descripcion)
+									VALUES ('$id_usuario',25,'	Acceso','INICIÓ SESIÓN')") or die(mysqli_error());
+									
 								 		header("location: ../Index.php");
 									 break;
 								 case 5:
+									$id_usuario= $_SESSION['ID_Usuario'];
+									$insert_bitacora = mysqli_query($conn, "INSERT INTO tbl_bitacora_evento (id_usuario,id_objeto,Accion,Descripcion)
+									VALUES ('$id_usuario',25,'	Acceso','INICIÓ SESIÓN')") or die(mysqli_error());
+									
 									header("location: ../Index.php");
 									 break;	
 									

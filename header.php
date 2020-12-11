@@ -30,24 +30,40 @@ switch ($rolUsuario) {
                                 <li class="nav-item active">
                                     <a class="nav-link" href="Index.php">Home</a>
                                 </li>
-                                                               
+                                
                                 <li class="nav-item dropdown">
                                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
-                                        role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                        Atención de Pacientes
-                                    </a>
+                                    role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    Atención de Pacientes
+                                </a>
+                                
+                                <form action="accesos.php" method="post"> 
                                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                        <a class="dropdown-item" href="Pacientes.php">Gestión de Pacientes</a>
-                                        <a class="dropdown-item" href="Cita.php">Gestión de Citas</a>
-                                        <a class="dropdown-item" href="Preclinica.php">Preclínica</a>
-                                        <a class="dropdown-item" href="Consulta.php">Clínica</a>
-                                        <a class="dropdown-item" href="Expediente.php">Expediente</a>
-                                    </div>
+                                    <button type="submit" name="pacientes" class="dropdown-item">
+                                    Gestión de Pacientes
+                                    </button>
+                                    <button type="submit" name="citas" class="dropdown-item">
+                                    Gestión de Citas
+                                    </button>  
+                                    <button type="submit" name="preclinica" class="dropdown-item">
+                                        Preclínica
+                                    </button>   
+                                    <button type="submit" name="clinica" class="dropdown-item">
+                                    Clínica
+                                    </button>
+                                    <button type="submit" name="expediente" class="dropdown-item">
+                                    Expediente
+                                    </button>  
+                                   
                                 </li>
                                 
 
                                 <li class="nav-item active">
-                                    <a class="nav-link" href="Caja.php">Caja</a>
+                                <button type="submit" name="caja" class="dropdown-item">
+                                            Caja
+                                </button>  
+                                </form>
+                            
                                 </li>
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
@@ -152,8 +168,11 @@ switch ($rolUsuario) {
                                     <?php echo $usuario?>
                                     </a>
                                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                        <a class="dropdown-item glyphicon glyphicon-off "  href="cerrar.php" > Salir</a>
-                                        <a class="dropdown-item glyphicon glyphicon-cog" href="Administrar_Usuario.php"> Cambiar Contraseña</a>
+                                    <form action="accesos.php" method="post">     
+                                    <button type="submit" class="dropdown-item glyphicon glyphicon-off " name="cerrar" > Salir</button>
+                                    <button type="submit" class="dropdown-item glyphicon glyphicon-cog" name="perfil"  > Cambiar Contraseña</button>
+                                       
+                                    </form>
                                     </div>
                                 </li>  
                             </ul>                                  
@@ -217,8 +236,11 @@ switch ($rolUsuario) {
                                     <?php echo $usuario?>
                                     </a>
                                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                        <a class="dropdown-item glyphicon glyphicon-off "  href="cerrar.php" > Salir</a>
-                                        <a class="dropdown-item glyphicon glyphicon-cog" href="Administrar_Usuario.php"> Cambiar Contraseña</a>
+                                    <form action="accesos.php" method="post">     
+                                    <button type="submit" class="dropdown-item glyphicon glyphicon-off " name="cerrar" > Salir</button>
+                                    <button type="submit" class="dropdown-item glyphicon glyphicon-cog" name="perfil"  > Cambiar Contraseña</button>
+                                       
+                                    </form>
                                     </div>
                                 </li>  
                             </ul>                                  
@@ -285,8 +307,11 @@ switch ($rolUsuario) {
                                     <?php echo $usuario?>
                                     </a>
                                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                        <a class="dropdown-item glyphicon glyphicon-off "  href="cerrar.php" > Salir</a>
-                                        <a class="dropdown-item glyphicon glyphicon-cog" href="Administrar_Usuario.php"> Cambiar Contraseña</a>
+                                    <form action="accesos.php" method="post">     
+                                    <button type="submit" class="dropdown-item glyphicon glyphicon-off " name="cerrar" > Salir</button>
+                                    <button type="submit" class="dropdown-item glyphicon glyphicon-cog" name="perfil"  > Cambiar Contraseña</button>
+                                       
+                                    </form>
                                     </div>
                                 </li>  
                             </ul>                                  
@@ -344,8 +369,11 @@ case '4':?>
                                     <?php echo $usuario?>
                                     </a>
                                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                        <a class="dropdown-item glyphicon glyphicon-off "  href="cerrar.php" > Salir</a>
-                                        <a class="dropdown-item glyphicon glyphicon-cog" href="Administrar_Usuario.php"> Cambiar Contraseña</a>
+                                    <form action="accesos.php" method="post">     
+                                    <button type="submit" class="dropdown-item glyphicon glyphicon-off " name="cerrar" > Salir</button>
+                                    <button type="submit" class="dropdown-item glyphicon glyphicon-cog" name="perfil"  > Cambiar Contraseña</button>
+                                       
+                                    </form>
                                     </div>
                                 </li>  
                             </ul>                                  
@@ -398,8 +426,11 @@ case '5':?>
                                     <?php echo $usuario?>
                                     </a>
                                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                        <a class="dropdown-item glyphicon glyphicon-off "  href="cerrar.php" > Salir</a>
-                                        <a class="dropdown-item glyphicon glyphicon-cog" href="Administrar_Usuario.php"> Cambiar Contraseña</a>
+                                    <form action="accesos.php" method="post">     
+                                    <button type="submit" class="dropdown-item glyphicon glyphicon-off " name="cerrar" > Salir</button>
+                                    <button type="submit" class="dropdown-item glyphicon glyphicon-cog" name="perfil"  > Cambiar Contraseña</button>
+                                       
+                                    </form>
                                     </div>
                                 </li>  
                             </ul>                                  

@@ -48,7 +48,7 @@ include 'conexion.php'
 				if($update){
                     $id_usuario= $_SESSION['ID_Usuario'];
                     $insert_bitacora = mysqli_query($con, "INSERT INTO tbl_bitacora_evento (id_usuario,id_objeto,Accion,Descripcion)
-                    VALUES ('$id_usuario',10,'Update','SE ACTUALIZÓ EL CARGO')");
+                    VALUES ('$id_usuario',23,'Update','SE ACTUALIZÓ UN COBRO')");
                     echo "<script type='text/javascript'>
                         alert('Ha sido modificado exitosamente');
                         window.location.href= 'cobros_adicionales.php';

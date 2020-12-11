@@ -60,18 +60,18 @@ $pdf->SetFillColor(232,232,232);
 $pdf->SetFont('Times','',12);
 
 $pdf->Cell(8, 10, 'No', 1, 0, 'C', 1);
-$pdf->Cell(40, 10, utf8_decode('Nombre de usuario'), 1, 0, 'C', 1);
-$pdf->Cell(40, 10, utf8_decode('Objeto'), 1, 0, 'C', 1);
-$pdf->Cell(40, 10, utf8_decode('Acción'), 1, 0, 'C', 1);
-$pdf->Cell(100, 10, utf8_decode('Descripción'), 1, 0, 'C', 1);
+$pdf->Cell(30, 10, utf8_decode('Nombre_usuario'), 1, 0, 'C', 1);
+$pdf->Cell(50, 10, utf8_decode('Objeto'), 1, 0, 'C', 1);
+$pdf->Cell(30, 10, utf8_decode('Acción'), 1, 0, 'C', 1);
+$pdf->Cell(110, 10, utf8_decode('Descripción'), 1, 0, 'C', 1);
 $pdf->Cell(40, 10, 'Fecha del evento', 1, 1, 'C', 1);
 
 while($row = mysqli_fetch_assoc($consulta)){
     $pdf->Cell(8, 10, $row['id_bitacora_evento'], 1, 0, 'C', 0);
-    $pdf->Cell(40, 10, utf8_decode($row['Nom_Usuario']), 1, 0, 'C', 0);
-    $pdf->Cell(40, 10, utf8_decode($row['objeto']), 1, 0, 'C', 0);
-    $pdf->Cell(40, 10, utf8_decode($row['Accion']), 1, 0, 'C', 0);
-    $pdf->Cell(100, 10, utf8_decode($row['Descripcion']), 1, 0, 'C', 0);
+    $pdf->Cell(30, 10, utf8_decode($row['Nom_Usuario']), 1, 0, 'C', 0);
+    $pdf->Cell(50, 10, utf8_decode($row['objeto']), 1, 0, 'C', 0);
+    $pdf->Cell(30, 10, utf8_decode($row['Accion']), 1, 0, 'C', 0);
+    $pdf->Cell(110, 10, utf8_decode($row['Descripcion']), 1, 0, 'C', 0);
     $pdf->Cell(40, 10, $row['fecha_evento'], 1, 1, 'C', 0);
 }
 

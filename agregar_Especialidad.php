@@ -44,6 +44,9 @@ include 'conexion.php'
                                 <div class="form-group col-md-6">
                                     <input type="text" class="form-control" id="Nombre_Especialidad" onkeypress="return soloLetras(event)" maxlength="30" name="Nombre" placeholder="Nombre de la especialidad" required>
                                 </div>
+                                <div class="form-group col-md-6">
+                                    <input type="text" class="form-control"  id="Precio" maxlength="5" onkeypress="return solonumeros(event)" maxlength="30" name="Precio" placeholder="Precio del servicio" required>
+                                </div>
                                
                                 <div class="regerv_btn col-md-8" >
                                     <button type="submit" name="add" class="btn_2">Guardar</button>

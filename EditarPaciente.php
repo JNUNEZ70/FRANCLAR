@@ -282,9 +282,13 @@ include 'conexion.php'
     document.getElementById("NombreEmer").addEventListener('keyup',sanear2);
     document.getElementById("Parentesco").addEventListener('keyup', sanear2);
     document.getElementById("Personales").addEventListener('keyup',sanear2);
+    document.getElementById("NombreEmer").addEventListener('keyup',sanear2);
     document.getElementById("Hospitalarios").addEventListener('keyup',sanear2);
+    
+
     document.getElementById("Alergicos").addEventListener('keyup',sanear2);
     document.getElementById("Familiares").addEventListener('keyup',sanear2);
+    
     document.getElementById("Habitos").addEventListener('keyup',sanear2);
     document.getElementById("TelefonoEmer").addEventListener('keyup', sanear);
     document.getElementById("CelularEmer").addEventListener('keyup', sanear);

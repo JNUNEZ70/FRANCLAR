@@ -35,6 +35,17 @@ if (isset($_POST['enviar'])) {
 
 }
 
+if (isset($_POST['depuraraBitacora'])){
+
+    $sql= mysqli_query($con, "TRUNCATE TABLE tbl_bitacora_evento");
+
+
+    echo "<script type='text/javascript'>
+    alert('Bitácora Depurada con éxito');
+    window.location.href= 'bitacora.php';
+    </script>";
+}
+
 ?>
     <!-- breadcrumb start-->
     <section class="breadcrumb_part breadcrumb_bg">

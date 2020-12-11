@@ -79,7 +79,7 @@ if(isset($_POST['religion']) ){
     session_start();
     $id_usuario= $_SESSION['ID_Usuario'];
     $insert_bitacora = mysqli_query($con, "INSERT INTO tbl_bitacora_evento (id_usuario,id_objeto,Accion,Descripcion)
-    VALUES ('$id_usuario',13,'Acceso','INGRESO A PANTALLA RELIGIÓn')");
+    VALUES ('$id_usuario',13,'Acceso','INGRESO A PANTALLA RELIGIÓN')");
     
      header('Location:Religiones.php');
 }
@@ -105,7 +105,7 @@ if(isset($_POST['roles']) ){
     session_start();
     $id_usuario= $_SESSION['ID_Usuario'];
     $insert_bitacora = mysqli_query($con, "INSERT INTO tbl_bitacora_evento (id_usuario,id_objeto,Accion,Descripcion)
-    VALUES ('$id_usuario',1,'Acceso','INGRESO A PANTALLA PERSONAL')");
+    VALUES ('$id_usuario',19,'Acceso','INGRESO A PANTALLA ROLES')");
    
 
     header('Location:Roles.php');
@@ -123,7 +123,7 @@ if(isset($_POST['P_seguridad']) ){
     session_start();
     $id_usuario= $_SESSION['ID_Usuario'];
     $insert_bitacora = mysqli_query($con, "INSERT INTO tbl_bitacora_evento (id_usuario,id_objeto,Accion,Descripcion)
-    VALUES ('$id_usuario',3,'Acceso','INGRESO A PANTALLA PARAMETROS')");
+    VALUES ('$id_usuario',3,'Acceso','INGRESO A PANTALLA PARAMETROS DE SEGURIDAD')");
    
 
     header('Location:Parametros.php');
@@ -132,7 +132,7 @@ if(isset($_POST['p_sistema']) ){
     session_start();
     $id_usuario= $_SESSION['ID_Usuario'];
     $insert_bitacora = mysqli_query($con, "INSERT INTO tbl_bitacora_evento (id_usuario,id_objeto,Accion,Descripcion)
-    VALUES ('$id_usuario',3,'Acceso','INGRESO A PANTALLA PARAMETROS')");
+    VALUES ('$id_usuario',20,'Acceso','INGRESO A PANTALLA PARAMETROS DE SISTEMA')");
    
 
     header('Location:Parametros_sistema.php');
@@ -141,7 +141,7 @@ if(isset($_POST['p_preguntas']) ){
     session_start();
     $id_usuario= $_SESSION['ID_Usuario'];
     $insert_bitacora = mysqli_query($con, "INSERT INTO tbl_bitacora_evento (id_usuario,id_objeto,Accion,Descripcion)
-    VALUES ('$id_usuario',16,'Acceso','INGRESO A PANTALLA PREGUNTAS SECRETAS')");
+    VALUES ('$id_usuario',17,'Acceso','INGRESO A PANTALLA PREGUNTAS SECRETAS')");
    
 
     header('Location:Preguntas.php');
@@ -151,7 +151,7 @@ if(isset($_POST['gestion_bd']) ){
     session_start();
     $id_usuario= $_SESSION['ID_Usuario'];
     $insert_bitacora = mysqli_query($con, "INSERT INTO tbl_bitacora_evento (id_usuario,id_objeto,Accion,Descripcion)
-    VALUES ('$id_usuario',3,'Acceso','INGRESO A PANTALLA PARAMETROS')");
+    VALUES ('$id_usuario',21,'Acceso','INGRESO A PANTALLA RESAPALDO DB')");
    
 
     header('Location:acceso_DB.php');
@@ -161,7 +161,7 @@ if(isset($_POST['restablecer_bd']) ){
     session_start();
     $id_usuario= $_SESSION['ID_Usuario'];
     $insert_bitacora = mysqli_query($con, "INSERT INTO tbl_bitacora_evento (id_usuario,id_objeto,Accion,Descripcion)
-    VALUES ('$id_usuario',3,'Acceso','INGRESO A PANTALLA PARAMETROS')");
+    VALUES ('$id_usuario',22,'Acceso','INGRESO A PANTALLA RESTAURAR DB')");
    
 
     header('Location:restablecer_DB.php');
@@ -180,9 +180,84 @@ if(isset($_POST['cobros_adicionales']) ){
     session_start();
     $id_usuario= $_SESSION['ID_Usuario'];
     $insert_bitacora = mysqli_query($con, "INSERT INTO tbl_bitacora_evento (id_usuario,id_objeto,Accion,Descripcion)
-    VALUES ('$id_usuario',3,'Acceso','INGRESO A PANTALLA PARAMETROS')");
+    VALUES ('$id_usuario',23,'Acceso','INGRESO A PANTALLA COBROS')");
    
 
     header('Location:cobros_adicionales.php');
+}
+//MODULO CAJA
+if(isset($_POST['caja']) ){
+    session_start();
+    $id_usuario= $_SESSION['ID_Usuario'];
+    $insert_bitacora = mysqli_query($con, "INSERT INTO tbl_bitacora_evento (id_usuario,id_objeto,Accion,Descripcion)
+    VALUES ('$id_usuario',8,'Acceso','INGRESO A PANTALLA CAJA')");
+   
+
+    header('Location:Caja.php');
+}
+//MODULO ATENCION A PACIENTES 
+if(isset($_POST['pacientes']) ){
+    session_start();
+    $id_usuario= $_SESSION['ID_Usuario'];
+    $insert_bitacora = mysqli_query($con, "INSERT INTO tbl_bitacora_evento (id_usuario,id_objeto,Accion,Descripcion)
+    VALUES ('$id_usuario',4,'Acceso','INGRESO A PANTALLA PACIENTES')");
+   
+
+    header('Location:Pacientes.php');
+}
+if(isset($_POST['citas']) ){
+    session_start();
+    $id_usuario= $_SESSION['ID_Usuario'];
+    $insert_bitacora = mysqli_query($con, "INSERT INTO tbl_bitacora_evento (id_usuario,id_objeto,Accion,Descripcion)
+    VALUES ('$id_usuario',7,'Acceso','INGRESO A PANTALLA CITAS')");
+   
+
+    header('Location:Cita.php');
+}
+if(isset($_POST['preclinica']) ){
+    session_start();
+    $id_usuario= $_SESSION['ID_Usuario'];
+    $insert_bitacora = mysqli_query($con, "INSERT INTO tbl_bitacora_evento (id_usuario,id_objeto,Accion,Descripcion)
+    VALUES ('$id_usuario',6,'Acceso','INGRESO A PANTALLA PRECLINICA')");
+   
+
+    header('Location:Preclinica.php');
+}
+if(isset($_POST['clinica']) ){
+    session_start();
+    $id_usuario= $_SESSION['ID_Usuario'];
+    $insert_bitacora = mysqli_query($con, "INSERT INTO tbl_bitacora_evento (id_usuario,id_objeto,Accion,Descripcion)
+    VALUES ('$id_usuario',5,'Acceso','INGRESO A PANTALLA CONSULTA')");
+   
+
+    header('Location:Consulta.php');
+}
+if(isset($_POST['expediente']) ){
+    session_start();
+    $id_usuario= $_SESSION['ID_Usuario'];
+    $insert_bitacora = mysqli_query($con, "INSERT INTO tbl_bitacora_evento (id_usuario,id_objeto,Accion,Descripcion)
+    VALUES ('$id_usuario',24,'Acceso','INGRESO A PANTALLA EXPEDIENTE')");
+   
+
+    header('Location:Expediente.php');
+}
+// ADMINISTRAR USUARIO Y SESION
+if(isset($_POST['cerrar']) ){
+    session_start();
+    $id_usuario= $_SESSION['ID_Usuario'];
+    $insert_bitacora = mysqli_query($con, "INSERT INTO tbl_bitacora_evento (id_usuario,id_objeto,Accion,Descripcion)
+    VALUES ('$id_usuario',25,'Acceso','CERRO SESIÓN')");
+   
+
+    header('Location:cerrar.php');
+}
+if(isset($_POST['perfil']) ){
+    session_start();
+    $id_usuario= $_SESSION['ID_Usuario'];
+    $insert_bitacora = mysqli_query($con, "INSERT INTO tbl_bitacora_evento (id_usuario,id_objeto,Accion,Descripcion)
+    VALUES ('$id_usuario',25,'Acceso','INGRESO A ADMINISTRAR CUENTA')");
+   
+
+    header('Location:Administrar_Usuario.php');
 }
 ?>

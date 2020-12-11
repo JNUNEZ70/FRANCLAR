@@ -21,7 +21,7 @@ try {
     if($insert){
         $id_usuario= $_SESSION['ID_Usuario'];
                         $insert_bitacora = mysqli_query($con, "INSERT INTO tbl_bitacora_evento (id_usuario,id_objeto,Accion,Descripcion)
-                        VALUES ('$id_usuario',9,'Insert','SE INGRESÓ UNA NUEVA ESPECIALIDAD')") or die(mysqli_error());
+                        VALUES ('$id_usuario',19,'Insert','SE INGRESÓ UN NUEVO ROL')") or die(mysqli_error());
         echo "<script type='text/javascript'>
             alert('El Nuevo ha sido registrada exitosamente');
             window.location.href= 'Roles.php';

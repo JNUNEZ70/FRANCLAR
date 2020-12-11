@@ -7,6 +7,8 @@ if (isset($_POST['permisos'])){
    $objetos=$_POST['id_vista'];
    $permisos=$_POST['id_permiso'];
 
+ 
+
    //obteniendo los permisos
    list($id_0,$id_1,$id_2,$id_3,
         $id_4,$id_5,$id_6,$id_7,
@@ -24,12 +26,25 @@ if (isset($_POST['permisos'])){
         $id_52,$id_53,$id_54,$id_55,
         $id_56,$id_57,$id_58,$id_59,
         $id_60,$id_61,$id_62,$id_63,
+        $id_64,$id_65,$id_66,$id_67,
+        $id_68,$id_69,$id_70,$id_71,
+        $id_72,$id_73,$id_74,$id_75,
+        $id_76,$id_77,$id_78,$id_79,
+        $id_80,$id_81,$id_82,$id_83,
+        $id_84,$id_85,$id_86,$id_87,
+        $id_88,$id_89,$id_90,$id_91,
+        $id_92,$id_93,$id_94,$id_95,
+        $id_96,$id_97,$id_98,$id_99
+
    )=$permisos;
    //obteniendo las vistas
    list($id_vista_0,$id_vista_1,$id_vista_2,$id_vista_3,
          $id_vista_4,$id_vista_5,$id_vista_6,$id_vista_7,
          $id_vista_8,$id_vista_9,$id_vista_10,$id_vista_11,
-         $id_vista_12,$id_vista_13,$id_vista_14,$id_vista_15
+         $id_vista_12,$id_vista_13,$id_vista_14,$id_vista_15,
+         $id_vista_16,$id_vista_17,$id_vista_18,$id_vista_19,
+         $id_vista_20,$id_vista_21,$id_vista_22,$id_vista_23,
+         $id_vista_24,
    )=$objetos;
    //obtener el rol
 
@@ -49,7 +64,16 @@ if (isset($_POST['permisos'])){
                                               ('$rol','$id_vista_12','$id_48','$id_50','$id_49','$id_51'),
                                               ('$rol','$id_vista_13','$id_52','$id_54','$id_53','$id_55'),
                                               ('$rol','$id_vista_14','$id_56','$id_58','$id_57','$id_59'),
-                                              ('$rol','$id_vista_15','$id_60','$id_62','$id_61','$id_63')
+                                              ('$rol','$id_vista_15','$id_60','$id_62','$id_61','$id_63'),
+                                              ('$rol','$id_vista_16','$id_64','$id_66','$id_65','$id_67'),
+                                              ('$rol','$id_vista_17','$id_68','$id_70','$id_69','$id_71'),
+                                              ('$rol','$id_vista_18','$id_72','$id_74','$id_73','$id_75'),
+                                              ('$rol','$id_vista_19','$id_76','$id_78','$id_77','$id_79'),
+                                              ('$rol','$id_vista_20','$id_80','$id_82','$id_81','$id_83'),
+                                              ('$rol','$id_vista_21','$id_84','$id_86','$id_85','$id_87'),
+                                              ('$rol','$id_vista_22','$id_88','$id_90','$id_89','$id_91'),
+                                              ('$rol','$id_vista_23','$id_92','$id_94','$id_93','$id_95'),
+                                              ('$rol','$id_vista_24','$id_96','$id_98','$id_97','$id_99')
                                        ");
     
     if($insert){

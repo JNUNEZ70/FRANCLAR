@@ -69,9 +69,9 @@ include 'conexion.php'
                                        VALUES ( '$nik' , '$pa' , '$fc' , '$fr' , '$temp' , '$pam' , '$glucom' , '$peso' , '$talla')") or die(mysqli_error());
                 $update = mysqli_query($con, "UPDATE tbl_citas SET ID_Estado= 2 WHERE ID_Cita='$nik'") or die(mysqli_error());
                 if($insert and $update){                    
-                    // $id_usuario= $_SESSION['ID_Usuario'];
-                    // $insert_bitacora = mysqli_query($con, "INSERT INTO tbl_bitacora_evento (id_usuario,id_objeto,Accion,Descripcion)
-                    // VALUES ('$id_usuario',9,'Update','SE ACTUALIZÓ UNA ESPECIALIDAD')") or die(mysqli_error());
+                     $id_usuario= $_SESSION['ID_Usuario'];
+                     $insert_bitacora = mysqli_query($con, "INSERT INTO tbl_bitacora_evento (id_usuario,id_objeto,Accion,Descripcion)
+                     VALUES ('$id_usuario',6,'Insert','SE REALIZO PRECLINICA')") or die(mysqli_error());
                     echo "<script type='text/javascript'>
                         alert('Pre-clínica almacenada correctamente');
                         window.location.href= 'Preclinica.php';

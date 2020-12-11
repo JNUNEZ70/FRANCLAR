@@ -52,8 +52,9 @@ include 'conexion.php'
                 <i class="fas fa-file-pdf fa-lg"> </i> Generar Reporte</a>
                 </div>	
                 <div class="form-group col-md-4">
-                <a class="genric-btn btn-danger circle" href="#">Depurar Bitácora</a>
-                </div>	
+               
+                <input type="submit" id="btn_submit" class="genric-btn btn-danger circle" name="depuraraBitacora" value="Depurar Bitácora" >  
+            </div>	
             </div>    
         </form>
 	    <br>
