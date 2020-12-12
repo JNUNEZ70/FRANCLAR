@@ -79,38 +79,7 @@ include 'conexion.php'
 
             $expediente = ["$id_paciente","$id_cita"];
 
-			// if(isset($_POST['save'])){
-            //     if(isset($_FILES['foto']['name'])){
-            //         $diagnostico = mysqli_real_escape_string($con,(strip_tags($_POST['diagnostico'],ENT_QUOTES)));
-            //         $anamnesis = mysqli_real_escape_string($con,(strip_tags($_POST['anamnesis'],ENT_QUOTES)));
-            //         $exam_fisico = mysqli_real_escape_string($con,(strip_tags($_POST['exam_fisico'],ENT_QUOTES)));
-            //         $tratamiento = mysqli_real_escape_string($con,(strip_tags($_POST['tratamiento'],ENT_QUOTES)));
-            //         $paciente = $row['ID_Paciente'];
-            //         $tipoimagen = $_FILES['foto']['type'];
-            //         $tamañoarchivo = $_FILES['foto']['size'];
-            //         $imagensubida = fopen($_FILES['foto']['tmp_name'],'r');
-            //         $binariosimagen = fread($imagensubida,$tamañoarchivo);
-            //         $binariosimagen = mysqli_real_escape_string($con,$binariosimagen);
-                                
-                    
-            //         $insert = mysqli_query($con, "INSERT INTO tbl_consultas (ID_Cita, Diagnostico, Anamnesis, Exam_Fisico, Tratamiento) 
-            //                             VALUES ( '$nik' , '$diagnostico' , '$anamnesis' , '$exam_fisico' , '$tratamiento')") or die(mysqli_error());
-            //         $update = mysqli_query($con, "UPDATE tbl_citas SET ID_Estado= 3 WHERE ID_Cita='$nik'") or die(mysqli_error());
-            //         $insert_expe = mysqli_query($con, "INSERT INTO tbl_expediente (ID_paciente, ID_Cita, imagen, tipo_imagen) 
-            //                             VALUES ( '$paciente' , '$nik' , '$binariosimagen' , '$tipoimagen')") or die(mysqli_error());
-            //         if($insert and $update and $insert_expe){                    
-            //             // $id_usuario= $_SESSION['ID_Usuario'];
-            //             // $insert_bitacora = mysqli_query($con, "INSERT INTO tbl_bitacora_evento (id_usuario,id_objeto,Accion,Descripcion)
-            //             // VALUES ('$id_usuario',9,'Update','SE ACTUALIZÓ UNA ESPECIALIDAD')") or die(mysqli_error());
-            //             echo "<script type='text/javascript'>
-            //                 alert('Consulta almacenada correctamente');
-            //                 window.location.href= 'Consulta.php';
-            //             </script>";
-            //         }else{
-            //             echo '<div class="alert alert-danger alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>Error, Preclínica fallida</div>';
-            //         }
-            //     }
-			// }
+			
 		?>
     
     <!-- our depertment part start-->

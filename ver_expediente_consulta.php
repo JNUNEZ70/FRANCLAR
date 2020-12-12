@@ -31,7 +31,7 @@ include 'conexion.php'
 
 	$sql2 = mysqli_query($con, "SELECT * FROM tbl_pacientes WHERE ID_Paciente='$nik'");
 
-	$row1 = mysqli_fetch_assoc($sql);
+	
 	$row2 = mysqli_fetch_assoc($sql2);
 	
 	
@@ -121,10 +121,7 @@ include 'conexion.php'
 				<tbody>
 			</table>
 		 </div>
-		 <br><br><br><br><br><br><br>
-    <?php
-        include 'Copyright.php'
-    ?>
+		 
     <!-- footer part end-->
 
     <!-- jquery plugins here-->

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 11-12-2020 a las 17:00:56
+-- Tiempo de generación: 12-12-2020 a las 05:05:35
 -- Versión del servidor: 10.4.11-MariaDB
 -- Versión de PHP: 7.4.3
 
@@ -42,30 +42,13 @@ CREATE TABLE `tbl_bitacora_evento` (
 --
 
 INSERT INTO `tbl_bitacora_evento` (`id_bitacora_evento`, `fecha_evento`, `id_usuario`, `id_objeto`, `Accion`, `Descripcion`) VALUES
-(1, '2020-12-11 15:12:11', 1, 4, 'Acceso', 'INGRESO A PANTALLA PACIENTES'),
-(2, '2020-12-11 15:13:36', 1, 4, 'Insert', 'SE INGRESÓ UN NUEVO PACIENTE'),
-(3, '2020-12-11 15:14:29', 1, 4, 'Insert', 'SE EDITO UN PACIENTE'),
-(4, '2020-12-11 15:14:39', 1, 7, 'Acceso', 'INGRESO A PANTALLA CITAS'),
-(5, '2020-12-11 15:15:23', 1, 7, 'Insert', 'SE INGRESÓ UNA NUEVA CITA'),
-(6, '2020-12-11 15:15:31', 1, 6, 'Acceso', 'INGRESO A PANTALLA PRECLINICA'),
-(7, '2020-12-11 15:15:52', 1, 6, 'Insert', 'SE REALIZO PRECLINICA'),
-(8, '2020-12-11 15:15:58', 1, 5, 'Acceso', 'INGRESO A PANTALLA CONSULTA'),
-(9, '2020-12-11 15:17:31', 1, 8, 'Acceso', 'INGRESO A PANTALLA CAJA'),
-(10, '2020-12-11 15:23:02', 1, 4, 'Acceso', 'INGRESO A PANTALLA PACIENTES'),
-(11, '2020-12-11 15:23:29', 1, 24, 'Acceso', 'INGRESO A PANTALLA EXPEDIENTE'),
-(12, '2020-12-11 15:24:04', 1, 4, 'Acceso', 'INGRESO A PANTALLA PACIENTES'),
-(13, '2020-12-11 15:33:05', 1, 7, 'Acceso', 'INGRESO A PANTALLA CITAS'),
-(14, '2020-12-11 15:37:50', 1, 4, 'Acceso', 'INGRESO A PANTALLA PACIENTES'),
-(15, '2020-12-11 15:38:23', 1, 7, 'Acceso', 'INGRESO A PANTALLA CITAS'),
-(16, '2020-12-11 15:41:29', 1, 4, 'Acceso', 'INGRESO A PANTALLA PACIENTES'),
-(17, '2020-12-11 15:41:41', 1, 7, 'Acceso', 'INGRESO A PANTALLA CITAS'),
-(18, '2020-12-11 15:41:51', 1, 6, 'Acceso', 'INGRESO A PANTALLA PRECLINICA'),
-(19, '2020-12-11 15:41:58', 1, 4, 'Acceso', 'INGRESO A PANTALLA PACIENTES'),
-(20, '2020-12-11 15:42:06', 1, 6, 'Acceso', 'INGRESO A PANTALLA PRECLINICA'),
-(21, '2020-12-11 15:42:13', 1, 5, 'Acceso', 'INGRESO A PANTALLA CONSULTA'),
-(22, '2020-12-11 15:42:22', 1, 24, 'Acceso', 'INGRESO A PANTALLA EXPEDIENTE'),
-(23, '2020-12-11 15:42:50', 1, 2, 'Acceso', 'INGRESO A PANTALLA USUARIOS'),
-(24, '2020-12-11 15:51:45', 1, 4, 'Acceso', 'INGRESO A PANTALLA PACIENTES');
+(1, '2020-12-12 03:19:02', 1, 7, 'Acceso', 'INGRESO A PANTALLA CITAS'),
+(2, '2020-12-12 03:20:08', 1, 7, 'Insert', 'SE INGRESÓ UNA NUEVA CITA'),
+(3, '2020-12-12 03:21:05', 1, 7, 'Insert', 'SE INGRESÓ UNA NUEVA CITA'),
+(4, '2020-12-12 03:21:29', 1, 6, 'Acceso', 'INGRESO A PANTALLA PRECLINICA'),
+(5, '2020-12-12 03:21:43', 1, 6, 'Insert', 'SE REALIZO PRECLINICA'),
+(6, '2020-12-12 03:22:09', 1, 24, 'Acceso', 'INGRESO A PANTALLA EXPEDIENTE'),
+(7, '2020-12-12 03:22:32', 1, 24, 'Acceso', 'INGRESO A PANTALLA EXPEDIENTE');
 
 -- --------------------------------------------------------
 
@@ -421,6 +404,13 @@ CREATE TABLE `tbl_pacientes` (
   `Fec_modif` date DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Volcado de datos para la tabla `tbl_pacientes`
+--
+
+INSERT INTO `tbl_pacientes` (`ID_Paciente`, `ID_tipo_documento`, `cedula`, `ID_Sexo`, `ID_Est_Civil`, `ID_Tipo_Sangre`, `ID_Religion`, `Nom_Paciente`, `Fec_Nacimiento`, `Edad`, `Dir_Paciente`, `Tel_Paciente`, `Cel_Paciente`, `Email`, `Contacto_Emergencia`, `ID_Parentesco`, `Tel_Emergencia`, `Cel_Emergencia`, `Antecedentes_Personales`, `Antecedentes_Hospitalarios`, `Antecedentes_Alergicos`, `Antecedentes_Familiares`, `Habitos`, `Usuario_crea`, `Fec_crea`, `Usuario_modif`, `Fec_modif`) VALUES
+(1, 1, '0205199500032', 1, 2, 1, 1, 'PRUEBA', '2012-06-06', 8, 'PRUEBA', 55555555, 55555555, 'prueba@gmail.com', 'PRUEBA', 2, 55555555, 55555555, 'PRUEBA', 'PRUEBA', 'PRUEBA', 'PRUEBA', 'PRUEBA', NULL, NULL, NULL, NULL);
+
 -- --------------------------------------------------------
 
 --
@@ -664,13 +654,6 @@ CREATE TABLE `tbl_preclinica` (
   `Usuario_modif` bigint(3) DEFAULT NULL,
   `Fec_modif` date DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Volcado de datos para la tabla `tbl_preclinica`
---
-
-INSERT INTO `tbl_preclinica` (`ID_Preclinica`, `ID_Cita`, `PA`, `FC`, `FR`, `Temp`, `PAM`, `Glucometria`, `Peso`, `Talla`, `Usuario_crea`, `Fec_crea`, `Usuario_modif`, `Fec_modif`) VALUES
-(1, 1, '555', '555', 555, 55555, '555', 55, 55, 55, NULL, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -1110,7 +1093,7 @@ ALTER TABLE `tbl_usuario`
 -- AUTO_INCREMENT de la tabla `tbl_bitacora_evento`
 --
 ALTER TABLE `tbl_bitacora_evento`
-  MODIFY `id_bitacora_evento` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `id_bitacora_evento` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT de la tabla `tbl_cargo`
@@ -1182,7 +1165,7 @@ ALTER TABLE `tbl_fotos_consultas`
 -- AUTO_INCREMENT de la tabla `tbl_pacientes`
 --
 ALTER TABLE `tbl_pacientes`
-  MODIFY `ID_Paciente` int(3) NOT NULL AUTO_INCREMENT;
+  MODIFY `ID_Paciente` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de la tabla `tbl_parametros`
@@ -1212,7 +1195,7 @@ ALTER TABLE `tbl_permisos`
 -- AUTO_INCREMENT de la tabla `tbl_preclinica`
 --
 ALTER TABLE `tbl_preclinica`
-  MODIFY `ID_Preclinica` bigint(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `ID_Preclinica` bigint(3) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `tbl_preguntas`

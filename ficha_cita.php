@@ -10,7 +10,7 @@
 
     <?php
             if(isset($_POST)){     
-               if(isset($_FILES['foto']['name'])){    
+                   
                             
                           $num_cita = mysqli_real_escape_string($con,(strip_tags($_POST['id_cita'],ENT_QUOTES)));
                           $nombre_pac = mysqli_real_escape_string($con,(strip_tags($_POST['nombre_pac'],ENT_QUOTES)));
@@ -45,15 +45,22 @@
                         
                          $num_archivos = count($_FILES['foto']['name']); 
                         
+                        
+                         
                          for ($i=0; $i <$num_archivos; $i++) { 
-                             $tipoimagen = $_FILES['foto']['type'][$i];
-                             $tamañoarchivo = $_FILES['foto']['size'][$i];
-                             $imagensubida = fopen($_FILES['foto']['tmp_name'][$i],'r');
-                             $binariosimagen = fread($imagensubida,$tamañoarchivo);
-                             $binariosimagen = mysqli_real_escape_string($con,$binariosimagen);
-                             $insert_foto = mysqli_query($con, "INSERT INTO tbl_fotos_consultas (ID_Cita, tipo_imagen, imagen) 
-                                             VALUES ( '$num_cita' , '$tipoimagen' , '$binariosimagen' )") or die(mysqli_error());   
-                         }
+                             if ($_FILES['foto']['name'][$i]) {                          
+                                 $tipoimagen = $_FILES['foto']['type'][$i];
+                                 $tamañoarchivo = $_FILES['foto']['size'][$i];
+                                 $imagensubida = fopen($_FILES['foto']['tmp_name'][$i],'r');
+                                 $binariosimagen = fread($imagensubida,$tamañoarchivo);
+                                 $binariosimagen = mysqli_real_escape_string($con,$binariosimagen);
+                                 $insert_foto = mysqli_query($con, "INSERT INTO tbl_fotos_consultas (ID_Cita, tipo_imagen, imagen) 
+                                                VALUES ( '$num_cita' , '$tipoimagen' , '$binariosimagen' )") or die(mysqli_error());   
+                                }
+                            }
+                        
+                        
+                        
                                           
                         
                           $sql = mysqli_query($con, "SELECT * FROM tbl_especialidad WHERE ID_especialidad='$id_especialidad'");
@@ -98,7 +105,7 @@
                         //   }
                      
                      }
-                  }
+                  
             
 
 

@@ -102,8 +102,6 @@ jQuery('input[type="checkbox"]').on('change', function() {
 
 </body>
 
-<?php
-        include 'Copyright.php'
-?>
+
 
 </html>

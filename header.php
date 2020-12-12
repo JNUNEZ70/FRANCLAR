@@ -54,14 +54,15 @@ switch ($rolUsuario) {
                                     <button type="submit" name="expediente" class="dropdown-item">
                                     Expediente
                                     </button>  
-                                   
+                                    <button type="submit" name="caja" class="dropdown-item">
+                                        Caja
+                                    </button>
                                 </li>
                                 
+                                
+                               
+                                
 
-                                <li class="nav-item active">
-                                <button type="submit" name="caja" class="dropdown-item">
-                                            Caja
-                                </button>  
                                 </form>
                             
                                 </li>
