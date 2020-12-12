@@ -1,0 +1,110 @@
+   body {
+       background-color: #eee;
+   }
+   
+   .galeria {
+       text-align: center;
+   }
+   
+   .galeria>div {
+       display: inline-block;
+       position: relative;
+       width: 200px;
+       height: 175px;
+       background-color: #fff;
+       margin: 20px 15px;
+       padding: 10px 10px 50px;
+       box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0.2);
+   }
+   
+   .galeria>div input[type="checkbox"] {
+       display: none;
+   }
+   
+   .galeria>div label {
+       cursor: pointer;
+   }
+   
+   .galeria>div label span {
+       display: table-cell;
+       width: 180px;
+       height: 150px;
+       vertical-align: middle;
+       background-color: #ddd;
+       box-shadow: 0 0 25px 0 rgba(0, 0, 0, 0.2) inset;
+       padding: 0 10px;
+       font-family: 'Trebuchet MS', Verdana, Arial, Calibri, sans-serif;
+       font-weight: bold;
+       text-align: center;
+   }
+   
+   .galeria>div label img {
+       display: block;
+       width: 180px;
+       position: absolute;
+       top: 10px;
+       left: 10px;
+       transition: transform 0.2s linear;
+   }
+   
+   .galeria>div label:before {
+       content: '';
+       display: block;
+       transition: background-color 0.2s linear;
+   }
+   
+   .galeria>div div {
+       position: absolute;
+       bottom: 5px;
+       left: 7px;
+   }
+   
+   .galeria>div div a {
+       text-decoration: none;
+       color: #ccc;
+       font-size: 1.1em;
+       margin-right: 5px;
+       padding: 0 2px;
+       transition: all 0.2s linear;
+   }
+   
+   .galeria>div div a:nth-child(1):hover {
+       color: #4867aa;
+   }
+   
+   .galeria>div div a:nth-child(2):hover {
+       color: #55acee;
+   }
+   
+   .galeria>div div a:nth-child(3):hover {
+       color: #dd4e42;
+   }
+   
+   .galeria>div label:hover img {
+       transform: scale(0.4) skew(-45deg, -45deg);
+   }
+   
+   .galeria>div input[type="checkbox"]:checked+label img {
+       position: fixed;
+       width: 900px;
+       top: calc(30% - 200px);
+       left: calc(30% - 200px);
+       /*tmanio original
+       width: 500px;
+       top: calc(50% - 250px);
+       left: calc(50% - 250px);
+       */
+       z-index: 2;
+       transform: none;
+   }
+   
+   .galeria>div input[type="checkbox"]:checked+label:before {
+       position: fixed;
+       top: 0;
+       left: 0;
+       width: 100%;
+       height: 100%;
+       z-index: 1;
+       background-color: rgba(0, 0, 0, 0.7);
+       cursor: default;
+   }

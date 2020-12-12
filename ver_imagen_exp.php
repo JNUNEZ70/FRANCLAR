@@ -1,6 +1,7 @@
 <!doctype html>
 <html lang="es">
 
+<link rel="stylesheet" href="css/galeria_fotos.css">
 <?php
 session_start();
 include 'head.php'
@@ -37,42 +38,68 @@ include 'conexion.php'
     <!-- breadcrumb start-->
 
     <!-- footer part start-->
-    
-    
-    
-    <?php
-    $sql = mysqli_query($con, "SELECT * FROM tbl_fotos_consultas WHERE ID_Cita='$nik'");
+   
+    <div class="galeria">
+	 
+        <?php
+        $sql = mysqli_query($con, "SELECT tbl_citas.ID_Cita, tbl_pacientes.Nom_Paciente,tbl_citas.Fec_Atencion,
+         tbl_fotos_consultas.tipo_imagen,tbl_fotos_consultas.imagen FROM 
+        tbl_fotos_consultas INNER JOIN tbl_citas ON tbl_fotos_consultas.ID_Cita=tbl_citas.ID_Cita
+        INNER JOIN tbl_pacientes 
+        ON tbl_citas.ID_Paciente= tbl_pacientes.ID_Paciente 
+        WHERE tbl_fotos_consultas.ID_Cita='$nik'");
 
-    if(mysqli_num_rows($sql) == 0){
-			echo '<h2>No hay fotos asociadas a esta cita.</h2>';
-        }else{
-            $no = 1;
-            while($row = mysqli_fetch_assoc($sql)){	
-            ?>
-                <div >
-                    <img width="400" src="data:<?php echo $row['tipo_imagen']; ?>;base64,<?php echo base64_encode($row['imagen']); ?>" >			
-                    <br>
-                    <br>
-                    <br>
-                </div>
-                						
-                <?php
-                $no++;
-                }
-                
-            }
-	?>
+            if(mysqli_num_rows($sql) == 0){
+                echo '<h2>No hay fotos asociadas a esta cita.</h2>';
+                }else{
+                    $no = 1;
+                    $n=1;
+                    while($row = mysqli_fetch_assoc($sql)){	
+                        $id= "btnControle".$n
+                    ?>
+                    
+                        <div>
+                            <input type="checkbox" id="<?php echo $id?>"/>
+                            <label for="<?php echo $id?>">
+                            <span> 
+                            <p>Cita numero <?php echo $row['ID_Cita'];?></p>    
+                            <p><?php echo $row['Nom_Paciente'];?></p>
+                            <p> Fecha <?php echo $row['Fec_Atencion'];?></p>
+                        </span>
+                                <img width="500" src="data:<?php echo $row['tipo_imagen']; ?>;base64,<?php echo base64_encode($row['imagen']); ?>" >			
+                            </label>
+                            <div>
+                                
+                            </div> 
+                        </div>
+                                        
+                    <?php
+                    $no++;
+                    $n++;
+                    }
+                                    
+                    }
+        ?>
 
+</div>
 
-	
-    <!-- footer part end-->
+<!-- footer part end-->
 
-    <!-- jquery plugins here-->
+<!-- jquery plugins here-->
 
-    <?php
+<?php
         include 'script.php'
     ?>
     
+    <script>
+        // Tentei não usar JS, mas... ( -.-')
+// I try not use JS, but... ( -.-')
+
+jQuery('input[type="checkbox"]').on('change', function() {
+   jQuery('input[type="checkbox"]').not(this).prop('checked', false);
+});
+    </script>
+
 </body>
 
 <?php
