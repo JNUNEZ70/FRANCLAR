@@ -57,11 +57,19 @@ include 'conexion.php'
         <a href="agregarcita.php" class="genric-btn info circle">Agregar</a>
     </form>	
     <form class="form-inline my-2 my-lg-0 float-left">
-        <a href="CalendarioCitas.php" class="genric-btn info circle">Ver Calendario</a>
+        <a href="CalendarioCitas.php" class="genric-btn info circle">
+		<i class="fa fa-calendar-check-o fa-lg fa-lg"> </i> Ver Calendario  </a>
+		
 	</form>	
-	<form class="form-inline my-2 my-lg-0 float-left">
-			<a class="genric-btn btn-danger circle" href="../FRANCLAR/Reportes-PDF/ReporteCitas.php">
-			<i class="fas fa-file-pdf fa-lg"> </i> Generar Reporte</a>
+	<div class="form-inline my-2 my-lg-0 float-left" >
+	<a class="genric-btn info circle" href="PHPMailer/notificaciones.php">
+	<i class="fa fa-envelope fa-lg"> </i> Enviar Email  </a>
+</div>
+
+<form class="form-inline my-2 my-lg-0 float-left">
+	<a class="genric-btn btn-danger circle" href="../FRANCLAR/Reportes-PDF/ReporteCitas.php">
+	<i class="fas fa-file-pdf fa-lg"> </i> Generar Reporte</a>
+			
 	</form>	
 	<br>   
 	<br>
