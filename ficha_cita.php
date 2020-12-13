@@ -45,13 +45,13 @@
                         
                          $num_archivos = count($_FILES['foto']['name']); 
                         
-                        
+                            
                          
                          for ($i=0; $i <$num_archivos; $i++) { 
                              if ($_FILES['foto']['name'][$i]) {                          
                                  $tipoimagen = $_FILES['foto']['type'][$i];
                                  $tamañoarchivo = $_FILES['foto']['size'][$i];
-                                 $imagensubida = fopen($_FILES['foto']['tmp_name'][$i],'r');
+                                 $imagensubida = fopen($_FILES['foto']['tmp_name'][$i],'r+');
                                  $binariosimagen = fread($imagensubida,$tamañoarchivo);
                                  $binariosimagen = mysqli_real_escape_string($con,$binariosimagen);
                                  $insert_foto = mysqli_query($con, "INSERT INTO tbl_fotos_consultas (ID_Cita, tipo_imagen, imagen) 
