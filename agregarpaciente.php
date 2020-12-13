@@ -43,7 +43,7 @@ include 'conexion.php'
                             <h2>Datos Personales</h2>
                             <div class="form-row">
                                 <div class="form-group col-md-12">
-                                    <input type="text" class="form-control" id="Nombre" name="NomPac"  maxlength="70" placeholder="Nombre" required>
+                                    <input type="text" class="form-control" id="Nombre" name="NomPac" onkeyup="mayus(this);" maxlength="70" placeholder="Nombre" required>
                                 </div>
                                 <div class="form-group col-md-12">
                                     <select class="form-control" id="tipo_documento" name="tipo_documento" onchange="cambionum_id(value)" required>
@@ -97,7 +97,8 @@ include 'conexion.php'
                                     <input type="text" class="form-control" id="Celular" name="CelPac" onkeypress="return solonumeros(event)" maxlength="8" placeholder="Celular" required>
                                 </div>
                                 <div class="form-group col-md-12">
-                                    <input type="text" class="form-control" id="Direccion" name="DirPac" maxlength="255" placeholder="Dirección" required>
+                                    <input type="text" class="form-control" id="Direccion"  name="DirPac" onkeyup="mayus(this);" maxlength="255" placeholder="Dirección" required>
+                                    
                                 </div>
                                 <h2>Datos Generales</h2>
                                 <div class="form-row">
@@ -154,7 +155,7 @@ include 'conexion.php'
                                 <h2>Contacto de emergencia</h2>
                                 <div class="form-row">
                                 <div class="form-group col-md-6">
-                                    <input type="text" class="form-control" id="NombreEmer" name="ConEmerg" maxlength="40"  placeholder="Nombre de contacto" required>
+                                    <input type="text" class="form-control" id="NombreEmer" onkeyup="mayus(this);" name="ConEmerg" maxlength="40"  placeholder="Nombre de contacto" required>
                                 </div>
                                 <div class="form-group col-md-6">
                                     <select class="form-control" id="Parentesco" name="Parentesco_Em" required>
@@ -219,26 +220,22 @@ include 'conexion.php'
         include 'script.php'
     ?>
     <script>
-    document.getElementById("Nombre").addEventListener('keyup',sanear2);
-    document.getElementById("Nombre").addEventListener('keypress',soloLetras);
-    document.getElementById("Direccion").addEventListener('keyup', sanear2);
-    document.getElementById("NombreEmer").addEventListener('keyup',sanear2);
-    document.getElementById("NombreEmer").addEventListener('keypress',soloLetras);
-    document.getElementById("Telefono").addEventListener('keyup', sanear);
-    document.getElementById("Celular").addEventListener('keyup', sanear);
-    document.getElementById("NumeroID").addEventListener('keyup', sanear);
- 
-    function sanear(e) {
-      let contenido = e.target.value;
-      e.target.value = contenido.replace(" ", "");
-    }
-    function sanear2(e) {
-      let contenido = e.target.value;
-      e.target.value = contenido.toUpperCase().replace("  ", " ");
-    }
-    </script>
-    <script>
-    document.getElementById("Parentesco").addEventListener('keyup', sanear2);
+    document.getElementById("Nombre").addEventListener('keydown',sinNumeros);
+    document.getElementById("Nombre").addEventListener('keydown',sinCaracteres);
+    document.getElementById("Nombre").addEventListener('keydown',permitirUnEspacio);
+
+    document.getElementById("email").addEventListener('keydown',impedirEspacios);
+
+    document.getElementById("Telefono").addEventListener('keydown', impedirEspacios);
+    document.getElementById("Celular").addEventListener('keydown', impedirEspacios);
+
+    document.getElementById("Direccion").addEventListener('keydown',permitirUnEspacio);
+    
+    document.getElementById("NombreEmer").addEventListener('keydown',sinNumeros);
+    document.getElementById("NombreEmer").addEventListener('keydown',permitirUnEspacio);
+    document.getElementById("NombreEmer").addEventListener('keydown',sinCaracteres);
+    
+    
     document.getElementById("Personales").addEventListener('keyup',sanear2);
     document.getElementById("Hospitalarios").addEventListener('keyup',sanear2);
     document.getElementById("Alergicos").addEventListener('keyup',sanear2);
@@ -246,6 +243,7 @@ include 'conexion.php'
     document.getElementById("Habitos").addEventListener('keyup',sanear2);
     document.getElementById("TelefonoEmer").addEventListener('keyup', sanear);
     document.getElementById("CelularEmer").addEventListener('keyup', sanear);
+
     function sanear(e) {
       let contenido = e.target.value;
       e.target.value = contenido.replace(" ", "");
@@ -254,15 +252,12 @@ include 'conexion.php'
       let contenido = e.target.value;
       e.target.value = contenido.toUpperCase().replace("  ", " ");
     }
+
+    
+
     </script>
-    <script>
-    //document.getElementById("FechaN").addEventListener('keyup',sanear);
-    document.getElementById("emailpac").addEventListener('keyup',sanear);
-    function sanear(e) {
-      let contenido = e.target.value;
-      e.target.value = contenido.replace(" ", "");
-    }
-    </script>
+    
+    
 
     <script>
     const $fechaNacimiento= document.getElementById("fecha_prueba");

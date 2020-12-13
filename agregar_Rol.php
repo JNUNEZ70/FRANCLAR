@@ -42,7 +42,7 @@ include 'conexion.php'
                             <h2>Ingrese Rol</h2>
                             <div class="form-row">
                                 <div class="form-group col-md-6">
-                                    <input type="text" class="form-control" id="Nombre_Rol" onkeypress="return soloLetras(event)" maxlength="30" name="Nombre" placeholder="Nombre del Rol" required>
+                                    <input type="text" class="form-control" id="Nombre_Rol"  onkeyup="mayus(this);" maxlength="30" name="Nombre" placeholder="Nombre del Rol" required>
                                 </div>
                                
                                 <div class="regerv_btn col-md-8" >
@@ -71,15 +71,11 @@ include 'conexion.php'
         include 'script.php'
     ?>
     <script>
-    document.getElementById("Nombre_Rol").addEventListener('keyup',sanear);
-    function sanear(e) {
-      let contenido = e.target.value;
-      e.target.value = contenido.replace(" ", "");
-    }
-    function sanear2(e) {
-      let contenido = e.target.value;
-      e.target.value = contenido.toUpperCase().replace("  ", " ");
-    }
+    document.getElementById("Nombre_Rol").addEventListener('keydown',sinNumeros);
+    document.getElementById("Nombre_Rol").addEventListener('keydown',sinCaracteres);
+    document.getElementById("Nombre_Rol").addEventListener('keydown',permitirUnEspacio);
+
+   
     </script>
 </body>
 

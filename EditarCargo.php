@@ -67,7 +67,7 @@ include 'conexion.php'
                             <h2>Editar Cargo</h2>
                             <div class="form-row">
                                 <div class="form-group col-md-6">
-                                    <input type="text" class="form-control" value="<?php echo $row['nomb_cargo']; ?>" id="Nombre_Cargo" name="Nombre" maxlength="30" onkeypress="return soloLetras(event)" placeholder="Nombre de Cargo" required>
+                                    <input type="text" class="form-control" value="<?php echo $row['nomb_cargo']; ?>" id="Nombre_Cargo" onkeyup="mayus(this);" name="Nombre" maxlength="30"  placeholder="Nombre de Cargo" required>
                                 </div>
 
                                 <div class="regerv_btn col-md-8">
@@ -89,15 +89,9 @@ include 'conexion.php'
         include 'script.php'
     ?>
     <script>
-    document.getElementById("Nombre_Cargo").addEventListener('keyup',sanear2);
-    function sanear(e) {
-      let contenido = e.target.value;
-      e.target.value = contenido.replace(" ", "");
-    }
-    function sanear2(e) {
-      let contenido = e.target.value;
-      e.target.value = contenido.toUpperCase().replace("  ", " ");
-    }
+    document.getElementById("Nombre_Cargo").addEventListener('keydown',sinNumeros);
+    document.getElementById("Nombre_Cargo").addEventListener('keydown',sinCaracteres);
+    document.getElementById("Nombre_Cargo").addEventListener('keydown',permitirUnEspacio);
     </script>
 
 </body>

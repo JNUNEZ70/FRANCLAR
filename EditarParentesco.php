@@ -67,7 +67,7 @@ include 'conexion.php'
                             <h2>Editar Parentesco</h2>
                             <div class="form-row">
                                 <div class="form-group col-md-6">
-                                    <input type="text" class="form-control" value="<?php echo $row['Parentesco']; ?>" id="parentesco" maxlength="30" name="Parentesco" onkeypress="return soloLetras(event)" placeholder="Ingrese el parentesco" required>
+                                    <input type="text" class="form-control" value="<?php echo $row['Parentesco']; ?>" id="parentesco" maxlength="30" name="Parentesco" onkeyup="mayus(this);" placeholder="Ingrese el parentesco" required>
                                 </div>
 
                                 <div class="regerv_btn col-md-8">
@@ -89,11 +89,9 @@ include 'conexion.php'
         include 'script.php'
     ?>
     <script>
-    document.getElementById("parentesco").addEventListener('keyup', sanear);
-    function sanear(e) {
-      let contenido = e.target.value;
-      e.target.value = contenido.toUpperCase().replace(" ", "");
-    }
+    document.getElementById("parentesco").addEventListener('keydown',sinNumeros);
+    document.getElementById("parentesco").addEventListener('keydown',sinCaracteres);
+    document.getElementById("parentesco").addEventListener('keydown',permitirUnEspacio);
     </script>
 </body>
 

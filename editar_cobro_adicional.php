@@ -68,10 +68,10 @@ include 'conexion.php'
                             <h2>Editar Cobro Adicional</h2>
                             <div class="form-row">
                                 <div class="form-group col-md-6">
-                                    <input type="text" class="form-control" value="<?php echo $row['Descripcion_cobro']; ?>" id="Nombre_Cargo" maxlength="50" name="Nombre" placeholder="Nombre del cobro" required readonly>
+                                    <input type="text" onkeyup="mayus(this);" class="form-control" value="<?php echo $row['Descripcion_cobro']; ?>" id="nombre_cobro" maxlength="50" name="Nombre" placeholder="Nombre del cobro" required >
                                 </div>
                                 <div class="form-group col-md-6">
-                                    <input onkeypress="return solonumeros(event)" onkeyup="sanear2(this)" type="text" class="form-control" value="<?php echo $row['Precio_cobro']; ?>" id="precio_cobro" maxlength="50" name="precio" placeholder="precio del cobro" required>
+                                    <input onkeypress="return solonumeros(event)" type="text" class="form-control" value="<?php echo $row['Precio_cobro']; ?>" id="precio_cobro" maxlength="5" name="precio" placeholder="precio del cobro" required>
                                 </div>
                                 <div class="regerv_btn col-md-8">
                                     <button type="submit" name="save" class="btn_2">Guardar</button>
@@ -92,18 +92,12 @@ include 'conexion.php'
         include 'script.php'
     ?>
 <script>
-
-function sanear2(e) {
-      let id=e.id;
-      
-      let $cantidad=document.getElementById(id);
-
-    let contenido = $cantidad.value;
-    e.value = contenido.toUpperCase().replace("  ", " ");
-    //contenido.toUpperCase().replace("  ", " ");
-      
+    document.getElementById("nombre_cobro").addEventListener('keydown',sinNumeros);
+    document.getElementById("nombre_cobro").addEventListener('keydown',sinCaracteres);
+    document.getElementById("nombre_cobro").addEventListener('keydown',permitirUnEspacio);
     
-    }
+    
+    document.getElementById("precio_cobro").addEventListener('keydown',impedirEspacios);  
 </script>
 </body>
 

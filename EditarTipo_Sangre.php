@@ -67,7 +67,7 @@ include 'conexion.php'
                             <h2>Editar Tipo de Sangre</h2>
                             <div class="form-row">
                                 <div class="form-group col-md-6">
-                                    <input type="text" class="form-control" value="<?php echo $row['Descripcion_Sangre']; ?>" id="Nombre_Tipo_Sangre" maxlength="15" name="Nombre" onkeypress="return soloLetras(event)" placeholder="Nombre del tipo de sangre" required>
+                                    <input type="text" class="form-control" value="<?php echo $row['Descripcion_Sangre']; ?>" id="Nombre_Tipo_Sangre" maxlength="15" name="Nombre" onkeyup="mayus(this);" placeholder="Nombre del tipo de sangre" required>
                                 </div>
 
                                 <div class="regerv_btn col-md-8">
@@ -89,15 +89,9 @@ include 'conexion.php'
         include 'script.php'
     ?>
     <script>
-    document.getElementById("Nombre_Tipo_Sangre").addEventListener('keyup',sanear2);
-    function sanear(e) {
-      let contenido = e.target.value;
-      e.target.value = contenido.replace(" ", "");
-    }
-    function sanear2(e) {
-      let contenido = e.target.value;
-      e.target.value = contenido.toUpperCase().replace("  ", " ");
-    }
+    document.getElementById("Nombre_Tipo_Sangre").addEventListener('keydown',sinNumeros);
+    document.getElementById("Nombre_Tipo_Sangre").addEventListener('keydown',sinCaracteres);
+    document.getElementById("Nombre_Tipo_Sangre").addEventListener('keydown',permitirUnEspacio);
     </script>
 </body>
 

@@ -42,7 +42,7 @@ include 'conexion.php'
                             <h2>Ingrese una nueva pregunta secreta</h2>
                             <div class="form-row">
                                 <div class="form-group col-md-6">
-                                    <input type="text" class="form-control" id="Nombre_Pregunta" onkeypress="return soloLetrasPregunta(event)" maxlength="100" name="NombrePregunta" placeholder="Ingrese pregunta secreta" required>
+                                    <input type="text" class="form-control" id="Nombre_Pregunta" onkeyup="mayus(this);" onkeypress="return soloLetrasPregunta(event)" maxlength="100" name="NombrePregunta" placeholder="Ingrese pregunta secreta" required>
                                 </div>
                                
                                 <div class="regerv_btn col-md-8" >
@@ -71,15 +71,16 @@ include 'conexion.php'
         include 'script.php'
     ?>
     <script>
-    document.getElementById("Nombre_Pregunta").addEventListener('keyup',sanear2);
-    function sanear(e) {
-      let contenido = e.target.value;
-      e.target.value = contenido.replace(" ", "");
-    }
-    function sanear2(e) {
-      let contenido = e.target.value;
-      e.target.value = contenido.toUpperCase().replace("  ", " ");
-    }
+    document.getElementById("Nombre_Pregunta").addEventListener('keydown',permitirUnEspacio);
+    // document.getElementById("Nombre_Pregunta").addEventListener('keyup',sanear2);
+    // function sanear(e) {
+    //   let contenido = e.target.value;
+    //   e.target.value = contenido.replace(" ", "");
+    // }
+    // function sanear2(e) {
+    //   let contenido = e.target.value;
+    //   e.target.value = contenido.toUpperCase().replace("  ", " ");
+    // }
     </script>
 </body>
 

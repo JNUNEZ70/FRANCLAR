@@ -43,10 +43,10 @@ include 'script.php';
                             <h2>Ingrese Nuevo Cobro</h2>
                             <div class="form-row">
                                 <div class="form-group col-md-6">
-                                    <input onkeypress="return soloLetras(event)" onkeyup="sanear2(this)" type="text" class="form-control" id="Nombre_Especialidad" maxlength="50" name="Nombre" placeholder="Nombre del Cobro" required>
+                                    <input onkeyup="mayus(this);" type="text" class="form-control" id="nombre_cobro" maxlength="50" name="Nombre" placeholder="Nombre del Cobro" required>
                                 </div>
                                 <div class="form-group col-md-6">
-                                    <input onkeypress="return solonumeros(event)" onkeyup="sanear2(this)" type="text" class="form-control" id="precio_cobro" maxlength="50" name="precio" placeholder="Precio del Cobro" required>
+                                    <input onkeypress="return solonumeros(event)"  type="text" class="form-control" id="precio_cobro" maxlength="5" name="precio" placeholder="Precio del Cobro" required>
                                 </div>
                                 <div class="regerv_btn col-md-8" >
                                     <button type="submit" name="add" class="btn_2">Guardar</button>
@@ -75,20 +75,12 @@ include 'script.php';
     ?>
     <script>
 
-   
+    document.getElementById("nombre_cobro").addEventListener('keydown',sinNumeros);
+    document.getElementById("nombre_cobro").addEventListener('keydown',sinCaracteres);
+    document.getElementById("nombre_cobro").addEventListener('keydown',permitirUnEspacio);
     
-    function sanear2(e) {
-      let id=e.id;
-      
-      let $cantidad=document.getElementById(id);
-
-    let contenido = $cantidad.value;
-    e.value = contenido.toUpperCase().replace("  ", " ");
-    //contenido.toUpperCase().replace("  ", " ");
-      
     
-    }
-    
+    document.getElementById("precio_cobro").addEventListener('keydown',impedirEspacios);    
 
     </script>
 </body>

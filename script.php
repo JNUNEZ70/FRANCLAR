@@ -186,6 +186,69 @@
             }
         }
     </script>
+
+    <script>
+    
+    var teclaAnterior = "";
+    function permitirUnEspacio(event) {
+        teclaAnterior = teclaAnterior + " " + event.keyCode;
+        var arregloTA = teclaAnterior.split(" ");
+        if (event.keyCode == 32 && arregloTA[arregloTA.length - 2] == 32) {
+            event.preventDefault();
+        }     
+    }
+
+    function impedirEspacios(event) {
+        var codigo = event.which || event.keyCode;
+
+        if(codigo === 32){
+            event.preventDefault();
+        
+        }    
+    }
+
+    function sinNumeros(event) {
+        var codigo = event.which || event.keyCode;
+        // console.log(codigo);
+        if(codigo >= 48 && codigo <= 57  || codigo >= 97  && codigo <= 105){
+            event.preventDefault();
+
+        } 
+        
+    }
+
+
+    function sinLetras(event) {
+        var codigo = event.which || event.keyCode;
+        // console.log(codigo);
+
+        if(codigo >= 65 && codigo <= 90 || codigo == 192){
+            event.preventDefault();
+
+        } 
+        
+    }
+
+
+    function sinCaracteres(event) {
+        var key = event.which || event.keyCode;
+        // console.log(key)
+
+        if(key == 106 || key == 107 || key == 109 || key == 110 || key == 111 || key == 186 ||key == 187 ||key == 188 || key == 189 || key == 190 || key == 191 || key == 219 || key == 220 || key == 221 || key == 222) {
+            event.preventDefault();
+        } 
+        
+    }
+
+    function mayus(e) {
+
+        var tecla=e.value;
+        var tecla2=tecla.toUpperCase();
+        e.value = tecla2;
+        }
+    
+    </script>
+
 <!-- scrip franclar -->
 
 <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.js"></script>

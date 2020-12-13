@@ -14,7 +14,7 @@ echo $_POST['probar_conexion'];
     if($servidor==$server && $db==$database && $usuario==$user && $contraseña==$password){
 
         echo "<script type='text/javascript'>
-        alert('Conexión Éxitosa');
+        alert('Conexión Exitosa');
         window.location.href= 'acceso_DB.php';
     </script>";
 
