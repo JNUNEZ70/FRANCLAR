@@ -64,14 +64,14 @@ include 'conexion.php'
                 <div class="col-lg-7">
                     <div class="regervation_part_iner">
                         <form method="POST" action="" autocomplete="off">
-                            <h2>Editar Parametros</h2>
+                            <h2>Editar Parámetros</h2>
                             <div class="form-row">
                                 <div class="form-group col-md-6">
                                     <input type="text" class="form-control" id="NomP" value="<?php echo $row ['parametro']; ?>" name="Parametro" onkeypress="return soloLetras(event)" placeholder="Nombre del parámetro" readonly>
                                 </div>
 
                                 <div class="form-group col-md-6">
-                                    <input type="text" class="form-control" id="ValP" value="<?php echo $row ['valor']; ?>" name="Valor_Parametro" maxlength="25" onkeypress="return solonumeros(event)" placeholder="Valor" required>
+                                    <input type="text" class="form-control" id="ValP" value="<?php echo $row ['valor']; ?>" name="Valor_Parametro" maxlength="25" placeholder="Valor" required>
                                 </div>
 
                                 <div class="regerv_btn col-md-8">
@@ -93,12 +93,8 @@ include 'conexion.php'
         include 'script.php'
     ?>
     <script>
-    document.getElementById("NomP").addEventListener('keyup', sanear);
-    document.getElementById("ValP").addEventListener('keyup', sanear);
-    function sanear(e) {
-      let contenido = e.target.value;
-      e.target.value = contenido.toUpperCase().replace(" ", "");
-    }
+    document.getElementById("ValP").addEventListener('keydown',impedirEspacios);
+    
     </script>
 </body>
 

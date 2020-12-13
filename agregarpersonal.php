@@ -42,7 +42,7 @@ include 'conexion.php'
                             <h2>Datos Personales</h2>
                             <div class="form-row">
                                 <div class="form-group col-md-6">
-                                    <input type="text" class="form-control" id="NombreEm" maxlength="50"  name="Nombre" placeholder="Nombre" required>
+                                    <input type="text" class="form-control" onkeyup="mayus(this);" id="NombreEm" maxlength="50"  name="Nombre" placeholder="Nombre" required>
                                 </div>
                                 <div class="form-group col-md-6">
                                     <input type="text" class="form-control" maxlength="13" onkeypress="return solonumeros(event)" id="NumeroIDEm" name="NumeroID" placeholder="Número de identidad" required>
@@ -58,7 +58,7 @@ include 'conexion.php'
                                     <input type="tel" class="form-control" maxlength="8" onkeypress="return solonumeros(event)" id="CelularEm" name="Celular" placeholder="Celular" required>
                                 </div>
                                 <div class="form-group col-md-6">
-                                    <input type="text" class="form-control" maxlength="255" id="DireccionEm" name="Direccion" placeholder="Dirección" required>
+                                    <input type="text" class="form-control" onkeyup="mayus(this);"  maxlength="255" id="DireccionEm" name="Direccion" placeholder="Dirección" required>
                                 </div>
                                 <h2>Datos Generales</h2>
                                 <div class="form-row">
@@ -172,24 +172,19 @@ include 'conexion.php'
         
     ?>
     <script>
-    document.getElementById("NombreEm").addEventListener('keyup',sanear2);
-    document.getElementById("NombreEm").addEventListener('keypress',soloLetras);
-
+    document.getElementById("NombreEm").addEventListener('keydown',sinNumeros);
+    document.getElementById("NombreEm").addEventListener('keydown',sinCaracteres);
+    document.getElementById("NombreEm").addEventListener('keydown',permitirUnEspacio);
     
-    document.getElementById("DireccionEm").addEventListener('keyup', sanear2);
+    document.getElementById("NumeroIDEm").addEventListener('keydown',impedirEspacios);
+    document.getElementById("TelefonoEm").addEventListener('keydown',impedirEspacios);
+    document.getElementById("CelularEm").addEventListener('keydown',impedirEspacios);
+    document.getElementById("SalarioEm").addEventListener('keydown',impedirEspacios);
+    
+    
+    document.getElementById("DireccionEm").addEventListener('keydown',permitirUnEspacio);
    
-    document.getElementById("TelefonoEm").addEventListener('keyup', sanear);
-    document.getElementById("CelularEm").addEventListener('keyup', sanear);
-    document.getElementById("NumeroIDEm").addEventListener('keyup', sanear);
-    document.getElementById("SalarioEm").addEventListener('keyup', sanear);
-    function sanear(e) {
-      let contenido = e.target.value;
-      e.target.value = contenido.toUpperCase().replace(" ", "");
-    }
-    function sanear2(e) {
-      let contenido = e.target.value;
-      e.target.value = contenido.toUpperCase().replace("  ", " ");
-    }
+    
     </script>
     <script>
     const $fechaNacimiento=  document.getElementById("FechaEmpleado");

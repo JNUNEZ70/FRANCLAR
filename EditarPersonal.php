@@ -96,13 +96,13 @@ include 'conexion.php'
                             <h2>Datos Personales</h2>
                             <div class="form-row">
                                 <div class="form-group col-md-6">
-                                    <input type="text" onkeypress="return soloLetras(event)" maxlength="50" class="form-control" id="NombreEm" value="<?php echo $row ['Nom_Empleado']; ?>" name="Nombre" placeholder="Nombre" required>
+                                    <input type="text"  maxlength="50" onkeyup="mayus(this);" class="form-control" id="NombreEm" value="<?php echo $row ['Nom_Empleado']; ?>" name="Nombre" placeholder="Nombre" required>
                                 </div>
                                 <div class="form-group col-md-6">
-                                    <input type="text" class="form-control" id="NumeroIDEm" name="NumeroID" maxlength="13" onkeypress="return solonumeros(event)" value="<?php echo $row ['Cedula']; ?>" placeholder="Número de identidad" required>
+                                    <input type="text" class="form-control" id="NumeroIDEm" name="NumeroID" maxlength="13" onkeypress="return solonumeros(event)" value="<?php echo $row ['Cedula']; ?>" placeholder="Número de identidad" required readonly>
                                 </div>
                                 <div class="form-group col-md-6">
-                                    <input type="text" id="FechaNEm" name="FechaN" value="<?php echo $row ['Fec_Nacimiento']; ?>" class="input-group date form-control" date="" data-date-format="dd-mm-yyyy" maxlength="10" onkeypress="return solonumerosfecha(event)" placeholder="Fecha de nacimiento" required>
+                                    <input type="text" id="FechaNEm" name="FechaN" value="<?php echo $row ['Fec_Nacimiento']; ?>" class="input-group form-control" date="" data-date-format="dd-mm-yyyy" maxlength="10" onkeypress="return solonumerosfecha(event)" placeholder="Fecha de nacimiento" required readonly>
                                 </div>
                                 <div class="form-group col-md-6">
                                     <input type="text" onkeypress="return solonumeros(event)" maxlength="8" class="form-control" id="TelefonoEm" name="Telefono" value="<?php echo $row ['Tel_Empleado']; ?>" placeholder="Teléfono fijo">
@@ -111,7 +111,7 @@ include 'conexion.php'
                                     <input type="text" class="form-control" id="CelularEm" name="Celular" onkeypress="return solonumeros(event)" maxlength="8" value="<?php echo $row ['Cel_Empleado']; ?>" placeholder="Celular" required>
                                 </div>
                                 <div class="form-group col-md-6">
-                                    <input type="text" class="form-control" maxlength="255" id="DireccionEm" name="Direccion" value="<?php echo $row ['Dir_Empleado']; ?>" placeholder="Dirección" required>
+                                    <input type="text" class="form-control" onkeyup="mayus(this);" maxlength="255" id="DireccionEm" name="Direccion" value="<?php echo $row ['Dir_Empleado']; ?>" placeholder="Dirección" required>
                                 </div>
                                 <h2>Datos Generales</h2>
                                 <div class="form-row">
@@ -157,7 +157,7 @@ include 'conexion.php'
                                     </select>
                                 </div>
                                 <div class="form-group col-md-6">
-                                    <input type="text" class="form-control" id="SalarioEm" name="Salario" maxlength="5" value="<?php echo $row ['Salario']; ?>" placeholder="Salario" required>
+                                    <input type="text" class="form-control" onkeypress="return solonumeros(event)" id="SalarioEm" name="Salario" maxlength="5" value="<?php echo $row ['Salario']; ?>" placeholder="Salario" required>
                                 </div>
                                 <div class="form-group col-md-12">
                                     <select class="form-control" id="EspecialidadEm" name="Especialidad" required>
@@ -191,21 +191,18 @@ include 'conexion.php'
         include 'script.php'
     ?>
     <script>
-    document.getElementById("NombreEm").addEventListener('keyup',sanear2);
-    document.getElementById("DireccionEm").addEventListener('keyup', sanear2);
-    document.getElementById("FechaNEm").addEventListener('keyup', sanear);
-    document.getElementById("TelefonoEm").addEventListener('keyup', sanear);
-    document.getElementById("CelularEm").addEventListener('keyup', sanear);
-    document.getElementById("NumeroIDEm").addEventListener('keyup', sanear);
-    document.getElementById("SalarioEm").addEventListener('keyup', sanear);
-    function sanear(e) {
-      let contenido = e.target.value;
-      e.target.value = contenido.toUpperCase().replace(" ", "");
-    }
-    function sanear2(e) {
-      let contenido = e.target.value;
-      e.target.value = contenido.toUpperCase().replace("  ", " ");
-    }
+    document.getElementById("NombreEm").addEventListener('keydown',sinNumeros);
+    document.getElementById("NombreEm").addEventListener('keydown',sinCaracteres);
+    document.getElementById("NombreEm").addEventListener('keydown',permitirUnEspacio);
+
+    
+    document.getElementById("TelefonoEm").addEventListener('keydown',impedirEspacios);
+    document.getElementById("CelularEm").addEventListener('keydown',impedirEspacios);
+    document.getElementById("SalarioEm").addEventListener('keydown',impedirEspacios);
+
+    document.getElementById("DireccionEm").addEventListener('keydown',permitirUnEspacio);
+    
+    
     </script>
 </body>
 

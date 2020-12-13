@@ -54,7 +54,7 @@ include 'conexion.php'
                                     </select>
                                 </div>
                                 <div class="form-group col-md-6">
-                                    <input type="email" class="form-control" id="EmailU" name="Email" maxlength="50" onkeypress="return Correo(event)" placeholder="Email" required>
+                                    <input type="email" class="form-control" id="email" name="EmailU" maxlength="50" onkeypress="return Correo(event)" placeholder="Email" required>
                                 </div>
                                 <div class="form-group col-md-4">
                                     <input type="text" class="form-control" id="NomU" name="Nom_Usuario" maxlength="20" onkeypress="return soloLetras(event)" onkeyup="javascript:this.value=this.value.toUpperCase();" placeholder="Nombre de usuario"  required>
@@ -67,7 +67,7 @@ include 'conexion.php'
                                     <select class="form-control" id="RolU" name="Rol" required>
                                         <option value="">Seleccione el rol</option>
                                         <?php
-                                          $sql=$con -> query("Select * from tbl_roles");
+                                          $sql=$con -> query("Select * from tbl_roles WHERE ID_Rol <> 5");
 
                                           while($fila=$sql->fetch_array()){
                                               echo "<option value='".$fila['ID_Rol']."'>".$fila['Rol']."</option>";
@@ -112,59 +112,15 @@ include 'conexion.php'
 
     ?>            
 
-    <!-- <script>
-        function obtener_usuario(user){
+    <?php
+        include 'script.php'
+    ?>
 
-            // var user = document.getElementById('NomU');
-            
-            // alert(user);
-            var theObject = new XMLHttpRequest();
-            theObject.open('POST','ValidarUsuario.php',true);
-            theObject.setRequestHeader('Content-Type','application/x-www-form-urlencoded');
-            theObject.send(user);
-            theObject.onload = function(){
-                        alert(theObject.responseText);
-                //  if (theObject.responseText = 1) {
-                //     alert('El usuario ya existe, favor ingrese otro');                        
-                //  }else{
-                //      alert('Usuario válido');
-                
-            //theObject.send('user');
-            }
-            // alert(user);
-            
-            }
-
-    </script> -->
-
-
+      
     <script>
-    
-    // function crear_usuario(){
-    //     var ColaboradorU = document.getElementById('ColaboradorU');
-    //     var displaytext = ColaboradorU.options[ColaboradorU.selectedIndex].text;
-    //     var primerletra = displaytext.substr(0,1);
-    //     var palabras = displaytext.split(" ");
-    //     var apellido = palabras[2];
-    //     var user = (primerletra + apellido).toUpperCase();
-            
 
-    //     document.getElementById('NomU').value = user;
-        
-    // }
-    
-    // </script>     
-    <script>
-    document.getElementById("NomU").addEventListener('keyup', sanear);
-    document.getElementById("EmailU").addEventListener('keyup', sanear2);
-    function sanear(e) {
-        let contenido = e.target.value;
-        e.target.value = contenido.toUpperCase().replace(" ", "");
-    }
-    function sanear2(e) {
-        let contenido = e.target.value;
-        e.target.value = contenido.replace(" ", "");
-     }
+    document.getElementById("email").addEventListener('keydown',impedirEspacios);
+
     </script> 
 
 
@@ -175,9 +131,7 @@ include 'conexion.php'
 
     <!-- jquery plugins here-->
 
-    <?php
-        include 'script.php'
-    ?>
+    
 </body>
 
 </html>

@@ -106,9 +106,7 @@ include 'conexion.php'
 				<tbody>
 			</table>
 		 </div>
-    <?php
-        include 'Copyright.php'
-    ?>
+    
     <!-- footer part end-->
 
     <!-- jquery plugins here-->

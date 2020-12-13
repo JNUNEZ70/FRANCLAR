@@ -42,7 +42,7 @@ include 'conexion.php'
                             <h2>Ingrese Nuevo Estado Civil</h2>
                             <div class="form-row">
                                 <div class="form-group col-md-6">
-                                    <input type="text" class="form-control" id="Nombre_Estado_Civil" maxlength="15" name="Nombre" onkeypress="return soloLetras(event)" placeholder="Estado Civil" required>
+                                    <input type="text" class="form-control" onkeyup="mayus(this);" id="Nombre_Estado_Civil" maxlength="15" name="Nombre"  placeholder="Estado Civil" required>
                                 </div>
                                
                                 <div class="regerv_btn col-md-8" >
@@ -71,15 +71,12 @@ include 'conexion.php'
         include 'script.php'
     ?>
     <script>
-    document.getElementById("Nombre_Estado_Civil").addEventListener('keyup',sanear2);
-    function sanear(e) {
-      let contenido = e.target.value;
-      e.target.value = contenido.replace(" ", "");
-    }
-    function sanear2(e) {
-      let contenido = e.target.value;
-      e.target.value = contenido.toUpperCase().replace("  ", " ");
-    }
+    
+
+    document.getElementById("Nombre_Estado_Civil").addEventListener('keydown',sinNumeros);
+    document.getElementById("Nombre_Estado_Civil").addEventListener('keydown',sinCaracteres);
+    document.getElementById("Nombre_Estado_Civil").addEventListener('keydown',permitirUnEspacio);
+    
     </script>
     
 </body>

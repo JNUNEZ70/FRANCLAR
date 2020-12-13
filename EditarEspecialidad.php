@@ -68,7 +68,7 @@ include 'conexion.php'
                             <h2>Editar Especialidad</h2>
                             <div class="form-row">
                                 <div class="form-group col-md-6">
-                                    <input type="text" class="form-control" value="<?php echo $row['Descripcion_espec']; ?>" id="Nombre_Especialidad" maxlength="50" name="Nombre" placeholder="Nombre de Especialidad" required>
+                                    <input type="text" class="form-control" value="<?php echo $row['Descripcion_espec']; ?>" onkeyup="mayus(this);" id="Nombre_Especialidad" maxlength="50" name="Nombre" placeholder="Nombre de Especialidad" required>
                                 </div>
 
                                 <div class="form-group col-md-6">
@@ -95,15 +95,11 @@ include 'conexion.php'
         include 'script.php'
     ?>
     <script>
-    document.getElementById("Precio").addEventListener('keyup',sanear);
-    function sanear(e) {
-      let contenido = e.target.value;
-      e.target.value = contenido.replace(" ", "");
-    }
-    function sanear2(e) {
-      let contenido = e.target.value;
-      e.target.value = contenido.toUpperCase().replace("  ", " ");
-    }
+    document.getElementById("Nombre_Especialidad").addEventListener('keydown',sinNumeros);
+    document.getElementById("Nombre_Especialidad").addEventListener('keydown',sinCaracteres);
+    document.getElementById("Nombre_Especialidad").addEventListener('keydown',permitirUnEspacio);
+
+    document.getElementById("Precio").addEventListener('keydown',impedirEspacios);
     </script>
 </body>
 

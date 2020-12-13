@@ -99,7 +99,7 @@ include 'conexion.php'
 				</thead>
                 <tbody>
 				<?php
-				$sql = mysqli_query($con, "SELECT * FROM tbl_cargo");
+				$sql = mysqli_query($con, "SELECT * FROM tbl_cargo WHERE ID_Cargo <> 6");
 				if(mysqli_num_rows($sql) == 0){
 					echo '<tr><td colspan="8">No hay datos.</td></tr>';
 				}else{
@@ -123,10 +123,8 @@ include 'conexion.php'
 				 </tbody>
 			</table>
 		 </div>
-		 <br><br><br><br><br>
-    <?php
-        include 'Copyright.php'
-    ?>
+		 
+   
     <!-- footer part end-->
 
     <!-- jquery plugins here-->

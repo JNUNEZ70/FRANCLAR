@@ -60,7 +60,7 @@
             </head>
             <style type= "text/css">
             
-                table, td {
+                table .borde {
                     border: 1px solid black;
                     border-collapse: collapse;
                     padding: 1px;
@@ -104,27 +104,33 @@
             </style>
             <body>    
                 <table style="width: 100%">
-                    <tr>
-                        <td  colspan="4" style="text-align:center">
-                            <p>COMPLEJO MÉDICO FRANCLAR</p>
-                            <br>
-                            <p>RECETA MÉDICA</p>
-                            <br>
+                    <tr style="text-align:center" >
+                        <td  style="text-align:center">
                             <img src="img/franclar_logo.png">
-                        </td>            
+                            </td>
+                            <td colspan="2" style="text-align:center">
+                            <p style="font-size: 45px" >FRANCLAR</p>
+                            
+                            <p style="font-size: 15px" >Somos Instrumentos de Amor; Paz y Bien con Francisco y Clara al Servicio de Cristo</p>
+                            <br>
+                            
+                            </td>
+                            <td  style="text-align:center">
+                            <img src="img/logo_receta.png" style="width: 15%">
+                        </td>               
                     </tr>
-                    <tr>
-                        <td colspan="4" style="text-align:center">
+                    <tr >
+                        <td class="borde" colspan="4" style="text-align:center">
                             <p>RECETA MÉDICA CITA No '.$num_cita.'</p>
                         </td>          
                     </tr>
                     <tr>
-                        <td colspan="4" style="text-align:left">
+                        <td  colspan="4" style="text-align:left">
                             <p>Fecha y Hora de Atención:</p><p>'.$Fecha_atencion.'</p>
                         </td>      
                     </tr>
                     <tr>
-                        <td class="divisor" colspan="4" style="text-align:center" >                 
+                        <td  class="borde divisor" colspan="4" style="text-align:center" >                 
                         </td>          
                     </tr>
                     <tr>
@@ -144,7 +150,7 @@
                         </td>         
                     </tr>
                     <tr>
-                        <td class="divisor" colspan="4" style="text-align:center" >                 
+                        <td class="borde divisor" colspan="4" style="text-align:center" >                 
                         </td>          
                     </tr>
                     <tr>
@@ -181,7 +187,7 @@
                         <td style="text-align:left">
                             <p>Firma y sello de médico</p>
                         </td>  
-                        <td Class="firma" colspan="3" style="text-align:center">                 
+                        <td Class="borde firma" colspan="3" style="text-align:center">                 
                         </td>      
                     </tr>
                     

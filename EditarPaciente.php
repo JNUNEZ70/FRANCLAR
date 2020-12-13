@@ -1,7 +1,11 @@
+<!doctype html>
+<html lang="en">
+
 <?php
 session_start();
 include 'head.php'
 ?>
+
 <?php
 include 'conexion.php'
 ?>
@@ -13,8 +17,8 @@ include 'conexion.php'
     ?>
     <!-- Header part end-->
 
-    <!-- breadcrumb start-->
-    <section class="breadcrumb_part breadcrumb_bg">
+     <!-- breadcrumb start-->
+     <section class="breadcrumb_part breadcrumb_bg">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
@@ -115,19 +119,19 @@ include 'conexion.php'
                             <h2>Datos Personales</h2>
                             <div class="form-row">
                                 <div class="form-group col-md-12">
-                                    <input type="text" class="form-control" id="Nombre" name="NomPac" value="<?php echo $row ['Nom_Paciente']; ?>" maxlength="70" placeholder="Nombre" required>
+                                    <input type="text" class="form-control" id="Nombre" onkeyup="mayus(this);" name="NomPac" value="<?php echo $row ['Nom_Paciente']; ?>" maxlength="70" placeholder="Nombre" required>
                                 </div>
                                 <div class="form-group col-md-6">
                                     <input type="text" class="form-control" id="NumeroID" name="NumIDPac" value="<?php echo $row ['cedula']; ?>" onkeypress="return solonumeros(event)" maxlength="13" placeholder="Número de identidad" required readonly>
                                 </div>
                                 <div class="form-group col-md-6">
-                                    <input type="text" id="FechaN" name="FecPac" class="input-group date form-control" date="" data-date-format="dd-mm-yyyy" onkeypress="return solonumerosfecha(event)" maxlength="10" value="<?php echo $row ['Fec_Nacimiento']; ?>" placeholder="Fecha de nacimiento" required readonly>
+                                    <input type="text" id="FechaN" name="FecPac" class="input-group  form-control" date="" data-date-format="dd-mm-yyyy"  maxlength="10" value="<?php echo $row ['Fec_Nacimiento']; ?>" placeholder="Fecha de nacimiento" required readonly>
                                 </div>
                                 <div class="form-group col-md-6">
-                                    <input type="text" class="form-control" id="Edad" name="EdadPac" value="<?php echo $row ['Edad']; ?>" onkeypress="return solonumeros(event)" maxlength="3" placeholder="Edad" required>
+                                    <input type="text" class="form-control" id="Edad" name="EdadPac" value="<?php echo $row ['Edad']; ?>" onkeypress="return solonumeros(event)" maxlength="3" placeholder="Edad" required readonly>
                                 </div>
                                 <div class="form-group col-md-6">
-                                    <input type="email" class="form-control" id="Email" name="EmailPac" value="<?php echo $row ['Email']; ?>" onkeypress="return Correo(event)" maxlength="50" placeholder="Email" required>
+                                    <input type="text" class="form-control" id="Email" name="EmailPac" value="<?php echo $row ['Email']; ?>" onkeypress="return Correo(event)" maxlength="50" placeholder="Email" required>
                                 </div>
                                 <div class="form-group col-md-6">
                                     <input type="tel" class="form-control" id="Telefono" name="TelPac" value="<?php echo $row ['Tel_Paciente']; ?>" onkeypress="return solonumeros(event)" maxlength="8" placeholder="Teléfono fijo">
@@ -136,7 +140,7 @@ include 'conexion.php'
                                     <input type="text" class="form-control" id="Celular" name="CelPac" value="<?php echo $row ['Cel_Paciente']; ?>" onkeypress="return solonumeros(event)" maxlength="8" placeholder="Celular" required>
                                 </div>
                                 <div class="form-group col-md-12">
-                                    <input type="text" class="form-control" id="Direccion" name="DirPac" value="<?php echo $row ['Dir_Paciente']; ?>" maxlength="255" placeholder="Dirección" required>
+                                    <input type="text" class="form-control" id="Direccion" onkeyup="mayus(this);" name="DirPac" value="<?php echo $row ['Dir_Paciente']; ?>" maxlength="255" placeholder="Dirección" required>
                                 </div>
                                 <h2>Datos Generales</h2>
                                 <div class="form-row">
@@ -203,7 +207,7 @@ include 'conexion.php'
                                         <option value="<?php echo $row ['ID_Parentesco']; ?>"><?php echo $row ['Parentesco']; ?></option>
                                         <?php
                                           $dato= $row ['ID_Parentesco'];
-                                          $sql=mysqli_query($con,"SELECT * FROM tbl_parentesco WHERE ID_Parentesco<>'$dato'");
+                                          $sql=mysqli_query($con,"SELECT * FROM tbl_parentesco WHERE ID_Parentesco <>'$dato'");
 
                                           while($fila=$sql->fetch_array()){
                                               echo "<option value='".$fila['ID_Parentesco']."'>".$fila['Parentesco']."</option>";
@@ -262,38 +266,30 @@ include 'conexion.php'
         include 'script.php'
     ?>
     <script>
-    document.getElementById("Nombre").addEventListener('keyup',sanear2);
-    document.getElementById("Nombre").addEventListener('keypress',soloLetras);
-    document.getElementById("Direccion").addEventListener('keyup', sanear2);
-    document.getElementById("NombreEmer").addEventListener('keyup',sanear2);
-    document.getElementById("NombreEmer").addEventListener('keypress',soloLetras);
+    document.getElementById("Nombre").addEventListener('keydown',sinNumeros);
+    document.getElementById("Nombre").addEventListener('keydown',sinCaracteres);
+    document.getElementById("Nombre").addEventListener('keydown',permitirUnEspacio);
+
+    document.getElementById("Direccion").addEventListener('keydown',permitirUnEspacio);
+
+    document.getElementById("NombreEmer").addEventListener('keydown',sinNumeros);
+    document.getElementById("NombreEmer").addEventListener('keydown',permitirUnEspacio);
+    document.getElementById("NombreEmer").addEventListener('keydown',sinCaracteres);
+    
     document.getElementById("Telefono").addEventListener('keyup', sanear);
     document.getElementById("Celular").addEventListener('keyup', sanear);
     document.getElementById("NumeroID").addEventListener('keyup', sanear);
     document.getElementById("Edad").addEventListener('keyup', sanear);
-    function sanear(e) {
-      let contenido = e.target.value;
-      e.target.value = contenido.toUpperCase().replace(" ", "");
-    }
-    function sanear2(e) {
-      let contenido = e.target.value;
-      e.target.value = contenido.toUpperCase().replace("  ", " ");
-    }
-    </script>
-    <script>
-    document.getElementById("NombreEmer").addEventListener('keyup',sanear2);
-    document.getElementById("Parentesco").addEventListener('keyup', sanear2);
-    document.getElementById("Personales").addEventListener('keyup',sanear2);
-    document.getElementById("NombreEmer").addEventListener('keyup',sanear2);
-    document.getElementById("Hospitalarios").addEventListener('keyup',sanear2);
-    
+    document.getElementById("Email").addEventListener('keyup',sanear3);
 
+    document.getElementById("Personales").addEventListener('keyup',sanear2);    
+    document.getElementById("Hospitalarios").addEventListener('keyup',sanear2); 
     document.getElementById("Alergicos").addEventListener('keyup',sanear2);
     document.getElementById("Familiares").addEventListener('keyup',sanear2);
-    
     document.getElementById("Habitos").addEventListener('keyup',sanear2);
     document.getElementById("TelefonoEmer").addEventListener('keyup', sanear);
     document.getElementById("CelularEmer").addEventListener('keyup', sanear);
+
     function sanear(e) {
       let contenido = e.target.value;
       e.target.value = contenido.toUpperCase().replace(" ", "");
@@ -302,14 +298,13 @@ include 'conexion.php'
       let contenido = e.target.value;
       e.target.value = contenido.toUpperCase().replace("  ", " ");
     }
-    </script>
-    <script>
-    document.getElementById("Email").addEventListener('keyup',sanear2);
-    function sanear2(e) {
+    function sanear3(e) {
       let contenido = e.target.value;
-      e.target.value = contenido.toUpperCase().replace("  ", " ");
+      e.target.value = contenido.replace(" ", "");
     }
     </script>
+   
+    
 </body>
 
 </html>  

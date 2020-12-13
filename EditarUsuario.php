@@ -89,7 +89,7 @@ include 'conexion.php'
                                     <select class="form-control" id="RolU" name="Rol" required>
                                     <option value="<?php echo $row ['ID_Rol']; ?>"><?php echo $row ['Rol']; ?></option>
                                         <?php
-                                          $dato= $row ['ID_Rol'];
+                                          $dato= $row['ID_Rol'];
                                           $sql=$con -> query("Select * from tbl_roles WHERE ID_Rol<>'$dato'");
                                           while($fila=$sql->fetch_array()){
                                               echo "<option value='".$fila['ID_Rol']."'>".$fila['Rol']."</option>";
