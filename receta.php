@@ -111,7 +111,7 @@
                             <td colspan="2" style="text-align:center">
                             <p style="font-size: 45px" >FRANCLAR</p>
                             
-                            <p style="font-size: 15px" >Somos Instrumentos de Amor; Paz y Bien con Francisco y Clara al Servicio de Cristo</p>
+                            <p style="font-size: 15px" >Somos Instrumentos de Amor; Paz y Bien con Francisco y Clara al Servicio de Cristo.</p>
                             <br>
                             
                             </td>

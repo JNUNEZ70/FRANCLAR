@@ -44,18 +44,23 @@
 
                         
                          $num_archivos = count($_FILES['foto']['name']); 
-                        
+                        //   var_dump($num_archivos);
+                        //   return false;
+
                             
                          
                          for ($i=0; $i <$num_archivos; $i++) { 
-                             if ($_FILES['foto']['name'][$i]) {                          
-                                 $tipoimagen = $_FILES['foto']['type'][$i];
-                                 $tamañoarchivo = $_FILES['foto']['size'][$i];
-                                 $imagensubida = fopen($_FILES['foto']['tmp_name'][$i],'r+');
-                                 $binariosimagen = fread($imagensubida,$tamañoarchivo);
-                                 $binariosimagen = mysqli_real_escape_string($con,$binariosimagen);
-                                 $insert_foto = mysqli_query($con, "INSERT INTO tbl_fotos_consultas (ID_Cita, tipo_imagen, imagen) 
-                                                VALUES ( '$num_cita' , '$tipoimagen' , '$binariosimagen' )") or die(mysqli_error());   
+                             if ($_FILES['foto']['name'][$i]) {
+                                                        
+                                //  $tipoimagen = $_FILES['foto']['type'][$i];
+                                //  $tamañoarchivo = $_FILES['foto']['size'][$i];
+                                //  $imagensubida = fopen($_FILES['foto']['tmp_name'][$i],'r+');
+                                //  $binariosimagen = fread($imagensubida,$tamañoarchivo);
+                                //  $binariosimagen = mysqli_real_escape_string($con,$binariosimagen);
+                                 $ruta = 'Fotos_Citas/'.$_FILES['foto']['name'][$i]; 
+                                 move_uploaded_file($_FILES['foto']['tmp_name'][$i],$ruta);
+                                 $insert_foto = mysqli_query($con, "INSERT INTO tbl_fotos_consultas (ID_Cita, URL_Foto) 
+                                                VALUES ( '$num_cita' , '$ruta' )") or die(mysqli_error());   
                                 }
                             }
                         

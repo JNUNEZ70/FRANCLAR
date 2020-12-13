@@ -121,7 +121,7 @@ include 'conexion.php'
 				<tbody>
 			</table>
 		 </div>
-		 
+		 <br><br><br><br>	
     <!-- footer part end-->
 
     <!-- jquery plugins here-->

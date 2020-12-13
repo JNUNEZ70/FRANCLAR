@@ -72,7 +72,22 @@ $factura='<!DOCTYPE html>
  <body> 
      <div class="contenedor">   
      <table style="width: 100%">
-        <tr>
+     <tr style="text-align:center" >
+            <td  style="text-align:center">
+                <img src="img/franclar_logo.png">
+                </td>
+                <td colspan="2" style="text-align:center">
+                <p style="font-size: 45px" >FRANCLAR</p>
+                
+                <p style="font-size: 15px" >Somos Instrumentos de Amor; Paz y Bien con Francisco y Clara al Servicio de Cristo.</p>
+                <br>
+                
+                </td>
+                <td  style="text-align:center">
+                <img src="img/logo_receta.png" style="width: 15%">
+            </td>               
+     </tr>
+     <tr>
              <td  colspan="4" style="text-align:right">
                  <p>Recibo Número '.$id_factura.'</p>                 
              </td>            
@@ -81,14 +96,7 @@ $factura='<!DOCTYPE html>
              <td  colspan="4" style="text-align:right">
                  <p>Factura Número '.$num_factura.'</p>                 
              </td>            
-         </tr>
-         <tr>
-             <td  colspan="4" style="text-align:center">               
-                 <p>COMPLEJO MÉDICO FRANCLAR</p>
-                 <br>
-                 <img src="img/franclar_logo.png">
-             </td>            
-         </tr>
+         </tr>         
          <tr>
              <td colspan="4" class="divisor" style="text-align:center">                 
              </td>          
@@ -178,11 +186,13 @@ $factura='<!DOCTYPE html>
              <tr class="divisor">
              <td colspan="4" style="text-align:center">                 
              </td>          
+         <tr>
+             <td colspan="4" class="divisor" style="text-align:center">                 
+             </td>          
          </tr>
-             <tr>
-              
-             <td colspan="2" class="col1" style="text-align:left">
-                 
+         </tr>
+             <tr>              
+             <td colspan="2" class="col1" style="text-align:left">                 
              </td>
              <td class="col2" style="text-align:center">
                 Subtotal
@@ -193,8 +203,8 @@ $factura='<!DOCTYPE html>
                       
          </tr>
          
-         <tr class="divisor">
-             <td colspan="4" style="text-align:center">                 
+         <tr>
+             <td colspan="4" class="divisor" style="text-align:center">                 
              </td>          
          </tr>
          <tr>

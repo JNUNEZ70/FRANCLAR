@@ -42,12 +42,12 @@ include 'conexion.php'
     <div class="galeria">
 	 
         <?php
-        $sql = mysqli_query($con, "SELECT tbl_citas.ID_Cita, tbl_pacientes.Nom_Paciente,tbl_citas.Fec_Atencion,
-         tbl_fotos_consultas.tipo_imagen,tbl_fotos_consultas.imagen FROM 
-        tbl_fotos_consultas INNER JOIN tbl_citas ON tbl_fotos_consultas.ID_Cita=tbl_citas.ID_Cita
-        INNER JOIN tbl_pacientes 
-        ON tbl_citas.ID_Paciente= tbl_pacientes.ID_Paciente 
-        WHERE tbl_fotos_consultas.ID_Cita='$nik'");
+        $sql = mysqli_query($con, "SELECT tbl_citas.ID_Cita, 
+        tbl_pacientes.Nom_Paciente,
+        tbl_citas.Fec_Atencion,
+        tbl_fotos_consultas.URL_Foto FROM tbl_fotos_consultas 
+        INNER JOIN tbl_citas ON tbl_fotos_consultas.ID_Cita = tbl_citas.ID_Cita
+        INNER JOIN tbl_pacientes ON tbl_citas.ID_Paciente = tbl_pacientes.ID_Paciente WHERE tbl_fotos_consultas.ID_Cita='$nik'");
 
             if(mysqli_num_rows($sql) == 0){
                 echo '<h2>No hay fotos asociadas a esta cita.</h2>';
@@ -65,8 +65,8 @@ include 'conexion.php'
                             <p>Cita numero <?php echo $row['ID_Cita'];?></p>    
                             <p><?php echo $row['Nom_Paciente'];?></p>
                             <p> Fecha <?php echo $row['Fec_Atencion'];?></p>
-                        </span>
-                                <img width="500" src="data:<?php echo $row['tipo_imagen']; ?>;base64,<?php echo base64_encode($row['imagen']); ?>" >			
+                            </span>
+                                <img width="500" hight="500" src="<?php echo $row['URL_Foto'];?>" alt="Foto_consulta" >			
                             </label>
                             <div>
                                 
@@ -87,7 +87,7 @@ include 'conexion.php'
 
 <!-- jquery plugins here-->
 
-<?php
+    <?php
         include 'script.php'
     ?>
     
@@ -102,6 +102,6 @@ jQuery('input[type="checkbox"]').on('change', function() {
 
 </body>
 
-
+<br><br><br><br><br>	
 
 </html>

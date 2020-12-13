@@ -165,7 +165,7 @@ include 'conexion.php'
                                         </div>
                                         <p class="col-md-12">Si el cobro no existe, agregue uno nuevo</p>                                        
                                         <div class="form-group col-md-6">
-                                            <input type="text" class="form-control" id="desc_cobro" name="desc_cobro" placeholder="Agregar descripción del cobro" onkeypress="return soloLetras(event)" >                 
+                                            <input type="text" class="form-control" id="desc_cobro" name="desc_cobro" placeholder="Agregar descripción del cobro" onkeyup="mayus(this);" >                 
                                         </div>
                                         <div class="form-group col-md-6">
                                             <input type="text" class="form-control" id="precio_cobro" name="precio_cobro" placeholder="Agregar precio del cobro" onkeypress="return solonumeros(event)" >                 
@@ -206,16 +206,13 @@ include 'conexion.php'
         include 'script.php'
     ?>
     <script>
-    document.getElementById("precio_cobro").addEventListener('keyup',sanear);
-    document.getElementById("desc_cobro").addEventListener('keyup',sanear2);
-    function sanear(e) {
-      let contenido = e.target.value;
-      e.target.value = contenido.replace(" ", "");
-    }
-    function sanear2(e) {
-      let contenido = e.target.value;
-      e.target.value = contenido.toUpperCase().replace("  ", " ");
-    }
+    // document.getElementById("desc_cobro").addEventListener('keydown',sinNumeros);
+    // document.getElementById("desc_cobro").addEventListener('keydown',sinCaracteres);
+    document.getElementById("desc_cobro").addEventListener('keydown',permitirUnEspacio);
+
+    document.getElementById("precio_cobro").addEventListener('keydown',impedirEspacios);
+    
+    
     </script>
 </body>
 
