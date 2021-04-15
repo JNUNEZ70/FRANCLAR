@@ -23,12 +23,13 @@
             $nuevacont = mysqli_real_escape_string($conn,(strip_tags($_POST['Ncontraseña'],ENT_QUOTES)));
             $confnuevacont = mysqli_real_escape_string($conn,(strip_tags($_POST['Ccontraseña'],ENT_QUOTES)));
             $id_usuario= $_SESSION['ID_Usuario']; 
+            $nuevacont_encr = password_hash($nuevacont, PASSWORD_DEFAULT);
             
             $obtenerresp = mysqli_query($conn, "SELECT * FROM tbl_pregunta_usuario WHERE ID_Pregunta='$idpregunta' AND ID_Usuario='$id_usuario'");
             $dato = mysqli_fetch_assoc($obtenerresp);
             $resp_usu = $dato['Respuesta'];
 
-            if($resp_usu <> $respuesta){
+            if(password_verify($respuesta,$resp_usu) == 0){
                 echo "<script type='text/javascript'>
                 alert('Respuesta incorrecta, favor intente de nuevo');
                 window.location.href= 'RPreguntas.php';
@@ -39,7 +40,7 @@
                 window.location.href= 'RPreguntas.php';
                 </script>";
             }else{
-                $update = mysqli_query($conn, "UPDATE tbl_usuario SET Contraseña='$nuevacont', ID_Estado=1 WHERE ID_Usuario='$id_usuario'") or die(mysqli_error());
+                $update = mysqli_query($conn, "UPDATE tbl_usuario SET Contraseña='$nuevacont_encr', ID_Estado=1 WHERE ID_Usuario='$id_usuario'") or die(mysqli_error());
                 if($update){
                     echo "<script type='text/javascript'>
                     alert('Contraseña modificada exitosamente, favor inicie sesión');
@@ -57,7 +58,7 @@
             <form action="" method="POST" class="login100-form validate-form">
                 <!-----Question---->
                 <label for="Question">Pregunta</label>
-                <select class="form-control" id="Pregunta" name="pregunta" required>
+                <select class="form-control" id="Pregunta" name="pregunta" onchange="activar_resp()" required>
                     <option value="0" selected>Seleccione una pregunta</option>
                     <?php
                         $id_usuario= $_SESSION['ID_Usuario']; 
@@ -80,7 +81,7 @@
                 
                 </input>
                 
-            </form>
+            </form>            
         </div>
     </body>
 </html>

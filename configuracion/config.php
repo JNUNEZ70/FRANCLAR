@@ -1,7 +1,8 @@
 <?php 
 
 $server = "localhost";
-$user = "root";
-$password = "";
+$user = "franclar";
+$password = "Franclar#2020";
 $database = "sistema_franclar"; 
+
 ?>

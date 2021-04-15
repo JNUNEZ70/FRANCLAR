@@ -56,11 +56,7 @@ include 'conexion.php'
     <form class="form-inline my-2 my-lg-0 float-left">
         <a href="agregarcita.php" class="genric-btn info circle">Agregar</a>
     </form>	
-    <form class="form-inline my-2 my-lg-0 float-left">
-        <a href="CalendarioCitas.php" class="genric-btn info circle">
-		<i class="fa fa-calendar-check-o fa-lg fa-lg"> </i> Ver Calendario  </a>
-		
-	</form>	
+    
 	<div class="form-inline my-2 my-lg-0 float-left" >
 	<a class="genric-btn info circle" href="PHPMailer/notificaciones.php">
 	<i class="fa fa-envelope fa-lg"> </i> Enviar Email  </a>
@@ -94,11 +90,11 @@ include 'conexion.php'
 						$sql = mysqli_query($con, "SELECT tbl_citas.ID_Cita,	
 						tbl_pacientes.Nom_Paciente,
 						tbl_citas.Fec_Creacion,
-						tbl_especialidad.Descripcion_espec,
+						tbl_especialidad.Descripcion_Espec,
 						tbl_empleado.Nom_Empleado,
 						tbl_citas.Fec_Atencion,	
 						tbl_citas.Hora_Atencion,	
-						tbl_estado_cita.Descripcion_est_cita,
+						tbl_estado_cita.Descripcion_Est_cita,
 						tbl_estado_cita.ID_Estado FROM tbl_citas 
 						INNER JOIN tbl_pacientes on tbl_citas.ID_Paciente = tbl_pacientes.ID_Paciente
 						INNER JOIN tbl_especialidad on tbl_citas.ID_Especialidad = tbl_especialidad.ID_Especialidad
@@ -115,11 +111,11 @@ include 'conexion.php'
 									<td>'.$row['ID_Cita'].'</td>
 									<td>'.$row['Nom_Paciente'].'</td>
 									<td>'.$row['Fec_Creacion'].'</td>
-									<td>'.$row['Descripcion_espec'].'</td>
+									<td>'.$row['Descripcion_Espec'].'</td>
 									<td>'.$row['Nom_Empleado'].'</td>
 									<td>'.$row['Fec_Atencion'].'</td>
 									<td>'.$row['Hora_Atencion'].'</td>
-									<td><span class="label label-success">'.$row['Descripcion_est_cita'].'</span></td>					
+									<td><span class="label label-success">'.$row['Descripcion_Est_cita'].'</span></td>					
 									<td>							
 										<a href="EditarCita.php?nik='.$row['ID_Cita'].'" title="Editar datos" class="btn btn-success btn-sm"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></a>
 										<a href="Cita.php?aksi=delete&nik='.$row['ID_Cita'].'" title="Eliminar" onclick="return confirm(\'¿Está seguro de borrar los datos de la cita\')" class="btn btn-danger btn-sm"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>
@@ -132,11 +128,11 @@ include 'conexion.php'
 									<td>'.$row['ID_Cita'].'</td>
 									<td>'.$row['Nom_Paciente'].'</td>
 									<td>'.$row['Fec_Creacion'].'</td>
-									<td>'.$row['Descripcion_espec'].'</td>
+									<td>'.$row['Descripcion_Espec'].'</td>
 									<td>'.$row['Nom_Empleado'].'</td>
 									<td>'.$row['Fec_Atencion'].'</td>
 									<td>'.$row['Hora_Atencion'].'</td>
-									<td><span class="label label-info">'.$row['Descripcion_est_cita'].'</span></td>
+									<td><span class="label label-info">'.$row['Descripcion_Est_cita'].'</span></td>
 									<td>							
 									<a href="EditarCita.php?nik='.$row['ID_Cita'].'" title="Editar datos" class="btn btn-success btn-sm"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></a>
 									<a href="Cita.php?aksi=delete&nik='.$row['ID_Cita'].'" title="Eliminar" onclick="return confirm(\'¿Está seguro de borrar los datos de la cita\')" class="btn btn-danger btn-sm"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>
@@ -149,11 +145,11 @@ include 'conexion.php'
 									<td>'.$row['ID_Cita'].'</td>
 									<td>'.$row['Nom_Paciente'].'</td>
 									<td>'.$row['Fec_Creacion'].'</td>
-									<td>'.$row['Descripcion_espec'].'</td>
+									<td>'.$row['Descripcion_Espec'].'</td>
 									<td>'.$row['Nom_Empleado'].'</td>
 									<td>'.$row['Fec_Atencion'].'</td>
 									<td>'.$row['Hora_Atencion'].'</td>
-									<td><span class="label label-primary">'.$row['Descripcion_est_cita'].'</span></td>
+									<td><span class="label label-primary">'.$row['Descripcion_Est_cita'].'</span></td>
 									<td>							
 									<a href="EditarCita.php?nik='.$row['ID_Cita'].'" title="Editar datos" class="btn btn-success btn-sm"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></a>
 									<a href="Cita.php?aksi=delete&nik='.$row['ID_Cita'].'" title="Eliminar" onclick="return confirm(\'¿Está seguro de borrar los datos de la cita\')" class="btn btn-danger btn-sm"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>
@@ -166,11 +162,11 @@ include 'conexion.php'
 									<td>'.$row['ID_Cita'].'</td>
 									<td>'.$row['Nom_Paciente'].'</td>
 									<td>'.$row['Fec_Creacion'].'</td>
-									<td>'.$row['Descripcion_espec'].'</td>
+									<td>'.$row['Descripcion_Espec'].'</td>
 									<td>'.$row['Nom_Empleado'].'</td>
 									<td>'.$row['Fec_Atencion'].'</td>
 									<td>'.$row['Hora_Atencion'].'</td>
-									<td><span class="label label-warning">'.$row['Descripcion_est_cita'].'</span></td>					
+									<td><span class="label label-warning">'.$row['Descripcion_Est_cita'].'</span></td>					
 									<td>							
 									<a href="EditarCita.php?nik='.$row['ID_Cita'].'" title="Editar datos" class="btn btn-success btn-sm"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></a>
 									<a href="Cita.php?aksi=delete&nik='.$row['ID_Cita'].'" title="Eliminar" onclick="return confirm(\'¿Está seguro de borrar los datos de la cita\')" class="btn btn-danger btn-sm"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>

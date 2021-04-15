@@ -15,40 +15,13 @@
     ?>
 
     <?php
-			// // escaping, additionally removing everything that could be (html/javascript-) code
-			// $nik = mysqli_real_escape_string($con,(strip_tags($_GET["nik"],ENT_QUOTES)));
-			// $sql = mysqli_query($con, "SELECT tbl_empleado.ID_Empleado,	
-            // tbl_empleado.Nom_Empleado,
-            // tbl_empleado.Cedula,
-            // tbl_empleado.Fec_Nacimiento,	
-            // tbl_empleado.Tel_Empleado,	
-            // tbl_empleado.Cel_Empleado,
-            // tbl_empleado.Dir_Empleado,
-            // tbl_sexo.ID_Sexo,
-            // tbl_sexo.Descripcion_sexo,	
-            // tbl_estado_civil.ID_Est_Civil,
-            // tbl_estado_civil.Descripcion_est_civil,
-            // tbl_cargo.ID_Cargo,
-            // tbl_cargo.nomb_cargo,
-            // tbl_empleado.Salario,
-            // tbl_especialidad.ID_especialidad,
-            // tbl_especialidad.Descripcion_espec FROM tbl_empleado 
-            // INNER JOIN tbl_sexo on tbl_empleado.ID_Sexo = tbl_sexo.ID_Sexo
-            // INNER JOIN tbl_estado_civil on tbl_empleado.ID_Est_Civil = tbl_estado_civil.ID_Est_Civil
-            // INNER JOIN tbl_cargo on tbl_empleado.ID_Cargo = tbl_cargo.ID_Cargo
-            // INNER JOIN tbl_especialidad on tbl_empleado.ID_Especialidad = tbl_especialidad.ID_especialidad WHERE ID_Empleado='$nik'");
-			// if(mysqli_num_rows($sql) == 0){
-			// 	header("Location: index.php");
-			// }else{
-			// 	$row = mysqli_fetch_assoc($sql);
-            // }
-            
-
+			
 			 if(isset($_POST['save'])){
                  
                 $pregunta = mysqli_real_escape_string($conn,(strip_tags($_POST['preguntas'],ENT_QUOTES)));
                 $respuesta = mysqli_real_escape_string($conn,(strip_tags($_POST['respuesta'],ENT_QUOTES)));
                 $id_usuario= $_SESSION['ID_Usuario'];
+                $respuesta_encr = password_hash($respuesta, PASSWORD_DEFAULT);
                 
 
                 $validar = mysqli_query($conn, "SELECT * FROM tbl_pregunta_usuario WHERE ID_Pregunta='$pregunta' AND ID_Usuario='$id_usuario'");
@@ -60,7 +33,7 @@
                     </script>";
                 }else{
 			 	$insert = mysqli_query($conn, "INSERT INTO tbl_pregunta_usuario (ID_Pregunta, ID_Usuario, Respuesta) 
-                                          VALUES ( '$pregunta' , '$id_usuario' , '$respuesta')") or die(mysqli_error());
+                                          VALUES ( '$pregunta' , '$id_usuario' , '$respuesta_encr')") or die(mysqli_error());
 			 	if($insert){
                     $obtener_dato = mysqli_query($conn, "SELECT * FROM tbl_usuario WHERE ID_Usuario='$id_usuario'");
                     $row = mysqli_fetch_assoc($obtener_dato);                        

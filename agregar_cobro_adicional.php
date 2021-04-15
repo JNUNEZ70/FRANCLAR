@@ -46,7 +46,7 @@ include 'script.php';
                                     <input onkeyup="mayus(this);" type="text" class="form-control" id="nombre_cobro" maxlength="50" name="Nombre" placeholder="Nombre del Cobro" required>
                                 </div>
                                 <div class="form-group col-md-6">
-                                    <input onkeypress="return solonumeros(event)"  type="text" class="form-control" id="precio_cobro" maxlength="5" name="precio" placeholder="Precio del Cobro" required>
+                                    <input onkeypress="return solonumeros(event)"  type="text" class="form-control" id="Precio_Cobro" maxlength="5" name="precio" placeholder="Precio del Cobro" required>
                                 </div>
                                 <div class="regerv_btn col-md-8" >
                                     <button type="submit" name="add" class="btn_2">Guardar</button>
@@ -80,7 +80,7 @@ include 'script.php';
     document.getElementById("nombre_cobro").addEventListener('keydown',permitirUnEspacio);
     
     
-    document.getElementById("precio_cobro").addEventListener('keydown',impedirEspacios);    
+    document.getElementById("Precio_Cobro").addEventListener('keydown',impedirEspacios);    
 
     </script>
 </body>

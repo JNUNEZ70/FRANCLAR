@@ -34,7 +34,7 @@ include 'conexion.php'
     <?php
 			// escaping, additionally removing everything that could be (html/javascript-) code
 			$nik = mysqli_real_escape_string($con,(strip_tags($_GET["nik"],ENT_QUOTES)));
-			$sql = mysqli_query($con, "SELECT * FROM tbl_cobros_adicionales WHERE ID_cobro_adicional='$nik'");
+			$sql = mysqli_query($con, "SELECT * FROM tbl_cobros_adicionales WHERE ID_Cobro_adicional='$nik'");
 			if(mysqli_num_rows($sql) == 0){
 				header("Location: index.php");
 			}else{
@@ -44,7 +44,7 @@ include 'conexion.php'
                 $nombre = mysqli_real_escape_string($con,(strip_tags($_POST['Nombre'],ENT_QUOTES))); 
                 $precio = mysqli_real_escape_string($con,(strip_tags($_POST['precio'],ENT_QUOTES))); 
 				
-				$update = mysqli_query($con, "UPDATE tbl_cobros_adicionales SET Descripcion_cobro='$nombre',Precio_cobro='$precio' WHERE ID_cobro_adicional='$nik'");
+				$update = mysqli_query($con, "UPDATE tbl_cobros_adicionales SET Descripcion_Cobro='$nombre',Precio_Cobro='$precio' WHERE ID_Cobro_adicional='$nik'");
 				if($update){
                     $id_usuario= $_SESSION['ID_Usuario'];
                     $insert_bitacora = mysqli_query($con, "INSERT INTO tbl_bitacora_evento (id_usuario,id_objeto,Accion,Descripcion)
@@ -68,10 +68,10 @@ include 'conexion.php'
                             <h2>Editar Cobro Adicional</h2>
                             <div class="form-row">
                                 <div class="form-group col-md-6">
-                                    <input type="text" onkeyup="mayus(this);" class="form-control" value="<?php echo $row['Descripcion_cobro']; ?>" id="nombre_cobro" maxlength="50" name="Nombre" placeholder="Nombre del cobro" required >
+                                    <input type="text" onkeyup="mayus(this);" class="form-control" value="<?php echo $row['Descripcion_Cobro']; ?>" id="nombre_cobro" maxlength="50" name="Nombre" placeholder="Nombre del cobro" required >
                                 </div>
                                 <div class="form-group col-md-6">
-                                    <input onkeypress="return solonumeros(event)" type="text" class="form-control" value="<?php echo $row['Precio_cobro']; ?>" id="precio_cobro" maxlength="5" name="precio" placeholder="precio del cobro" required>
+                                    <input onkeypress="return solonumeros(event)" type="text" class="form-control" value="<?php echo $row['Precio_Cobro']; ?>" id="Precio_Cobro" maxlength="5" name="precio" placeholder="precio del cobro" required>
                                 </div>
                                 <div class="regerv_btn col-md-8">
                                     <button type="submit" name="save" class="btn_2">Guardar</button>
@@ -97,7 +97,7 @@ include 'conexion.php'
     document.getElementById("nombre_cobro").addEventListener('keydown',permitirUnEspacio);
     
     
-    document.getElementById("precio_cobro").addEventListener('keydown',impedirEspacios);  
+    document.getElementById("Precio_Cobro").addEventListener('keydown',impedirEspacios);  
 </script>
 </body>
 

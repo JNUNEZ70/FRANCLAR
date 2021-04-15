@@ -38,13 +38,13 @@ include 'conexion.php'
             $sql = mysqli_query($con, "SELECT tbl_citas.ID_Cita,	
 				tbl_pacientes.Nom_Paciente,
 				tbl_citas.Fec_Creacion,
-                tbl_especialidad.ID_especialidad,
-				tbl_especialidad.Descripcion_espec,
+                tbl_especialidad.ID_Especialidad,
+				tbl_especialidad.Descripcion_Espec,
 				tbl_empleado.Nom_Empleado,
 				tbl_citas.Fec_Atencion,	
 				tbl_citas.Hora_Atencion,	
                 tbl_citas.Precio,
-				tbl_estado_cita.Descripcion_est_cita,
+				tbl_estado_cita.Descripcion_Est_cita,
 				tbl_estado_cita.ID_Estado FROM tbl_citas 
 				INNER JOIN tbl_pacientes on tbl_citas.ID_Paciente = tbl_pacientes.ID_Paciente
 				INNER JOIN tbl_especialidad on tbl_citas.ID_Especialidad = tbl_especialidad.ID_especialidad
@@ -90,13 +90,13 @@ include 'conexion.php'
                                 </div>
                                 <div class="form-group col-md-6">
                                     <select class="form-control" id="CargoEm" name="Especialidad" disabled="true" required>
-                                        <option value="<?php echo $row ['ID_Especialidad']; ?>"><?php echo $row ['Descripcion_espec']; ?></option>
+                                        <option value="<?php echo $row ['ID_Especialidad']; ?>"><?php echo $row ['Descripcion_Espec']; ?></option>
                                         <?php
-                                          $dato= $row ['ID_especialidad'];
-                                          $sql=mysqli_query($con,"SELECT * FROM tbl_especialidad WHERE ID_especialidad<>'$dato'");
+                                          $dato= $row ['ID_Especialidad'];
+                                          $sql=mysqli_query($con,"SELECT * FROM tbl_especialidad WHERE ID_Especialidad<>'$dato'");
 
                                           while($fila=$sql->fetch_array()){
-                                              echo "<option value='".$fila['ID_especialidad']."'>".$fila['Descripcion_espec']."</option>";
+                                              echo "<option value='".$fila['ID_Especialidad']."'>".$fila['Descripcion_Espec']."</option>";
                                           }
                                         ?>
                                     </select>

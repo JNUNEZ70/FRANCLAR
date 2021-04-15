@@ -10,13 +10,13 @@ include ("conexion.php");
         $precio = mysqli_real_escape_string($con,(strip_tags($_POST['precio'],ENT_QUOTES)));
        
 	
-	$insert = mysqli_query($con, "INSERT INTO tbl_cobros_adicionales (Descripcion_cobro,Precio_cobro) 
+	$insert = mysqli_query($con, "INSERT INTO tbl_cobros_adicionales (Descripcion_Cobro,Precio_Cobro) 
                                        VALUES ('$nombre','$precio')");
     
     if($insert){
         $id_usuario= $_SESSION['ID_Usuario'];
                         $insert_bitacora = mysqli_query($con, "INSERT INTO tbl_bitacora_evento (id_usuario,id_objeto,Accion,Descripcion)
-                        VALUES ('$id_usuario',23,'Insert','SE INGRESÓ UN NUEVO COBRO')") or die(mysqli_error());
+                        VALUES ('$id_usuario',23,'Insert','SE INGRESÓ UN NUEVO COBRO ADICIONAL')") or die(mysqli_error());
         echo "<script type='text/javascript'>
             alert('El nuevo Cobro adicional ha sido registrado exitosamente');
             window.location.href= 'cobros_adicionales.php';

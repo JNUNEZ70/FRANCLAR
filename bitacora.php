@@ -74,16 +74,16 @@ include 'conexion.php'
 				</thead>
 				<tbody>
 				<?php
-				$sql = mysqli_query($con, "SELECT tbl_bitacora_evento.id_bitacora_evento,	
-				tbl_usuario.id_usuario,
+				$sql = mysqli_query($con, "SELECT tbl_bitacora_evento.ID_Bitacora_evento,	
+				tbl_usuario.ID_Usuario,
                 tbl_usuario.Nom_Usuario,
-				tbl_objetos.id_objeto,
-                tbl_objetos.objeto,
+				tbl_objetos.ID_Objeto,
+                tbl_objetos.Objeto,
 				tbl_bitacora_evento.Accion,	
 				tbl_bitacora_evento.Descripcion,	
-				tbl_bitacora_evento.fecha_evento FROM tbl_bitacora_evento
-				INNER JOIN tbl_usuario on tbl_bitacora_evento.id_usuario = tbl_usuario.ID_Usuario
-				INNER JOIN tbl_objetos on tbl_bitacora_evento.id_objeto = tbl_objetos.id_objeto");
+				tbl_bitacora_evento.Fecha_Evento FROM tbl_bitacora_evento
+				INNER JOIN tbl_usuario on tbl_bitacora_evento.ID_Usuario = tbl_usuario.ID_Usuario
+				INNER JOIN tbl_objetos on tbl_bitacora_evento.ID_Objeto = tbl_objetos.ID_Objeto");
 				if(mysqli_num_rows($sql) == 0){
 					echo '<tr><td colspan="8">No hay datos.</td></tr>';
 				}else{
@@ -91,12 +91,12 @@ include 'conexion.php'
 					while($row = mysqli_fetch_assoc($sql)){
 						echo '
 						<tr>
-                            <td>'.$row['id_bitacora_evento'].'</td>
+                            <td>'.$row['ID_Bitacora_evento'].'</td>
                             <td>'.$row['Nom_Usuario'].'</td>
-                            <td>'.$row['objeto'].'</td>
+                            <td>'.$row['Objeto'].'</td>
                             <td>'.$row['Accion'].'</td>
                             <td>'.$row['Descripcion'].'</td>
-                            <td>'.$row['fecha_evento'].'</td>			
+                            <td>'.$row['Fecha_Evento'].'</td>			
 						</tr>
 						';
 						$no++;

@@ -21,13 +21,14 @@
         $contr_anterior = mysqli_real_escape_string($conn,(strip_tags($_POST['contr_ant'],ENT_QUOTES)));
         $contr_nueva = mysqli_real_escape_string($conn,(strip_tags($_POST['contr_nueva'],ENT_QUOTES)));
         $conf_nueva_cont = mysqli_real_escape_string($conn,(strip_tags($_POST['contr_conf_nueva'],ENT_QUOTES)));        
-        $id_usuario= $_SESSION['ID_Usuario'];        
+        $id_usuario= $_SESSION['ID_Usuario']; 
+        $contr_nueva_encr = password_hash($contr_nueva, PASSWORD_DEFAULT);       
 
         $obtener_dato = mysqli_query($conn, "SELECT * FROM tbl_usuario WHERE ID_Usuario='$id_usuario'");
         $row = mysqli_fetch_assoc($obtener_dato);                        
         $dato = $row['Contraseña'];
-
-            if($contr_anterior<>$dato){
+        
+            if(password_verify($contr_anterior,$dato) == 0){
                 echo "<script type='text/javascript'>
                 alert('Favor ingrese correctamente su contraseña anterior');
                 window.location.href= 'CambioContraseña.php';
@@ -39,7 +40,7 @@
                     window.location.href= 'CambioContraseña.php';
                     </script>";
                 }else{
-                    $update = mysqli_query($conn, "UPDATE tbl_usuario SET Contraseña='$contr_nueva', Primer_Ingreso=0, ID_Estado=1  WHERE ID_Usuario='$id_usuario'") or die(mysqli_error());
+                    $update = mysqli_query($conn, "UPDATE tbl_usuario SET Contraseña='$contr_nueva_encr', Primer_Ingreso=0, ID_Estado=1  WHERE ID_Usuario='$id_usuario'") or die(mysqli_error());
                         if($update){
                             // $obtener_dato = mysqli_query($conn, "SELECT * FROM tbl_usuario WHERE ID_Usuario='$id_usuario'");
                             // $row = mysqli_fetch_assoc($obtener_dato);                        

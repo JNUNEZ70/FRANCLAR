@@ -118,10 +118,10 @@ include 'conexion.php'
                                     <select class="form-control" id="espec" name="Especialidad" onchange="doctores_precio(value)" required>
                                         <option value="0" selected>Seleccione un Servicio</option>
                                         <?php
-                                          $sql=$con -> query("Select * from tbl_especialidad where ID_especialidad <> 8 and ID_especialidad <> 9");
+                                          $sql=$con -> query("Select * from tbl_especialidad where ID_Especialidad <> 8 and ID_Especialidad <> 9");
 
                                           while($fila=$sql->fetch_array()){
-                                              echo "<option value='".$fila['ID_especialidad']."'>".$fila['Descripcion_espec']."</option>";
+                                              echo "<option value='".$fila['ID_Especialidad']."'>".$fila['Descripcion_Espec']."</option>";
                                           }
                                         ?>
                                     </select>
