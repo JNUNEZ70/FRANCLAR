@@ -8,7 +8,7 @@
 <?php
           if(isset($_POST)){      
 
-            date_default_timezone_set('America/Mexico_City');
+            date_default_timezone_set('America/Tegucigalpa');
                 $id_factura = $_POST['id_factura'];
                 $num_factura = $_POST['num_factura'];       
                 $fecha = date('d-m-Y');

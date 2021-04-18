@@ -221,11 +221,12 @@ include 'conexion.php'
          const $fechaAtencion=  document.getElementById("FechaAten");
        $fechaAtencion.addEventListener("click",()=>{
         fechaMinima($fechaAtencion); 
+        // fechaMaxima($fechaAtencion); 
         
         });
-        $fechaAtencion.addEventListener("keypress",()=>{
-        fechaMinima($fechaAtencion);  
-        });
+        // $fechaAtencion.addEventListener("click",()=>{
+        // fechaMinima($fechaAtencion);  
+        // });
     </script>
 </body>
 
