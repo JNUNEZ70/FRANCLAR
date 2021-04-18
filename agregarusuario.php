@@ -8,6 +8,9 @@ include 'head.php'
 <?php
 include 'conexion.php'
 ?>
+<?php
+
+?>
 
 <body>
     <!--::header part start::-->
@@ -38,11 +41,12 @@ include 'conexion.php'
             <div class="row align-items-center regervation_content">
                 <div class="col-lg-7">
                     <div class="regervation_part_iner">
-                        <form method="POST" action="GuardarUsuario.php" autocomplete="off">
+                    <!-- action="GuardarUsuario.php" -->
+                        <form id="Form_registrar_usuario" method="POST" action="GuardarUsuario.php"  autocomplete="off">
                             <h2>Datos del usuario</h2>
                             <div class="form-row">
                                 <div class="form-group col-md-6">
-                                    <select class="form-control select_buscador"  id="ColaboradorU" name="Colaborador" required>
+                                    <select class="form-control select_buscador"  id="ColaboradorU" name="Colaborador" required data-toggle="tooltip" data-placement="top" title="Seleccione al Colaborador">
                                         <option value="0">Seleccione al Colaborador</option>
                                         <?php
                                           $sql=$con -> query("Select * from tbl_empleado");
@@ -54,17 +58,17 @@ include 'conexion.php'
                                     </select>
                                 </div>
                                 <div class="form-group col-md-6">
-                                    <input type="email" class="form-control" id="email" name="EmailU" maxlength="50" onkeypress="return Correo(event)" placeholder="Email" required>
+                                    <input type="email" class="form-control" id="email" name="EmailU" maxlength="50" onkeypress="return Correo(event)" placeholder="Correo Electrónico" required data-toggle="tooltip" data-placement="top" title="Correo Electrónico">
                                 </div>
                                 <div class="form-group col-md-4">
-                                    <input type="text" class="form-control" id="NomU" name="Nom_Usuario" maxlength="20" onkeypress="return soloLetras(event)" onkeyup="javascript:this.value=this.value.toUpperCase();" placeholder="Nombre de usuario"  required>
+                                    <input type="text" class="form-control" id="NomU" name="Nom_Usuario" maxlength="20" onkeypress="return soloLetras(event)" onkeyup="javascript:this.value=this.value.toUpperCase();" placeholder="Nombre de usuario"  required data-toggle="tooltip" data-placement="bottom" title="Nombre de usuario">
                                     
                                 </div>                                
                                 <div class="input-group col-md-4">
-                                    <input value= "<?php echo generar_password_complejo(3) ?>" type="text" class="form-control" id="passwordU" name="Password"  minlength="8" maxlength="30" placeholder="Contraseña" readonly required>
+                                    <input value= "<?php echo generar_password_complejo(3) ?>" type="text" class="form-control" id="passwordU" name="Password"  minlength="8" maxlength="30" placeholder="Contraseña" readonly required data-toggle="tooltip" data-placement="bottom" title="Contraseña">
                                 </div>               
                                 <div class="form-group col-md-4">
-                                    <select class="form-control" id="RolU" name="Rol" required>
+                                    <select class="form-control" id="RolU" name="Rol" required data-toggle="tooltip" data-placement="bottom" title="Seleccione el rol">
                                         <option value="">Seleccione el rol</option>
                                         <?php
                                           $sql=$con -> query("Select * from tbl_roles WHERE ID_Rol <> 5");
@@ -120,7 +124,7 @@ include 'conexion.php'
     <script>
 
     document.getElementById("email").addEventListener('keydown',impedirEspacios);
-
+    $('[data-toggle="tooltip"]').tooltip()
     </script> 
 
 

@@ -13,7 +13,7 @@
     <script src="js/jquery.validate.min.js"></script>
     <script src="js/mail-script.js"></script>
     <script src="js/contact.js"></script>
-     <!-- ingresados por wilder  -->
+    
      <script src="js/jquery.min.js"></script>
      <script src="js/moment.min.js"></script>
     <!-- custom js -->
@@ -21,6 +21,8 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>
     <script src="js/bootstrap-datepicker.js"></script>
+    <!-- toastr js -->
+    <script src="toastr/toastr.min.js" ></script>
     <script>
     $('.date').datepicker({
 		format: 'yyyy-mm-dd',

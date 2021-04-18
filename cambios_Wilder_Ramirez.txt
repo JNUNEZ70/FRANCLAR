@@ -1,0 +1,161 @@
+************configuación************
+-> se cambiaron los parametros de configuración para trabajar
+-  de manera local sin usuario de schema
+
+ubicacion: config.php
+cambios:   linea 8 y linea 9
+estado:    funciona
+obs:       revisar los comentarios que deje en el archivo config.php
+fecha:     17/04/2021
+---------------Final------------------------
+
+************Auto registro***********
+->se encriptó la contraseña en auto registro con  password_hash
+
+ubicación: login_guardarUsuario.php
+cambios:   linea 13.
+estado:    funciona.
+obs:       ninguna
+fecha:     17/04/2021
+---------------Final------------------------
+
+************Modulo funcs***********
+->se agrego el modulo funcs que contiene funcione paraa trabajar con PHPMailer
+- funcion para registrar en bitacora y otras
+
+ubicación: funcs.php
+cambios:   todo el archivo.
+estado:    funciona.
+obs:       revisar los comentarios que les deje en ese archivo.
+fecha:     17/04/2021
+---------------Final------------------------
+
+************DB_sistema_franclar***********
+->se agregaron 2 vistas mas a la tbl_objetos
+- id=26 vista_cambiar_contrasena_correo
+- id=27 vista_cambiar_contrasena_pregunta
+
+ubicación: DB_sistema_franclar
+cambios:   N/A.
+estado:    funciona.
+obs:       estas vistas tienen que ir en db porque estan incrustadas en el codigo php.
+fecha:     17/04/2021
+---------------Final------------------------
+
+************Modulo_permisos***********
+->se asigno el codigo para reconocer la nuevas vistas que se agregaron
+- son las vistas que agregamos en el cambio "DB_sistema_franclar"
+
+ubicación: modulo_permisos.php
+cambios:   linea 38,39,49,79,80.
+estado:    funciona.
+obs:       ninguna.
+fecha:     17/04/2021
+---------------Final------------------------
+
+************registrar en bitácora***********
+->se agrego una funcion para registrar en bitácora cuando se recupera contraseña
+- medinate correo y pr el metodo de pregunta
+
+ubicación: funcs.php
+cambios:   insertBitacora() linea 416-428.
+estado:    funciona.
+obs:       ninguna.
+fecha:     17/04/2021
+---------------Final------------------------
+
+
+************recuperacion por pregunta***********
+->se llama la funcion registrar en bitacora
+
+ubicación: RPreguntaS.php
+cambios:   linea 45-55.
+estado:    probando.
+obs:       funciona.
+fecha:     17/04/2021
+---------------Final------------------------
+
+************recuperacion por pregunta***********
+->se limita el numero de preguntas presentadas al usuario
+- con un limit 2
+-> y se muetra una pregunta preseleccionada con selected que se le da al <option>
+
+ubicación: RPreguntaS.php
+cambios:   linea 28,71.
+estado:    funciona.
+obs:       ninguna.
+fecha:     17/04/2021
+---------------Final------------------------
+
+************recuperacion por correo***********
+->se agrego la funcionalidad de recuperacion de contraseña
+- mediante em metodo del correo
+
+ubicación: RCorreo.php
+cambios:   todo el archivo.
+estado:    funciona.
+obs:      en el modulo fucs/funcs.php estan unos comentarios, fevor leerlos..
+fecha:     17/04/2021
+
+ubicación: guarda_pass.php
+cambios:   todo el archivo.
+estado:    funciona.
+obs:       en el modulo fucs/funcs.php estan unos comentarios, fevor leerlos..
+fecha:     17/04/2021
+
+ubicación: ContraseñaCorreo.php
+cambios:   todo el archivo.
+estado:    funciona.
+obs:       en el modulo fucs/funcs.php estan unos comentarios, fevor leerlos.
+fecha:     17/04/2021
+---------------Final------------------------
+
+************proceso asincrono***********
+->se agrego un proceso asincorno para verificar que no se repitan
+- usuario,coreo,id y personas
+- al registrar un nuevo usuario desde admin este envia un correo con 
+- las credenciales a el email del usuario.
+
+ubicación: agregar_usuario.php
+cambios:   todo el archivo.
+estado:    probando.
+obs:       el end-point para este proceso es verificarCorreoUsuario.php
+fecha:     17/04/2021
+---------------Final------------------------
+
+************achivo js para franclar***********
+->se modifico el archivo franclar.js y se agregaron nuevas funciones
+ubicación: franclar.js
+cambios:   todo el archivo.
+estado:    prueba.
+obs:       ninguna.
+fecha:     17/04/2021
+---------------Final------------------------
+
+************libreria toastr.js***********
+->se agrego la libreria toastr.js para las notificaciones 
+cambio_1:   en el script.php la linea 23
+cambio_2:   en el head.php la linea 45
+cambios_3:  se creo una carpeta toastr, dentro estan los css y js respectivamente
+estado:    prueba.
+obs:       ninguna.
+fecha:     17/04/2021
+---------------Final------------------------
+
+************DB_sistema_franclar***********
+->se agrego la tabla tbl_historico_contrsena
+ubicación: db_sistema_franclar
+cambios:   N/A.
+estado:    prueba.
+obs:       en esa tabla se guardan las contraseñas antiguas de los usuarios.
+fecha:     17/04/2021
+---------------Final------------------------
+
+************crear usuario desde admin***********
+->se encripto la contraseña al crear un susuario desde andmin
+ubicación: GuardarUsuario.php
+cambios:   todo el archivo.
+estado:    prueba.
+obs:       ninguna.
+fecha:     17/04/2021
+---------------Final------------------------

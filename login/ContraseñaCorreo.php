@@ -15,14 +15,14 @@ if(isset($_POST['password']) && isset($_POST['password'])){
 			$password = $_POST['password'];
 			$user_id = $_POST['user_id'];
 			$token = $_POST['token'];
-
+			$estado=1;
 
 			$_validaUsuario = verificaTokenPass($user_id, $token);
 
 			if($_validaUsuario){
 				echo "<span style = 'background: red'></span><br/>";
 
-				$ejecuta = cambiaPassword($password, $user_id,$token);
+				$ejecuta = cambiaPassword($password, $user_id,$token,$estado);
 				if($ejecuta){
 					echo "<script type='text/javascript'>alert('Cambia realizado de forma corecta, se redireccionara al login');</script>";
 					header('Location: Login.php');
@@ -71,15 +71,13 @@ if(isset($_POST['password']) && isset($_POST['password'])){
 		<div class="container login-box">    
 			<div id="login-box" style="margin-top:50px;" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
 			<img class="avatar" src="img/Logo_franclar.png" alt="Logo De Perfil">                    
+				<h1>Cambiar contraseña</h1>
 				<div class="panel panel-info" >
-					<div class="panel-heading">
-						<div class="panel-title">Cambiar contraseña</div>
-						<div style="float:right; font-size: 80%; position: relative; top:-10px"><a href="index.php">Iniciar Sesi&oacute;n</a></div>
-					</div>     
+					  
 					
 					<!--action="guarda_pass.php" -->
 						
-						<form id="loginform" class="form-horizontal" role="form" action= "" method="POST" autocomplete="off">
+						<form id="loginform" class="form-horizontal" role="form" action= "guarda_pass.php" method="POST" autocomplete="off">
 							
 							<input type="hidden" id="user_id" name="user_id" value ="<?php  if(isset($_GET['user_id'])){ echo $_GET['user_id']; }else { echo "";} ?>" />
 							
@@ -100,9 +98,10 @@ if(isset($_POST['password']) && isset($_POST['password'])){
 							</div>
 							
 							<div style="margin-top:10px" class="form-group">
-								<div class="col-sm-12 controls">
+								<!-- <div class="col-sm-12 controls">
 									<button id="btn-login" type="submit" class="btn btn-success">Modificar</a>
-								</div>
+								</div> -->
+									<input type="submit"  value="Aceptar" >
 							</div>   
 						</form> 
 					</div>                     
