@@ -49,7 +49,7 @@ include 'conexion.php'
                                     <select class="form-control select_buscador"  id="ColaboradorU" name="Colaborador" required data-toggle="tooltip" data-placement="top" title="Seleccione al Colaborador">
                                         <option value="0">Seleccione al Colaborador</option>
                                         <?php
-                                          $sql=$con -> query("Select * from tbl_empleado");
+                                          $sql=$con -> query("Select * from tbl_empleado WHERE ID_Empleado <> 1");
 
                                           while($fila=$sql->fetch_array()){
                                               echo "<option value='".$fila['ID_Empleado']."'>".$fila['Nom_Empleado']."</option>";

@@ -45,11 +45,11 @@ include 'conexion.php'
                             <div class="form-row">
                                 <div class="input-group col-md-6">
                                     <input onkeyup="consultar_paciente()" type="text" class="form-control" id="IDPac" onkeypress="return solonumeros(event)" maxlength="13" placeholder="Identidad del Paciente (sin guiones)" required>
-                                    <span class="input-group-btn">
+                                    <!-- <span class="input-group-btn">
                                         <button type="button" id="identidad" class="btn btn-default" onclick="consultar_paciente()">
                                             <span class="input-group-addon glyphicon glyphicon-search"></span>
                                         </button>
-                                    </span>
+                                    </span> -->
                                 </div>
                                 <div class="form-group col-md-6">
                                     <input type="text" class="form-control" id="NomPac" name="NombPaciente" rows="4" placeholder="Nombre de Paciente" readonly>

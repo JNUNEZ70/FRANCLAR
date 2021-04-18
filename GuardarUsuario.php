@@ -35,9 +35,9 @@ require './login/funcs/funcs.php';
                 if($insert){
                     $id_usuario= $_SESSION['ID_Usuario'];
                                     $insert_bitacora = mysqli_query($con, "INSERT INTO tbl_bitacora_evento (id_usuario,id_objeto,Accion,Descripcion)
-                                    VALUES ('$id_usuario',2,'Insert','ADMIN CREO UN NUEVO USUARIO')") or die(mysqli_error());
+                                    VALUES ('$id_usuario',2,'Insert','ADMIN CREÓ UN NUEVO USUARIO')") or die(mysqli_error());
                    
-                    $asunto = 'Creacion de usuario mediante Admin -Sistema Franclar';
+                    $asunto = 'Creación de usuario mediante Admin -Sistema Franclar';
                     $cuerpo = "Hola  $nom_usuario <br/>Bienvenido al sistema Franclar,
                     estas son tus credenciales:<br> Usuario:  '$nom_usuario'<br>
                     Contrasena: '$contraseña'";

@@ -14,19 +14,19 @@ $email = $mysqli->real_escape_string($_POST['email']);
     }
         if(emailExiste($email))
         {
-
+			$id_usuario= 
             $user_id = getValor('ID_Usuario','email',$email);
             $nombre = getValor('Nom_Usuario','email',$email);
 
             $token = generaTokenPass($user_id);
 			// para que la url funcione se tiene que asignar el puerto en el cual corre xammp 
-            $url = 'http://'.$_SERVER["SERVER_NAME"].':8008/FRANCLAR/login/contraseñacorreo.php?user_id='.$user_id.'&token='.$token;
+            $url = 'http://'.$_SERVER["SERVER_NAME"].':80/FRANCLAR/login/contraseñacorreo.php?user_id='.$user_id.'&token='.$token;
             $asunto = 'Recuperar Contrasena -Sistema de Usuarios';
             $cuerpo = "Hola  $nombre <br/>Se ha solicitado un reinicio de 
             contrasena, visita la siguiente direccion: <a href='
             $url'>Cambiar Contrasena</a>";
 
-			$GLOBALS['enviarEmail'] = enviarEmail($email, $nombre,$asunto,$cuerpo);
+			$GLOBALS['enviarEmail'] = true;//enviarEmail($email, $nombre,$asunto,$cuerpo);
 
             if ($GLOBALS['enviarEmail'])
             {

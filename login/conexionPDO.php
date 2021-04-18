@@ -1,9 +1,9 @@
 <?php 
 include '../configuracion/config.php';
 /*$server = "localhost";
-$user = "franclar";
-$password = "Franclar#2020";
-$database = "sistema_franclar";*/ 
+$user = "";
+$password = "";
+$database = "sistema_franclar_ok";*/ 
 
 $conn = mysqli_connect($server, $user, $password, $database);
 
