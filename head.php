@@ -69,6 +69,25 @@
       });
       
     </script>
+    <script>
+       $(document).on('ready', function(){
+           $('#show-hide-passwd').on('click', function(e) {
+               e.preventDefault();
+
+               var current = $(this).attr('action');
+
+               if (current == 'hide') {
+                   $(this).prev().attr('type','text');
+                   $(this).removeClass('glypicon glyphicon-eye-open').add('glyphicon glyphicon-eye-close').attr('action','show');
+               }
+
+               if (current == 'show'){
+                    $(this).prev().attr('type','password');
+                    $(this).removeClass('glypicon glyphicon-eye-close').add('glyphicon glyphicon-eye-open').attr('action','hide');
+               }
+           })
+       })
+    </script>
 
   <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/css/select2.min.css" rel="stylesheet" />
   <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/js/select2.min.js"></script>

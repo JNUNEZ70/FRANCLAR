@@ -58,7 +58,7 @@ include 'conexion.php'
 			<a href="agregarpaciente.php" class="genric-btn info circle">Agregar</a>
 	</form>	
     <form class="form-inline my-2 my-lg-0 float-left">
-        <a class="genric-btn btn-danger circle" href="../FRANCLAR/Reportes-PDF/ReportePacientes.php">
+        <a class="genric-btn btn-danger circle" onclick="buscar_paciente()" href="#">
         <i class="fas fa-file-pdf fa-lg"> </i> Generar Reporte</a>
 	</form>	
 	<br>
@@ -71,6 +71,7 @@ include 'conexion.php'
                     <th>Acciones</th>
                     <th>No</th>
                     <th>Nombre</th>
+                    <th>Tipo de documento</th>
                     <th>Identidad</th>
                     <th>Fecha de nacimiento</th>
                     <th>Edad</th>
@@ -95,7 +96,9 @@ include 'conexion.php'
                 </thead>
                 <tbody>
                     <?php
-                        $sql = mysqli_query($con, "SELECT tbl_pacientes.ID_Paciente,	
+                        $sql = mysqli_query($con, "SELECT tbl_pacientes.ID_Paciente,
+                        tbl_tipo_documento.ID_tipo_documento,
+                        tbl_tipo_documento.Descripcion_tipo_documento,	
                         tbl_pacientes.Nom_Paciente,
                         tbl_pacientes.cedula,
                         tbl_pacientes.Fec_Nacimiento,
@@ -118,6 +121,7 @@ include 'conexion.php'
                         tbl_pacientes.Antecedentes_Alergicos,
                         tbl_pacientes.Antecedentes_Familiares,
                         tbl_pacientes.Habitos FROM tbl_pacientes 
+                        INNER JOIN tbl_tipo_documento on tbl_pacientes.ID_tipo_documento = tbl_tipo_documento.ID_tipo_documento
                         INNER JOIN tbl_sexo on tbl_pacientes.ID_Sexo = tbl_sexo.ID_Sexo
                         INNER JOIN tbl_estado_civil on tbl_pacientes.ID_Est_Civil = tbl_estado_civil.ID_Est_Civil
                         INNER JOIN tbl_parentesco on tbl_pacientes.ID_Parentesco = tbl_parentesco.ID_Parentesco
@@ -140,6 +144,7 @@ include 'conexion.php'
                                     </td>
                                     <td>'.$row['ID_Paciente'].'</td>
                                     <td>'.$row['Nom_Paciente'].'</td>
+                                    <td>'.$row['Descripcion_tipo_documento'].'</td>
                                     <td>'.$row['cedula'].'</td>
                                     <td>'.$row['Fec_Nacimiento'].'</td>
                                     <td>'.$row['Edad'].'</td>

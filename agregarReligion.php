@@ -42,7 +42,7 @@ include 'conexion.php'
                             <h2>Ingrese Nueva Religión</h2>
                             <div class="form-row">
                                 <div class="form-group col-md-6">
-                                    <input type="text" class="form-control" onkeyup="mayus(this);" id="Nombre_Religion" maxlength="20" name="Nombre"  placeholder="Nombre de nueva religión" required>
+                                    <input type="text" class="form-control" onkeyup="mayus(this);" id="Nombre_Religion" maxlength="20" name="Nombre" title="Nombre de nueva religión" placeholder="Nombre de nueva religión" required>
                                 </div>
                                
                                 <div class="regerv_btn col-md-8" >

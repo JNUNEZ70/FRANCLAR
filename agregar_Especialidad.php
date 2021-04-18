@@ -42,10 +42,10 @@ include 'conexion.php'
                             <h2>Ingrese Nueva Especialidad</h2>
                             <div class="form-row">
                                 <div class="form-group col-md-6">
-                                    <input type="text" class="form-control" id="Nombre_Especialidad" onkeyup="mayus(this);" maxlength="30" name="Nombre" placeholder="Nombre de la especialidad" required>
+                                    <input type="text" class="form-control" id="Nombre_Especialidad" onkeyup="mayus(this);" maxlength="30" name="Nombre" title="Nombre de la especialidad" placeholder="Nombre de la especialidad" required>
                                 </div>
                                 <div class="form-group col-md-6">
-                                    <input type="text" class="form-control"  id="Precio" maxlength="5" onkeypress="return solonumeros(event)" maxlength="30" name="Precio" placeholder="Precio del servicio" required>
+                                    <input type="text" class="form-control"  id="Precio" maxlength="5" onkeypress="return solonumeros(event)" maxlength="30" name="Precio" title="Precio del servicio" placeholder="Precio del servicio" required>
                                 </div>
                                
                                 <div class="regerv_btn col-md-8" >

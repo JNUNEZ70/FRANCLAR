@@ -42,23 +42,23 @@ include 'conexion.php'
                             <h2>Datos Personales</h2>
                             <div class="form-row">
                                 <div class="form-group col-md-6">
-                                    <input type="text" class="form-control" onkeyup="mayus(this);" id="NombreEm" maxlength="50"  name="Nombre" placeholder="Nombre" required>
+                                    <input type="text" class="form-control" onkeyup="mayus(this);" id="NombreEm" maxlength="50"  name="Nombre" title="Nombre" placeholder="Nombre" required>
                                 </div>
                                 <div class="form-group col-md-6">
-                                    <input type="text" class="form-control" maxlength="13" onkeypress="return solonumeros(event)" id="NumeroIDEm" name="NumeroID" placeholder="Número de identidad" required>
+                                    <input type="text" class="form-control" maxlength="13" onkeypress="return solonumeros(event)" id="NumeroIDEm" name="NumeroID" title="Número de identidad" placeholder="Número de identidad" required>
                                 </div>
                                 <div class="form-group col-md-6">
                                     <!-- <input type="text" id="FechaNEm" name="FechaN" class="input-group date form-control" date="" data-date-format="dd-mm-yyyy" maxlength="10" onkeypress="return solonumerosfecha(event)" placeholder="Fecha de nacimiento" required> -->
-                                    <input type="date"  id="FechaEmpleado" name="FechaN" class="input-group  form-control"  placeholder="Fecha de nacimiento" required>
+                                    <input type="date"  id="FechaEmpleado" name="FechaN" class="input-group  form-control" title="Fecha de nacimiento" placeholder="Fecha de nacimiento" required>
                                 </div>
                                 <div class="form-group col-md-6">
-                                    <input type="tel" class="form-control" maxlength="8" onkeypress="return solonumeros(event)" id="TelefonoEm" name="Telefono" placeholder="Teléfono fijo">
+                                    <input type="tel" class="form-control" maxlength="8" onkeypress="return solonumeros(event)" id="TelefonoEm" name="Telefono" title="Teléfono fijo" placeholder="Teléfono fijo">
                                 </div>
                                 <div class="form-group col-md-6">
-                                    <input type="tel" class="form-control" maxlength="8" onkeypress="return solonumeros(event)" id="CelularEm" name="Celular" placeholder="Celular" required>
+                                    <input type="tel" class="form-control" maxlength="8" onkeypress="return solonumeros(event)" id="CelularEm" name="Celular" title="Celular" placeholder="Celular" required>
                                 </div>
                                 <div class="form-group col-md-6">
-                                    <input type="text" class="form-control" onkeyup="mayus(this);"  maxlength="255" id="DireccionEm" name="Direccion" placeholder="Dirección" required>
+                                    <input type="text" class="form-control" onkeyup="mayus(this);"  maxlength="255" id="DireccionEm" name="Direccion" title="Dirección" placeholder="Dirección" required>
                                 </div>
                                 <h2>Datos Generales</h2>
                                 <div class="form-row">
@@ -131,7 +131,7 @@ include 'conexion.php'
 
 
                                 <div class="form-group col-md-6">
-                                    <input type="text" class="form-control" id="SalarioEm" name="Salario" maxlength="6" onkeypress="return solonumeros(event)" placeholder="Salario" required>
+                                    <input type="text" class="form-control" id="SalarioEm" name="Salario" maxlength="6" onkeypress="return solonumeros(event)" title="Salario" placeholder="Salario" required>
                                 </div>
                                 <div class="form-group col-md-12" id="select_espec">
                                     <select class="form-control"  id="EspecialidadEm" name="Especialidad" required>

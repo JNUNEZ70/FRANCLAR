@@ -48,17 +48,17 @@ function exportarTablas($host, $usuario, $password, $nombreDeBaseDeDatos){
         $cmd = "mysqldump -h {$db_host} -u {$db_username} --password={$db_password} {$db_database}  > {$dir}{$filename}";
         exec($cmd);
 //pasar el respaldo a zip
-$zip= new ZipArchive();
+/*$zip= new ZipArchive();
 $respaldo_zip=$db_database.'_'.$fecha.'.zip';
 if($zip->open($respaldo_zip,ZipArchive::CREATE)===true){
 $zip->addFile($filename);
-$zip->close();
+$zip->close();*/
 
 /*header("Content-type: application/octet-stream");
 header("Content-Disposition: attachment; filename=\"$respaldo_zip\"");
 
-passthru("cat {$dir}{$respaldo_zip}");*/
-}
+passthru("cat {$dir}{$respaldo_zip}");
+}*/
     }else{
         return false;
     }

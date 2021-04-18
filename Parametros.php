@@ -56,7 +56,7 @@ include 'conexion.php'
     
     
     <form class="form-inline my-2 my-lg-0 float-left">
-		<a class="genric-btn btn-danger circle" href="../FRANCLAR/Reportes-PDF/ReporteParametros.php">
+		<a class="genric-btn btn-danger circle" onclick="pdfDinamico(this)" id="pdf_parametros_seguridad" href="#">
 		<i class="fas fa-file-pdf fa-lg"> </i> Generar Reporte</a>
     </form>	
    <br>

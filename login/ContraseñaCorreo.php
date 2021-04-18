@@ -1,113 +1,102 @@
-<?php
-
-
-require 'funcs/conexion.php';
-require 'funcs/funcs.php';
-
-if(isset($_POST['password']) && isset($_POST['password'])){
-	if($_POST['password'] == $_POST['con_password']){
-
-		//UPDATE Y REDIRECION A LOGIN
-
-		if(isset($_POST['user_id']) && $_POST['user_id'] != "" && isset($_POST['token']) && $_POST['token'] != ""){
-			
-			
-			$password = $_POST['password'];
-			$user_id = $_POST['user_id'];
-			$token = $_POST['token'];
-
-
-			$_validaUsuario = verificaTokenPass($user_id, $token);
-
-			if($_validaUsuario){
-				echo "<span style = 'background: red'></span><br/>";
-
-				$ejecuta = cambiaPassword($password, $user_id,$token);
-				if($ejecuta){
-					echo "<script type='text/javascript'>alert('Cambia realizado de forma corecta, se redireccionara al login');</script>";
-					header('Location: Login.php');
-				}else {
-					echo "<script type='text/javascript'>alert('Error al aplicar el cambio de comtraseña');</script>";
-				}
-			}
-
-			
-		}else{
-			echo "<script type='text/javascript'>alert('Error, pagina cargada de forma inapropiada');</script>";
-		}
-
-		
-	}else{
-		echo "<script type='text/javascript'>alert('Contraseñas Incorrectas');</script>";
-	}
-}
-
-
-?>
-
 <!DOCTYPE html>
-<!doctype html>
-<html lang="es">
-	<head>
-		<meta charset="utf-8">
-		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<title>Cambiar Password</title>
-		<link rel="shortcut icon" href="img/franclar.png">
-		<meta charset="UTF-8">
+<html>
+    <head>
+        <title>Recuperación Correo | Usuarios</title>
+        <link rel="shortcut icon" href="img/franclar.png">
+        <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href ="CSS/ContraseñaCorreo.css">
-		
-		<link rel="stylesheet" href="css/bootstrap.min.css" >
-		<link rel="stylesheet" href="css/bootstrap-theme.min.css" >
+        <!-- glyphicon -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href ="css/ContraseñaCorreo.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+        <script>
+        $(document).on('ready', function(){
+            $('#show-hide-passwd').on('click', function(e) {
 
-		<link rel="stylesheet" href="css/master.css">
-		<script src="js/bootstrap.min.js" ></script>
-		
-	</head>
-	
-	<body>
-		
-		<div class="container login-box">    
-			<div id="login-box" style="margin-top:50px;" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
-			<img class="avatar" src="img/Logo_franclar.png" alt="Logo De Perfil">                    
-				<div class="panel panel-info" >
-					<div class="panel-heading">
-						<div class="panel-title">Cambiar contraseña</div>
-						<div style="float:right; font-size: 80%; position: relative; top:-10px"><a href="index.php">Iniciar Sesi&oacute;n</a></div>
-					</div>     
-					
-					<!--action="guarda_pass.php" -->
-						
-						<form id="loginform" class="form-horizontal" role="form" action= "" method="POST" autocomplete="off">
-							
-							<input type="hidden" id="user_id" name="user_id" value ="<?php  if(isset($_GET['user_id'])){ echo $_GET['user_id']; }else { echo "";} ?>" />
-							
-							<input type="hidden" id="token" name="token" value ="<?php if(isset($_GET['token'])){ echo $_GET['token']; }else { echo "";} ?>" />
-							
-							<div class="form-group">
-								<label for="password" class="col-md-3 control-label">Nuevo Contraseña</label>
-								<div class="col-md-9">
-									<input type="password" name="password" class="form-control" name="password" placeholder="Contraseña" required>
-								</div>
-							</div>
-							
-							<div class="form-group">
-								<label for="con_password" class="col-md-3 control-label">Confirmar Contraseña</label>
-								<div class="col-md-9">
-									<input type="password" name="con_password" class="form-control" name="con_password" placeholder="Confirmar Contraseña" required>
-								</div>
-							</div>
-							
-							<div style="margin-top:10px" class="form-group">
-								<div class="col-sm-12 controls">
-									<button id="btn-login" type="submit" class="btn btn-success">Modificar</a>
-								</div>
-							</div>   
-						</form> 
-					</div>                     
-				</div>  
-			</div>
-		</div>
-	</body>
-</html>	
+                var current = $(this).attr('action');
+
+                if (current == 'hide'){
+                    $(this).prev().attr('type','text');
+                    $(this).removeClass('glyphicon-eye-open').addClass('glyphicon-eye-close').attr('action','show');
+                }
+                if (current == 'show'){
+                    $(this).prev().attr('type','password');
+                    $(this).removeClass('glyphicon-eye-close').addClass('glyphicon-eye-open').attr('action','hide');
+                }
+            })
+        })
+        </script>
+        <script>
+        $(document).on('ready', function(){
+            $('#show-hide-passw').on('click', function(e) {
+
+                var current = $(this).attr('action');
+
+                if (current == 'hide'){
+                    $(this).prev().attr('type','text');
+                    $(this).removeClass('glyphicon-eye-open').addClass('glyphicon-eye-close').attr('action','show');
+                }
+                if (current == 'show'){
+                    $(this).prev().attr('type','password');
+                    $(this).removeClass('glyphicon-eye-close').addClass('glyphicon-eye-open').attr('action','hide');
+                }
+            })
+        })
+        </script>
+        <script>
+        $(document).on('ready', function(){
+            $('#show-hide-pass').on('click', function(e) {
+
+                var current = $(this).attr('action');
+
+                if (current == 'hide'){
+                    $(this).prev().attr('type','text');
+                    $(this).removeClass('glyphicon-eye-open').addClass('glyphicon-eye-close').attr('action','show');
+                }
+                if (current == 'show'){
+                    $(this).prev().attr('type','password');
+                    $(this).removeClass('glyphicon-eye-close').addClass('glyphicon-eye-open').attr('action','hide');
+                }
+            })
+        })
+        </script>
+    </head>
+    <body>
+        <div class = "login-box">
+            <img class="avatar" src="img/Logo_franclar.png" alt="Logo De Perfil">
+            <h1> Cambio de contraseña </h1>
+            <form action="iniciologin.php" method="POST" class="login100-form validate-form">
+                <!-----Password----->
+                <div class="input-group">
+                    <label for="Password">Contraseña generada</label>
+                    <input type="password" id="contra_generada" name="Gcontraseña" pattern="^(?=.*\d)(?=.*[\u0021-\u002b\u003c-\u0040])(?=.*[A-Z])(?=.*[a-z])\S{8,30}$" title="Debe contener letras mayúscula, minúsculas, números y caracteres especiales. Mínimo de 8 y máximo de 15."  minlength="8" maxlength="15" placeholder="Ingrese la contraseña generada">
+                    <span id="show-hide-passwd" action="hide" class="input-group-addon glyphicon glyphicon glyphicon-eye-open"></span>
+                </div>
+                <div class="input-group">
+                    <label for="Password">Nueva contraseña</label>
+                    <input type="password" id="nue_contra" name="Ncontraseña" pattern="^(?=.*\d)(?=.*[\u0021-\u002b\u003c-\u0040])(?=.*[A-Z])(?=.*[a-z])\S{8,30}$" title="Debe contener letras mayúscula, minúsculas, números y caracteres especiales. Mínimo de 8 y máximo de 15."  minlength="8" maxlength="15" placeholder="Ingrese una contraseña nueva">
+                    <span id="show-hide-passw" action="hide" class="input-group-addon glyphicon glyphicon glyphicon-eye-open"></span>
+                </div>
+                <div class="input-group">
+                    <label for="Password">Confirmar contraseña</label>
+                    <input type="password" id="conf_contra" name="Ccontraseña" pattern="^(?=.*\d)(?=.*[\u0021-\u002b\u003c-\u0040])(?=.*[A-Z])(?=.*[a-z])\S{8,30}$" title="Debe contener letras mayúscula, minúsculas, números y caracteres especiales. Mínimo de 8 y máximo de 15."  minlength="8" maxlength="15" placeholder="Confirme su contraseña">
+                    <span id="show-hide-pass" action="hide" class="input-group-addon glyphicon glyphicon glyphicon-eye-open"></span>
+                </div>
+                
+                <input type="submit"  value="Aceptar" >
+                
+                </input>
+                
+            </form>
+        </div>
+    </body>
+    <script>
+        document.getElementById("contra_generada").addEventListener('keyup', sanear);
+        document.getElementById("nue_contra").addEventListener('keyup', sanear);
+        document.getElementById("conf_contra").addEventListener('keyup', sanear);
+        function sanear(e) {
+            let contenido = e.target.value;
+            e.target.value = contenido.replace(" ", "");
+        }
+    </script>
+</html>

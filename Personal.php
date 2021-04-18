@@ -75,7 +75,7 @@ include 'conexion.php'
 			<a href="agregarpersonal.php" class="genric-btn info circle">Agregar</a>
 		</form>	
 		<form class="form-inline my-2 my-lg-0 float-left">
-			<a class="genric-btn btn-danger circle" href="../FRANCLAR/Reportes-PDF/ReportePersonal.php">
+			<a class="genric-btn btn-danger circle" onclick="buscar_personal()" href="#">
 			<i class="fas fa-file-pdf fa-lg"> </i> Generar Reporte</a>
 	    </form>	
 		<br>

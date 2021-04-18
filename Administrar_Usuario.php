@@ -90,17 +90,20 @@ include 'conexion.php'
                                 
                                
                             <div class="form-group col-md-6">
-                            <input type="text" class="form-control" name="nombre_usuario" value="<?php echo $row['Nom_Usuario']?>" placeholder="Ingrese una contraseña Actual" readonly>
+                            <input type="text" class="form-control" name="nombre_usuario" title="Nombre de usuario" value="<?php echo $row['Nom_Usuario']?>" placeholder="Ingrese una contraseña Actual" readonly>
                                 </div>                                          
-                                <div class="form-group col-md-6">    
-                            <input id="contra_actual" type="password" class="form-control"  name="contra_actual" maxlength="30"  pattern="^(?=.*\d)(?=.*[\u0021-\u002b\u003c-\u0040])(?=.*[A-Z])(?=.*[a-z])\S{8,30}$" title="Debe contener letras mayúsculas, minúsculas, números y caracteres especiales" placeholder="INGRESE SU CONTRASEÑA ACTUAL"  autocomplete="off" >
+                                <div class="input-group col-md-6">    
+                                    <input id="contra_actual" type="password" class="form-control"  name="contra_actual" placeholder="INGRESE SU CONTRASEÑA ACTUAL"  autocomplete="off" >
+                                    <input type="checkbox" onclick="myfunctio()"><a>Ver contraseña</a>
                                 </div>                                          
-                                <div class="form-group col-md-6">
-                            <input id="contra_nueva" type="password" class="form-control" name="Ncontraseña" maxlength="30" pattern="^(?=.*\d)(?=.*[\u0021-\u002b\u003c-\u0040])(?=.*[A-Z])(?=.*[a-z])\S{8,30}$" title="Debe contener letras mayúsculas, minúsculas, números y caracteres especiales" placeholder="INGRESE SU NUEVA CONTRASEÑA"  autocomplete="off" >
+                                <div class="input-group col-md-6">
+                                    <input id="contra_nueva" type="password" class="form-control" name="Ncontraseña" minlength="8" maxlength="15" pattern="^(?=.*\d)(?=.*[\u0021-\u002b\u003c-\u0040])(?=.*[A-Z])(?=.*[a-z])\S{8,30}$" title="Debe contener letras mayúsculas, minúsculas, números y caracteres especiales. Mínimo de 8 y máximo de 15." minlength="8" maxlength="15" placeholder="INGRESE SU NUEVA CONTRASEÑA"  autocomplete="off" >
+                                    <input type="checkbox" onclick="myfunction()"><a>Ver contraseña</a>
                                 </div>
-                                <div class="form-group col-md-6">
-                            <input id="confirmar_contra" type="password" class="form-control" name="Ccontraseña" maxlength="30"  pattern="^(?=.*\d)(?=.*[\u0021-\u002b\u003c-\u0040])(?=.*[A-Z])(?=.*[a-z])\S{8,30}$" onkeyup="validar()" title="Debe contener letras mayúsculas, minúsculas, números numeros y caracteres especiales" placeholder="CONFIRME SU NUEVA CONTRASEÑA "  autocomplete="off" >
-                                <p  id="confirmar" class="text-danger d-none">Contraseña no coinciden</p>
+                                <div class="input-group col-md-6">
+                                    <input id="confirmar_contra" type="password" class="form-control" name="Ccontraseña" minlength="8" maxlength="15"  pattern="^(?=.*\d)(?=.*[\u0021-\u002b\u003c-\u0040])(?=.*[A-Z])(?=.*[a-z])\S{8,30}$" onkeyup="validar()" title="Debe contener letras mayúsculas, minúsculas, números numeros y caracteres especiales. Mínimo de 8 y máximo de 15." minlength="8" maxlength="15"  placeholder="CONFIRME SU NUEVA CONTRASEÑA "  autocomplete="off" >
+                                    <input type="checkbox" onclick="myfuncti()"><a>Ver contraseña</a>
+                                    <p  id="confirmar" class="text-danger d-none">Contraseña no coinciden</p>
                                 </div>
                                 <br>
                                 <br>
@@ -125,6 +128,39 @@ include 'conexion.php'
     <?php
         include 'script.php'
     ?>
+    <script type="text/javascript">
+        function myfunction(){
+            var x = document.getElementById("contra_nueva");
+            if (x.type==="password") {
+                x.type="text";
+            } else {
+                x.type="password";
+            }
+        }
+    </script>   
+
+    <script type="text/javascript">
+        function myfunctio(){
+            var x = document.getElementById("contra_actual");
+            if (x.type==="password") {
+                x.type="text";
+            } else {
+                x.type="password";
+            }
+        }
+    </script>  
+
+    <script type="text/javascript">
+        function myfuncti(){
+            var x = document.getElementById("confirmar_contra");
+            if (x.type==="password") {
+                x.type="text";
+            } else {
+                x.type="password";
+            }
+        }
+    </script>  
+
     <script>
     document.getElementById("contra_actual").addEventListener('keyup', contaseña);
     document.getElementById("contra_nueva").addEventListener('keyup', contaseña);

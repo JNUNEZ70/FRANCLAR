@@ -77,7 +77,7 @@ include 'conexion.php'
 			<a href="agregarEstado_Civil.php" class="genric-btn info circle">Agregar</a>
 		</form>
 		<form class="form-inline my-2 my-lg-0 float-left">
-			<a class="genric-btn btn-danger circle" href="../FRANCLAR/Reportes-PDF/ReporteEstadoCivil.php">
+			<a class="genric-btn btn-danger circle" onclick="pdfDinamico(this)" id="pdf_estado_civil" href="#">
 			<i class="fas fa-file-pdf fa-lg"> </i> Generar Reporte</a>
     	</form>	
 	   <br>

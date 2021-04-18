@@ -1,7 +1,7 @@
 <?php
 require('../Reportes-PDF/fpdf.php');
 
-date_default_timezone_set('America/Mexico_City');
+date_default_timezone_set('America/Tegucigalpa');
         $fecha = date('d-m-Y');
         $hora = date('H:i:s');
 class PDF extends FPDF
@@ -40,8 +40,14 @@ function Footer()
 }
 
 require '../conexion.php';
-$consulta = mysqli_query($con, "SELECT * FROM tbl_parametro_sistema");
-$resultado = mysqli_num_rows($consulta);
+if ($_GET['perl']) {
+    $valor=$_GET['perl'];
+    
+    $buscar=base64_decode($valor);
+    $carg="SELECT * FROM tbl_parametro_sistema WHERE id_parametro LIKE '%".$buscar."%' OR parametro LIKE '%".$buscar."%' OR valor LIKE '%".$buscar."%'";
+    
+    $consulta = mysqli_query($con,$carg);
+    $data = mysqli_num_rows($consulta);
 
 $pdf = new PDF();
 // Carga de datos
@@ -61,4 +67,28 @@ while($row = mysqli_fetch_assoc($consulta)){
 }
 
 $pdf->Output('Reporte_Parametros_Sistema.pdf', 'I');
+} else {
+    $query = "SELECT * FROM tbl_parametro_sistema";
+    $consulta = mysqli_query($con,$query);
+    $data = mysqli_num_rows($consulta);
+
+    $pdf = new PDF();
+        // Carga de datos
+        $pdf->AliasNbPages();
+        $pdf->AddPage();
+        $pdf->SetFillColor(232,232,232);
+        $pdf->SetFont('Times','',12);
+
+        $pdf->Cell(20, 10, 'No', 1, 0, 'C', 1);
+        $pdf->Cell(130, 10, utf8_decode('Parámetro'), 1, 0, 'C', 1);
+        $pdf->Cell(40, 10, 'Valor', 1, 1, 'C', 1);
+
+        while($row = mysqli_fetch_assoc($consulta)){
+            $pdf->Cell(20, 10, $row['id_parametro'], 1, 0, 'C', 0);
+            $pdf->Cell(130, 10, utf8_decode($row['parametro']), 1, 0, 'C', 0);
+            $pdf->Cell(40, 10, $row['valor'], 1, 1, 'C', 0);
+        }
+
+        $pdf->Output('Reporte_Parametros_Sistema.pdf', 'I');
+}
 ?>

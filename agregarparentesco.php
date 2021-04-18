@@ -42,7 +42,7 @@ include 'conexion.php'
                             <h2>Ingrese un nuevo parentesco</h2>
                             <div class="form-row">
                                 <div class="form-group col-md-6">
-                                    <input type="text" class="form-control" id="parentesco" maxlength="30" name="Parentesco" onkeyup="mayus(this);" placeholder="Ingrese el parentesco" required>
+                                    <input type="text" class="form-control" id="parentesco" maxlength="30" name="Parentesco" onkeyup="mayus(this);" title="Ingrese el parentesco" placeholder="Ingrese el parentesco" required>
                                 </div>
                                
                                 <div class="regerv_btn col-md-8" >

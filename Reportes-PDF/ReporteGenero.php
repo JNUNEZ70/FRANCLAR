@@ -1,7 +1,7 @@
 <?php
 require('../Reportes-PDF/fpdf.php');
 
-date_default_timezone_set('America/Mexico_City');
+date_default_timezone_set('America/Tegucigalpa');
         $fecha = date('d-m-Y');
         $hora = date('H:i:s');
 class PDF extends FPDF
@@ -40,8 +40,15 @@ function Footer()
 }
 
 require '../conexion.php';
-$consulta = mysqli_query($con, "SELECT * FROM tbl_sexo");
-$resultado = mysqli_num_rows($consulta);
+if ($_GET['perl']) {
+    $valor=$_GET['perl'];
+    
+    $buscar=base64_decode($valor);
+    $genero="SELECT * FROM tbl_sexo WHERE ID_Sexo LIKE '%".$buscar."%' OR Descripcion_sexo LIKE '%".$buscar."%'";
+    
+    $consulta = mysqli_query($con,$genero);
+    $data = mysqli_num_rows($consulta);
+
 
 $pdf = new PDF();
 // Carga de datos
@@ -59,4 +66,26 @@ while($row = mysqli_fetch_assoc($consulta)){
 }
 
 $pdf->Output('Reporte_Genero.pdf', 'I');
+} else {
+    $query = "SELECT * FROM tbl_sexo";
+    $consulta = mysqli_query($con,$query);
+    $data = mysqli_num_rows($consulta);
+
+    $pdf = new PDF();
+    // Carga de datos
+    $pdf->AliasNbPages();
+    $pdf->AddPage();
+    $pdf->SetFillColor(232,232,232);
+    $pdf->SetFont('Times','',12);
+
+    $pdf->Cell(20, 10, 'No', 1, 0, 'C', 1);
+    $pdf->Cell(170, 10, utf8_decode('Género'), 1, 1, 'C', 1);
+
+while($row = mysqli_fetch_assoc($consulta)){
+    $pdf->Cell(20, 10, $row['ID_Sexo'], 1, 0, 'C', 0);
+    $pdf->Cell(170, 10, utf8_decode($row['Descripcion_sexo']), 1, 1, 'C', 0);
+}
+
+$pdf->Output('Reporte_Genero.pdf', 'I');
+}
 ?>

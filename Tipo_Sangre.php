@@ -76,7 +76,7 @@ include 'conexion.php'
 			<a href="agregarTipo_Sangre.php" class="genric-btn info circle">Agregar</a>
 		</form>
 		<form class="form-inline my-2 my-lg-0 float-left">
-			<a class="genric-btn btn-danger circle" href="../FRANCLAR/Reportes-PDF/ReporteTipoSangre.php">
+			<a class="genric-btn btn-danger circle" onclick="pdfDinamico(this)" id="pdf_tipo_sangre" href="#">
 			<i class="fas fa-file-pdf fa-lg"> </i> Generar Reporte</a>
     	</form>	
 	   <br>

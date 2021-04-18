@@ -83,12 +83,12 @@
             <form action="" method="POST" autocomplete="off" class="login100-form validate-form">
                 <!-----Username---->
                 
-                <input type="text" name="usuario" placeholder="Ingrese su Usuario" required>
+                <input type="text" name="usuario" title="Ingrese su usuario" placeholder="Ingrese su Usuario" maxlength="50" onkeypress="return soloLetras(event)" onkeyup="javascript:this.value=this.value.toUpperCase();" required>
                 
                 
-                <!-- <input type="submit" name="rcorreo"  value="Recuperación por correo electrónico">
+                <input type="submit" name="rcorreo"  value="Recuperación por correo electrónico">
                 
-                </input> -->
+                </input>
 
                 <input type="submit" name="rpreguntas"  value="Recuperación por preguntas secretas" >
                 
@@ -96,4 +96,31 @@
             </form>
         </div>
     </body>
+    <script>
+        function soloLetras(e) {
+            var key = e.keyCode || e.which,
+            tecla = String.fromCharCode(key).toLowerCase(),
+            letras = " áéíóúabcdefghijklmnñopqrstuvwxyz",
+            especiales = [8],
+            tecla_especial = false;
+
+            for (var i in especiales) {
+            if (key == especiales[i]) {
+                tecla_especial = true;
+                break;
+            }
+            }
+
+            if (letras.indexOf(tecla) == -1 && !tecla_especial) {
+            return false;
+            }
+        }
+    </script>
+    <script>
+        document.getElementById("usuario").addEventListener('keyup', sanear);
+        function sanear(e) {
+            let contenido = e.target.value;
+            e.target.value = contenido.replace(" ", "");
+        }
+    </script>
 </html>

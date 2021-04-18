@@ -43,10 +43,10 @@ include 'script.php';
                             <h2>Ingrese Nuevo Cobro</h2>
                             <div class="form-row">
                                 <div class="form-group col-md-6">
-                                    <input onkeyup="mayus(this);" type="text" class="form-control" id="nombre_cobro" maxlength="50" name="Nombre" placeholder="Nombre del Cobro" required>
+                                    <input onkeyup="mayus(this);" type="text" class="form-control" id="nombre_cobro" maxlength="50" name="Nombre" title="Nombre del cobro" placeholder="Nombre del Cobro" required>
                                 </div>
                                 <div class="form-group col-md-6">
-                                    <input onkeypress="return solonumeros(event)"  type="text" class="form-control" id="precio_cobro" maxlength="5" name="precio" placeholder="Precio del Cobro" required>
+                                    <input onkeypress="return solonumeros(event)"  type="text" class="form-control" id="precio_cobro" maxlength="5" name="precio" title="Precio del cobro" placeholder="Precio del Cobro" required>
                                 </div>
                                 <div class="regerv_btn col-md-8" >
                                     <button type="submit" name="add" class="btn_2">Guardar</button>

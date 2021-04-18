@@ -82,7 +82,7 @@ include 'conexion.php'
 				}else{
 					$no = 1;
 					while($row = mysqli_fetch_assoc($sql)){
-                        if ($row['Rol']=="Admin") {
+                        if ($row['Rol']=="ADMIN") {
                             continue;
                         }
 						echo '

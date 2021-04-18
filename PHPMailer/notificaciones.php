@@ -50,19 +50,19 @@ try {
         
         
         //Recipients
-$mail->setFrom('complejomedicofranclar2020@gmail.com', 'Complejo Medico Franclar');
+$mail->setFrom('complejomedicofranclar2020@gmail.com', utf8_decode('Complejo Médico Franclar'));
 $mail->addAddress($row['Email'],$row['Nom_Paciente'] );
 
 $mail->isHTML(true);                                  // Set email format to HTML
-$mail->Subject = 'Notificacion de Cita';
-$mail->Body    = 'Compejo medico Franclar le envia un cordial saludo  <br></br> ';
-$mail->Body    .= 'Notificando que el dia de hoy tiene cita <br></br> <br></br> ';
-$mail->Body    .=  'Cita: '.$row['ID_Cita'] .'<br></br>';
+$mail->Subject = utf8_decode('Notificación de Cita');
+$mail->Body    = utf8_decode('Complejo médico Franclar le envía un cordial saludo  <br></br> ');
+$mail->Body    .= utf8_decode('Notificando que el día de hoy tiene cita <br></br> <br></br> ');
+$mail->Body    .= utf8_decode('Cita: '.$row['ID_Cita'] .'<br></br>');
 
-$mail->Body    .= 'Paciente: '.$row['Nom_Paciente'] .'<br></br>';
-$mail->Body    .= 'Especialidad: '.$row['Descripcion_espec'] .'<br></br>';
-$mail->Body    .= 'Fecha de atencion: '.$row['Fec_Atencion'] .'<br></br>';
-$mail->Body    .= 'Hora de atencion: '.$row['Hora_Atencion'] .'<br></br>';
+$mail->Body    .= utf8_decode('Paciente: '.$row['Nom_Paciente'] .'<br></br>');
+$mail->Body    .= utf8_decode('Especialidad: '.$row['Descripcion_espec'] .'<br></br>');
+$mail->Body    .= utf8_decode('Fecha de atención: '.$row['Fec_Atencion'] .'<br></br>');
+$mail->Body    .= utf8_decode('Hora de atención: '.$row['Hora_Atencion'] .'<br></br>');
 
 
 $mail->send();

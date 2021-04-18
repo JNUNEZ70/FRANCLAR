@@ -34,13 +34,13 @@ include ("conexionPDO.php");
                 <!-----Password----->
                 <label for="Password">Contraseña</label>
                 <div class="input-group">
-                <input type="password" id="password" name="Contraseña" pattern="^(?=.*\d)(?=.*[\u0021-\u002b\u003c-\u0040])(?=.*[A-Z])(?=.*[a-z])\S{8,30}$" title="Debe contener letras mayuscula, minusculas, numeros y caracteres especiales" placeholder="Ingrese una Contraseña">
+                <input type="password" id="password" name="Contraseña" pattern="^(?=.*\d)(?=.*[\u0021-\u002b\u003c-\u0040])(?=.*[A-Z])(?=.*[a-z])\S{8,30}$" title="Debe contener letras mayúscula, minúsculas, números y caracteres especiales. Mínimo de 8 y máximo de 15." minlength="8" maxlength="15" placeholder="Ingrese una Contraseña">
                 <span id="show-hide-passwd" action="hide" class="input-group-addon glyphicon glyphicon glyphicon-eye-open"></span>
                 </div>  
 
                 <label for="RPassword">Confirmar contraseña</label>
                 <div class="input-group">
-                <input type="password" id="confirm_password" name="Rcontraseña" pattern="^(?=.*\d)(?=.*[\u0021-\u002b\u003c-\u0040])(?=.*[A-Z])(?=.*[a-z])\S{8,30}$" title="Debe contener letras mayuscula, minusculas, numeros y caracteres especiales" placeholder="Ingrese de nuevo la Contraseña">
+                <input type="password" id="confirm_password" name="Rcontraseña" pattern="^(?=.*\d)(?=.*[\u0021-\u002b\u003c-\u0040])(?=.*[A-Z])(?=.*[a-z])\S{8,30}$" title="Debe contener letras mayúscula, minúsculas, números y caracteres especiales. Mínimo de 8 y máximo de 15." minlength="8" maxlength="15" placeholder="Ingrese de nuevo la Contraseña">
                 <span id="show-hide-passw" action="hide" class="input-group-addon glyphicon glyphicon glyphicon-eye-open"></span>
                 </div>  
                 

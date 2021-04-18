@@ -42,7 +42,7 @@ include 'conexion.php'
                             <h2>Ingrese Rol</h2>
                             <div class="form-row">
                                 <div class="form-group col-md-6">
-                                    <input type="text" class="form-control" id="Nombre_Rol"  onkeyup="mayus(this);" maxlength="30" name="Nombre" placeholder="Nombre del Rol" required>
+                                    <input type="text" class="form-control" id="Nombre_Rol"  onkeyup="mayus(this);" maxlength="30" name="Nombre" title="Nombre del Rol" placeholder="Nombre del Rol" required>
                                 </div>
                                
                                 <div class="regerv_btn col-md-8" >

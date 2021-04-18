@@ -54,14 +54,14 @@ include 'conexion.php'
                                     </select>
                                 </div>
                                 <div class="form-group col-md-6">
-                                    <input type="email" class="form-control" id="email" name="EmailU" maxlength="50" onkeypress="return Correo(event)" placeholder="Email" required>
+                                    <input type="email" class="form-control" id="email" name="EmailU" maxlength="50" onkeypress="return Correo(event)" title="Email" placeholder="Email" required>
                                 </div>
                                 <div class="form-group col-md-4">
-                                    <input type="text" class="form-control" id="NomU" name="Nom_Usuario" maxlength="20" onkeypress="return soloLetras(event)" onkeyup="javascript:this.value=this.value.toUpperCase();" placeholder="Nombre de usuario"  required>
+                                    <input type="text" class="form-control" id="NomU" name="Nom_Usuario" maxlength="20" onkeypress="return soloLetras(event)" onkeyup="javascript:this.value=this.value.toUpperCase();" title="Nombre de usuario" placeholder="Nombre de usuario"  required>
                                     
                                 </div>                                
                                 <div class="input-group col-md-4">
-                                    <input value= "<?php echo generar_password_complejo(3) ?>" type="text" class="form-control" id="passwordU" name="Password"  minlength="8" maxlength="30" placeholder="Contraseña" readonly required>
+                                    <input value= "<?php echo generar_password_complejo(3) ?>" type="text" class="form-control" id="passwordU" name="Password"  minlength="8" maxlength="30" title="Contraseña" placeholder="Contraseña" readonly required>
                                 </div>               
                                 <div class="form-group col-md-4">
                                     <select class="form-control" id="RolU" name="Rol" required>
