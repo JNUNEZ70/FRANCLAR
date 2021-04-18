@@ -246,9 +246,9 @@ include 'conexion.php'
                                         $('#bt_add').click(function(){
                                             agregar_fila();
                                             });
-                                        $('#bt_del').click(function(){
-                                            eliminar_fila(num_fila);
-                                        });
+                                        // $('#bt_del').click(function(){
+                                        //     eliminar_fila(num_fila);
+                                        // });
                                         $('#agregar_foto').click(function(){
                                             agregar_input();
                                             });
@@ -258,14 +258,15 @@ include 'conexion.php'
                                     var cont=1;
                                     function agregar_fila() {
                                         cont++;
-                                        var fila='<tr id="fila'+cont+'"><td><button type="button" id="bt_del" title="Eliminar medicamento" class="btn btn-danger btn-sm" ><span class="glyphicon glyphicon-trash" aria-hidden="true" color:wite ></span></a></button></td><td><input  onkeypress="return alfanumerica(event)" onkeyup="sanear2(this)" type="text" class="form-control" name="medicamento[]" id="medicamento'+cont+'"></td><td><input onkeypress="return alfanumerica(event)" onkeyup="sanear2(this)" type="text" class="form-control" name="dosis[]" id="dosis'+cont+'"></td><td><input  onkeypress="return alfanumerica(event)" onkeyup="sanear2(this)" type="text" class="form-control" name="duracion[]" id="duracion'+cont+'"></td><td><input onkeypress="return alfanumerica(event)"  onkeyup="sanear2(this)" type="text" class="form-control cantidad " name="cantidad[]" id="cantidad'+cont+'"></td></tr>';
+                                        var fila='<tr id="fila'+cont+'"><td><button type="button" id="bt_del" onclick="eliminar_fila('+cont+')" title="Eliminar medicamento" class="btn btn-danger btn-sm" ><span class="glyphicon glyphicon-trash" aria-hidden="true" color:wite ></span></a></button></td><td><input  onkeypress="return alfanumerica(event)" onkeyup="sanear2(this)" type="text" class="form-control" name="medicamento[]" id="medicamento'+cont+'"></td><td><input onkeypress="return alfanumerica(event)" onkeyup="sanear2(this)" type="text" class="form-control" name="dosis[]" id="dosis'+cont+'"></td><td><input  onkeypress="return alfanumerica(event)" onkeyup="sanear2(this)" type="text" class="form-control" name="duracion[]" id="duracion'+cont+'"></td><td><input onkeypress="return alfanumerica(event)"  onkeyup="sanear2(this)" type="text" class="form-control cantidad " name="cantidad[]" id="cantidad'+cont+'"></td></tr>';
                                         $('#datatable').append(fila);
                                         
                                         
                                     }
 
-                                    function eliminar_fila(num_fila) {                                     
-                                        
+                                    function eliminar_fila(id_fila) {                                     
+                                        //alert(cont);
+                                        $('#fila'+id_fila).remove();
                                     }                                    
             
                                     var cont2=1;

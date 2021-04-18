@@ -7,12 +7,12 @@ include 'conexion.php'
     if(isset($_POST['id'])){
         $id_cobro = $_POST['id'];
         // echo $id;
-        $sql = mysqli_query($con, "SELECT * FROM tbl_cobros_adicionales WHERE ID_cobro_adicional='$id_cobro'");
+        $sql = mysqli_query($con, "SELECT * FROM tbl_cobros_adicionales WHERE ID_Cobro_adicional='$id_cobro'");
         if(mysqli_num_rows($sql) == 0){
             echo 'No tiene precio';
             }else{
                 $row = mysqli_fetch_assoc($sql);                        
-                $precio = $row['Precio_cobro'];
+                $precio = $row['Precio_Cobro'];
                 echo $precio;
         }
     }
@@ -24,7 +24,7 @@ include 'conexion.php'
         if (empty($descripcion) or empty($precio)) {
             echo 'Complete ambos campos';
         }else{
-         $sql2 = mysqli_query($con, "INSERT INTO tbl_cobros_adicionales (Descripcion_cobro, Precio_cobro) 
+         $sql2 = mysqli_query($con, "INSERT INTO tbl_cobros_adicionales (Descripcion_Cobro, Precio_Cobro) 
                             VALUES ('$descripcion', '$precio')") or die(mysqli_error());
 
          if($sql2){
@@ -46,7 +46,7 @@ include 'conexion.php'
         }else{
             $cadena = $cadena.'<option value="0" selected>Seleccione un cobro</option>';
             while($fila=mysqli_fetch_assoc($sql3)){
-                $cadena = $cadena.'<option value= '.$fila['ID_cobro_adicional'].'>'.$fila['Descripcion_cobro'].'</option>';
+                $cadena = $cadena.'<option value= '.$fila['ID_Cobro_adicional'].'>'.$fila['Descripcion_Cobro'].'</option>';
             }
             echo $cadena.'</select>';
         }
@@ -56,12 +56,12 @@ include 'conexion.php'
     if(isset($_POST['id_para_descripcion'])){
         $id_para_descr = $_POST['id_para_descripcion'];
         // echo $id;
-        $sql4 = mysqli_query($con, "SELECT * FROM tbl_cobros_adicionales WHERE ID_cobro_adicional='$id_para_descr'");
+        $sql4 = mysqli_query($con, "SELECT * FROM tbl_cobros_adicionales WHERE ID_Cobro_adicional='$id_para_descr'");
         if(mysqli_num_rows($sql4) == 0){
             echo 'No tiene precio';
             }else{
                 $row4 = mysqli_fetch_assoc($sql4);                        
-                $descr_cobro = $row4['Descripcion_cobro'];
+                $descr_cobro = $row4['Descripcion_Cobro'];
                 echo $descr_cobro;
         }
     }

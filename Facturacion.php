@@ -155,7 +155,7 @@ include 'conexion.php'
                                 $sql3 = mysqli_query($con, "SELECT * FROM tbl_detalle_factura WHERE ID_Factura='$id_factura'");
                                 
                                     while($row3 = mysqli_fetch_assoc($sql3)){
-                                        $cobro = $row3['cobro'];
+                                        $cobro = $row3['Cobro'];
                                         $subtotal = $subtotal + $cobro;
                                         // $isv = $subtotal * 0.15;
                                         $total = $subtotal;
@@ -163,13 +163,13 @@ include 'conexion.php'
                                     echo'
                                     <tr>                                        
                                         <td colspan="2" class="col1" style="text-align:left">'.
-                                            $row3['descripcion']
+                                            $row3['Descripcion']
                                         .'</td>
                                         <td class="col2" style="text-align:left">
-                                            L. '.$row3['cobro']
+                                            L. '.$row3['Cobro']
                                         .'</td>  
                                         <td class="col3" style="text-align:left">
-                                            L. '.$row3['cobro']
+                                            L. '.$subtotal
                                         .'</td>  
                                     </tr>
                                     ';
