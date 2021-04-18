@@ -86,9 +86,9 @@
                 <input type="text" name="usuario" placeholder="Ingrese su Usuario" required>
                 
                 
-                <!-- <input type="submit" name="rcorreo"  value="Recuperación por correo electrónico">
+                <input type="submit" name="rcorreo"  value="Recuperación por correo electrónico">
                 
-                </input> -->
+                </input> 
 
                 <input type="submit" name="rpreguntas"  value="Recuperación por preguntas secretas" >
                 

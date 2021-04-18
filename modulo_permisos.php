@@ -34,7 +34,9 @@ if (isset($_POST['permisos'])){
         $id_84,$id_85,$id_86,$id_87,
         $id_88,$id_89,$id_90,$id_91,
         $id_92,$id_93,$id_94,$id_95,
-        $id_96,$id_97,$id_98,$id_99
+        $id_96,$id_97,$id_98,$id_99,
+        $id_100,$id_101,$id_102,$id_103,
+        $id_104,$id_105,$id_106,$id_107
 
    )=$permisos;
    //obteniendo las vistas
@@ -44,7 +46,7 @@ if (isset($_POST['permisos'])){
          $id_vista_12,$id_vista_13,$id_vista_14,$id_vista_15,
          $id_vista_16,$id_vista_17,$id_vista_18,$id_vista_19,
          $id_vista_20,$id_vista_21,$id_vista_22,$id_vista_23,
-         $id_vista_24,
+         $id_vista_24,$id_vista_25,$id_vista_26,
    )=$objetos;
    //obtener el rol
 
@@ -73,7 +75,9 @@ if (isset($_POST['permisos'])){
                                               ('$rol','$id_vista_21','$id_84','$id_86','$id_85','$id_87'),
                                               ('$rol','$id_vista_22','$id_88','$id_90','$id_89','$id_91'),
                                               ('$rol','$id_vista_23','$id_92','$id_94','$id_93','$id_95'),
-                                              ('$rol','$id_vista_24','$id_96','$id_98','$id_97','$id_99')
+                                              ('$rol','$id_vista_24','$id_96','$id_98','$id_97','$id_99'),
+                                              ('$rol','$id_vista_25','$id_100','$id_102','$id_101','$id_103'),
+                                              ('$rol','$id_vista_26','$id_104','$id_106','$id_105','$id_107'),
                                        ");
     
     if($insert){

@@ -10,6 +10,7 @@ include ("conexionPDO.php");
         $ID_Estado= mysqli_real_escape_string($conn,(strip_tags($_POST['ID_Estado'],ENT_QUOTES)));
         $email = mysqli_real_escape_string($conn,(strip_tags($_POST['email'],ENT_QUOTES)));
         $Contraseña = mysqli_real_escape_string($conn,(strip_tags($_POST['Contraseña'],ENT_QUOTES)));
+        $contrasenaEncriptada= password_hash($Contraseña,PASSWORD_BCRYPT);
         $ID_Rol = mysqli_real_escape_string($conn,(strip_tags($_POST['ID_Rol'],ENT_QUOTES)));
 
         $Primer_Ingreso = mysqli_real_escape_string($conn,(strip_tags($_POST['Primer_Ingreso'],ENT_QUOTES)));
@@ -24,7 +25,7 @@ include ("conexionPDO.php");
         }else{
 	
             $insert = mysqli_query($conn, "INSERT INTO tbl_usuario (ID_Empleado,ID_Estado, Nom_Usuario, email, Contraseña, ID_Rol, Primer_Ingreso) 
-                                            VALUES ( '$ID_Empleado' ,  '$ID_Estado' ,'$Nom_Usuario' , '$email' , '$Contraseña' , '$ID_Rol' , '$Primer_Ingreso')") or die(mysqli_error());
+                                            VALUES ( '$ID_Empleado' ,  '$ID_Estado' ,'$Nom_Usuario' , '$email' , '$contrasenaEncriptada' , '$ID_Rol' , '$Primer_Ingreso')") or die(mysqli_error());
             
             if($insert){
                 echo "<script type='text/javascript'>

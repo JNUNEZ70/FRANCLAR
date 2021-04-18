@@ -14,7 +14,9 @@
     include ("conexionPDO.php");
     ?>
 
-    <?php			
+    <?php	
+     require 'funcs/conexion.php';
+     require 'funcs/funcs.php';		
 
     if(isset($_POST['recuperar'])){
                 
@@ -25,7 +27,7 @@
             $id_usuario= $_SESSION['ID_Usuario']; 
             $nuevacont_encr = password_hash($nuevacont, PASSWORD_DEFAULT);
             
-            $obtenerresp = mysqli_query($conn, "SELECT * FROM tbl_pregunta_usuario WHERE ID_Pregunta='$idpregunta' AND ID_Usuario='$id_usuario'");
+            $obtenerresp = mysqli_query($conn, "SELECT * FROM tbl_pregunta_usuario WHERE ID_Pregunta='$idpregunta' AND ID_Usuario='$id_usuario'  ");
             $dato = mysqli_fetch_assoc($obtenerresp);
             $resp_usu = $dato['Respuesta'];
 
@@ -42,8 +44,14 @@
             }else{
                 $update = mysqli_query($conn, "UPDATE tbl_usuario SET Contraseña='$nuevacont_encr', ID_Estado=1 WHERE ID_Usuario='$id_usuario'") or die(mysqli_error());
                 if($update){
+                    $user_id=$id_usuario;
+                    $id_objeto=27;
+                    $accion="Cambio de contraseña";
+                    $descripcion="RECUPERACION DE CONTRASEÑA MEDIANTE PREGUNTA"; 
+                    insertBitacora($user_id,$id_objeto,$accion,$descripcion);
+
                     echo "<script type='text/javascript'>
-                    alert('Contraseña modificada exitosamente, favor inicie sesión');
+                    alert('Recuperación de Contraseña exitosa, favor inicie sesión');
                     window.location.href= 'login.php';
                     </script>";
                 }
@@ -62,9 +70,9 @@
                     <option value="0" selected>Seleccione una pregunta</option>
                     <?php
                         $id_usuario= $_SESSION['ID_Usuario']; 
-                        $sql=mysqli_query($conn,"SELECT tbl_pregunta_usuario.ID_Pregunta, tbl_preguntas.Pregunta FROM tbl_pregunta_usuario INNER JOIN tbl_preguntas on tbl_pregunta_usuario.ID_Pregunta = tbl_preguntas.ID_Pregunta WHERE tbl_pregunta_usuario.ID_Usuario ='$id_usuario'");                        
+                        $sql=mysqli_query($conn,"SELECT tbl_pregunta_usuario.ID_Pregunta, tbl_preguntas.Pregunta FROM tbl_pregunta_usuario INNER JOIN tbl_preguntas on tbl_pregunta_usuario.ID_Pregunta = tbl_preguntas.ID_Pregunta WHERE tbl_pregunta_usuario.ID_Usuario ='$id_usuario' limit 2 ");                        
                         while($fila=$sql->fetch_array()){
-                            echo "<option value='".$fila['ID_Pregunta']."'>".$fila['Pregunta']."</option>";
+                            echo "<option selected value='".$fila['ID_Pregunta']."'>".$fila['Pregunta']."</option>";
                         }     
                     ?>
                 </select>
