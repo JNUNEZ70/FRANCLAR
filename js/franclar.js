@@ -113,7 +113,7 @@ function validar() {
 
 function fechaMaxima(id) {
     let $calendario = id;
-    //console.log($calendario);
+    console.log($calendario);
 
     let fecha = new Date();
     dia = fecha.getDate();
@@ -121,21 +121,21 @@ function fechaMaxima(id) {
         dia = "0" + dia;
         mes = fecha.getMonth() + 1;
         console.log(dia);
-        //console.log(mes);
+        console.log(mes);
         anio = fecha.getFullYear();
         rangoMinimo = anio - 120;
         $fechaRango = `${rangoMinimo}-${mes}-${dia}`;
         $calendario.setAttribute("min", $fechaRango);
-        //console.log(anio);
-        $fecha = `${anio}-${mes}-${dia}`;
+        console.log(anio);
+        $fecha = `${anio}-0${mes}-${dia}`;
         $calendario.setAttribute("max", $fecha);
     } else {
         mes = fecha.getMonth() + 1;
         console.log(dia);
-        //console.log(mes);
+        console.log(mes);
         anio = fecha.getFullYear();
-        //console.log(anio);
-        $fecha = `${anio}-${mes}-${dia}`;
+        console.log(anio);
+        $fecha = `${anio}-0${mes}-${dia}`;
         $calendario.setAttribute("max", $fecha);
     }
 
@@ -145,13 +145,13 @@ function fechaMaxima(id) {
 function fechaMinima(id) {
     let $calendario = id;
 
-    console.log($calendario);
+    //console.log($calendario);
 
 
     //console.log($calendario);
     let fecha = new Date();
     dia = fecha.getDate();
-    console.log(dia);
+    //console.log(dia);
     if (dia <= 9) {
         dia = "0" + dia;
         //console.log(dia);
@@ -160,7 +160,7 @@ function fechaMinima(id) {
         anio = fecha.getFullYear();
         //console.log(anio);
         rangoFecha = anio + 4;
-        $fecha = `${anio}-${mes}-${dia}`;
+        $fecha = `${anio}-0${mes}-${dia}`;
         $fechaRango = `${rangoFecha}-${mes}-${dia}`;
         $calendario.setAttribute("min", $fecha);
         $calendario.setAttribute("max", $fechaRango);
@@ -172,7 +172,7 @@ function fechaMinima(id) {
         anio = fecha.getFullYear();
         //console.log(anio);
         rangoFecha = anio + 4;
-        $fecha = `${anio}-${mes}-${dia}`;
+        $fecha = `${anio}-0${mes}-${dia}`;
         $fechaRango = `${rangoFecha}-${mes}-${dia}`;
         $calendario.setAttribute("min", $fecha);
         $calendario.setAttribute("max", $fechaRango);
