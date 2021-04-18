@@ -190,22 +190,29 @@ function edad(fecha, campo = undefined) {
         campoEdad.value = edad;
     }
 }
+toastr.options = {
+    "closeButton": true,
+    "debug": false,
+    "newestOnTop": false,
+    "progressBar": true,
+    "positionClass": "toast-top-right",
+    "preventDuplicates": true,
+    "onclick": null,
+    "showDuration": "300",
+    "hideDuration": "1000",
+    "timeOut": "9000",
+    "extendedTimeOut": "1000",
+    "showEasing": "swing",
+    "hideEasing": "swing",
+    "showMethod": "fadeIn",
+    "hideMethod": "fadeOut"
+  }
 
-function aceptar() {
-    Swal.fire({
-        title: 'Do you want to save the changes?',
-        showDenyButton: true,
-        showCancelButton: true,
-        confirmButtonText: `Save`,
-        denyButtonText: `Don't save`,
-    }).then((result) => {
-        /* Read more about isConfirmed, isDenied below */
-        if (result.isConfirmed) {
-            Swal.fire('Saved!', '', 'success')
-        } else if (result.isDenied) {
-            Swal.fire('Changes are not saved', '', 'info')
-        }
-    })
+function CorreoExiste(msg="") {
+    //toastr.info('Este correo electrónico ya esta en uso, intenta con un  nuevo correo electrónico')
+    
+    
+      toastr['error'](msg,"Verificando Datos");
 };
 
 function envio_prueba() {
@@ -368,6 +375,106 @@ function buscardinamico() {
             //console.log('estas en cobros adicinales');
             //console.log($input);
             window.location="Reportes-PDF/ReportePreguntasSecretas.php?perl="+hash+"";
+// validar que no exista usuarios con el mismo nombre
+//!esto se valida cuando el usuario admin registra un nuevo usuario
+
+$('#Form_registrar_usuario').submit(e=>{
+let $email= $('#email').val();
+let $usuario= $('#NomU').val();
+let $id_usuario= $('#ColaboradorU').val();
+let $rol_usuario= $('#RolU').val();
+let $contrasena= $('#passwordU').val();
+console.log($email,$usuario,$id_usuario,$rol_usuario,$contrasena);
+
+let funcion='verificar';
+$.post('end-point_usuarios.php',{funcion,$email,$usuario,$id_usuario,$rol_usuario,$contrasena},(response)=>{
+
+
+let $json=response;
+let $msg= JSON.parse($json);
+if ($msg.length==0) {
+     enviarFormulario($msg)
+   
+}else{
+$msg.forEach(element => {
+     console.log(element);
+
+CorreoExiste(element);
+});
+}
+
+
+});
+
+e.preventDefault();
+});
+function enviarFormulario($msg) {
+  let $formulario= document.getElementById('Form_registrar_usuario');
+
+ $formulario.submit()
+}
+
+function buscardinamico() {
+   
+   let $input=document.querySelectorAll('input')[4].value;
+   //console.log($input);
+   let hash = btoa($input);
+    
+
+  window.location="Reportes-PDF/ReporteBitacora.php?perl="+hash+"";
+  
+}
+
+function pdfDinamico(id) {
+    let $id=id.id;
+    let $input=document.querySelectorAll('input')[0].value;
+  //let hash = btoa($input);    
+
+        // console.log($input);
+        if ($id=='pdf_cargos') {
+            console.log('estas en cargos');
+            console.log($input);
+            // window.location="Reportes-PDF/ReporteCargos.php?perl="+hash+"";
+
+        }else if ($id=='pdf_especialidad') {
+            console.log('estas en especialidades');
+            console.log($input);
+            // window.location="Reportes-PDF/ReporteEspecialidades.php?perl="+hash+"";
+
+        }else if ($id=='pdf_genero') {
+            console.log('estas en genero');
+            console.log($input);
+            // window.location="Reportes-PDF/ReporteGenero.php?perl="+hash+"";
+
+        }else if ($id=='pdf_estado_civil') {
+            console.log('estas en estado_civil');
+            console.log($input);
+            // window.location="Reportes-PDF/ReporteEstadoCivil.php?perl="+hash+"";
+
+        }else if ($id=='pdf_religion') {
+            console.log('estas en religion');
+            console.log($input);
+            // window.location="Reportes-PDF/ReporteReligion.php?perl="+hash+"";
+
+        }else if ($id=='pdf_tipo_sangre') {
+            console.log('estas en tipo de sangre');
+            console.log($input);
+            // window.location="Reportes-PDF/ReporteGenero.php?perl="+hash+"";
+
+        }else if ($id=='pdf_genero') {
+            console.log('estas en genero');
+            console.log($input);
+            // window.location="Reportes-PDF/ReporteGenero.php?perl="+hash+"";
+
+        }else if ($id=='pdf_genero') {
+            console.log('estas en genero');
+            console.log($input);
+            // window.location="Reportes-PDF/ReporteGenero.php?perl="+hash+"";
+
+        }else if ($id=='pdf_genero') {
+            console.log('estas en genero');
+            console.log($input);
+            // window.location="Reportes-PDF/ReporteGenero.php?perl="+hash+"";
 
         }
  

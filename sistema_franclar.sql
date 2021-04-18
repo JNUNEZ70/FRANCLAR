@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.4
+-- version 5.1.0
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 14-12-2020 a las 00:28:27
--- Versión del servidor: 10.4.16-MariaDB
--- Versión de PHP: 7.4.12
+-- Tiempo de generación: 18-04-2021 a las 08:06:28
+-- Versión del servidor: 10.4.18-MariaDB
+-- Versión de PHP: 8.0.3
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -28,10 +28,10 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `tbl_bitacora_evento` (
-  `id_bitacora_evento` int(11) NOT NULL,
-  `fecha_evento` timestamp NOT NULL DEFAULT current_timestamp(),
-  `id_usuario` bigint(3) NOT NULL,
-  `id_objeto` bigint(3) NOT NULL,
+  `ID_Bitacora_evento` int(11) NOT NULL,
+  `Fecha_Evento` timestamp NOT NULL DEFAULT current_timestamp(),
+  `ID_Usuario` bigint(3) NOT NULL,
+  `ID_Objeto` bigint(3) NOT NULL,
   `Accion` varchar(30) NOT NULL,
   `Descripcion` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -40,60 +40,28 @@ CREATE TABLE `tbl_bitacora_evento` (
 -- Volcado de datos para la tabla `tbl_bitacora_evento`
 --
 
-INSERT INTO `tbl_bitacora_evento` (`id_bitacora_evento`, `fecha_evento`, `id_usuario`, `id_objeto`, `Accion`, `Descripcion`) VALUES
-(1, '2020-12-13 08:26:21', 1, 7, 'Acceso', 'INGRESO A PANTALLA CITAS'),
-(2, '2020-12-13 08:26:23', 1, 4, 'Acceso', 'INGRESO A PANTALLA PACIENTES'),
-(3, '2020-12-13 21:56:46', 1, 25, '	Acceso', 'INICIÓ SESIÓN'),
-(4, '2020-12-13 21:56:52', 1, 5, 'Acceso', 'INGRESO A PANTALLA CONSULTA'),
-(5, '2020-12-13 21:56:56', 1, 4, 'Acceso', 'INGRESO A PANTALLA PACIENTES'),
-(6, '2020-12-13 22:01:10', 1, 4, 'Insert', 'SE INGRESÓ UN NUEVO PACIENTE'),
-(7, '2020-12-13 22:02:09', 1, 7, 'Acceso', 'INGRESO A PANTALLA CITAS'),
-(8, '2020-12-13 22:02:55', 1, 7, 'Insert', 'SE INGRESÓ UNA NUEVA CITA'),
-(9, '2020-12-13 22:03:26', 1, 4, 'Acceso', 'INGRESO A PANTALLA PACIENTES'),
-(10, '2020-12-13 22:03:40', 1, 4, 'Insert', 'SE EDITO UN PACIENTE'),
-(11, '2020-12-13 22:03:44', 1, 7, 'Acceso', 'INGRESO A PANTALLA CITAS'),
-(12, '2020-12-13 22:04:12', 1, 6, 'Acceso', 'INGRESO A PANTALLA PRECLINICA'),
-(13, '2020-12-13 22:04:24', 1, 6, 'Insert', 'SE REALIZO PRECLINICA'),
-(14, '2020-12-13 22:04:29', 1, 5, 'Acceso', 'INGRESO A PANTALLA CONSULTA'),
-(15, '2020-12-13 22:28:39', 1, 5, 'Acceso', 'INGRESO A PANTALLA CONSULTA'),
-(16, '2020-12-13 22:28:41', 1, 7, 'Acceso', 'INGRESO A PANTALLA CITAS'),
-(17, '2020-12-13 22:28:56', 1, 7, 'Insert', 'SE INGRESÓ UNA NUEVA CITA'),
-(18, '2020-12-13 22:29:00', 1, 6, 'Acceso', 'INGRESO A PANTALLA PRECLINICA'),
-(19, '2020-12-13 22:29:09', 1, 6, 'Insert', 'SE REALIZO PRECLINICA'),
-(20, '2020-12-13 22:29:12', 1, 5, 'Acceso', 'INGRESO A PANTALLA CONSULTA'),
-(21, '2020-12-13 22:39:10', 1, 24, 'Acceso', 'INGRESO A PANTALLA EXPEDIENTE'),
-(22, '2020-12-13 22:52:43', 1, 7, 'Acceso', 'INGRESO A PANTALLA CITAS'),
-(23, '2020-12-13 22:52:47', 1, 7, 'Acceso', 'INGRESO A PANTALLA CITAS'),
-(24, '2020-12-13 22:53:10', 1, 7, 'Insert', 'SE INGRESÓ UNA NUEVA CITA'),
-(25, '2020-12-13 22:53:16', 1, 6, 'Acceso', 'INGRESO A PANTALLA PRECLINICA'),
-(26, '2020-12-13 22:53:27', 1, 6, 'Insert', 'SE REALIZO PRECLINICA'),
-(27, '2020-12-13 22:53:30', 1, 5, 'Acceso', 'INGRESO A PANTALLA CONSULTA'),
-(28, '2020-12-13 22:56:30', 1, 5, 'Acceso', 'INGRESO A PANTALLA CONSULTA'),
-(29, '2020-12-13 22:59:16', 1, 24, 'Acceso', 'INGRESO A PANTALLA EXPEDIENTE'),
-(30, '2020-12-13 23:01:47', 1, 24, 'Acceso', 'INGRESO A PANTALLA EXPEDIENTE'),
-(31, '2020-12-13 23:05:13', 1, 7, 'Acceso', 'INGRESO A PANTALLA CITAS'),
-(32, '2020-12-13 23:05:30', 1, 7, 'Insert', 'SE INGRESÓ UNA NUEVA CITA'),
-(33, '2020-12-13 23:05:33', 1, 6, 'Acceso', 'INGRESO A PANTALLA PRECLINICA'),
-(34, '2020-12-13 23:05:43', 1, 6, 'Insert', 'SE REALIZO PRECLINICA'),
-(35, '2020-12-13 23:05:45', 1, 7, 'Acceso', 'INGRESO A PANTALLA CITAS'),
-(36, '2020-12-13 23:05:51', 1, 5, 'Acceso', 'INGRESO A PANTALLA CONSULTA'),
-(37, '2020-12-13 23:06:32', 1, 24, 'Acceso', 'INGRESO A PANTALLA EXPEDIENTE'),
-(38, '2020-12-13 23:06:42', 1, 8, 'Acceso', 'INGRESO A PANTALLA CAJA'),
-(39, '2020-12-13 23:07:53', 1, 4, 'Acceso', 'INGRESO A PANTALLA PACIENTES'),
-(40, '2020-12-13 23:08:24', 1, 8, 'Acceso', 'INGRESO A PANTALLA CAJA'),
-(41, '2020-12-13 23:23:51', 1, 24, 'Acceso', 'INGRESO A PANTALLA EXPEDIENTE'),
-(42, '2020-12-13 23:24:22', 1, 8, 'Acceso', 'INGRESO A PANTALLA CAJA'),
-(43, '2020-12-13 23:24:29', 1, 24, 'Acceso', 'INGRESO A PANTALLA EXPEDIENTE'),
-(44, '2020-12-13 23:24:49', 1, 8, 'Acceso', 'INGRESO A PANTALLA CAJA'),
-(45, '2020-12-13 23:25:51', 1, 24, 'Acceso', 'INGRESO A PANTALLA EXPEDIENTE'),
-(46, '2020-12-13 23:27:25', 1, 7, 'Acceso', 'INGRESO A PANTALLA CITAS'),
-(47, '2020-12-13 23:27:27', 1, 24, 'Acceso', 'INGRESO A PANTALLA EXPEDIENTE'),
-(48, '2020-12-13 23:27:30', 1, 4, 'Acceso', 'INGRESO A PANTALLA PACIENTES'),
-(49, '2020-12-13 23:27:33', 1, 7, 'Acceso', 'INGRESO A PANTALLA CITAS'),
-(50, '2020-12-13 23:27:34', 1, 6, 'Acceso', 'INGRESO A PANTALLA PRECLINICA'),
-(51, '2020-12-13 23:27:36', 1, 5, 'Acceso', 'INGRESO A PANTALLA CONSULTA'),
-(52, '2020-12-13 23:27:38', 1, 24, 'Acceso', 'INGRESO A PANTALLA EXPEDIENTE'),
-(53, '2020-12-13 23:27:40', 1, 8, 'Acceso', 'INGRESO A PANTALLA CAJA');
+INSERT INTO `tbl_bitacora_evento` (`ID_Bitacora_evento`, `Fecha_Evento`, `ID_Usuario`, `ID_Objeto`, `Accion`, `Descripcion`) VALUES
+(1, '2021-04-18 02:35:45', 1, 2, 'Acceso', 'INGRESO A PANTALLA USUARIOS'),
+(2, '2021-04-18 02:43:55', 1, 2, 'Acceso', 'INGRESO A PANTALLA USUARIOS'),
+(3, '2021-04-18 02:44:12', 1, 1, 'Acceso', 'INGRESO A PANTALLA PERSONAL'),
+(4, '2021-04-18 02:44:26', 1, 7, 'Acceso', 'INGRESO A PANTALLA CITAS'),
+(5, '2021-04-18 02:44:55', 1, 2, 'Acceso', 'INGRESO A PANTALLA USUARIOS'),
+(6, '2021-04-18 02:45:13', 1, 7, 'Acceso', 'INGRESO A PANTALLA CITAS'),
+(7, '2021-04-18 02:45:41', 1, 2, 'Acceso', 'INGRESO A PANTALLA USUARIOS'),
+(8, '2021-04-18 02:50:57', 1, 1, 'Acceso', 'INGRESO A PANTALLA PERSONAL'),
+(9, '2021-04-18 02:51:00', 1, 2, 'Acceso', 'INGRESO A PANTALLA USUARIOS'),
+(10, '2021-04-18 02:55:20', 1, 2, 'Insert', 'ADMIN CREO UN NUEVO USUARIO'),
+(11, '2021-04-18 02:58:51', 1, 25, 'Acceso', 'CERRO SESIÓN'),
+(12, '2021-04-18 03:05:31', 24, 25, '	Acceso', 'INICIÓ SESIÓN'),
+(13, '2021-04-18 03:06:01', 24, 25, 'Acceso', 'CERRO SESIÓN'),
+(14, '2021-04-18 03:51:15', 1, 25, '	Acceso', 'INICIÓ SESIÓN'),
+(15, '2021-04-18 03:51:26', 1, 5, 'Acceso', 'INGRESO A PANTALLA CONSULTA'),
+(16, '2021-04-18 03:51:32', 1, 7, 'Acceso', 'INGRESO A PANTALLA CITAS'),
+(17, '2021-04-18 03:53:58', 1, 7, 'Insert', 'SE INGRESÓ UNA NUEVA CITA'),
+(18, '2021-04-18 03:54:04', 1, 6, 'Acceso', 'INGRESO A PANTALLA PRECLINICA'),
+(19, '2021-04-18 03:54:18', 1, 6, 'Insert', 'SE REALIZO PRECLINICA'),
+(20, '2021-04-18 03:54:25', 1, 5, 'Acceso', 'INGRESO A PANTALLA CONSULTA'),
+(21, '2021-04-18 04:18:22', 1, 25, 'Acceso', 'CERRO SESIÓN');
 
 -- --------------------------------------------------------
 
@@ -103,20 +71,21 @@ INSERT INTO `tbl_bitacora_evento` (`id_bitacora_evento`, `fecha_evento`, `id_usu
 
 CREATE TABLE `tbl_cargo` (
   `ID_Cargo` int(3) NOT NULL,
-  `nomb_cargo` varchar(30) NOT NULL
+  `Nomb_Cargo` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Volcado de datos para la tabla `tbl_cargo`
 --
 
-INSERT INTO `tbl_cargo` (`ID_Cargo`, `nomb_cargo`) VALUES
+INSERT INTO `tbl_cargo` (`ID_Cargo`, `Nomb_Cargo`) VALUES
 (1, 'DOCTOR(A'),
 (2, 'ENFERMERO(A)'),
 (3, 'CAJERO(A)'),
 (4, 'LIMPIEZA'),
 (5, 'SEGURIDAD'),
-(6, 'AUTO_REGISTRO');
+(6, 'AUTO_REGISTRO'),
+(13, 'P');
 
 -- --------------------------------------------------------
 
@@ -135,11 +104,26 @@ CREATE TABLE `tbl_citas` (
   `Fec_Atencion` date NOT NULL,
   `Hora_Atencion` time NOT NULL,
   `Precio` int(5) NOT NULL,
-  `Usuario_crea` bigint(3) DEFAULT NULL,
-  `Fec_crea` date DEFAULT NULL,
-  `Usuario_modif` bigint(3) DEFAULT NULL,
-  `Fec_modif` date DEFAULT NULL
+  `Usuario_Crea` bigint(3) DEFAULT NULL,
+  `Fec_Crea` date DEFAULT NULL,
+  `Usuario_Modif` bigint(3) DEFAULT NULL,
+  `Fec_Modif` date DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `tbl_citas`
+--
+
+INSERT INTO `tbl_citas` (`ID_Cita`, `ID_Paciente`, `ID_Usuario`, `ID_Empleado`, `ID_Especialidad`, `ID_Estado`, `Fec_Creacion`, `Fec_Atencion`, `Hora_Atencion`, `Precio`, `Usuario_Crea`, `Fec_Crea`, `Usuario_Modif`, `Fec_Modif`) VALUES
+(1, 1, 1, 3, 1, 4, '2021-04-15 01:35:03', '2021-04-15', '08:00:00', 200, NULL, NULL, NULL, NULL),
+(2, 1, 1, 11, 3, 2, '2021-04-15 02:09:59', '2021-04-15', '07:00:00', 400, NULL, NULL, NULL, NULL),
+(3, 1, 1, 3, 1, 4, '2021-04-15 02:38:15', '2021-04-15', '09:00:00', 200, NULL, NULL, NULL, NULL),
+(4, 1, 1, 3, 1, 4, '2021-04-15 02:43:13', '2021-04-16', '10:00:00', 200, NULL, NULL, NULL, NULL),
+(5, 1, 1, 3, 1, 4, '2021-04-15 02:54:49', '2021-04-15', '09:00:00', 200, NULL, NULL, NULL, NULL),
+(6, 1, 1, 3, 1, 4, '2021-04-15 08:47:20', '2021-07-22', '09:00:00', 200, NULL, NULL, NULL, NULL),
+(7, 1, 1, 3, 1, 4, '2021-04-16 07:15:25', '2021-04-17', '09:00:00', 200, NULL, NULL, NULL, NULL),
+(8, 1, 1, 3, 1, 4, '2021-04-16 07:53:06', '2021-04-17', '07:00:00', 200, NULL, NULL, NULL, NULL),
+(9, 1, 1, 3, 1, 3, '2021-04-18 03:53:58', '2021-04-18', '09:00:00', 200, NULL, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -148,10 +132,22 @@ CREATE TABLE `tbl_citas` (
 --
 
 CREATE TABLE `tbl_cobros_adicionales` (
-  `ID_cobro_adicional` int(11) NOT NULL,
-  `Descripcion_cobro` varchar(100) NOT NULL,
-  `Precio_cobro` int(11) NOT NULL
+  `ID_Cobro_adicional` int(11) NOT NULL,
+  `Descripcion_Cobro` varchar(100) NOT NULL,
+  `Precio_Cobro` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `tbl_cobros_adicionales`
+--
+
+INSERT INTO `tbl_cobros_adicionales` (`ID_Cobro_adicional`, `Descripcion_Cobro`, `Precio_Cobro`) VALUES
+(1, 'AAAA', 400),
+(2, 'PRUEBA', 500),
+(3, 'EEEEEEEEE', 1000),
+(4, 'ASSDFSDFSDFSd', 1000),
+(5, 'UUUUUUUUUUU', 800),
+(6, 'PPPPPPPPPPPP', 100);
 
 -- --------------------------------------------------------
 
@@ -166,11 +162,26 @@ CREATE TABLE `tbl_consultas` (
   `Anamnesis` varchar(500) NOT NULL,
   `Exam_Fisico` varchar(500) NOT NULL,
   `Tratamiento` varchar(200) NOT NULL,
-  `Usuario_crea` bigint(3) DEFAULT NULL,
-  `Fec_crea` date DEFAULT NULL,
-  `Usuario_modif` bigint(3) DEFAULT NULL,
-  `Fec_modif` date DEFAULT NULL
+  `Usuario_Crea` bigint(3) DEFAULT NULL,
+  `Fec_Crea` date DEFAULT NULL,
+  `Usuario_Modif` bigint(3) DEFAULT NULL,
+  `Fec_Modif` date DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `tbl_consultas`
+--
+
+INSERT INTO `tbl_consultas` (`ID_Consulta`, `ID_Cita`, `Diagnostico`, `Anamnesis`, `Exam_Fisico`, `Tratamiento`, `Usuario_Crea`, `Fec_Crea`, `Usuario_Modif`, `Fec_Modif`) VALUES
+(1, 1, 'PRUEBA PRUEBA PRUEBA PRUEBA', 'PRUEBA PRUEBA PRUEBA PRUEBA', 'PRUEBA PRUEBA PRUEBA PRUEBA', 'PRUEBA PRUEBA PRUEBA PRUEBA', NULL, NULL, NULL, NULL),
+(2, 1, 'PRUEBA PRUEBA PRUEBA PRUEBA', 'PRUEBA PRUEBA PRUEBA PRUEBA', 'PRUEBA PRUEBA PRUEBA PRUEBA', 'PRUEBA PRUEBA PRUEBA PRUEBA', NULL, NULL, NULL, NULL),
+(3, 3, 'KK', 'KK', 'KK', 'Kk', NULL, NULL, NULL, NULL),
+(4, 4, 'PPPPPPPPPPPPPPP', 'PPPPPPPPPPPPPPPP', 'PPPPPPPPPPPP', 'PPPPPPPPPPPPPPP', NULL, NULL, NULL, NULL),
+(5, 5, 'PPPPPPPPPPPPPPPPP', 'PPPPPPPPPPPPPPPPP', 'PPPPPPPPPPPPPPPPP', 'PPPPPPPPPPPPPPPP', NULL, NULL, NULL, NULL),
+(6, 6, 'PRUEBA PRUEBA PRUEBA PRUEBAPRUEBA PRUEBAPRUEBA PRUEBAPRUEBA PRUEBAPRUEBA PRUEBAPRUEBA PRUEBAPRUEBA PRUEBAPRUEBA PRUEBAPRUEBA PRUEBAPRUEBA PRUEBAPRUEBA PRUEBAPRUEBA PRUEBAPRUEBA PRUEBAPRUEBA PRUEBAPRUE', 'PRUEBA PRUEBA PRUEBA PRUEBAPRUEBA PRUEBAPRUEBA PRUEBAPRUEBA PRUEBAPRUEBA PRUEBAPRUEBA PRUEBAPRUEBA PRUEBAPRUEBA PRUEBAPRUEBA PRUEBAPRUEBA PRUEBAPRUEBA PRUEBAPRUEBA PRUEBAPRUEBA PRUEBAPRUEBA PRUEBAPRUEBA PRUEBAPRUEBA PRUEBAPRUEBA PRUEBAPRUEBA PRUEBAPRUEBA PRUEBAPRUEBA PRUEBAPRUEBA PRUEBAPRUEBA PRUEBAPRUEBA PRUEBAPRUEBA PRUEBAPRUEBA PRUEBA', 'PRUEBA PRUEBA PRUEBA PRUEBAPRUEBA PRUEBAPRUEBA PRUEBAPRUEBA PRUEBAPRUEBA PRUEBAPRUEBA PRUEBAPRUEBA PRUEBAPRUEBA PRUEBAPRUEBA PRUEBAPRUEBA PRUEBAPRUEBA PRUEBAPRUEBA PRUEBAPRUEBA PRUEBAPRUEBA PRUEBAPRUEBA PRUEBAPRUEBA PRUEBAPRUEBA PRUEBAPRUEBA PRUEBAPRUEBA PRUEBAPRUEBA PRUEBAPRUEBA PRUEBAPRUEBA PRUEBAPRUEBA PRUEBAPRUEBA PRUEBAPRUEBA PRUEBA', 'PRUEBA PRUEBA PRUEBA PRUEBAPRUEBA PRUEBAPRUEBA PRUEBAPRUEBA PRUEBAPRUEBA PRUEBAPRUEBA PRUEBAPRUEBA PRUEBAPRUEBA PRUEBAPRUEBA PRUEBAPRUEBA PRUEBAPRUEBA PRUEBAPRUEBA PRUEBAPRUEBA PRUEBAPRUEBA PRUEBAPRUE', NULL, NULL, NULL, NULL),
+(7, 7, 'PRUEBA PRUEBA PRUEBA PRUEBA PRUEBA PRUEBAPRUEBA PRUEBA PRUEBAPRUEBA PRUEBA PRUEBAPRUEBA PRUEBA PRUEBAPRUEBA PRUEBA PRUEBAPRUEBA PRUEBA PRUEBAPRUEBA PRUEBA PRUEBAPRUEBA PRUEBA PRUEBAPRUEBA PRUEBA PRUEB', 'PRUEBA PRUEBA PRUEBA PRUEBA PRUEBA PRUEBAPRUEBA PRUEBA PRUEBAPRUEBA PRUEBA PRUEBAPRUEBA PRUEBA PRUEBAPRUEBA PRUEBA PRUEBAPRUEBA PRUEBA PRUEBAPRUEBA PRUEBA PRUEBAPRUEBA PRUEBA PRUEBAPRUEBA PRUEBA PRUEBAPRUEBA PRUEBA PRUEBAPRUEBA PRUEBA PRUEBAPRUEBA PRUEBA PRUEBAPRUEBA PRUEBA PRUEBAPRUEBA PRUEBA PRUEBAPRUEBA PRUEBA PRUEBAPRUEBA PRUEBA PRUEBA', 'PRUEBA PRUEBA PRUEBA PRUEBA PRUEBA PRUEBAPRUEBA PRUEBA PRUEBAPRUEBA PRUEBA PRUEBAPRUEBA PRUEBA PRUEBAPRUEBA PRUEBA PRUEBAPRUEBA PRUEBA PRUEBAPRUEBA PRUEBA PRUEBAPRUEBA PRUEBA PRUEBAPRUEBA PRUEBA PRUEBAPRUEBA PRUEBA PRUEBAPRUEBA PRUEBA PRUEBAPRUEBA PRUEBA PRUEBAPRUEBA PRUEBA PRUEBAPRUEBA PRUEBA PRUEBAPRUEBA PRUEBA PRUEBAPRUEBA PRUEBA PRUEBA', 'PRUEBA PRUEBA PRUEBA PRUEBA PRUEBA PRUEBAPRUEBA PRUEBA PRUEBAPRUEBA PRUEBA PRUEBAPRUEBA PRUEBA PRUEBAPRUEBA PRUEBA PRUEBAPRUEBA PRUEBA PRUEBAPRUEBA PRUEBA PRUEBAPRUEBA PRUEBA PRUEBAPRUEBA PRUEBA PRUEB', NULL, NULL, NULL, NULL),
+(8, 8, 'PRUEBA PRUEBAPRUEBAPRUEBAPRUEBAPRUEBAPRUEBAPRUEBAPRUEBAPRUEBAPRUEBAPRUEBAPRUEBAPRUEBAPRUEBAPRUEBAPRUEBAPRUEBAPRUEBAPRUEBAPRUEBAPRUEBAPRUEBA', 'PRUEBA PRUEBAPRUEBAPRUEBAPRUEBAPRUEBAPRUEBAPRUEBAPRUEBAPRUEBAPRUEBAPRUEBAPRUEBAPRUEBAPRUEBAPRUEBAPRUEBAPRUEBAPRUEBAPRUEBAPRUEBAPRUEBAPRUEBA', 'PRUEBA PRUEBAPRUEBAPRUEBAPRUEBAPRUEBAPRUEBAPRUEBAPRUEBAPRUEBAPRUEBAPRUEBAPRUEBAPRUEBAPRUEBAPRUEBAPRUEBAPRUEBAPRUEBAPRUEBAPRUEBAPRUEBAPRUEBA', 'PRUEBA PRUEBAPRUEBAPRUEBAPRUEBAPRUEBAPRUEBAPRUEBAPRUEBAPRUEBAPRUEBAPRUEBAPRUEBAPRUEBAPRUEBAPRUEBAPRUEBAPRUEBAPRUEBAPRUEBAPRUEBAPRUEBAPRUEBA', NULL, NULL, NULL, NULL),
+(9, 9, 'PRUEBA PRUEBA PRUEBA PRUEBAPRUEBA PRUEBAPRUEBA PRUEBAPRUEBA PRUEBAPRUEBA PRUEBAPRUEBA PRUEBAPRUEBA PRUEBAPRUEBA PRUEBAPRUEBA PRUEBAPRUEBA PRUEBAPRUEBA PRUEBAPRUEBA PRUEBAPRUEBA PRUEBA PRUEBA PRUEBA PR', 'PRUEBA PRUEBA PRUEBA PRUEBAPRUEBA PRUEBAPRUEBA PRUEBAPRUEBA PRUEBAPRUEBA PRUEBAPRUEBA PRUEBAPRUEBA PRUEBAPRUEBA PRUEBAPRUEBA PRUEBAPRUEBA PRUEBAPRUEBA PRUEBAPRUEBA PRUEBAPRUEBA PRUEBA PRUEBA PRUEBA PRUEBA PRUEBAPRUEBA PRUEBAPRUEBA PRUEBAPRUEBA PRUEBAPRUEBA PRUEBAPRUEBA PRUEBAPRUEBA PRUEBAPRUEBA PRUEBAPRUEBA PRUEBAPRUEBA PRUEBAPRUEBA PRUEBAPRUEBA PRUEBAPRUEBA PRUEBA PRUEBA PRUEBA PRUEBA PRUEBAPRUEBA PRUEBAPRUEBA PRUEBAPRUEBA PRUEBAPRUEBA PRUEBAPRUEBA PRUEBAPRUEBA PRUEBAPRUEBA PRUEBAPRUEBA PRUEBAP', 'PRUEBA PRUEBA PRUEBA PRUEBAPRUEBA PRUEBAPRUEBA PRUEBAPRUEBA PRUEBAPRUEBA PRUEBAPRUEBA PRUEBAPRUEBA PRUEBAPRUEBA PRUEBAPRUEBA PRUEBAPRUEBA PRUEBAPRUEBA PRUEBAPRUEBA PRUEBAPRUEBA PRUEBA PRUEBA PRUEBA PRUEBA PRUEBAPRUEBA PRUEBAPRUEBA PRUEBAPRUEBA PRUEBAPRUEBA PRUEBAPRUEBA PRUEBAPRUEBA PRUEBAPRUEBA PRUEBAPRUEBA PRUEBAPRUEBA PRUEBAPRUEBA PRUEBAPRUEBA PRUEBAPRUEBA PRUEBA PRUEBA PRUEBA PRUEBA PRUEBAPRUEBA PRUEBAPRUEBA PRUEBAPRUEBA PRUEBAPRUEBA PRUEBAPRUEBA PRUEBAPRUEBA PRUEBAPRUEBA PRUEBAPRUEBA PRUEBAP', 'PRUEBA PRUEBA PRUEBA PRUEBAPRUEBA PRUEBAPRUEBA PRUEBAPRUEBA PRUEBAPRUEBA PRUEBAPRUEBA PRUEBAPRUEBA PRUEBAPRUEBA PRUEBAPRUEBA PRUEBAPRUEBA PRUEBAPRUEBA PRUEBAPRUEBA PRUEBAPRUEBA PRUEBA PRUEBA PRUEBA PR', NULL, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -179,11 +190,35 @@ CREATE TABLE `tbl_consultas` (
 --
 
 CREATE TABLE `tbl_detalle_factura` (
-  `id_detalle` int(11) NOT NULL,
+  `ID_Detalle` int(11) NOT NULL,
   `ID_Factura` int(11) NOT NULL,
-  `descripcion` varchar(150) NOT NULL,
-  `cobro` int(11) NOT NULL
+  `Descripcion` varchar(150) NOT NULL,
+  `Cobro` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `tbl_detalle_factura`
+--
+
+INSERT INTO `tbl_detalle_factura` (`ID_Detalle`, `ID_Factura`, `Descripcion`, `Cobro`) VALUES
+(1, 1, 'MEDICINA GENERAL', 200),
+(2, 1, 'MEDICINA GENERAL', 200),
+(3, 3, 'MEDICINA GENERAL', 200),
+(4, 4, 'MEDICINA GENERAL', 200),
+(5, 5, 'MEDICINA GENERAL', 200),
+(6, 5, 'EEEEEEEEE', 1000),
+(7, 1, 'AAAA', 400),
+(8, 1, 'EEEEEEEEE', 1000),
+(9, 3, 'PRUEBA', 500),
+(10, 3, 'PRUEBA', 500),
+(11, 6, 'MEDICINA GENERAL', 200),
+(12, 7, 'MEDICINA GENERAL', 200),
+(13, 6, 'AAAA', 400),
+(14, 6, 'ASSDFSDFSDFSd', 1000),
+(15, 6, 'UUUUUUUUUUU', 800),
+(16, 6, 'PPPPPPPPPPPP', 100),
+(17, 8, 'MEDICINA GENERAL', 200),
+(18, 9, 'MEDICINA GENERAL', 200);
 
 -- --------------------------------------------------------
 
@@ -204,18 +239,18 @@ CREATE TABLE `tbl_empleado` (
   `Tel_Empleado` int(8) NOT NULL,
   `Cel_Empleado` int(8) NOT NULL,
   `Salario` int(6) NOT NULL,
-  `Usuario_crea` bigint(3) DEFAULT NULL,
-  `Fec_crea` date DEFAULT NULL,
-  `Usuario_modif` bigint(3) DEFAULT NULL,
-  `Fec_modif` date DEFAULT NULL
+  `Usuario_Crea` bigint(3) DEFAULT NULL,
+  `Fec_Crea` date DEFAULT NULL,
+  `Usuario_Modif` bigint(3) DEFAULT NULL,
+  `Fec_Modif` date DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Volcado de datos para la tabla `tbl_empleado`
 --
 
-INSERT INTO `tbl_empleado` (`ID_Empleado`, `Nom_Empleado`, `ID_Sexo`, `ID_Est_Civil`, `ID_Cargo`, `ID_Especialidad`, `Cedula`, `Fec_Nacimiento`, `Dir_Empleado`, `Tel_Empleado`, `Cel_Empleado`, `Salario`, `Usuario_crea`, `Fec_crea`, `Usuario_modif`, `Fec_modif`) VALUES
-(1, 'JEAN CARLOS NÚÑEZ SALGADO', 1, 2, 1, 1, '1111111111111', '0000-00-00', 'Col venezuela sector B.....', 22091139, 33876298, 15000, NULL, NULL, NULL, NULL),
+INSERT INTO `tbl_empleado` (`ID_Empleado`, `Nom_Empleado`, `ID_Sexo`, `ID_Est_Civil`, `ID_Cargo`, `ID_Especialidad`, `Cedula`, `Fec_Nacimiento`, `Dir_Empleado`, `Tel_Empleado`, `Cel_Empleado`, `Salario`, `Usuario_Crea`, `Fec_Crea`, `Usuario_Modif`, `Fec_Modif`) VALUES
+(1, 'ADMIN', 1, 1, 1, 1, '1111111111111', '0000-00-00', 'ADMIN', 0, 0, 0, NULL, NULL, NULL, NULL),
 (3, 'CARLOS FABRICIO NUÑEZ RAMIRES', 1, 3, 2, 1, '', '0000-00-00', 'COL. VENEZUELA SECTOR B BLOQUE 8 CASA 17 ', 22278000, 33876298, 30000, NULL, NULL, NULL, NULL),
 (11, 'JOSUE ALLAN GONZALES RAMIRES', 1, 2, 3, 3, '0801199714588', '1987-10-08', 'WINFEIUFGEFVDFVDF', 22222222, 99999999, 20000, NULL, NULL, NULL, NULL),
 (12, 'WILDER EDUARDO RAMIRES ', 1, 1, 5, 1, '0801199714078', '1982-09-05', 'SJDNVSDHOFIVBDVRFGBRGBRFGBGF', 22222222, 88888888, 20000, NULL, NULL, NULL, NULL),
@@ -232,8 +267,8 @@ INSERT INTO `tbl_empleado` (`ID_Empleado`, `Nom_Empleado`, `ID_Sexo`, `ID_Est_Ci
 --
 
 CREATE TABLE `tbl_especialidad` (
-  `ID_especialidad` int(3) NOT NULL,
-  `Descripcion_espec` varchar(30) NOT NULL,
+  `ID_Especialidad` int(3) NOT NULL,
+  `Descripcion_Espec` varchar(30) NOT NULL,
   `Precio` int(5) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -241,7 +276,7 @@ CREATE TABLE `tbl_especialidad` (
 -- Volcado de datos para la tabla `tbl_especialidad`
 --
 
-INSERT INTO `tbl_especialidad` (`ID_especialidad`, `Descripcion_espec`, `Precio`) VALUES
+INSERT INTO `tbl_especialidad` (`ID_Especialidad`, `Descripcion_Espec`, `Precio`) VALUES
 (1, 'MEDICINA GENERAL', 200),
 (2, 'ORTOPEDIA', 800),
 (3, 'FISIOTERAPIA', 0),
@@ -260,14 +295,14 @@ INSERT INTO `tbl_especialidad` (`ID_especialidad`, `Descripcion_espec`, `Precio`
 
 CREATE TABLE `tbl_estado_cita` (
   `ID_Estado` int(3) NOT NULL,
-  `Descripcion_est_cita` varchar(20) NOT NULL
+  `Descripcion_Est_cita` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Volcado de datos para la tabla `tbl_estado_cita`
 --
 
-INSERT INTO `tbl_estado_cita` (`ID_Estado`, `Descripcion_est_cita`) VALUES
+INSERT INTO `tbl_estado_cita` (`ID_Estado`, `Descripcion_Est_cita`) VALUES
 (1, 'Pendiente'),
 (2, 'Preclínica'),
 (3, 'Pendiente de Pago'),
@@ -328,13 +363,26 @@ CREATE TABLE `tbl_expediente` (
   `ID_paciente` int(3) NOT NULL,
   `ID_Cita` bigint(3) NOT NULL,
   `Fec_atencion` timestamp NOT NULL DEFAULT current_timestamp(),
-  `imagen` mediumblob DEFAULT NULL,
-  `tipo_imagen` varchar(50) NOT NULL,
-  `Usuario_crea` bigint(3) DEFAULT NULL,
-  `Fec_crea` date DEFAULT NULL,
-  `Usuario_modif` bigint(3) DEFAULT NULL,
-  `Fec_modif` date DEFAULT NULL
+  `Usuario_Crea` bigint(3) DEFAULT NULL,
+  `Fec_Crea` date DEFAULT NULL,
+  `Usuario_Modif` bigint(3) DEFAULT NULL,
+  `Fec_Modif` date DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `tbl_expediente`
+--
+
+INSERT INTO `tbl_expediente` (`ID_expediente`, `ID_paciente`, `ID_Cita`, `Fec_atencion`, `Usuario_Crea`, `Fec_Crea`, `Usuario_Modif`, `Fec_Modif`) VALUES
+(1, 1, 1, '2021-04-15 02:27:08', NULL, NULL, NULL, NULL),
+(2, 1, 1, '2021-04-15 02:30:46', NULL, NULL, NULL, NULL),
+(3, 1, 3, '2021-04-15 02:39:25', NULL, NULL, NULL, NULL),
+(4, 1, 4, '2021-04-15 02:44:21', NULL, NULL, NULL, NULL),
+(5, 1, 5, '2021-04-15 02:56:21', NULL, NULL, NULL, NULL),
+(6, 1, 6, '2021-04-15 22:37:18', NULL, NULL, NULL, NULL),
+(7, 1, 7, '2021-04-16 07:26:35', NULL, NULL, NULL, NULL),
+(8, 1, 8, '2021-04-16 07:54:43', NULL, NULL, NULL, NULL),
+(9, 1, 9, '2021-04-18 03:56:17', NULL, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -351,6 +399,21 @@ CREATE TABLE `tbl_facturas` (
   `Fec_emision` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Volcado de datos para la tabla `tbl_facturas`
+--
+
+INSERT INTO `tbl_facturas` (`ID_factura`, `ID_cita`, `ID_Paciente`, `ID_Especialidad`, `Pago`, `Fec_emision`) VALUES
+(1, 1, 1, 1, 200, '2021-04-15 02:27:08'),
+(2, 1, 1, 1, 200, '2021-04-15 02:30:46'),
+(3, 3, 1, 1, 200, '2021-04-15 02:39:25'),
+(4, 4, 1, 1, 200, '2021-04-15 02:44:21'),
+(5, 5, 1, 1, 200, '2021-04-15 02:56:22'),
+(6, 6, 1, 1, 200, '2021-04-15 22:37:18'),
+(7, 7, 1, 1, 200, '2021-04-16 07:26:35'),
+(8, 8, 1, 1, 200, '2021-04-16 07:54:43'),
+(9, 9, 1, 1, 200, '2021-04-18 03:56:18');
+
 -- --------------------------------------------------------
 
 --
@@ -363,6 +426,44 @@ CREATE TABLE `tbl_fotos_consultas` (
   `URL_Foto` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Volcado de datos para la tabla `tbl_fotos_consultas`
+--
+
+INSERT INTO `tbl_fotos_consultas` (`ID_foto`, `ID_Cita`, `URL_Foto`) VALUES
+(1, 1, 'Fotos_Citas/Fotografía.jpeg'),
+(2, 1, 'Fotos_Citas/Fotografía.jpeg'),
+(3, 4, 'Fotos_Citas/Fotografía.jpeg'),
+(4, 5, 'Fotos_Citas/Fotografía.jpeg'),
+(5, 6, 'Fotos_Citas/Núñez_Jean_T1.jpg'),
+(6, 6, 'Fotos_Citas/1575799923730.jpg'),
+(7, 6, 'Fotos_Citas/Captura de pantalla (329).png'),
+(8, 7, 'Fotos_Citas/1575799923730.jpg'),
+(9, 7, 'Fotos_Citas/Captura de pantalla (329).png'),
+(10, 7, 'Fotos_Citas/Núñez_Jean_T1.jpg'),
+(11, 8, 'Fotos_Citas/Núñez_Jean_T1.jpg'),
+(12, 9, 'Fotos_Citas/1575799923730.jpg');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `tbl_historico_contrasenas`
+--
+
+CREATE TABLE `tbl_historico_contrasenas` (
+  `ID_Historial` int(11) NOT NULL,
+  `ID_Usuario` bigint(3) NOT NULL,
+  `Contrasena_Anterior` varchar(250) NOT NULL,
+  `Fecha_Cambio` datetime NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `tbl_historico_contrasenas`
+--
+
+INSERT INTO `tbl_historico_contrasenas` (`ID_Historial`, `ID_Usuario`, `Contrasena_Anterior`, `Fecha_Cambio`) VALUES
+(1, 24, '$2y$10$y0OcO7milANgDXu1rbZV4uCnXGuNXntrw7t77JvT02L9D7nCNVCjy', '2021-04-17 21:05:07');
+
 -- --------------------------------------------------------
 
 --
@@ -370,15 +471,15 @@ CREATE TABLE `tbl_fotos_consultas` (
 --
 
 CREATE TABLE `tbl_objetos` (
-  `id_objeto` bigint(3) NOT NULL,
-  `objeto` varchar(25) NOT NULL
+  `ID_Objeto` bigint(3) NOT NULL,
+  `Objeto` varchar(25) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Volcado de datos para la tabla `tbl_objetos`
 --
 
-INSERT INTO `tbl_objetos` (`id_objeto`, `objeto`) VALUES
+INSERT INTO `tbl_objetos` (`ID_Objeto`, `Objeto`) VALUES
 (1, 'vista_personal'),
 (2, 'vista_usuarios'),
 (3, 'vista_parametros_Segurida'),
@@ -490,7 +591,7 @@ CREATE TABLE `tbl_parametro_sistema` (
 --
 
 INSERT INTO `tbl_parametro_sistema` (`id_parametro`, `parametro`, `valor`, `fecha_cra`, `fecha_modif`) VALUES
-(1, 'USUARIODB', 'root', '0000-00-00', '0000-00-00'),
+(1, 'USUARIODB', 'franclar', '0000-00-00', '0000-00-00'),
 (2, 'SERVIDORDB', 'localhost', '0000-00-00', '0000-00-00'),
 (3, 'NOMBREDB', 'sistema_franclar', '0000-00-00', '0000-00-00');
 
@@ -693,6 +794,22 @@ CREATE TABLE `tbl_preclinica` (
   `Fec_modif` date DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Volcado de datos para la tabla `tbl_preclinica`
+--
+
+INSERT INTO `tbl_preclinica` (`ID_Preclinica`, `ID_Cita`, `PA`, `FC`, `FR`, `Temp`, `PAM`, `Glucometria`, `Peso`, `Talla`, `Usuario_crea`, `Fec_crea`, `Usuario_modif`, `Fec_modif`) VALUES
+(1, 1, '44', '66', 66, 66, '66', 66, 66, 66, NULL, NULL, NULL, NULL),
+(2, 2, '88', '88', 888, 88, '88', 88, 88, 88, NULL, NULL, NULL, NULL),
+(3, 3, '99', '99', 99, 99, '999', 99, 99, 99, NULL, NULL, NULL, NULL),
+(4, 4, '88', '88', 88, 88, '88', 88, 88, 888, NULL, NULL, NULL, NULL),
+(5, 5, '88', '88', 88, 88, '88', 88, 88, 88, NULL, NULL, NULL, NULL),
+(6, 2, '445', '4545', 4545, 454, '545', 45454, 545, 4545, NULL, NULL, NULL, NULL),
+(7, 6, '55', '5', 55, 5, '55', 5, 55, 55, NULL, NULL, NULL, NULL),
+(8, 7, '44', '44', 44, 44, '44', 44, 44, 44, NULL, NULL, NULL, NULL),
+(9, 8, '88', '88', 88, 88, '88', 88, 88, 88, NULL, NULL, NULL, NULL),
+(10, 9, '55', '55', 55, 55, '55', 55, 55, 55, NULL, NULL, NULL, NULL);
+
 -- --------------------------------------------------------
 
 --
@@ -735,7 +852,7 @@ CREATE TABLE `tbl_pregunta_usuario` (
   `id_pregunta_usuario` bigint(3) NOT NULL,
   `ID_Pregunta` bigint(3) NOT NULL,
   `ID_Usuario` bigint(3) NOT NULL,
-  `Respuesta` varchar(100) NOT NULL,
+  `Respuesta` varchar(256) NOT NULL,
   `Usuario_crea` bigint(3) DEFAULT NULL,
   `Fec_crea` date DEFAULT NULL,
   `Usuario_modif` bigint(3) DEFAULT NULL,
@@ -761,7 +878,16 @@ INSERT INTO `tbl_pregunta_usuario` (`id_pregunta_usuario`, `ID_Pregunta`, `ID_Us
 (60, 3, 19, 'XXX', NULL, NULL, NULL, NULL),
 (64, 1, 9, 'AAA', NULL, NULL, NULL, NULL),
 (65, 2, 9, 'AAA', NULL, NULL, NULL, NULL),
-(66, 3, 9, 'AAA', NULL, NULL, NULL, NULL);
+(66, 3, 9, 'AAA', NULL, NULL, NULL, NULL),
+(67, 1, 22, 'AAA', NULL, NULL, NULL, NULL),
+(68, 2, 22, 'AAA', NULL, NULL, NULL, NULL),
+(69, 3, 22, 'AAA', NULL, NULL, NULL, NULL),
+(70, 1, 23, '$2y$10$WUikb921I5k.GlFDqwE4R.n.JkEvWDqJbPPL3lRL/hYNRbHO44HXq', NULL, NULL, NULL, NULL),
+(71, 2, 23, '$2y$10$718icW9KxqBihWOpXN46ie/VOuUHQyFKprwmHYluCNTQNUFP0djq.', NULL, NULL, NULL, NULL),
+(72, 3, 23, '$2y$10$mYv0fJTHAiBNFKgFG.UsaupW/QSQVvjTH87MJ7/D6JVYjd7ylMN3C', NULL, NULL, NULL, NULL),
+(73, 1, 24, '$2y$10$WesgCKUCg7M7/IfjCvExueYjNOLjX97bXkoF9iRJaKfltz89TVco2', NULL, NULL, NULL, NULL),
+(74, 2, 24, '$2y$10$UCLrATRIhQlNdSQmHLzvNOGXZBOleHpds6.gV/V7kIcpZv4fxAcY2', NULL, NULL, NULL, NULL),
+(75, 3, 24, '$2y$10$DNxNzaxJ8ubPk4g2DZosOuVcYY/EfXa.0Rgw4N/UIgGVdaL6M95MS', NULL, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -880,7 +1006,7 @@ CREATE TABLE `tbl_usuario` (
   `ID_Estado` int(3) NOT NULL,
   `Nom_Usuario` varchar(50) NOT NULL,
   `email` varchar(30) NOT NULL,
-  `Contraseña` varchar(30) NOT NULL,
+  `Contraseña` varchar(256) NOT NULL,
   `ID_Rol` bigint(3) NOT NULL,
   `Ult_Conexion` date DEFAULT NULL,
   `Primer_Ingreso` int(1) NOT NULL,
@@ -900,13 +1026,35 @@ CREATE TABLE `tbl_usuario` (
 --
 
 INSERT INTO `tbl_usuario` (`ID_Usuario`, `ID_Empleado`, `ID_Estado`, `Nom_Usuario`, `email`, `Contraseña`, `ID_Rol`, `Ult_Conexion`, `Primer_Ingreso`, `token`, `token_password`, `password_request`, `Fec_venc`, `Usuario_crea`, `Fec_crea`, `Usuario_modif`, `Fec_modif`, `preguntas_contestadas`) VALUES
-(1, 1, 1, 'ADMIN', 'soportefranclar@gmail.com', 'Franclar#2020', 1, '2020-10-04', 0, NULL, NULL, NULL, '2020-10-04', NULL, NULL, NULL, NULL, 0),
-(9, 11, 1, 'JGONZALES', 'jsdiksndsdsd@gmail.com', 'Minuto#2020', 1, NULL, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 3),
+(1, 1, 1, 'ADMIN', 'soportefranclar@gmail.com', '$2y$10$sUnr9Y7ta9mpgTCcvK0JZO2Pt1FU3P2NEx1.oIdME4YfaW4IPavrO', 1, '2020-10-04', 0, NULL, NULL, NULL, '2020-10-04', NULL, NULL, NULL, NULL, 0),
+(9, 11, 1, 'JGONZALES', 'jsdiksndsdsd@gmail.com', '$2y$10$kxdWWQU9GQ/JnvePvxtSkeNigZGafKjNqg49JwiBActjkG4t9qiOi', 4, NULL, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 3),
 (11, 12, 1, 'WRAMIRES', 'jidndf@gmail.com', 'Minuto#2020', 2, NULL, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 3),
 (15, 17, 1, 'JEANNUNEZ', 'jean.nunez@gmail.com', 'Minuto#2020', 3, NULL, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 3),
 (16, 18, 1, 'JOSUERAMIRES', 'jenaas.sdsd@gmail.com', 'Minuto#2020', 4, NULL, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0),
-(18, 20, 1, 'JOSUERS', 'nuez.jeancarlos@gmail.com', 'Minuto#2020', 5, NULL, 0, NULL, '6a6ffc86c1f97e37bcfc7562e0511971', 1, NULL, NULL, NULL, NULL, NULL, 3),
-(19, 21, 1, 'JEANRODRIGUEZ', 'nuez.jcarlos@gmail.com', 'Minuto#2020', 4, NULL, 0, NULL, 'cc8dec1a4e6ee94b3beea5582352d257', 1, NULL, NULL, NULL, NULL, NULL, 3);
+(18, 20, 3, 'JOSUERS', 'nuez.jeancarlos@gmail.com', 'Minuto#2020', 5, NULL, 0, NULL, 'e787135ff6b14a8c28d15870e29001b6', 1, NULL, NULL, NULL, NULL, NULL, 3),
+(19, 21, 1, 'JEANRODRIGUEZ', 'nuez.jca@gmail.com', 'Minuto#2020', 4, NULL, 0, NULL, 'cc8dec1a4e6ee94b3beea5582352d257', 1, NULL, NULL, NULL, NULL, NULL, 3),
+(20, 21, 1, 'PRUEBAPRUEBA', 'nusdsd.sdsdf@gmail.com', '$2y$10$eP3BRZssMEkd0agRpM3fOe3/btUC8IvHJgx.8L7F5otLpXKgtMU8.', 2, NULL, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(21, 20, 1, 'PRUEBAPRPRPRPR', 'sdsdfsdfsd@gmail.com', '$2y$10$R61PA1ILKu8k3kqOvEc30eqCWKmxdQhWth8bFfuixV0cVUxWJBt0m', 2, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(22, 17, 1, 'PRUEBAOKOKOK', 'nrlos@gmail.com', '$2y$10$RuqsqWZ8DMjOEPhBLduPp.fyDN.QkrI24RNwBmgEw8nyJWfTgLdZm', 2, NULL, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 3),
+(23, 21, 1, 'PRUEBAUSUSUSUSU', 'nuerlos@gmail.com', '$2y$10$7xAKQtDKjD.2CQsEZm8kg.21TE.Jyjf4okk1n9O6C6oG9/hB3csOe', 2, NULL, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 3),
+(24, 3, 3, 'PRUEBAOKOKOKOKOK', 'nuez.jcarlos@gmail.com', '$2y$10$aXtKZw1z0PWlOqiiIfHU2ObiVlCNRfiNqcragfxWXtemrRgubdNkq', 2, NULL, 0, NULL, '', 0, NULL, NULL, NULL, NULL, NULL, 3);
+
+--
+-- Disparadores `tbl_usuario`
+--
+DELIMITER $$
+CREATE TRIGGER `tbl_usuarios_BU` BEFORE UPDATE ON `tbl_usuario` FOR EACH ROW BEGIN
+    	IF (NEW.contraseña!=OLD.contraseña) THEN
+    
+        
+                INSERT INTO 		tbl_historico_contrasenas(tbl_historico_contrasenas.ID_Usuario,tbl_historico_contrasenas.contrasena_anterior)
+        	VALUES(OLD.ID_Usuario,OLD.contraseña);
+    		
+        END IF;
+    
+    END
+$$
+DELIMITER ;
 
 --
 -- Índices para tablas volcadas
@@ -916,9 +1064,9 @@ INSERT INTO `tbl_usuario` (`ID_Usuario`, `ID_Empleado`, `ID_Estado`, `Nom_Usuari
 -- Indices de la tabla `tbl_bitacora_evento`
 --
 ALTER TABLE `tbl_bitacora_evento`
-  ADD PRIMARY KEY (`id_bitacora_evento`),
-  ADD KEY `id_usuario` (`id_usuario`),
-  ADD KEY `id_objeto` (`id_objeto`);
+  ADD PRIMARY KEY (`ID_Bitacora_evento`),
+  ADD KEY `id_usuario` (`ID_Usuario`),
+  ADD KEY `id_objeto` (`ID_Objeto`);
 
 --
 -- Indices de la tabla `tbl_cargo`
@@ -941,7 +1089,7 @@ ALTER TABLE `tbl_citas`
 -- Indices de la tabla `tbl_cobros_adicionales`
 --
 ALTER TABLE `tbl_cobros_adicionales`
-  ADD PRIMARY KEY (`ID_cobro_adicional`);
+  ADD PRIMARY KEY (`ID_Cobro_adicional`);
 
 --
 -- Indices de la tabla `tbl_consultas`
@@ -955,7 +1103,7 @@ ALTER TABLE `tbl_consultas`
 -- Indices de la tabla `tbl_detalle_factura`
 --
 ALTER TABLE `tbl_detalle_factura`
-  ADD PRIMARY KEY (`id_detalle`),
+  ADD PRIMARY KEY (`ID_Detalle`),
   ADD KEY `ID_factura` (`ID_Factura`);
 
 --
@@ -974,7 +1122,7 @@ ALTER TABLE `tbl_empleado`
 -- Indices de la tabla `tbl_especialidad`
 --
 ALTER TABLE `tbl_especialidad`
-  ADD PRIMARY KEY (`ID_especialidad`);
+  ADD PRIMARY KEY (`ID_Especialidad`);
 
 --
 -- Indices de la tabla `tbl_estado_cita`
@@ -1019,10 +1167,17 @@ ALTER TABLE `tbl_fotos_consultas`
   ADD KEY `ID_Cita` (`ID_Cita`);
 
 --
+-- Indices de la tabla `tbl_historico_contrasenas`
+--
+ALTER TABLE `tbl_historico_contrasenas`
+  ADD PRIMARY KEY (`ID_Historial`),
+  ADD KEY `ID_Usuario` (`ID_Usuario`);
+
+--
 -- Indices de la tabla `tbl_objetos`
 --
 ALTER TABLE `tbl_objetos`
-  ADD PRIMARY KEY (`id_objeto`);
+  ADD PRIMARY KEY (`ID_Objeto`);
 
 --
 -- Indices de la tabla `tbl_pacientes`
@@ -1131,37 +1286,37 @@ ALTER TABLE `tbl_usuario`
 -- AUTO_INCREMENT de la tabla `tbl_bitacora_evento`
 --
 ALTER TABLE `tbl_bitacora_evento`
-  MODIFY `id_bitacora_evento` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=54;
+  MODIFY `ID_Bitacora_evento` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT de la tabla `tbl_cargo`
 --
 ALTER TABLE `tbl_cargo`
-  MODIFY `ID_Cargo` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `ID_Cargo` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT de la tabla `tbl_citas`
 --
 ALTER TABLE `tbl_citas`
-  MODIFY `ID_Cita` bigint(3) NOT NULL AUTO_INCREMENT;
+  MODIFY `ID_Cita` bigint(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT de la tabla `tbl_cobros_adicionales`
 --
 ALTER TABLE `tbl_cobros_adicionales`
-  MODIFY `ID_cobro_adicional` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `ID_Cobro_adicional` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT de la tabla `tbl_consultas`
 --
 ALTER TABLE `tbl_consultas`
-  MODIFY `ID_Consulta` bigint(3) NOT NULL AUTO_INCREMENT;
+  MODIFY `ID_Consulta` bigint(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT de la tabla `tbl_detalle_factura`
 --
 ALTER TABLE `tbl_detalle_factura`
-  MODIFY `id_detalle` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `ID_Detalle` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT de la tabla `tbl_empleado`
@@ -1173,7 +1328,7 @@ ALTER TABLE `tbl_empleado`
 -- AUTO_INCREMENT de la tabla `tbl_especialidad`
 --
 ALTER TABLE `tbl_especialidad`
-  MODIFY `ID_especialidad` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `ID_Especialidad` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT de la tabla `tbl_estado_civil`
@@ -1185,19 +1340,25 @@ ALTER TABLE `tbl_estado_civil`
 -- AUTO_INCREMENT de la tabla `tbl_expediente`
 --
 ALTER TABLE `tbl_expediente`
-  MODIFY `ID_expediente` bigint(3) NOT NULL AUTO_INCREMENT;
+  MODIFY `ID_expediente` bigint(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT de la tabla `tbl_facturas`
 --
 ALTER TABLE `tbl_facturas`
-  MODIFY `ID_factura` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `ID_factura` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT de la tabla `tbl_fotos_consultas`
 --
 ALTER TABLE `tbl_fotos_consultas`
-  MODIFY `ID_foto` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `ID_foto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+
+--
+-- AUTO_INCREMENT de la tabla `tbl_historico_contrasenas`
+--
+ALTER TABLE `tbl_historico_contrasenas`
+  MODIFY `ID_Historial` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de la tabla `tbl_pacientes`
@@ -1233,7 +1394,7 @@ ALTER TABLE `tbl_permisos`
 -- AUTO_INCREMENT de la tabla `tbl_preclinica`
 --
 ALTER TABLE `tbl_preclinica`
-  MODIFY `ID_Preclinica` bigint(3) NOT NULL AUTO_INCREMENT;
+  MODIFY `ID_Preclinica` bigint(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT de la tabla `tbl_preguntas`
@@ -1245,7 +1406,7 @@ ALTER TABLE `tbl_preguntas`
 -- AUTO_INCREMENT de la tabla `tbl_pregunta_usuario`
 --
 ALTER TABLE `tbl_pregunta_usuario`
-  MODIFY `id_pregunta_usuario` bigint(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=67;
+  MODIFY `id_pregunta_usuario` bigint(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=76;
 
 --
 -- AUTO_INCREMENT de la tabla `tbl_religion`
@@ -1281,7 +1442,7 @@ ALTER TABLE `tbl_tipo_sangre`
 -- AUTO_INCREMENT de la tabla `tbl_usuario`
 --
 ALTER TABLE `tbl_usuario`
-  MODIFY `ID_Usuario` bigint(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `ID_Usuario` bigint(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
 -- Restricciones para tablas volcadas
@@ -1291,8 +1452,8 @@ ALTER TABLE `tbl_usuario`
 -- Filtros para la tabla `tbl_bitacora_evento`
 --
 ALTER TABLE `tbl_bitacora_evento`
-  ADD CONSTRAINT `tbl_bitacora_evento_ibfk_1` FOREIGN KEY (`id_usuario`) REFERENCES `tbl_usuario` (`ID_Usuario`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `tbl_bitacora_evento_ibfk_2` FOREIGN KEY (`id_objeto`) REFERENCES `tbl_objetos` (`id_objeto`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `tbl_bitacora_evento_ibfk_1` FOREIGN KEY (`ID_Usuario`) REFERENCES `tbl_usuario` (`ID_Usuario`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `tbl_bitacora_evento_ibfk_2` FOREIGN KEY (`ID_Objeto`) REFERENCES `tbl_objetos` (`ID_Objeto`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Filtros para la tabla `tbl_citas`
@@ -1301,7 +1462,7 @@ ALTER TABLE `tbl_citas`
   ADD CONSTRAINT `tbl_citas_ibfk_4` FOREIGN KEY (`ID_Estado`) REFERENCES `tbl_estado_cita` (`ID_Estado`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `tbl_citas_ibfk_5` FOREIGN KEY (`ID_Usuario`) REFERENCES `tbl_usuario` (`ID_Usuario`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `tbl_citas_ibfk_7` FOREIGN KEY (`ID_Paciente`) REFERENCES `tbl_pacientes` (`ID_Paciente`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `tbl_citas_ibfk_8` FOREIGN KEY (`ID_Especialidad`) REFERENCES `tbl_especialidad` (`ID_especialidad`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `tbl_citas_ibfk_8` FOREIGN KEY (`ID_Especialidad`) REFERENCES `tbl_especialidad` (`ID_Especialidad`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `tbl_citas_ibfk_9` FOREIGN KEY (`ID_Empleado`) REFERENCES `tbl_empleado` (`ID_Empleado`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
@@ -1321,7 +1482,7 @@ ALTER TABLE `tbl_detalle_factura`
 --
 ALTER TABLE `tbl_empleado`
   ADD CONSTRAINT `tbl_empleado_ibfk_6` FOREIGN KEY (`ID_Cargo`) REFERENCES `tbl_cargo` (`ID_Cargo`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `tbl_empleado_ibfk_7` FOREIGN KEY (`ID_Especialidad`) REFERENCES `tbl_especialidad` (`ID_especialidad`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `tbl_empleado_ibfk_7` FOREIGN KEY (`ID_Especialidad`) REFERENCES `tbl_especialidad` (`ID_Especialidad`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `tbl_empleado_ibfk_8` FOREIGN KEY (`ID_Est_Civil`) REFERENCES `tbl_estado_civil` (`ID_Est_Civil`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `tbl_empleado_ibfk_9` FOREIGN KEY (`ID_Sexo`) REFERENCES `tbl_sexo` (`ID_Sexo`) ON DELETE CASCADE ON UPDATE CASCADE;
 
@@ -1338,13 +1499,19 @@ ALTER TABLE `tbl_expediente`
 ALTER TABLE `tbl_facturas`
   ADD CONSTRAINT `tbl_facturas_ibfk_1` FOREIGN KEY (`ID_cita`) REFERENCES `tbl_citas` (`ID_Cita`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `tbl_facturas_ibfk_2` FOREIGN KEY (`ID_Paciente`) REFERENCES `tbl_pacientes` (`ID_Paciente`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `tbl_facturas_ibfk_3` FOREIGN KEY (`ID_Especialidad`) REFERENCES `tbl_especialidad` (`ID_especialidad`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `tbl_facturas_ibfk_3` FOREIGN KEY (`ID_Especialidad`) REFERENCES `tbl_especialidad` (`ID_Especialidad`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Filtros para la tabla `tbl_fotos_consultas`
 --
 ALTER TABLE `tbl_fotos_consultas`
   ADD CONSTRAINT `tbl_fotos_consultas_ibfk_1` FOREIGN KEY (`ID_Cita`) REFERENCES `tbl_citas` (`ID_Cita`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Filtros para la tabla `tbl_historico_contrasenas`
+--
+ALTER TABLE `tbl_historico_contrasenas`
+  ADD CONSTRAINT `tbl_historico_contrasenas_ibfk_1` FOREIGN KEY (`ID_Usuario`) REFERENCES `tbl_usuario` (`ID_Usuario`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Filtros para la tabla `tbl_pacientes`
@@ -1361,7 +1528,7 @@ ALTER TABLE `tbl_pacientes`
 -- Filtros para la tabla `tbl_permisos`
 --
 ALTER TABLE `tbl_permisos`
-  ADD CONSTRAINT `tbl_permisos_ibfk_1` FOREIGN KEY (`id_objeto`) REFERENCES `tbl_objetos` (`id_objeto`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `tbl_permisos_ibfk_1` FOREIGN KEY (`id_objeto`) REFERENCES `tbl_objetos` (`ID_Objeto`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `tbl_permisos_ibfk_2` FOREIGN KEY (`id_rol`) REFERENCES `tbl_roles` (`ID_Rol`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --

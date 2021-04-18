@@ -1,5 +1,10 @@
 <?php
-	
+	/*
+	todo funciona correctamente, pero hay que hacer algunos ajustes cuando ya este en produccion 
+	!abrir el correo en el servidor para que este pueda funcionar 
+	!verificar que el puerto 587 no este ocupado
+	!configurar la cuenta de gmail para permitir el acceso a la aplicacion de enviar correos electronicos
+	*/
 	function isNull($nombre, $user, $pass, $pass_con, $email){
 		if(strlen(trim($nombre)) < 1 || strlen(trim($user)) < 1 || strlen(trim($pass)) < 1 || strlen(trim($pass_con)) < 1 || strlen(trim($email)) < 1)
 		{
@@ -121,24 +126,57 @@
 	
 	function enviarEmail($email, $nombre, $asunto, $cuerpo){
 		
-
-		
 		require 'PHPMailer/src/Exception.php';
 		require 'PHPMailer/src/PHPMailer.php';
 		require 'PHPMailer/src/SMTP.php';
 		
-		$mail = new PHPMailer\PHPMailer\PHPMailer();
+		$mail = new PHPMailer\PHPMailer\PHPMailer(true);
 		$mail->isSMTP();
-		$mail->SMTDebug=2;
+		$mail->SMTDebug=0;
 		$mail->SMTPAuth = true;
-		$mail->SMTPSecure = 'ssl'; //Modificar
+		//$mail->SMTPSecure = 'ssl'; //Modificar
+		$mail->SMTPSecure=PHPMailer\PHPMailer\PHPMailer::ENCRYPTION_STARTTLS;
 		$mail->Host = 'smtp.gmail.com'; //Modificar
-		$mail->Port = '465'; //Modificar
+		$mail->Port = 587; //Modificar
 		
-		$mail->Username = 'soportefranclar@gmail.com'; //Modificar
-		$mail->Password = 'SoporteFranclar#2020'; //Modificar
+		$mail->Username = 'complejomedicofranclar2020@gmail.com'; //Modificar
+		$mail->Password = 'proyecto#2020'; //Modificar
 		
-		$mail->setFrom('soportefranclar@gmail.com', 'Soporte Franclar'); //Modificar
+		$mail->setFrom('complejomedicofranclar2020@gmail.com', 'Soporte Franclar'); //Modificar
+		$mail->addAddress($email, $nombre);	
+		$mail->Subject = $asunto;
+		$mail->Body    = $cuerpo;
+		$mail->IsHTML(true);
+		
+		if($mail->send())
+		return true;
+		else
+		return false;
+	
+	}
+	function enviarEmail_RegistoAdmin($email, $nombre, $asunto, $cuerpo){
+		
+
+		
+		require './login/PHPMailer/src/Exception.php';
+		require './login/PHPMailer/src/PHPMailer.php';
+		require './login/PHPMailer/src/SMTP.php';
+		
+		
+		
+		$mail = new PHPMailer\PHPMailer\PHPMailer(true);
+		$mail->isSMTP();
+		$mail->SMTDebug=0;
+		$mail->SMTPAuth = true;
+		//$mail->SMTPSecure = 'ssl'; //Modificar
+		$mail->SMTPSecure=PHPMailer\PHPMailer\PHPMailer::ENCRYPTION_STARTTLS;
+		$mail->Host = 'smtp.gmail.com'; //Modificar
+		$mail->Port = 587; //Modificar
+		
+		$mail->Username = 'complejomedicofranclar2020@gmail.com'; //Modificar
+		$mail->Password = 'proyecto#2020'; //Modificar
+		
+		$mail->setFrom('complejomedicofranclar2020@gmail.com', 'Soporte Franclar'); //Modificar
 		$mail->addAddress($email, $nombre);	
 		$mail->Subject = $asunto;
 		$mail->Body    = $cuerpo;
@@ -360,11 +398,11 @@
 		}
 	}
 	
-	function cambiaPassword($password, $user_id, $token){
+	function cambiaPassword($password, $user_id, $token,$estado){
 		
 		global $mysqli;
 		
-		$stmt = $mysqli->prepare("UPDATE tbl_usuario SET contraseña = ?, token_password='', password_request=0 WHERE ID_Usuario = ? AND token_password = ?");
+		$stmt = $mysqli->prepare("UPDATE tbl_usuario SET contraseña = ?, token_password='', ID_Estado= '$estado', password_request=0 WHERE ID_Usuario = ? AND token_password = ?");
 		$stmt->bind_param('sis', $password, $user_id, $token);
 		
 		if($stmt->execute()){
@@ -372,4 +410,19 @@
 			} else {
 			return false;		
 		}
-	}		
+	}
+	
+	
+	function insertBitacora($user_id, $id_objeto,$accion,$descripcion){
+		
+		global $mysqli;
+		
+		$stmt = $mysqli->prepare("INSERT INTO tbl_bitacora_evento (ID_Usuario,ID_Objeto,Accion,Descripcion) VALUES(?,?,?,?)");
+		$stmt->bind_param('iiss',$user_id,$id_objeto,$accion,$descripcion);
+		
+		if ($stmt->execute()){
+			return $mysqli->insert_id;
+			} else {
+			return 0;	
+		}		
+	}				

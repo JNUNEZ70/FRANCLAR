@@ -33,7 +33,7 @@ if(isset($_POST['id2'])){
 if(isset($_POST['id_espec_precio'])){
     $id_espec_precio = $_POST['id_espec_precio'];
     //echo $id_espec_precio;
-    $sql3 = mysqli_query($con, "SELECT * FROM tbl_especialidad WHERE ID_especialidad='$id_espec_precio'");
+    $sql3 = mysqli_query($con, "SELECT * FROM tbl_especialidad WHERE ID_Especialidad='$id_espec_precio'");
     if(mysqli_num_rows($sql3) == 0){
         echo 'Especialidad no tiene precio asignado';
         }else{
@@ -46,7 +46,7 @@ if(isset($_POST['id_espec_precio'])){
 if(isset($_POST['id_espec_doctor'])){
     $id_espec_doctor = $_POST['id_espec_doctor'];
     //echo $id_espec_doctor;
-    $sql4 = mysqli_query($con, "SELECT * FROM tbl_empleado WHERE ID_Especialidad='$id_espec_doctor'");
+    $sql4 = mysqli_query($con, "SELECT * FROM tbl_empleado WHERE ID_Especialidad='$id_espec_doctor' AND ID_Empleado <> 1");
     $cadena ='<select class="form-control" id="doctor" name="doctor" required>';
 
     if(mysqli_num_rows($sql4) == 0){

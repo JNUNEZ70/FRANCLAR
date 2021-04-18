@@ -41,7 +41,8 @@
     <link rel="stylesheet" type="text/css" href="datatables/datatables.min.css"/>
     <!--datables estilo bootstrap 4 CSS-->  
     <link rel="stylesheet"  type="text/css" href="datatables/DataTables-1.10.18/css/dataTables.bootstrap4.min.css">
-    
+    <!-- css para toastr notificaciones -->
+    <link rel="stylesheet" href="toastr/toastr.css">
     <?php
         if (!isset($_SESSION["Nom_Usuario"]))
         {

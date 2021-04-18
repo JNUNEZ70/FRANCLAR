@@ -8,6 +8,9 @@ include 'head.php'
 <?php
 include 'conexion.php'
 ?>
+<?php
+
+?>
 
 <body>
     <!--::header part start::-->
@@ -38,14 +41,15 @@ include 'conexion.php'
             <div class="row align-items-center regervation_content">
                 <div class="col-lg-7">
                     <div class="regervation_part_iner">
-                        <form method="POST" action="GuardarUsuario.php" autocomplete="off">
+                    <!-- action="GuardarUsuario.php" -->
+                        <form id="Form_registrar_usuario" method="POST" action="GuardarUsuario.php"  autocomplete="off">
                             <h2>Datos del usuario</h2>
                             <div class="form-row">
                                 <div class="form-group col-md-6">
-                                    <select class="form-control select_buscador"  id="ColaboradorU" name="Colaborador" required>
+                                    <select class="form-control select_buscador"  id="ColaboradorU" name="Colaborador" required data-toggle="tooltip" data-placement="top" title="Seleccione al Colaborador">
                                         <option value="0">Seleccione al Colaborador</option>
                                         <?php
-                                          $sql=$con -> query("Select * from tbl_empleado");
+                                          $sql=$con -> query("Select * from tbl_empleado WHERE ID_Empleado <> 1");
 
                                           while($fila=$sql->fetch_array()){
                                               echo "<option value='".$fila['ID_Empleado']."'>".$fila['Nom_Empleado']."</option>";
@@ -61,10 +65,10 @@ include 'conexion.php'
                                     
                                 </div>                                
                                 <div class="input-group col-md-4">
-                                    <input value= "<?php echo generar_password_complejo(3) ?>" type="text" class="form-control" id="passwordU" name="Password"  minlength="8" maxlength="30" title="Contraseña" placeholder="Contraseña" readonly required>
+                                    <input value= "<?php echo generar_password_complejo(3) ?>" type="text" class="form-control" id="passwordU" name="Password"  minlength="8" maxlength="15" title="Contraseña" placeholder="Contraseña" readonly required>
                                 </div>               
                                 <div class="form-group col-md-4">
-                                    <select class="form-control" id="RolU" name="Rol" required>
+                                    <select class="form-control" id="RolU" name="Rol" required data-toggle="tooltip" data-placement="bottom" title="Seleccione el rol">
                                         <option value="">Seleccione el rol</option>
                                         <?php
                                           $sql=$con -> query("Select * from tbl_roles WHERE ID_Rol <> 5");
@@ -120,7 +124,7 @@ include 'conexion.php'
     <script>
 
     document.getElementById("email").addEventListener('keydown',impedirEspacios);
-
+    $('[data-toggle="tooltip"]').tooltip()
     </script> 
 
 

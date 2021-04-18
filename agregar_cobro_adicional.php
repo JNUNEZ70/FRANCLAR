@@ -80,7 +80,7 @@ include 'script.php';
     document.getElementById("nombre_cobro").addEventListener('keydown',permitirUnEspacio);
     
     
-    document.getElementById("precio_cobro").addEventListener('keydown',impedirEspacios);    
+    document.getElementById("Precio_Cobro").addEventListener('keydown',impedirEspacios);    
 
     </script>
 </body>

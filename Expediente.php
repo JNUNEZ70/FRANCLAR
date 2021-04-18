@@ -77,9 +77,7 @@ include 'conexion.php'
 				tbl_pacientes.Nom_Paciente,
 				tbl_pacientes.cedula,
 				tbl_citas.ID_Cita,
-				tbl_expediente.Fec_atencion,
-				tbl_expediente.tipo_imagen,
-				tbl_expediente.imagen FROM tbl_expediente 
+				tbl_expediente.Fec_atencion FROM tbl_expediente 
 				INNER JOIN tbl_pacientes on tbl_expediente.ID_Paciente = tbl_pacientes.ID_Paciente
 				INNER JOIN tbl_citas on tbl_expediente.ID_Cita = tbl_citas.ID_Cita");
 				

@@ -28,7 +28,7 @@ include 'conexion.php'
                 <div class="col-lg-12">
                     <div class="breadcrumb_iner">
                         <div class="breadcrumb_iner_item">
-                            <?php echo '<h3 style="color: #ffff;"> Imagenes tomadas en la cita Número '.$nik.' </h3>' ?>
+                            <?php echo '<h3 style="color: #ffff;"> Imagenes tomadas en la cita número '.$nik.' </h3>' ?>
                         </div>
                     </div>
                 </div>

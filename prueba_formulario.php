@@ -1,10 +1,15 @@
 
 <?php 
 
-session_start();
+$contraseña = 'Minuto95';
 
-var_dump($_POST);
+$contra_cifrada = password_hash($contraseña, PASSWORD_DEFAULT);
 
-var_dump($_POST);
+echo "contraseña: ".$contraseña."cifrada: ".$contra_cifrada
+
+
+// var_dump($_POST);
+
+// var_dump($_POST);
 
 ?>

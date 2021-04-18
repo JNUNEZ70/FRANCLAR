@@ -45,11 +45,11 @@ include 'conexion.php'
                             <div class="form-row">
                                 <div class="input-group col-md-6">
                                     <input onkeyup="consultar_paciente()" type="text" class="form-control" id="IDPac" onkeypress="return solonumeros(event)" maxlength="13" title="Identidad del Paciente (sin guiones)" placeholder="Identidad del Paciente (sin guiones)" required>
-                                    <span class="input-group-btn">
+                                    <!-- <span class="input-group-btn">
                                         <button type="button" id="identidad" class="btn btn-default" onclick="consultar_paciente()">
                                             <span class="input-group-addon glyphicon glyphicon-search"></span>
                                         </button>
-                                    </span>
+                                    </span>  -->
                                 </div>
                                 <div class="form-group col-md-6">
                                     <input type="text" class="form-control" id="NomPac" name="NombPaciente" rows="4" title="Nombre del paciente" placeholder="Nombre del Paciente" readonly>
@@ -118,10 +118,10 @@ include 'conexion.php'
                                     <select class="form-control" id="espec" name="Especialidad" onchange="doctores_precio(value)" required>
                                         <option value="0" selected>Seleccione un Servicio</option>
                                         <?php
-                                          $sql=$con -> query("Select * from tbl_especialidad where ID_especialidad <> 8 and ID_especialidad <> 9");
+                                          $sql=$con -> query("Select * from tbl_especialidad where ID_Especialidad <> 8 and ID_Especialidad <> 9");
 
                                           while($fila=$sql->fetch_array()){
-                                              echo "<option value='".$fila['ID_especialidad']."'>".$fila['Descripcion_espec']."</option>";
+                                              echo "<option value='".$fila['ID_Especialidad']."'>".$fila['Descripcion_Espec']."</option>";
                                           }
                                         ?>
                                     </select>

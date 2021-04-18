@@ -1,8 +1,9 @@
 <?php 
-$server = "localhost";
-$user = "root";
+include '../configuracion/config.php';
+/*$server = "localhost";
+$user = "";
 $password = "";
-$database = "sistema_franclar"; 
+$database = "sistema_franclar_ok";*/ 
 
 $conn = mysqli_connect($server, $user, $password, $database);
 
