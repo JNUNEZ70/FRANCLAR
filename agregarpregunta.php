@@ -42,7 +42,7 @@ include 'conexion.php'
                             <h2>Ingrese una nueva pregunta secreta</h2>
                             <div class="form-row">
                                 <div class="form-group col-md-6">
-                                    <input type="text" class="form-control" id="Nombre_Pregunta" onkeyup="mayus(this);" onkeypress="return soloLetrasPregunta(event)" maxlength="100" name="NombrePregunta" placeholder="Ingrese pregunta secreta" required>
+                                    <input type="text" class="form-control" id="Nombre_Pregunta" onkeyup="mayus(this);" onkeypress="return soloLetrasPregunta(event)" maxlength="100" name="NombrePregunta" title="Ingrese pregunta secreta" placeholder="Ingrese pregunta secreta" required>
                                 </div>
                                
                                 <div class="regerv_btn col-md-8" >

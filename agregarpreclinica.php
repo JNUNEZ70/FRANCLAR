@@ -115,28 +115,28 @@ include 'conexion.php'
                                 </div>   
                             <h2 class="col-md-12">Datos de la Preclínica</h2>                                
                                 <div class="form-group col-md-4">
-                                    <input type="text" class="form-control" name="PA" id="PA" placeholder="Presión Arterial(mmHg)" onkeypress="return solonumeros_conpuntoypleca(event)" required>
+                                    <input type="text" class="form-control" name="PA" id="PA" title="Presión Arterial(mmHg)" placeholder="Presión Arterial(mmHg)" onkeypress="return solonumeros_conpuntoypleca(event)" required>
                                 </div>
                                 <div class="form-group col-md-4">
-                                    <input type="text" class="form-control" name="FC" id="FC" placeholder="Frecuencia Cardiaca(Lpm)" onkeypress="return solonumeros_conpunto(event)" required>
+                                    <input type="text" class="form-control" name="FC" id="FC" title="Frecuencia Cardiaca(Lpm)" placeholder="Frecuencia Cardiaca(Lpm)" onkeypress="return solonumeros_conpunto(event)" required>
                                 </div>
                                 <div class="form-group col-md-4">
-                                    <input type="text" class="form-control" name="FR" id="FR" placeholder="Frecuencia Respiratoria(Rpm)" onkeypress="return solonumeros_conpunto(event)" required>
+                                    <input type="text" class="form-control" name="FR" id="FR" title="Frecuencia Respiratoria(Rpm)" placeholder="Frecuencia Respiratoria(Rpm)" onkeypress="return solonumeros_conpunto(event)" required>
                                 </div>
                                 <div class="form-group col-md-4">
-                                    <input type="text" class="form-control" name="Temp" id="Temperatura" placeholder="Temperatura(°C)" onkeypress="return solonumeros_conpunto(event)" required>
+                                    <input type="text" class="form-control" name="Temp" id="Temperatura" title="Temperatura(°C)" placeholder="Temperatura(°C)" onkeypress="return solonumeros_conpunto(event)" required>
                                 </div>
                                 <div class="form-group col-md-4">
-                                    <input type="text" class="form-control" name="PAM" id="PAM" placeholder="Presión Arterial Media" onkeypress="return solonumeros_conpunto(event)" required>
+                                    <input type="text" class="form-control" name="PAM" id="PAM" title="Presión Arterial Media" placeholder="Presión Arterial Media" onkeypress="return solonumeros_conpunto(event)" required>
                                 </div>
                                 <div class="form-group col-md-4">
-                                    <input type="text" class="form-control" name="Glucom" id="Glucometria" placeholder="Glucometría(Mg/dl)" onkeypress="return solonumeros_conpuntoypleca(event)" required>
+                                    <input type="text" class="form-control" name="Glucom" id="Glucometria" title="Glucometría(Mg/dl)" placeholder="Glucometría(Mg/dl)" onkeypress="return solonumeros_conpuntoypleca(event)" required>
                                 </div>
                                 <div class="form-group col-md-4">
-                                    <input type="text" class="form-control" name="peso" id="Peso" placeholder="Peso(Kg)" onkeypress="return solonumeros_conpunto(event)" required>
+                                    <input type="text" class="form-control" name="peso" id="Peso" title="Peso(Kg)" placeholder="Peso(Kg)" onkeypress="return solonumeros_conpunto(event)" required>
                                 </div>
                                 <div class="form-group col-md-4">
-                                    <input type="text" class="form-control" name="talla" id="Talla" placeholder="Talla(Mts)" onkeypress="return solonumeros_conpunto(event)" required>
+                                    <input type="text" class="form-control" name="talla" id="Talla" title="Talla(Mts)" placeholder="Talla(Mts)" onkeypress="return solonumeros_conpunto(event)" required>
                                 </div>
                                 <div class="regerv_btn col-md-12">
                                     <a><button type="submit" name="save" class="btn_2">Guardar</button></a>

@@ -417,7 +417,7 @@
 		
 		global $mysqli;
 		
-		$stmt = $mysqli->prepare("INSERT INTO tbl_bitacora_evento (id_usuario,id_objeto,Accion,Descripcion) VALUES(?,?,?,?)");
+		$stmt = $mysqli->prepare("INSERT INTO tbl_bitacora_evento (ID_Usuario,ID_Objeto,Accion,Descripcion) VALUES(?,?,?,?)");
 		$stmt->bind_param('iiss',$user_id,$id_objeto,$accion,$descripcion);
 		
 		if ($stmt->execute()){

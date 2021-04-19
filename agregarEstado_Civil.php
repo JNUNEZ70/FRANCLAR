@@ -42,7 +42,7 @@ include 'conexion.php'
                             <h2>Ingrese Nuevo Estado Civil</h2>
                             <div class="form-row">
                                 <div class="form-group col-md-6">
-                                    <input type="text" class="form-control" onkeyup="mayus(this);" id="Nombre_Estado_Civil" maxlength="15" name="Nombre"  placeholder="Estado Civil" required>
+                                    <input type="text" class="form-control" onkeyup="mayus(this);" id="Nombre_Estado_Civil" maxlength="15" name="Nombre" title="Estado Civil" placeholder="Estado Civil" required>
                                 </div>
                                
                                 <div class="regerv_btn col-md-8" >

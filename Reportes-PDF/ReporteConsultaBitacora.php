@@ -14,7 +14,7 @@ if (isset($_POST['enviar'])) {
     INNER JOIN tbl_objetos on tbl_bitacora_evento.id_objeto = tbl_objetos.id_objeto
     WHERE tbl_bitacora_evento.fecha_evento BETWEEN '$fechaInicial' AND '$fechaFinal' ");
     $resultado = mysqli_num_rows($consulta);
-date_default_timezone_set('America/Mexico_City');
+date_default_timezone_set('America/Tegucigalpa');
         $fecha = date('d-m-Y');
         $hora = date('H:i:s');
 class PDF extends FPDF

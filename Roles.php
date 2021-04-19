@@ -62,7 +62,7 @@ include 'conexion.php'
 			<a href="agregar_Rol.php" class="genric-btn info circle">Agregar</a>
 		</form>
 		<form class="form-inline my-2 my-lg-0 float-left">
-			<a class="genric-btn btn-danger circle" href="../FRANCLAR/Reportes-PDF/ReporteRoles.php">
+			<a class="genric-btn btn-danger circle" onclick="pdfDinamico(this)" id="pdf_roles" href="#">
 			<i class="fas fa-file-pdf fa-lg"> </i> Generar Reporte</a>
     	</form>	
 	   <br>

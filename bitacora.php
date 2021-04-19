@@ -48,7 +48,8 @@ include 'conexion.php'
                 <input type="submit" id="btn_submit" class="genric-btn info circle" name="enviar" value="Consultar" >
                 </div>
                 <div class="form-group col-md-4">
-                <a class="genric-btn btn-danger circle" href="../FRANCLAR/Reportes-PDF/ReporteBitacora.php">
+                <!-- ../FRANCLAR/Reportes-PDF/ReporteBitacora.php -->
+                <a class="genric-btn btn-danger circle" href="#" onclick="buscardinamico()">
                 <i class="fas fa-file-pdf fa-lg"> </i> Generar Reporte</a>
                 </div>	
                 <div class="form-group col-md-4">
@@ -85,7 +86,7 @@ include 'conexion.php'
 				INNER JOIN tbl_usuario on tbl_bitacora_evento.ID_Usuario = tbl_usuario.ID_Usuario
 				INNER JOIN tbl_objetos on tbl_bitacora_evento.ID_Objeto = tbl_objetos.ID_Objeto");
 				if(mysqli_num_rows($sql) == 0){
-					echo '<tr><td colspan="8">No hay datos.</td></tr>';
+					echo '<tr><td id="noHayDatos" colspan="8">No hay datos.</td></tr>';
 				}else{
 					$no = 1;
 					while($row = mysqli_fetch_assoc($sql)){

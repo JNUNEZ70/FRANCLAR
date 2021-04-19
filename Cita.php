@@ -63,7 +63,7 @@ include 'conexion.php'
 </div>
 
 <form class="form-inline my-2 my-lg-0 float-left">
-	<a class="genric-btn btn-danger circle" href="../FRANCLAR/Reportes-PDF/ReporteCitas.php">
+	<a class="genric-btn btn-danger circle" onclick="buscar_cita()" href="#">
 	<i class="fas fa-file-pdf fa-lg"> </i> Generar Reporte</a>
 			
 	</form>	

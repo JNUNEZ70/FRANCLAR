@@ -42,7 +42,7 @@ include 'conexion.php'
                             <h2>Ingrese Nuevo Tipo de sangre</h2>
                             <div class="form-row">
                                 <div class="form-group col-md-6">
-                                    <input type="text" class="form-control" onkeyup="mayus(this);" id="Nombre_Tipo_Sangre" maxlength="15" name="Nombre"  placeholder="Nombre del Tipo de Sangre" required>
+                                    <input type="text" class="form-control" onkeyup="mayus(this);" id="Nombre_Tipo_Sangre" maxlength="15" name="Nombre" title="Nombre del Tipo de Sangre" placeholder="Nombre del Tipo de Sangre" required>
                                 </div>
                                
                                 <div class="regerv_btn col-md-8" >

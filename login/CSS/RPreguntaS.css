@@ -111,3 +111,15 @@ body {
 .login-box ::placeholder {
     color: darkgrey;
 }
+
+.input-group-addon {
+    padding: 6px 12px;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1;
+    color: #ccc;
+    text-align: center;
+    background-color: transparent;
+    border: 0px solid transparent;
+    border-radius: 0px;
+}

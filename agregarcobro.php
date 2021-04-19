@@ -26,7 +26,7 @@ include 'conexion.php'
         
         
 
-        $insert = mysqli_query($con, "INSERT INTO tbl_detalle_factura (ID_Factura, descripcion, cobro) 
+        $insert = mysqli_query($con, "INSERT INTO tbl_detalle_factura (ID_Factura, Descripcion, Cobro) 
                                            VALUES ('$nik', '$nombre', '$precio')") or die(mysqli_error());
         
         if($insert){
@@ -80,7 +80,7 @@ include 'conexion.php'
                                                 $sql=$con -> query("Select * from tbl_cobros_adicionales");
 
                                                 while($fila=$sql->fetch_array()){
-                                                    echo "<option value='".$fila['ID_cobro_adicional']."'>".$fila['Descripcion_cobro']."</option>";
+                                                    echo "<option value='".$fila['ID_Cobro_adicional']."'>".$fila['Descripcion_Cobro']."</option>";
                                                 }
                                                 ?>
                                             </select>                                        

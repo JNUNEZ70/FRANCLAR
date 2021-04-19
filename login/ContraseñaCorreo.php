@@ -84,7 +84,7 @@ if(isset($_POST['password']) && isset($_POST['password'])){
 							<input type="hidden" id="token" name="token" value ="<?php if(isset($_GET['token'])){ echo $_GET['token']; }else { echo "";} ?>" />
 							
 							<div class="form-group">
-								<label for="password" class="col-md-3 control-label">Nuevo Contraseña</label>
+								<label for="password" class="col-md-3 control-label">Nueva Contraseña</label>
 								<div class="col-md-9">
 									<input type="password" id="password" class="form-control" name="password" placeholder="Contraseña" required>
 								</div>

@@ -14,18 +14,19 @@ $email = $mysqli->real_escape_string($_POST['email']);
     }
         if(emailExiste($email))
         {
-
+			$id_usuario= 
             $user_id = getValor('ID_Usuario','email',$email);
             $nombre = getValor('Nom_Usuario','email',$email);
 
             $token = generaTokenPass($user_id);
 			// para que la url funcione se tiene que asignar el puerto en el cual corre xammp 
-            $url = 'http://'.$_SERVER["SERVER_NAME"].':8008/FRANCLAR/login/contraseñacorreo.php?user_id='.$user_id.'&token='.$token;
+            $url = 'http://'.$_SERVER["SERVER_NAME"].':80/FRANCLAR/login/contraseñacorreo.php?user_id='.$user_id.'&token='.$token;
             $asunto = 'Recuperar Contrasena -Sistema de Usuarios';
             $cuerpo = "Hola  $nombre <br/>Se ha solicitado un reinicio de 
             contrasena, visita la siguiente direccion: <a href='
             $url'>Cambiar Contrasena</a>";
 
+			
 			$GLOBALS['enviarEmail'] = enviarEmail($email, $nombre,$asunto,$cuerpo);
 
             if ($GLOBALS['enviarEmail'])
@@ -84,7 +85,7 @@ $email = $mysqli->real_escape_string($_POST['email']);
             			<h5> Por favor ingrese su correo electrónico asociado a su cuenta <h5>
 
 						<?php 
-							if(isset($GLOBALS['enviarEmail']) && $GLOBALS['enviarEmail']){ 
+							if(isset($GLOBALS['enviarEmail_RegistroAdmin']) && $GLOBALS['enviarEmail_RegistroAdmin']){ 
 								echo "<p>Hemos enviado un correo electronico a la direccion $email para 
 								reestablecer tu contraseña</p>";
 								echo "<a href='login.php' >Iniciar sesion</a>";
@@ -95,12 +96,14 @@ $email = $mysqli->real_escape_string($_POST['email']);
 							
 							<div style="margin-bottom: 25px" class="input-group">
 								<span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-								<input id="email" type="email" class="form-control" name="email" placeholder="Ingrese su correo electrónico" required style="<?php if($GLOBALS['enviarEmail']){ echo "display:none;"; }else{ echo "display:none;"; }?>" >                                        
+								<!-- <input id="email" type="email" class="form-control" name="email" placeholder="Ingrese su correo electrónico" required style="<?php if($GLOBALS['enviarEmail']){ echo "display:none;"; }else{ echo "display:none;"; }?>" >  --> 
+								<input id="email" type="email" class="form-control" name="email" placeholder="Ingrese su correo electrónico" >
 							</div>
 							
 							<div style="margin-top:10px" class="form-group">
 								<div class="col-sm-12 controls">
-									<button id="btn-login" type="submit" class="btn btn-success" style="<?php if($GLOBALS['enviarEmail']){ echo "display:none;"; }else{ echo "display:none;"; }?>">Enviar</a>
+									<!-- <button id="btn-login" type="submit" class="btn btn-success" style="<?php if($GLOBALS['enviarEmail']){ echo "display:none;"; }else{ echo "display:none;"; }?>">Enviar</a> -->
+									<button id="btn-login" type="submit" class="btn btn-success">Enviar</a>
 								</div>
 							</div>
 							

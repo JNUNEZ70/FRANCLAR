@@ -43,7 +43,7 @@ include 'conexion.php'
                             <h2>Datos Personales</h2>
                             <div class="form-row">
                                 <div class="form-group col-md-12">
-                                    <input type="text" class="form-control" id="Nombre" name="NomPac" onkeyup="mayus(this);" maxlength="70" placeholder="Nombre" required>
+                                    <input type="text" class="form-control" id="Nombre" name="NomPac" onkeyup="mayus(this);" maxlength="70" title="Nombre del paciente" placeholder="Nombre" required>
                                 </div>
                                 <div class="form-group col-md-12">
                                     <select class="form-control" id="tipo_documento" name="tipo_documento" onchange="cambionum_id(value)" required>
@@ -88,23 +88,23 @@ include 'conexion.php'
                                     <input type="text" class="form-control" id="Edad" name="EdadPac"   placeholder="Edad" required  readonly>
                                 </div>
                                 <div class="form-group col-md-6">
-                                    <input type="email" class="form-control" id="email" name="EmailPac" maxlength="50" onkeypress="return Correo(event)" placeholder="Email" required>
+                                    <input type="email" class="form-control" id="email" name="EmailPac" maxlength="50" onkeypress="return Correo(event)" title="Email" placeholder="Email" required>
                                 </div>
                                 <div class="form-group col-md-6">
-                                    <input type="tel" class="form-control" id="Telefono" name="TelPac" onkeypress="return solonumeros(event)" maxlength="8" placeholder="Teléfono fijo">
+                                    <input type="tel" class="form-control" id="Telefono" name="TelPac" onkeypress="return solonumeros(event)" maxlength="8" title="Teléfono fijo" placeholder="Teléfono fijo">
                                 </div>
                                 <div class="form-group col-md-6">
-                                    <input type="text" class="form-control" id="Celular" name="CelPac" onkeypress="return solonumeros(event)" maxlength="8" placeholder="Celular" required>
+                                    <input type="text" class="form-control" id="Celular" name="CelPac" onkeypress="return solonumeros(event)" maxlength="8" title="Celular" placeholder="Celular" required>
                                 </div>
                                 <div class="form-group col-md-12">
-                                    <input type="text" class="form-control" id="Direccion"  name="DirPac" onkeyup="mayus(this);" maxlength="255" placeholder="Dirección" required>
+                                    <input type="text" class="form-control" id="Direccion"  name="DirPac" onkeyup="mayus(this);" maxlength="255" title="Dirección" placeholder="Dirección" required>
                                     
                                 </div>
                                 <h2>Datos Generales</h2>
                                 <div class="form-row">
                                 <div class="form-group col-md-6">
                                     <select class="form-control" id="Genero" name="GenPac" required>
-                                        <option value="" selected>Seleccione el Género</option>
+                                        <option value="" selected>Seleccione el género</option>
                                         <?php
                                           $sql=$con -> query("Select * from tbl_sexo");
 
@@ -170,32 +170,32 @@ include 'conexion.php'
                                     </select>
                                 </div>
                                 <div class="form-group col-md-6">
-                                    <input type="text" class="form-control" id="TelefonoEmer" name="TelEmer" maxlength="8" onkeypress="return solonumeros(event)" placeholder="Teléfono fijo">
+                                    <input type="text" class="form-control" id="TelefonoEmer" name="TelEmer" maxlength="8" onkeypress="return solonumeros(event)" title="Teléfono fijo" placeholder="Teléfono fijo">
                                 </div>
                                 <div class="form-group col-md-6">
-                                    <input type="text" class="form-control" id="CelularEmer" name="CelEmer" maxlength="8" onkeypress="return solonumeros(event)" placeholder="Celular" required>
+                                    <input type="text" class="form-control" id="CelularEmer" name="CelEmer" maxlength="8" onkeypress="return solonumeros(event)" title="Celular" placeholder="Celular" required>
                                 </div>
 
                                 <h2>Antecedentes</h2>
                                 <div class="form-group col-md-12">
                                     <textarea class="form-control" id="Personales" name="AntPersonales" rows="2"
-                                    maxlength="500" placeholder="Personales"></textarea>
+                                    maxlength="500" title="Antedentes Personales" placeholder="Personales"></textarea>
                                 </div>
                                 <div class="form-group col-md-12">
                                     <textarea class="form-control" id="Hospitalarios" name="AntHospitalarios" rows="2"
-                                    maxlength="500" placeholder="Hospitalarios"></textarea>
+                                    maxlength="500" title="Antedentes Hospitalarios" placeholder="Hospitalarios"></textarea>
                                 </div>
                                 <div class="form-group col-md-12">
                                     <textarea class="form-control" id="Alergicos" name="AntAlergicos" rows="2"
-                                    maxlength="500" placeholder="Alérgicos"></textarea>
+                                    maxlength="500" title="Antedentes Alérgicos" placeholder="Alérgicos"></textarea>
                                 </div>
                                 <div class="form-group col-md-12">
                                     <textarea class="form-control" id="Familiares" name="AntFamiliares" rows="2"
-                                    maxlength="500" placeholder="Familiares"></textarea>
+                                    maxlength="500" title="Antedentes Familiares" placeholder="Familiares"></textarea>
                                 </div>
                                 <div class="form-group col-md-12">
                                     <textarea class="form-control" id="Habitos" name="Habito" rows="2"
-                                    maxlength="500" placeholder="Hábitos"></textarea>
+                                    maxlength="500" title="Hábitos" placeholder="Hábitos"></textarea>
                                 </div>
                                 <div class="regerv_btn">
                                     <button type="submit" name="add" class="btn_2">Guardar</button>

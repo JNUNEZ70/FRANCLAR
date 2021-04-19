@@ -8,7 +8,7 @@
 <?php
           if(isset($_POST)){      
 
-            date_default_timezone_set('America/Mexico_City');
+            date_default_timezone_set('America/Tegucigalpa');
                 $id_factura = $_POST['id_factura'];
                 $num_factura = $_POST['num_factura'];       
                 $fecha = date('d-m-Y');
@@ -166,19 +166,19 @@ $factura='<!DOCTYPE html>
              $subtotal = 0;
              $sql3 = mysqli_query($con, "SELECT * FROM tbl_detalle_factura WHERE ID_Factura='$id_factura'");
              while($row3 = mysqli_fetch_assoc($sql3)){  
-                $cobro = $row3['cobro'];
+                $cobro = $row3['Cobro'];
                 $subtotal = $subtotal + $cobro;
                 // $isv = $subtotal * 0.15;
                 $total = $subtotal;                
                 $factura.='<tr>                
                                 <td colspan="2" class="col1" style="text-align:left">'.
-                                    $row3['descripcion']
+                                    $row3['Descripcion']
                                 .'</td>
                                 <td class="col2" style="text-align:center">
-                                    L. '.$row3['cobro']
+                                    L. '.$row3['Cobro']
                                 .'</td>  
                                 <td class="col3" style="text-align:center">
-                                    L. '.$row3['cobro']
+                                    L. '.$subtotal
                             .'</td>';                           
                 }
                    
@@ -241,7 +241,7 @@ $factura='<!DOCTYPE html>
             <tr>
                 <td  colspan="4" style="text-align:center">
                     <br>               
-                    <p>Este comprobante de pago no reemplaza la factura original emitida por la clínica</p>
+                    <p>Este comprobante de pago no reemplaza la factura original emitida por el negocio.</p>
                     <br>                    
                 </td>   
             </tr>
