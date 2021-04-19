@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 19-04-2021 a las 10:41:48
+-- Tiempo de generación: 19-04-2021 a las 11:39:03
 -- Versión del servidor: 10.4.18-MariaDB
 -- Versión de PHP: 8.0.3
 
@@ -41,138 +41,22 @@ CREATE TABLE `tbl_bitacora_evento` (
 --
 
 INSERT INTO `tbl_bitacora_evento` (`ID_Bitacora_evento`, `Fecha_Evento`, `ID_Usuario`, `ID_Objeto`, `Accion`, `Descripcion`) VALUES
-(1, '2021-04-18 02:35:45', 1, 2, 'Acceso', 'INGRESO A PANTALLA USUARIOS'),
-(2, '2021-04-18 02:43:55', 1, 2, 'Acceso', 'INGRESO A PANTALLA USUARIOS'),
-(3, '2021-04-18 02:44:12', 1, 1, 'Acceso', 'INGRESO A PANTALLA PERSONAL'),
-(4, '2021-04-18 02:44:26', 1, 7, 'Acceso', 'INGRESO A PANTALLA CITAS'),
-(5, '2021-04-18 02:44:55', 1, 2, 'Acceso', 'INGRESO A PANTALLA USUARIOS'),
-(6, '2021-04-18 02:45:13', 1, 7, 'Acceso', 'INGRESO A PANTALLA CITAS'),
-(7, '2021-04-18 02:45:41', 1, 2, 'Acceso', 'INGRESO A PANTALLA USUARIOS'),
-(8, '2021-04-18 02:50:57', 1, 1, 'Acceso', 'INGRESO A PANTALLA PERSONAL'),
-(9, '2021-04-18 02:51:00', 1, 2, 'Acceso', 'INGRESO A PANTALLA USUARIOS'),
-(10, '2021-04-18 02:55:20', 1, 2, 'Insert', 'ADMIN CREO UN NUEVO USUARIO'),
-(11, '2021-04-18 02:58:51', 1, 25, 'Acceso', 'CERRO SESIÓN'),
-(12, '2021-04-18 03:05:31', 24, 25, '	Acceso', 'INICIÓ SESIÓN'),
-(13, '2021-04-18 03:06:01', 24, 25, 'Acceso', 'CERRO SESIÓN'),
-(14, '2021-04-18 03:51:15', 1, 25, '	Acceso', 'INICIÓ SESIÓN'),
-(15, '2021-04-18 03:51:26', 1, 5, 'Acceso', 'INGRESO A PANTALLA CONSULTA'),
-(16, '2021-04-18 03:51:32', 1, 7, 'Acceso', 'INGRESO A PANTALLA CITAS'),
-(17, '2021-04-18 03:53:58', 1, 7, 'Insert', 'SE INGRESÓ UNA NUEVA CITA'),
-(18, '2021-04-18 03:54:04', 1, 6, 'Acceso', 'INGRESO A PANTALLA PRECLINICA'),
-(19, '2021-04-18 03:54:18', 1, 6, 'Insert', 'SE REALIZO PRECLINICA'),
-(20, '2021-04-18 03:54:25', 1, 5, 'Acceso', 'INGRESO A PANTALLA CONSULTA'),
-(21, '2021-04-18 04:18:22', 1, 25, 'Acceso', 'CERRO SESIÓN'),
-(22, '2021-04-18 16:22:25', 1, 25, '	Acceso', 'INICIÓ SESIÓN'),
-(23, '2021-04-18 16:22:55', 1, 7, 'Acceso', 'INGRESO A PANTALLA CITAS'),
-(24, '2021-04-18 16:41:46', 1, 7, 'Acceso', 'INGRESO A PANTALLA CITAS'),
-(25, '2021-04-18 16:41:50', 1, 5, 'Acceso', 'INGRESO A PANTALLA CONSULTA'),
-(26, '2021-04-18 16:41:54', 1, 8, 'Acceso', 'INGRESO A PANTALLA CAJA'),
-(27, '2021-04-18 16:46:32', 1, 25, 'Acceso', 'CERRO SESIÓN'),
-(29, '2021-04-18 17:03:15', 24, 25, '	Acceso', 'INICIÓ SESIÓN'),
-(30, '2021-04-18 17:07:39', 24, 25, 'Acceso', 'CERRO SESIÓN'),
-(32, '2021-04-18 21:11:02', 1, 25, '	Acceso', 'INICIÓ SESIÓN'),
-(33, '2021-04-18 21:11:31', 1, 4, 'Acceso', 'INGRESO A PANTALLA PACIENTES'),
-(34, '2021-04-18 21:12:08', 1, 4, 'Acceso', 'INGRESO A PANTALLA PACIENTES'),
-(35, '2021-04-18 21:12:36', 1, 4, 'Acceso', 'INGRESO A PANTALLA PACIENTES'),
-(36, '2021-04-18 21:13:54', 1, 4, 'Acceso', 'INGRESO A PANTALLA PACIENTES'),
-(37, '2021-04-18 21:21:41', 1, 4, 'Insert', 'SE INGRESÓ UN NUEVO PACIENTE'),
-(38, '2021-04-18 21:22:25', 1, 7, 'Acceso', 'INGRESO A PANTALLA CITAS'),
-(39, '2021-04-18 21:24:32', 1, 10, 'Acceso', 'INGRESO A PANTALLA CARGOS'),
-(40, '2021-04-18 21:26:28', 1, 9, 'Acceso', 'INGRESO A PANTALLA ESPECIALIDADES'),
-(41, '2021-04-18 21:31:44', 1, 12, 'Acceso', 'INGRESO A PANTALLA ESTADO_CIVIL'),
-(42, '2021-04-18 21:32:16', 1, 16, 'Acceso', 'INGRESO A PANTALLA GÉNERO'),
-(43, '2021-04-18 21:32:40', 1, 13, 'Acceso', 'INGRESO A PANTALLA RELIGIÓN'),
-(44, '2021-04-18 21:33:01', 1, 15, 'Acceso', 'INGRESO A PANTALLA TIPO_SANGRE'),
-(45, '2021-04-18 21:34:00', 1, 18, 'Acceso', 'INGRESO A PANTALLA PARENTESCO'),
-(46, '2021-04-18 21:34:28', 1, 23, 'Acceso', 'INGRESO A PANTALLA COBROS'),
-(47, '2021-04-18 21:39:32', 1, 19, 'Acceso', 'INGRESO A PANTALLA ROLES'),
-(48, '2021-04-18 21:40:08', 1, 3, 'Acceso', 'INGRESO A PANTALLA PARAMETROS DE SEGURIDAD'),
-(49, '2021-04-18 21:40:44', 1, 20, 'Acceso', 'INGRESO A PANTALLA PARAMETROS DE SISTEMA'),
-(50, '2021-04-18 21:41:26', 1, 17, 'Acceso', 'INGRESO A PANTALLA PREGUNTAS SECRETAS'),
-(51, '2021-04-18 21:41:58', 1, 1, 'Acceso', 'INGRESO A PANTALLA PERSONAL'),
-(52, '2021-04-18 21:43:05', 1, 2, 'Acceso', 'INGRESO A PANTALLA USUARIOS'),
-(53, '2021-04-18 21:44:53', 1, 1, 'Acceso', 'INGRESO A PANTALLA PERSONAL'),
-(54, '2021-04-18 22:00:16', 1, 4, 'Acceso', 'INGRESO A PANTALLA PACIENTES'),
-(55, '2021-04-18 22:00:20', 1, 7, 'Acceso', 'INGRESO A PANTALLA CITAS'),
-(56, '2021-04-18 22:00:24', 1, 25, 'Acceso', 'CERRO SESIÓN'),
-(57, '2021-04-18 22:01:13', 1, 25, '	Acceso', 'INICIÓ SESIÓN'),
-(58, '2021-04-18 22:01:34', 1, 4, 'Acceso', 'INGRESO A PANTALLA PACIENTES'),
-(59, '2021-04-18 22:01:46', 1, 19, 'Acceso', 'INGRESO A PANTALLA ROLES'),
-(60, '2021-04-18 22:01:51', 1, 21, 'Acceso', 'INGRESO A PANTALLA RESAPALDO DB'),
-(61, '2021-04-18 22:01:54', 1, 22, 'Acceso', 'INGRESO A PANTALLA RESTAURAR DB'),
-(62, '2021-04-18 22:02:12', 1, 21, 'Acceso', 'INGRESO A PANTALLA RESAPALDO DB'),
-(63, '2021-04-18 22:02:32', 1, 22, 'Acceso', 'INGRESO A PANTALLA RESTAURAR DB'),
-(64, '2021-04-18 22:04:05', 1, 25, 'Acceso', 'CERRO SESIÓN'),
-(65, '2021-04-19 02:53:18', 1, 25, '	Acceso', 'INICIÓ SESIÓN'),
-(66, '2021-04-19 02:53:24', 1, 4, 'Acceso', 'INGRESO A PANTALLA PACIENTES'),
-(67, '2021-04-19 03:02:28', 1, 18, 'Acceso', 'INGRESO A PANTALLA PARENTESCO'),
-(68, '2021-04-19 03:04:02', 1, 19, 'Acceso', 'INGRESO A PANTALLA ROLES'),
-(69, '2021-04-19 06:51:15', 1, 25, '	Acceso', 'INICIÓ SESIÓN'),
-(70, '2021-04-19 06:56:04', 1, 10, 'Acceso', 'INGRESO A PANTALLA CARGOS'),
-(71, '2021-04-19 06:57:37', 1, 19, 'Acceso', 'INGRESO A PANTALLA ROLES'),
-(72, '2021-04-19 06:59:06', 1, 1, 'Acceso', 'INGRESO A PANTALLA PERSONAL'),
-(73, '2021-04-19 07:00:10', 1, 2, 'Acceso', 'INGRESO A PANTALLA USUARIOS'),
-(74, '2021-04-19 07:01:15', 1, 1, 'Acceso', 'INGRESO A PANTALLA PERSONAL'),
-(75, '2021-04-19 07:01:57', 1, 3, 'Acceso', 'INGRESO A PANTALLA PARAMETROS DE SEGURIDAD'),
-(76, '2021-04-19 07:02:01', 1, 20, 'Acceso', 'INGRESO A PANTALLA PARAMETROS DE SISTEMA'),
-(77, '2021-04-19 07:02:14', 1, 17, 'Acceso', 'INGRESO A PANTALLA PREGUNTAS SECRETAS'),
-(78, '2021-04-19 07:02:22', 1, 7, 'Acceso', 'INGRESO A PANTALLA CITAS'),
-(79, '2021-04-19 07:02:35', 1, 6, 'Acceso', 'INGRESO A PANTALLA PRECLINICA'),
-(80, '2021-04-19 07:02:38', 1, 6, 'Acceso', 'INGRESO A PANTALLA PRECLINICA'),
-(81, '2021-04-19 07:02:40', 1, 5, 'Acceso', 'INGRESO A PANTALLA CONSULTA'),
-(82, '2021-04-19 07:02:43', 1, 24, 'Acceso', 'INGRESO A PANTALLA EXPEDIENTE'),
-(83, '2021-04-19 07:03:08', 1, 8, 'Acceso', 'INGRESO A PANTALLA CAJA'),
-(84, '2021-04-19 07:03:13', 1, 24, 'Acceso', 'INGRESO A PANTALLA EXPEDIENTE'),
-(85, '2021-04-19 07:03:36', 1, 7, 'Acceso', 'INGRESO A PANTALLA CITAS'),
-(86, '2021-04-19 07:05:16', 1, 7, 'Insert', 'SE INGRESÓ UNA NUEVA CITA'),
-(87, '2021-04-19 07:05:41', 1, 6, 'Acceso', 'INGRESO A PANTALLA PRECLINICA'),
-(88, '2021-04-19 07:05:59', 1, 6, 'Insert', 'SE REALIZO PRECLINICA'),
-(89, '2021-04-19 07:06:03', 1, 5, 'Acceso', 'INGRESO A PANTALLA CONSULTA'),
-(90, '2021-04-19 07:07:45', 1, 8, 'Acceso', 'INGRESO A PANTALLA CAJA'),
-(91, '2021-04-19 07:08:53', 1, 24, 'Acceso', 'INGRESO A PANTALLA EXPEDIENTE'),
-(92, '2021-04-19 07:08:58', 1, 4, 'Acceso', 'INGRESO A PANTALLA PACIENTES'),
-(93, '2021-04-19 07:10:01', 1, 7, 'Acceso', 'INGRESO A PANTALLA CITAS'),
-(94, '2021-04-19 07:10:11', 1, 2, 'Acceso', 'INGRESO A PANTALLA USUARIOS'),
-(95, '2021-04-19 07:10:22', 1, 2, 'Update', 'SE ACTIVÓ UN USUARIO'),
-(96, '2021-04-19 07:10:47', 1, 2, 'Update', 'SE ACTUALIZÓ UN USUARIO'),
-(97, '2021-04-19 07:11:15', 1, 1, 'Acceso', 'INGRESO A PANTALLA PERSONAL'),
-(98, '2021-04-19 07:18:56', 1, 1, 'Insert', 'SE INGRESÓ UN NUEVO EMPLEADO'),
-(99, '2021-04-19 07:20:01', 1, 2, 'Acceso', 'INGRESO A PANTALLA USUARIOS'),
-(100, '2021-04-19 07:22:34', 1, 2, 'Insert', 'ADMIN CREÓ UN NUEVO USUARIO'),
-(101, '2021-04-19 07:25:18', 1, 25, 'Acceso', 'CERRO SESIÓN'),
-(102, '2021-04-19 07:25:18', 1, 25, 'Acceso', 'CERRO SESIÓN'),
-(103, '2021-04-19 07:25:18', 1, 25, 'Acceso', 'CERRO SESIÓN'),
-(104, '2021-04-19 07:26:53', 25, 25, '	Acceso', 'INICIÓ SESIÓN'),
-(105, '2021-04-19 07:28:26', 25, 7, 'Insert', 'SE INGRESÓ UNA NUEVA CITA'),
-(106, '2021-04-19 07:31:07', 25, 25, 'Acceso', 'CERRO SESIÓN'),
-(107, '2021-04-19 07:31:23', 1, 25, '	Acceso', 'INICIÓ SESIÓN'),
-(108, '2021-04-19 07:31:32', 1, 7, 'Acceso', 'INGRESO A PANTALLA CITAS'),
-(109, '2021-04-19 07:31:37', 1, 6, 'Acceso', 'INGRESO A PANTALLA PRECLINICA'),
-(110, '2021-04-19 07:31:49', 1, 6, 'Insert', 'SE REALIZO PRECLINICA'),
-(111, '2021-04-19 07:31:53', 1, 25, 'Acceso', 'CERRO SESIÓN'),
-(112, '2021-04-19 07:32:07', 25, 25, '	Acceso', 'INICIÓ SESIÓN'),
-(113, '2021-04-19 07:45:31', 25, 25, 'Acceso', 'CERRO SESIÓN'),
-(114, '2021-04-19 07:45:39', 1, 25, '	Acceso', 'INICIÓ SESIÓN'),
-(115, '2021-04-19 07:45:48', 1, 1, 'Acceso', 'INGRESO A PANTALLA PERSONAL'),
-(116, '2021-04-19 07:45:50', 1, 2, 'Acceso', 'INGRESO A PANTALLA USUARIOS'),
-(117, '2021-04-19 08:02:34', 1, 25, '	Acceso', 'INICIÓ SESIÓN'),
-(118, '2021-04-19 08:02:42', 1, 4, 'Acceso', 'INGRESO A PANTALLA PACIENTES'),
-(119, '2021-04-19 08:02:47', 1, 7, 'Acceso', 'INGRESO A PANTALLA CITAS'),
-(120, '2021-04-19 08:02:52', 1, 1, 'Acceso', 'INGRESO A PANTALLA PERSONAL'),
-(121, '2021-04-19 08:03:04', 1, 2, 'Acceso', 'INGRESO A PANTALLA USUARIOS'),
-(122, '2021-04-19 08:03:20', 1, 2, 'Acceso', 'INGRESO A PANTALLA USUARIOS'),
-(123, '2021-04-19 08:03:35', 1, 2, 'Update', 'SE ACTUALIZÓ UN USUARIO'),
-(124, '2021-04-19 08:04:36', 1, 2, 'Insert', 'ADMIN CREÓ UN NUEVO USUARIO'),
-(125, '2021-04-19 08:05:03', 1, 25, 'Acceso', 'CERRO SESIÓN'),
-(126, '2021-04-19 08:06:20', 26, 25, '	Acceso', 'INICIÓ SESIÓN'),
-(127, '2021-04-19 08:06:48', 26, 25, 'Acceso', 'CERRO SESIÓN'),
-(129, '2021-04-19 08:29:32', 26, 25, '	Acceso', 'INICIÓ SESIÓN'),
-(130, '2021-04-19 08:29:45', 26, 25, 'Acceso', 'CERRO SESIÓN'),
-(132, '2021-04-19 08:32:28', 26, 25, '	Acceso', 'INICIÓ SESIÓN'),
-(133, '2021-04-19 08:33:42', 26, 25, 'Acceso', 'CERRO SESIÓN'),
-(134, '2021-04-19 08:38:35', 27, 25, '	Acceso', 'INICIÓ SESIÓN'),
-(135, '2021-04-19 08:39:27', 27, 25, 'Acceso', 'CERRO SESIÓN'),
-(137, '2021-04-19 08:40:33', 27, 25, '	Acceso', 'INICIÓ SESIÓN');
+(1, '2021-04-19 09:37:01', 1, 19, 'Acceso', 'INGRESO A PANTALLA ROLES');
+
+--
+-- Disparadores `tbl_bitacora_evento`
+--
+DELIMITER $$
+CREATE TRIGGER `bitacora_log` BEFORE DELETE ON `tbl_bitacora_evento` FOR EACH ROW BEGIN
+ 
+ INSERT INTO tbl_bitacora_evento_log(tbl_bitacora_evento_log.ID_Usuario,tbl_bitacora_evento_log.Fecha_Evento,
+                        tbl_bitacora_evento_log.ID_Objeto,tbl_bitacora_evento_log.Accion,
+                        tbl_bitacora_evento_log.Descripcion)
+        	VALUES(OLD.ID_Usuario,OLD.Fecha_Evento,OLD.ID_Objeto,OLD.Accion,OLD.Descripcion); 		
+       
+    END
+$$
+DELIMITER ;
 
 -- --------------------------------------------------------
 
@@ -188,6 +72,17 @@ CREATE TABLE `tbl_bitacora_evento_log` (
   `Accion` varchar(30) NOT NULL,
   `Descripcion` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `tbl_bitacora_evento_log`
+--
+
+INSERT INTO `tbl_bitacora_evento_log` (`ID_Bitacora_evento`, `Fecha_Evento`, `ID_Usuario`, `ID_Objeto`, `Accion`, `Descripcion`) VALUES
+(1, '2021-04-19 03:33:36', 1, 4, 'Acceso', 'INGRESO A PANTALLA PACIENTES'),
+(2, '2021-04-19 03:33:38', 1, 10, 'Acceso', 'INGRESO A PANTALLA CARGOS'),
+(3, '2021-04-19 03:35:40', 1, 9, 'Acceso', 'INGRESO A PANTALLA ESPECIALIDADES'),
+(4, '2021-04-19 03:35:43', 1, 13, 'Acceso', 'INGRESO A PANTALLA RELIGIÓN'),
+(5, '2021-04-19 03:36:15', 1, 4, 'Acceso', 'INGRESO A PANTALLA PACIENTES');
 
 -- --------------------------------------------------------
 
@@ -631,31 +526,33 @@ CREATE TABLE `tbl_objetos` (
 --
 
 INSERT INTO `tbl_objetos` (`ID_Objeto`, `Objeto`) VALUES
-(1, 'vista_personal'),
-(2, 'vista_usuarios'),
-(3, 'vista_parametros_Segurida'),
-(4, 'vista_pacientes'),
-(5, 'vista_consultas'),
-(6, 'vista_preclinica'),
-(7, 'vista_citas'),
-(8, 'vista_caja'),
-(9, 'vista_especialidad'),
-(10, 'vista_cargo'),
-(11, 'vista_diagnóstico'),
-(12, 'vista_estado civil'),
-(13, 'vista_religiones'),
-(14, 'vista_servicios'),
-(15, 'vista_tipo de sangre'),
-(16, 'vista_sexo'),
-(17, 'vista_preguntas'),
-(18, 'vista_parentesco'),
-(19, 'vista_Roles'),
-(20, 'vista_parametros_Sistema'),
-(21, 'vista_Respaldo_DB'),
+(1, 'Vista_Personal'),
+(2, 'Vista_Usuarios'),
+(3, 'Vista_Parametros_Seg'),
+(4, 'Vista_Pacientes'),
+(5, 'Vista_Consultas'),
+(6, 'VIsta_Preclinica'),
+(7, 'Vista_Citas'),
+(8, 'Vista_Caja'),
+(9, 'Vista_Especialidad'),
+(10, 'Vista_Cargo'),
+(11, 'Vista_Diagnóstico'),
+(12, 'Vista_Estado_Civil'),
+(13, 'Vista_Religiones'),
+(14, 'Vista_Servicios'),
+(15, 'Vista_Tipo de sangre'),
+(16, 'Vista_Sexo'),
+(17, 'Vista_Preguntas'),
+(18, 'Vista_Parentesco'),
+(19, 'Vista_Roles'),
+(20, 'Vista_Parametros_Sist'),
+(21, 'Vista_Respaldo_DB'),
 (22, 'Vista_Restauración_DB'),
-(23, 'vista_Cobros_Adicionales'),
-(24, 'vista_Expediente'),
-(25, 'Vista_Sisión');
+(23, 'Vista_Cobros_Adicionales'),
+(24, 'Vista_Expediente'),
+(25, 'Vista_Sesión'),
+(26, 'Vista_Recup_Correo'),
+(27, 'Vista_Recup_Pregunta');
 
 -- --------------------------------------------------------
 
@@ -921,7 +818,17 @@ INSERT INTO `tbl_permisos` (`id_permiso`, `id_rol`, `id_objeto`, `permiso_insert
 (122, 5, 22, '0', '0', '0', '0'),
 (123, 5, 23, '0', '0', '0', '0'),
 (124, 5, 24, '0', '0', '0', '0'),
-(125, 5, 25, '1', '1', '1', '1');
+(125, 5, 25, '1', '1', '1', '1'),
+(126, 1, 26, '1', '1', '1', '1'),
+(127, 1, 27, '1', '1', '1', '1'),
+(128, 2, 26, '0', '0', '0', '0'),
+(129, 2, 27, '0', '0', '0', '0'),
+(130, 3, 26, '0', '0', '0', '0'),
+(131, 3, 27, '0', '0', '0', '0'),
+(132, 4, 26, '0', '0', '0', '0'),
+(133, 4, 27, '0', '0', '0', '0'),
+(134, 5, 26, '0', '0', '0', '0'),
+(135, 5, 27, '0', '0', '0', '0');
 
 -- --------------------------------------------------------
 
@@ -1458,13 +1365,13 @@ ALTER TABLE `tbl_usuario`
 -- AUTO_INCREMENT de la tabla `tbl_bitacora_evento`
 --
 ALTER TABLE `tbl_bitacora_evento`
-  MODIFY `ID_Bitacora_evento` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=138;
+  MODIFY `ID_Bitacora_evento` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de la tabla `tbl_bitacora_evento_log`
 --
 ALTER TABLE `tbl_bitacora_evento_log`
-  MODIFY `ID_Bitacora_evento` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `ID_Bitacora_evento` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT de la tabla `tbl_cargo`
@@ -1566,7 +1473,7 @@ ALTER TABLE `tbl_parentesco`
 -- AUTO_INCREMENT de la tabla `tbl_permisos`
 --
 ALTER TABLE `tbl_permisos`
-  MODIFY `id_permiso` bigint(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=126;
+  MODIFY `id_permiso` bigint(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=136;
 
 --
 -- AUTO_INCREMENT de la tabla `tbl_preclinica`
