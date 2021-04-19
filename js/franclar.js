@@ -483,3 +483,6 @@ function pdfDinamico(id) {
   // window.location="Reportes-PDF/ReporteBitacora.php?perl="+hash+"";
    
  }
+
+}
+ }

@@ -45,7 +45,7 @@ if ($_GET['perl']) {
     $valor=$_GET['perl'];
     
     $buscar=base64_decode($valor);
-    $carg="SELECT * FROM tbl_cargo WHERE ID_Cargo LIKE '%".$buscar."%' OR nomb_cargo LIKE '%".$buscar."%'";
+    $carg="SELECT * FROM tbl_cargo WHERE ID_Cargo LIKE '%".$buscar."%' OR Nomb_Cargo LIKE '%".$buscar."%'";
     
     $consulta = mysqli_query($con,$carg);
     $data = mysqli_num_rows($consulta);
@@ -62,7 +62,7 @@ $pdf->Cell(170, 10, 'Nombre del cargo', 1, 1, 'C', 1);
 
 while($row = mysqli_fetch_assoc($consulta)){
     $pdf->Cell(20, 10, $row['ID_Cargo'], 1, 0, 'C', 0);
-    $pdf->Cell(170, 10, utf8_decode($row['nomb_cargo']), 1, 1, 'C', 0);
+    $pdf->Cell(170, 10, utf8_decode($row['Nomb_Cargo']), 1, 1, 'C', 0);
 }
 
 $pdf->Output('Reporte_Cargos.pdf', 'I');
@@ -84,7 +84,7 @@ $pdf->Cell(170, 10, 'Nombre del cargo', 1, 1, 'C', 1);
 
 while($row = mysqli_fetch_assoc($consulta)){
     $pdf->Cell(20, 10, $row['ID_Cargo'], 1, 0, 'C', 0);
-    $pdf->Cell(170, 10, utf8_decode($row['nomb_cargo']), 1, 1, 'C', 0);
+    $pdf->Cell(170, 10, utf8_decode($row['Nomb_Cargo']), 1, 1, 'C', 0);
 }
 
 $pdf->Output('Reporte_Cargos.pdf', 'I');

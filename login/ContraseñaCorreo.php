@@ -31,41 +31,35 @@ if(isset($_POST['password']) && isset($_POST['password'])){
 				}
 			}
 
-                var current = $(this).attr('action');
+			
+		}else{
+			echo "<script type='text/javascript'>alert('Error, pagina cargada de forma inapropiada');</script>";
+		}
 
-                if (current == 'hide'){
-                    $(this).prev().attr('type','text');
-                    $(this).removeClass('glyphicon-eye-open').addClass('glyphicon-eye-close').attr('action','show');
-                }
-                if (current == 'show'){
-                    $(this).prev().attr('type','password');
-                    $(this).removeClass('glyphicon-eye-close').addClass('glyphicon-eye-open').attr('action','hide');
-                }
-            })
-        })
-        </script>
-        <script>
-        $(document).on('ready', function(){
-            $('#show-hide-passw').on('click', function(e) {
+		
+	}else{
+		echo "<script type='text/javascript'>alert('Contraseñas Incorrectas');</script>";
+	}
+}
 
-                var current = $(this).attr('action');
 
-                if (current == 'hide'){
-                    $(this).prev().attr('type','text');
-                    $(this).removeClass('glyphicon-eye-open').addClass('glyphicon-eye-close').attr('action','show');
-                }
-                if (current == 'show'){
-                    $(this).prev().attr('type','password');
-                    $(this).removeClass('glyphicon-eye-close').addClass('glyphicon-eye-open').attr('action','hide');
-                }
-            })
-        })
-        </script>
-        <script>
-        $(document).on('ready', function(){
-            $('#show-hide-pass').on('click', function(e) {
+?>
 
-                var current = $(this).attr('action');
+<!DOCTYPE html>
+<!doctype html>
+<html lang="es">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Cambiar Password</title>
+		<link rel="shortcut icon" href="img/franclar.png">
+		<meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href ="CSS/ContraseñaCorreo.css">
+		
+		<link rel="stylesheet" href="css/bootstrap.min.css" >
+		<link rel="stylesheet" href="css/bootstrap-theme.min.css" >
 
 		<link rel="stylesheet" href="css/master.css">
 		<script src="js/bootstrap.min.js" ></script>
@@ -90,7 +84,7 @@ if(isset($_POST['password']) && isset($_POST['password'])){
 							<input type="hidden" id="token" name="token" value ="<?php if(isset($_GET['token'])){ echo $_GET['token']; }else { echo "";} ?>" />
 							
 							<div class="form-group">
-								<label for="password" class="col-md-3 control-label">Nuevo Contraseña</label>
+								<label for="password" class="col-md-3 control-label">Nueva Contraseña</label>
 								<div class="col-md-9">
 									<input type="password" name="password" class="form-control" name="password" placeholder="Contraseña" required>
 								</div>

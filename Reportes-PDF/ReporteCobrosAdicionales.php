@@ -44,7 +44,7 @@ if ($_GET['perl']) {
     $valor=$_GET['perl'];
     
     $buscar=base64_decode($valor);
-    $cobroA="SELECT * FROM tbl_cobros_adicionales WHERE ID_cobro_adicional LIKE '%".$buscar."%' OR Descripcion_cobro LIKE '%".$buscar."%' OR Precio_cobro LIKE '%".$buscar."%'";
+    $cobroA="SELECT * FROM tbl_cobros_adicionales WHERE ID_Cobro_adicional LIKE '%".$buscar."%' OR Descripcion_Cobro LIKE '%".$buscar."%' OR Precio_Cobro LIKE '%".$buscar."%'";
     
     $consulta = mysqli_query($con,$cobroA);
     $data = mysqli_num_rows($consulta);
@@ -61,9 +61,9 @@ $pdf->Cell(150, 10, utf8_decode('Descripción de cobro'), 1, 0, 'C', 1);
 $pdf->Cell(20, 10, utf8_decode('Precio'), 1, 1, 'C', 1);
 
 while($row = mysqli_fetch_assoc($consulta)){
-    $pdf->Cell(20, 10, $row['ID_cobro_adicional'], 1, 0, 'C', 0);
-    $pdf->Cell(150, 10, utf8_decode($row['Descripcion_cobro']), 1, 0, 'C', 0);
-    $pdf->Cell(20, 10, utf8_decode($row['Precio_cobro']), 1, 1, 'C', 0);
+    $pdf->Cell(20, 10, $row['ID_Cobro_adicional'], 1, 0, 'C', 0);
+    $pdf->Cell(150, 10, utf8_decode($row['Descripcion_Cobro']), 1, 0, 'C', 0);
+    $pdf->Cell(20, 10, utf8_decode($row['Precio_Cobro']), 1, 1, 'C', 0);
 }
 
 $pdf->Output('Reporte_Cobros_Adicionales.pdf', 'I');
@@ -85,9 +85,9 @@ $pdf->Output('Reporte_Cobros_Adicionales.pdf', 'I');
         $pdf->Cell(20, 10, utf8_decode('Precio'), 1, 1, 'C', 1);
 
         while($row = mysqli_fetch_assoc($consulta)){
-            $pdf->Cell(20, 10, $row['ID_cobro_adicional'], 1, 0, 'C', 0);
-            $pdf->Cell(150, 10, utf8_decode($row['Descripcion_cobro']), 1, 0, 'C', 0);
-            $pdf->Cell(20, 10, utf8_decode($row['Precio_cobro']), 1, 1, 'C', 0);
+            $pdf->Cell(20, 10, $row['ID_Cobro_adicional'], 1, 0, 'C', 0);
+            $pdf->Cell(150, 10, utf8_decode($row['Descripcion_Cobro']), 1, 0, 'C', 0);
+            $pdf->Cell(20, 10, utf8_decode($row['Precio_Cobro']), 1, 1, 'C', 0);
         }
 
         $pdf->Output('Reporte_Cobros_Adicionales.pdf', 'I');

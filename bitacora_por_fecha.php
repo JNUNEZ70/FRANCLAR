@@ -63,6 +63,11 @@ if (isset($_POST['depuraraBitacora'])){
     </section>
     <!-- breadcrumb start-->
     <!-- footer part start-->
+        <!-- <div class="form-group col-md-4">
+             ../FRANCLAR/Reportes-PDF/ReporteBitacora.php
+            <a class="genric-btn btn-danger circle" href="../FRANCLAR/Reportes-PDF/ReporteConsultaBitacora.php">
+            <i class="fas fa-file-pdf fa-lg"> </i> Generar Reporte</a>
+        </div>	 -->
         <form class="form-inline my-2 my-lg-0 float-left">
 			<a href="bitacora.php" class="genric-btn info circle">Volver a bitacora</a>
 		</form>

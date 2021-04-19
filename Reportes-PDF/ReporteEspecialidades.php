@@ -45,7 +45,7 @@ if ($_GET['perl']) {
     $valor=$_GET['perl'];
     
     $buscar=base64_decode($valor);
-    $especialidad="SELECT * FROM tbl_especialidad WHERE ID_especialidad LIKE '%".$buscar."%' OR Descripcion_espec LIKE '%".$buscar."%' OR Precio LIKE '%".$buscar."%'";
+    $especialidad="SELECT * FROM tbl_especialidad WHERE ID_Especialidad LIKE '%".$buscar."%' OR Descripcion_Espec LIKE '%".$buscar."%' OR Precio LIKE '%".$buscar."%'";
     
     $consulta = mysqli_query($con,$especialidad);
     $data = mysqli_num_rows($consulta);
@@ -62,8 +62,8 @@ $pdf->Cell(130, 10, utf8_decode('Nombre del Diagnóstico'), 1, 0, 'C', 1);
 $pdf->Cell(40, 10, 'Precio', 1, 1, 'C', 1);
 
 while($row = mysqli_fetch_assoc($consulta)){
-    $pdf->Cell(20, 10, $row['ID_especialidad'], 1, 0, 'C', 0);
-    $pdf->Cell(130, 10, utf8_decode($row['Descripcion_espec']), 1, 0, 'C', 0);
+    $pdf->Cell(20, 10, $row['ID_Especialidad'], 1, 0, 'C', 0);
+    $pdf->Cell(130, 10, utf8_decode($row['Descripcion_Espec']), 1, 0, 'C', 0);
     $pdf->Cell(40, 10, $row['Precio'], 1, 1, 'C', 0);
 }
 
@@ -87,8 +87,8 @@ $pdf->Cell(130, 10, utf8_decode('Nombre del Diagnóstico'), 1, 0, 'C', 1);
 $pdf->Cell(40, 10, 'Precio', 1, 1, 'C', 1);
 
 while($row = mysqli_fetch_assoc($consulta)){
-    $pdf->Cell(20, 10, $row['ID_especialidad'], 1, 0, 'C', 0);
-    $pdf->Cell(130, 10, utf8_decode($row['Descripcion_espec']), 1, 0, 'C', 0);
+    $pdf->Cell(20, 10, $row['ID_Especialidad'], 1, 0, 'C', 0);
+    $pdf->Cell(130, 10, utf8_decode($row['Descripcion_Espec']), 1, 0, 'C', 0);
     $pdf->Cell(40, 10, $row['Precio'], 1, 1, 'C', 0);
 }
 
