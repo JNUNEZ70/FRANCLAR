@@ -20,7 +20,7 @@ if(isset($_POST['password']) && isset($_POST['password'])){
 			$_validaUsuario = verificaTokenPass($user_id, $token);
 
 			if($_validaUsuario){
-				echo "<span style = 'background: red'></span><br/>";
+				
 
 				$ejecuta = cambiaPassword($password, $user_id,$token,$estado);
 				if($ejecuta){
@@ -60,7 +60,7 @@ if(isset($_POST['password']) && isset($_POST['password'])){
 		
 		<link rel="stylesheet" href="css/bootstrap.min.css" >
 		<link rel="stylesheet" href="css/bootstrap-theme.min.css" >
-
+<link rel="stylesheet" href="../toastr/toastr.css">
 		<link rel="stylesheet" href="css/master.css">
 		<script src="js/bootstrap.min.js" ></script>
 		
@@ -86,27 +86,30 @@ if(isset($_POST['password']) && isset($_POST['password'])){
 							<div class="form-group">
 								<label for="password" class="col-md-3 control-label">Nueva Contraseña</label>
 								<div class="col-md-9">
-									<input type="password" name="password" class="form-control" name="password" placeholder="Contraseña" required>
+									<input type="password" id="password" class="form-control" name="password" placeholder="Contraseña" required>
 								</div>
 							</div>
 							
 							<div class="form-group">
 								<label for="con_password" class="col-md-3 control-label">Confirmar Contraseña</label>
 								<div class="col-md-9">
-									<input type="password" name="con_password" class="form-control" name="con_password" placeholder="Confirmar Contraseña" required>
+									<input type="password" id="con_password" class="form-control" name="con_password" placeholder="Confirmar Contraseña" required>
 								</div>
 							</div>
 							
 							<div style="margin-top:10px" class="form-group">
-								<!-- <div class="col-sm-12 controls">
+								 <!-- <div class="col-sm-12 controls">
 									<button id="btn-login" type="submit" class="btn btn-success">Modificar</a>
-								</div> -->
-									<input type="submit"  value="Aceptar" >
+								</div>  -->
+									 <input type="submit"  value="Aceptar" >
 							</div>   
 						</form> 
 					</div>                     
 				</div>  
 			</div>
 		</div>
+		<script src="../jquery/jquery-3.3.1.min.js"></script>
+		<script src="../toastr/toastr.min.js"></script>
+		<script src="../js/franclar_login.js"></script>
 	</body>
 </html>	

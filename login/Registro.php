@@ -12,13 +12,15 @@ include ("conexionPDO.php");
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
         <link rel="stylesheet" href ="css/bootstrap.css">
+        <link rel="stylesheet" href="../toastr/toastr.css">
         <link rel="stylesheet" href ="css/registro.css">
     </head>
     <body>
         <div class = "login-box">
             <img class="avatar" src="img/Logo_franclar.png" alt="Logo De Perfil">
             <h1> Registro </h1>
-            <form action="login_GuardarUsuario.php" autocomplete="off" method="POST" class="login100-form validate-form">
+            <!-- login_GuardarUsuario.php -->
+            <form id="autoregistro_usuario" action="login_GuardarUsuario.php" autocomplete="off" method="POST" class="login100-form validate-form">
                 <!-----Username---->
                 <label for="Username">Usuario</label>
                 <?php  $id=$_SESSION['variable']; ?>
@@ -45,7 +47,7 @@ include ("conexionPDO.php");
                 </div>  
                 
                 <label for="Email">Correo Electrónico</label>
-                <input type="email"  name="email" placeholder="Ingrese un correo electrónico">
+                <input type="email"  id="email" name="email" placeholder="Ingrese un correo electrónico">
                 
                 <input type="submit"  value="Registrar" name="add" >
                 
@@ -137,5 +139,9 @@ confirm_password.onkeyup = validatePassword;
             })
         })
       </script>
+
+<script src="../jquery/jquery-3.3.1.min.js"></script>
+		<script src="../toastr/toastr.min.js"></script>
+		<script src="../js/franclar_login.js"></script>
     </body>
 </html>

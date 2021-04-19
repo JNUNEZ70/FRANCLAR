@@ -154,7 +154,7 @@ function fechaMinima(id) {
         $fecha = `${anio}-0${mes}-${dia}`;
         $fechaRango = `${rangoFecha}-${mes}-${dia}`;
         $calendario.setAttribute("min", $fecha);
-        $calendario.setAttribute("max", $fechaRango);
+       // $calendario.setAttribute("max", $fechaRango);
     } else {
 
         //console.log(dia);
@@ -166,7 +166,7 @@ function fechaMinima(id) {
         $fecha = `${anio}-0${mes}-${dia}`;
         $fechaRango = `${rangoFecha}-${mes}-${dia}`;
         $calendario.setAttribute("min", $fecha);
-        $calendario.setAttribute("max", $fechaRango);
+       // $calendario.setAttribute("max", $fechaRango);
     }
 }
 
@@ -282,25 +282,6 @@ function buscardinamico() {
    
  }
 
- /*function buscar_cargo() {
-   
-    let $input=document.querySelectorAll('input')[0].value;
-    //console.log($input);
-    let hash = btoa($input);
- 
-   window.location="Reportes-PDF/ReporteCargos.php?perl="+hash+"";
-   
- }
-
-  function buscar_genero() {
-   
-    let $input=document.querySelectorAll('input')[0].value;
-    //console.log($input);
-    let hash = btoa($input);
- 
-   window.location="Reportes-PDF/ReporteGenero.php?perl="+hash+"";
-   
- }*/
 
  function pdfDinamico(id) {
     let $id=id.id;
@@ -377,112 +358,79 @@ function buscardinamico() {
             window.location="Reportes-PDF/ReportePreguntasSecretas.php?perl="+hash+"";
 // validar que no exista usuarios con el mismo nombre
 //!esto se valida cuando el usuario admin registra un nuevo usuario
+  
 
-$('#Form_registrar_usuario').submit(e=>{
-let $email= $('#email').val();
-let $usuario= $('#NomU').val();
-let $id_usuario= $('#ColaboradorU').val();
-let $rol_usuario= $('#RolU').val();
-let $contrasena= $('#passwordU').val();
-console.log($email,$usuario,$id_usuario,$rol_usuario,$contrasena);
-
-let funcion='verificar';
-$.post('end-point_usuarios.php',{funcion,$email,$usuario,$id_usuario,$rol_usuario,$contrasena},(response)=>{
-
-
-let $json=response;
-let $msg= JSON.parse($json);
-if ($msg.length==0) {
-     enviarFormulario($msg)
-   
-}else{
-$msg.forEach(element => {
-     console.log(element);
-
-CorreoExiste(element);
-});
 }
 
+}
+$('#loginform').submit(e=>{
+    console.log('formulario');
+    /*
+    let $token= $('#token').val();
+    let $id_usuario= $('#user_id').val();
+    let $password= $('#password').val();
+    let $con_password= $('#con_password').val();
+    
+    let funcion='verificar';
+    $.post('guarda_pass.php',{funcion,$id_usuario,$token,$password,$con_password},(response)=>{
+    
+    
+    let $json=response;
+    let $msg= JSON.parse($json);
+    if ($msg.length==0) {
+         enviarFormulario($msg)
+       
+    }else{
+    $msg.forEach(element => {
+         console.log(element);
+    
+    CorreoExiste(element);
+    });
+    }
+    
+    
+    });
+    */
+    e.preventDefault();
+    });
 
-});
 
-e.preventDefault();
-});
+
+
+ 
+$('#Form_registrar_usuario').submit(e=>{
+    let $email= $('#email').val();
+    let $usuario= $('#NomU').val();
+    let $id_usuario= $('#ColaboradorU').val();
+    let $rol_usuario= $('#RolU').val();
+    let $contrasena= $('#passwordU').val();
+    console.log($email,$usuario,$id_usuario,$rol_usuario,$contrasena);
+    
+    let funcion='verificar';
+    $.post('end-point_usuarios.php',{funcion,$email,$usuario,$id_usuario,$rol_usuario,$contrasena},(response)=>{
+    
+    
+    let $json=response;
+    let $msg= JSON.parse($json);
+    if ($msg.length==0) {
+         enviarFormulario($msg)
+       
+    }else{
+    $msg.forEach(element => {
+         console.log(element);
+    
+    CorreoExiste(element);
+    });
+    }
+    
+    
+    });
+    
+    e.preventDefault();
+    });
+    
 function enviarFormulario($msg) {
-  let $formulario= document.getElementById('Form_registrar_usuario');
+  let $formulario= document.getElementById('loginform');
 
  $formulario.submit()
 }
-
-function buscardinamico() {
-   
-   let $input=document.querySelectorAll('input')[4].value;
-   //console.log($input);
-   let hash = btoa($input);
-    
-
-  window.location="Reportes-PDF/ReporteBitacora.php?perl="+hash+"";
-  
-}
-
-function pdfDinamico(id) {
-    let $id=id.id;
-    let $input=document.querySelectorAll('input')[0].value;
-  //let hash = btoa($input);    
-
-        // console.log($input);
-        if ($id=='pdf_cargos') {
-            console.log('estas en cargos');
-            console.log($input);
-            // window.location="Reportes-PDF/ReporteCargos.php?perl="+hash+"";
-
-        }else if ($id=='pdf_especialidad') {
-            console.log('estas en especialidades');
-            console.log($input);
-            // window.location="Reportes-PDF/ReporteEspecialidades.php?perl="+hash+"";
-
-        }else if ($id=='pdf_genero') {
-            console.log('estas en genero');
-            console.log($input);
-            // window.location="Reportes-PDF/ReporteGenero.php?perl="+hash+"";
-
-        }else if ($id=='pdf_estado_civil') {
-            console.log('estas en estado_civil');
-            console.log($input);
-            // window.location="Reportes-PDF/ReporteEstadoCivil.php?perl="+hash+"";
-
-        }else if ($id=='pdf_religion') {
-            console.log('estas en religion');
-            console.log($input);
-            // window.location="Reportes-PDF/ReporteReligion.php?perl="+hash+"";
-
-        }else if ($id=='pdf_tipo_sangre') {
-            console.log('estas en tipo de sangre');
-            console.log($input);
-            // window.location="Reportes-PDF/ReporteGenero.php?perl="+hash+"";
-
-        }else if ($id=='pdf_genero') {
-            console.log('estas en genero');
-            console.log($input);
-            // window.location="Reportes-PDF/ReporteGenero.php?perl="+hash+"";
-
-        }else if ($id=='pdf_genero') {
-            console.log('estas en genero');
-            console.log($input);
-            // window.location="Reportes-PDF/ReporteGenero.php?perl="+hash+"";
-
-        }else if ($id=='pdf_genero') {
-            console.log('estas en genero');
-            console.log($input);
-            // window.location="Reportes-PDF/ReporteGenero.php?perl="+hash+"";
-
-        }
- 
-    
-
-  // window.location="Reportes-PDF/ReporteBitacora.php?perl="+hash+"";
-   
- }
-
-}
- }
