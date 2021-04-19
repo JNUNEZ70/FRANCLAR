@@ -112,7 +112,7 @@ include 'conexion.php'
 						<tr>
                             <td>'.$row['ID_Cargo'].'</td>
                             <td>'.$row['Nomb_Cargo'].'</td>		
-							<td>'.$boton2.' '.$boton.'</td>
+							<td>'.$boton2.'</td>
 						</tr>
 						';
 						$no++;

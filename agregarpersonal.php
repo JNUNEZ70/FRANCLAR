@@ -95,7 +95,7 @@ include 'conexion.php'
                                           $sql=$con -> query("Select * from tbl_cargo where ID_Cargo <> 6");
 
                                           while($fila=$sql->fetch_array()){
-                                              echo "<option value='".$fila['ID_Cargo']."'>".$fila['nomb_cargo']."</option>";
+                                              echo "<option value='".$fila['ID_Cargo']."'>".$fila['Nomb_Cargo']."</option>";
                                           }
                                         ?>
                                     </select>

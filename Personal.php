@@ -119,7 +119,7 @@ include 'conexion.php'
 				INNER JOIN tbl_sexo on tbl_empleado.ID_Sexo = tbl_sexo.ID_Sexo
 				INNER JOIN tbl_estado_civil on tbl_empleado.ID_Est_Civil = tbl_estado_civil.ID_Est_Civil
 				INNER JOIN tbl_cargo on tbl_empleado.ID_Cargo = tbl_cargo.ID_Cargo
-				INNER JOIN tbl_especialidad on tbl_empleado.ID_Especialidad = tbl_especialidad.ID_especialidad");
+				INNER JOIN tbl_especialidad on tbl_empleado.ID_Especialidad = tbl_especialidad.ID_especialidad WHERE tbl_empleado.ID_Empleado <> 1");
 				if(mysqli_num_rows($sql) == 0){
 					echo '<tr><td colspan="8">No hay datos.</td></tr>';
 				}else{
@@ -129,7 +129,7 @@ include 'conexion.php'
 					($permiso_actualizar==1)?$boton2='<a href="EditarPersonal.php?nik='.$row['ID_Empleado'].'" title="Editar datos" class="btn btn-success btn-sm"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></a>':$boton2='<a  title="Editar datos" onClick="permiso()" class="btn btn-warning btn-sm"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></a>';	
 						echo '
 						<tr>
-						<td>'.$row['ID_Empleado'].'</td>
+						<td>'.$no.'</td>
 						<td>'.$row['Nom_Empleado'].'</td>
 						<td>'.$row['Cedula'].'</td>
 						<td>'.$row['Fec_Nacimiento'].'</td>
@@ -141,7 +141,7 @@ include 'conexion.php'
 						<td><span class="label label-warning">'.$row['nomb_cargo'].'</span></td>
 						<td>'.$row['Salario'].'</td>
 						<td><span class="label label-primary">'.$row['Descripcion_espec'].'</span></td>				
-						<td>'.$boton2.' '.$boton.'</td>
+						<td>'.$boton2.' </td>
 						
 						</tr>
 						';

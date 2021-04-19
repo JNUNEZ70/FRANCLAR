@@ -24,8 +24,9 @@
         
         $obtener_id = mysqli_query($conn, "SELECT * FROM tbl_usuario WHERE Nom_Usuario='$nomusuario'");
         $row = mysqli_num_rows($obtener_id);                        
-        
-        if($row == 0){
+        $row2 = mysqli_fetch_assoc($obtener_id);
+
+        if($row == 0 or $row2['ID_Usuario'] == 1){
             echo "<script type='text/javascript'>
             alert('Favor ingrese correctamente su usuario');
             window.location.href= 'Recuperacion.php';
@@ -52,9 +53,10 @@
         //$id_usuario= $_SESSION['ID_Usuario']; 
         
         $obtener_id = mysqli_query($conn, "SELECT * FROM tbl_usuario WHERE Nom_Usuario='$nomusuario'");
-        $row = mysqli_num_rows($obtener_id);                        
+        $row = mysqli_num_rows($obtener_id);       
+        $row2 = mysqli_fetch_assoc($obtener_id);                 
         
-        if($row == 0){
+        if($row == 0 or $row2['ID_Usuario'] == 1){
             echo "<script type='text/javascript'>
             alert('Favor ingrese correctamente su usuario');
             window.location.href= 'Recuperacion.php';

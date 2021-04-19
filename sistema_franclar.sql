@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 18-04-2021 a las 08:06:28
+-- Tiempo de generación: 19-04-2021 a las 05:45:03
 -- Versión del servidor: 10.4.18-MariaDB
 -- Versión de PHP: 8.0.3
 
@@ -61,7 +61,67 @@ INSERT INTO `tbl_bitacora_evento` (`ID_Bitacora_evento`, `Fecha_Evento`, `ID_Usu
 (18, '2021-04-18 03:54:04', 1, 6, 'Acceso', 'INGRESO A PANTALLA PRECLINICA'),
 (19, '2021-04-18 03:54:18', 1, 6, 'Insert', 'SE REALIZO PRECLINICA'),
 (20, '2021-04-18 03:54:25', 1, 5, 'Acceso', 'INGRESO A PANTALLA CONSULTA'),
-(21, '2021-04-18 04:18:22', 1, 25, 'Acceso', 'CERRO SESIÓN');
+(21, '2021-04-18 04:18:22', 1, 25, 'Acceso', 'CERRO SESIÓN'),
+(22, '2021-04-18 16:22:25', 1, 25, '	Acceso', 'INICIÓ SESIÓN'),
+(23, '2021-04-18 16:22:55', 1, 7, 'Acceso', 'INGRESO A PANTALLA CITAS'),
+(24, '2021-04-18 16:41:46', 1, 7, 'Acceso', 'INGRESO A PANTALLA CITAS'),
+(25, '2021-04-18 16:41:50', 1, 5, 'Acceso', 'INGRESO A PANTALLA CONSULTA'),
+(26, '2021-04-18 16:41:54', 1, 8, 'Acceso', 'INGRESO A PANTALLA CAJA'),
+(27, '2021-04-18 16:46:32', 1, 25, 'Acceso', 'CERRO SESIÓN'),
+(29, '2021-04-18 17:03:15', 24, 25, '	Acceso', 'INICIÓ SESIÓN'),
+(30, '2021-04-18 17:07:39', 24, 25, 'Acceso', 'CERRO SESIÓN'),
+(32, '2021-04-18 21:11:02', 1, 25, '	Acceso', 'INICIÓ SESIÓN'),
+(33, '2021-04-18 21:11:31', 1, 4, 'Acceso', 'INGRESO A PANTALLA PACIENTES'),
+(34, '2021-04-18 21:12:08', 1, 4, 'Acceso', 'INGRESO A PANTALLA PACIENTES'),
+(35, '2021-04-18 21:12:36', 1, 4, 'Acceso', 'INGRESO A PANTALLA PACIENTES'),
+(36, '2021-04-18 21:13:54', 1, 4, 'Acceso', 'INGRESO A PANTALLA PACIENTES'),
+(37, '2021-04-18 21:21:41', 1, 4, 'Insert', 'SE INGRESÓ UN NUEVO PACIENTE'),
+(38, '2021-04-18 21:22:25', 1, 7, 'Acceso', 'INGRESO A PANTALLA CITAS'),
+(39, '2021-04-18 21:24:32', 1, 10, 'Acceso', 'INGRESO A PANTALLA CARGOS'),
+(40, '2021-04-18 21:26:28', 1, 9, 'Acceso', 'INGRESO A PANTALLA ESPECIALIDADES'),
+(41, '2021-04-18 21:31:44', 1, 12, 'Acceso', 'INGRESO A PANTALLA ESTADO_CIVIL'),
+(42, '2021-04-18 21:32:16', 1, 16, 'Acceso', 'INGRESO A PANTALLA GÉNERO'),
+(43, '2021-04-18 21:32:40', 1, 13, 'Acceso', 'INGRESO A PANTALLA RELIGIÓN'),
+(44, '2021-04-18 21:33:01', 1, 15, 'Acceso', 'INGRESO A PANTALLA TIPO_SANGRE'),
+(45, '2021-04-18 21:34:00', 1, 18, 'Acceso', 'INGRESO A PANTALLA PARENTESCO'),
+(46, '2021-04-18 21:34:28', 1, 23, 'Acceso', 'INGRESO A PANTALLA COBROS'),
+(47, '2021-04-18 21:39:32', 1, 19, 'Acceso', 'INGRESO A PANTALLA ROLES'),
+(48, '2021-04-18 21:40:08', 1, 3, 'Acceso', 'INGRESO A PANTALLA PARAMETROS DE SEGURIDAD'),
+(49, '2021-04-18 21:40:44', 1, 20, 'Acceso', 'INGRESO A PANTALLA PARAMETROS DE SISTEMA'),
+(50, '2021-04-18 21:41:26', 1, 17, 'Acceso', 'INGRESO A PANTALLA PREGUNTAS SECRETAS'),
+(51, '2021-04-18 21:41:58', 1, 1, 'Acceso', 'INGRESO A PANTALLA PERSONAL'),
+(52, '2021-04-18 21:43:05', 1, 2, 'Acceso', 'INGRESO A PANTALLA USUARIOS'),
+(53, '2021-04-18 21:44:53', 1, 1, 'Acceso', 'INGRESO A PANTALLA PERSONAL'),
+(54, '2021-04-18 22:00:16', 1, 4, 'Acceso', 'INGRESO A PANTALLA PACIENTES'),
+(55, '2021-04-18 22:00:20', 1, 7, 'Acceso', 'INGRESO A PANTALLA CITAS'),
+(56, '2021-04-18 22:00:24', 1, 25, 'Acceso', 'CERRO SESIÓN'),
+(57, '2021-04-18 22:01:13', 1, 25, '	Acceso', 'INICIÓ SESIÓN'),
+(58, '2021-04-18 22:01:34', 1, 4, 'Acceso', 'INGRESO A PANTALLA PACIENTES'),
+(59, '2021-04-18 22:01:46', 1, 19, 'Acceso', 'INGRESO A PANTALLA ROLES'),
+(60, '2021-04-18 22:01:51', 1, 21, 'Acceso', 'INGRESO A PANTALLA RESAPALDO DB'),
+(61, '2021-04-18 22:01:54', 1, 22, 'Acceso', 'INGRESO A PANTALLA RESTAURAR DB'),
+(62, '2021-04-18 22:02:12', 1, 21, 'Acceso', 'INGRESO A PANTALLA RESAPALDO DB'),
+(63, '2021-04-18 22:02:32', 1, 22, 'Acceso', 'INGRESO A PANTALLA RESTAURAR DB'),
+(64, '2021-04-18 22:04:05', 1, 25, 'Acceso', 'CERRO SESIÓN'),
+(65, '2021-04-19 02:53:18', 1, 25, '	Acceso', 'INICIÓ SESIÓN'),
+(66, '2021-04-19 02:53:24', 1, 4, 'Acceso', 'INGRESO A PANTALLA PACIENTES'),
+(67, '2021-04-19 03:02:28', 1, 18, 'Acceso', 'INGRESO A PANTALLA PARENTESCO'),
+(68, '2021-04-19 03:04:02', 1, 19, 'Acceso', 'INGRESO A PANTALLA ROLES');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `tbl_bitacora_evento_log`
+--
+
+CREATE TABLE `tbl_bitacora_evento_log` (
+  `ID_Bitacora_evento` int(11) NOT NULL,
+  `Fecha_Evento` datetime NOT NULL,
+  `ID_Usuario` bigint(3) NOT NULL,
+  `ID_Objeto` bigint(3) NOT NULL,
+  `Accion` varchar(30) NOT NULL,
+  `Descripcion` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -123,7 +183,7 @@ INSERT INTO `tbl_citas` (`ID_Cita`, `ID_Paciente`, `ID_Usuario`, `ID_Empleado`, 
 (6, 1, 1, 3, 1, 4, '2021-04-15 08:47:20', '2021-07-22', '09:00:00', 200, NULL, NULL, NULL, NULL),
 (7, 1, 1, 3, 1, 4, '2021-04-16 07:15:25', '2021-04-17', '09:00:00', 200, NULL, NULL, NULL, NULL),
 (8, 1, 1, 3, 1, 4, '2021-04-16 07:53:06', '2021-04-17', '07:00:00', 200, NULL, NULL, NULL, NULL),
-(9, 1, 1, 3, 1, 3, '2021-04-18 03:53:58', '2021-04-18', '09:00:00', 200, NULL, NULL, NULL, NULL);
+(9, 1, 1, 3, 1, 4, '2021-04-18 03:53:58', '2021-04-18', '09:00:00', 200, NULL, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -147,7 +207,8 @@ INSERT INTO `tbl_cobros_adicionales` (`ID_Cobro_adicional`, `Descripcion_Cobro`,
 (3, 'EEEEEEEEE', 1000),
 (4, 'ASSDFSDFSDFSd', 1000),
 (5, 'UUUUUUUUUUU', 800),
-(6, 'PPPPPPPPPPPP', 100);
+(6, 'PPPPPPPPPPPP', 100),
+(7, 'SAFSDFGBSDFG', 100);
 
 -- --------------------------------------------------------
 
@@ -218,7 +279,10 @@ INSERT INTO `tbl_detalle_factura` (`ID_Detalle`, `ID_Factura`, `Descripcion`, `C
 (15, 6, 'UUUUUUUUUUU', 800),
 (16, 6, 'PPPPPPPPPPPP', 100),
 (17, 8, 'MEDICINA GENERAL', 200),
-(18, 9, 'MEDICINA GENERAL', 200);
+(18, 9, 'MEDICINA GENERAL', 200),
+(19, 9, 'UUUUUUUUUUU', 800),
+(20, 9, 'ASSDFSDFSDFSd', 1000),
+(21, 9, 'SAFSDFGBSDFG', 100);
 
 -- --------------------------------------------------------
 
@@ -462,7 +526,9 @@ CREATE TABLE `tbl_historico_contrasenas` (
 --
 
 INSERT INTO `tbl_historico_contrasenas` (`ID_Historial`, `ID_Usuario`, `Contrasena_Anterior`, `Fecha_Cambio`) VALUES
-(1, 24, '$2y$10$y0OcO7milANgDXu1rbZV4uCnXGuNXntrw7t77JvT02L9D7nCNVCjy', '2021-04-17 21:05:07');
+(1, 24, '$2y$10$y0OcO7milANgDXu1rbZV4uCnXGuNXntrw7t77JvT02L9D7nCNVCjy', '2021-04-17 21:05:07'),
+(2, 24, '$2y$10$aXtKZw1z0PWlOqiiIfHU2ObiVlCNRfiNqcragfxWXtemrRgubdNkq', '2021-04-18 11:02:58'),
+(3, 24, '$2y$10$ZPEi/HeTOuO0Q9cDSuAEi.7m/gJ8.vvyBjpvmm.VrcikM/kk8Gtz2', '2021-04-18 11:09:00');
 
 -- --------------------------------------------------------
 
@@ -547,7 +613,8 @@ CREATE TABLE `tbl_pacientes` (
 --
 
 INSERT INTO `tbl_pacientes` (`ID_Paciente`, `ID_tipo_documento`, `cedula`, `ID_Sexo`, `ID_Est_Civil`, `ID_Tipo_Sangre`, `ID_Religion`, `Nom_Paciente`, `Fec_Nacimiento`, `Edad`, `Dir_Paciente`, `Tel_Paciente`, `Cel_Paciente`, `Email`, `Contacto_Emergencia`, `ID_Parentesco`, `Tel_Emergencia`, `Cel_Emergencia`, `Antecedentes_Personales`, `Antecedentes_Hospitalarios`, `Antecedentes_Alergicos`, `Antecedentes_Familiares`, `Habitos`, `Usuario_crea`, `Fec_crea`, `Usuario_modif`, `Fec_modif`) VALUES
-(1, 1, '0801199714079', 1, 1, 5, 2, 'PRUEBA', '1997-07-06', 23, 'COL CSDSDFSD SAECTORT NSNDFSDF SDFGSNDFGSDFG DSFGDF D GDFGSDF DSFGSDFSDF DF GDFGDSF', 22222222, 99999999, 'nuez.jeancarlos@gmail.com', 'SADFSAD SDFGDF SDFSADF SDFSDFSD', 1, 22222222, 99999999, 'SDFASDFSADFSADF SDFASDFSADFSADFSDFASDFSADFSADFSDFASDFSADFSADFSDFASDFSADFSADF', 'SDFASDFSADFSADFSDFASDFSADFSADFSDFASDFSADFSADFSDFASDFSADFSADFSDFASDFSADFSADFSDFASDFSADFSADF ', 'SDFASDFSADFSADFSDFASDFSADFSADFSDFASDFSADFSADFSDFASDFSADFSADFSDFASDFSADFSADF ', 'SDFASDFSADFSADFSDFASDFSADFSADFSDFASDFSADFSADFSDFASDFSADFSADFSDFASDFSADFSADF', 'SDFASDFSADFSADFSDFASDFSADFSADFSDFASDFSADFSADFSDFASDFSADFSADFSDFASDFSADFSADFSDFASDFSADFSADF', NULL, NULL, NULL, NULL);
+(1, 1, '0801199714079', 1, 1, 5, 2, 'PRUEBA', '1997-07-06', 23, 'COL CSDSDFSD SAECTORT NSNDFSDF SDFGSNDFGSDFG DSFGDF D GDFGSDF DSFGSDFSDF DF GDFGDSF', 22222222, 99999999, 'nuez.jeancarlos@gmail.com', 'SADFSAD SDFGDF SDFSADF SDFSDFSD', 1, 22222222, 99999999, 'SDFASDFSADFSADF SDFASDFSADFSADFSDFASDFSADFSADFSDFASDFSADFSADFSDFASDFSADFSADF', 'SDFASDFSADFSADFSDFASDFSADFSADFSDFASDFSADFSADFSDFASDFSADFSADFSDFASDFSADFSADFSDFASDFSADFSADF ', 'SDFASDFSADFSADFSDFASDFSADFSADFSDFASDFSADFSADFSDFASDFSADFSADFSDFASDFSADFSADF ', 'SDFASDFSADFSADFSDFASDFSADFSADFSDFASDFSADFSADFSDFASDFSADFSADFSDFASDFSADFSADF', 'SDFASDFSADFSADFSDFASDFSADFSADFSDFASDFSADFSADFSDFASDFSADFSADFSDFASDFSADFSADFSDFASDFSADFSADF', NULL, NULL, NULL, NULL),
+(2, 1, '1212212122121', 1, 2, 3, 1, 'ASASAS', '1997-02-18', 24, 'FKLSMDFKLJASDKLFJ', 21231231, 12312312, 'ajshdkjash@hotmail.com', 'ASDASD', 9, 12312312, 12312312, 'ASDASDASDADSASD', 'ASDASDASD', 'ASDASDASDASD', 'ASDASD', 'ADSADS', NULL, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -1036,8 +1103,8 @@ INSERT INTO `tbl_usuario` (`ID_Usuario`, `ID_Empleado`, `ID_Estado`, `Nom_Usuari
 (20, 21, 1, 'PRUEBAPRUEBA', 'nusdsd.sdsdf@gmail.com', '$2y$10$eP3BRZssMEkd0agRpM3fOe3/btUC8IvHJgx.8L7F5otLpXKgtMU8.', 2, NULL, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
 (21, 20, 1, 'PRUEBAPRPRPRPR', 'sdsdfsdfsd@gmail.com', '$2y$10$R61PA1ILKu8k3kqOvEc30eqCWKmxdQhWth8bFfuixV0cVUxWJBt0m', 2, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
 (22, 17, 1, 'PRUEBAOKOKOK', 'nrlos@gmail.com', '$2y$10$RuqsqWZ8DMjOEPhBLduPp.fyDN.QkrI24RNwBmgEw8nyJWfTgLdZm', 2, NULL, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 3),
-(23, 21, 1, 'PRUEBAUSUSUSUSU', 'nuerlos@gmail.com', '$2y$10$7xAKQtDKjD.2CQsEZm8kg.21TE.Jyjf4okk1n9O6C6oG9/hB3csOe', 2, NULL, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 3),
-(24, 3, 3, 'PRUEBAOKOKOKOKOK', 'nuez.jcarlos@gmail.com', '$2y$10$aXtKZw1z0PWlOqiiIfHU2ObiVlCNRfiNqcragfxWXtemrRgubdNkq', 2, NULL, 0, NULL, '', 0, NULL, NULL, NULL, NULL, NULL, 3);
+(23, 21, 3, 'PRUEBAUSUSUSUSU', 'nuerlos@gmail.com', '$2y$10$7xAKQtDKjD.2CQsEZm8kg.21TE.Jyjf4okk1n9O6C6oG9/hB3csOe', 2, NULL, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 3),
+(24, 3, 3, 'PRUEBAOKOKOKOKOK', 'nuez.jcarlos@gmail.com', '$2y$10$dWxLYkIrCJl.DfTqJkmmqelBq8Czwu3VnU69N2Ff5FqD2PTZI4ElS', 2, NULL, 0, NULL, '84561ce0bd69180119bff02394afe66d', 1, NULL, NULL, NULL, NULL, NULL, 3);
 
 --
 -- Disparadores `tbl_usuario`
@@ -1067,6 +1134,12 @@ ALTER TABLE `tbl_bitacora_evento`
   ADD PRIMARY KEY (`ID_Bitacora_evento`),
   ADD KEY `id_usuario` (`ID_Usuario`),
   ADD KEY `id_objeto` (`ID_Objeto`);
+
+--
+-- Indices de la tabla `tbl_bitacora_evento_log`
+--
+ALTER TABLE `tbl_bitacora_evento_log`
+  ADD PRIMARY KEY (`ID_Bitacora_evento`);
 
 --
 -- Indices de la tabla `tbl_cargo`
@@ -1286,7 +1359,13 @@ ALTER TABLE `tbl_usuario`
 -- AUTO_INCREMENT de la tabla `tbl_bitacora_evento`
 --
 ALTER TABLE `tbl_bitacora_evento`
-  MODIFY `ID_Bitacora_evento` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `ID_Bitacora_evento` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=69;
+
+--
+-- AUTO_INCREMENT de la tabla `tbl_bitacora_evento_log`
+--
+ALTER TABLE `tbl_bitacora_evento_log`
+  MODIFY `ID_Bitacora_evento` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `tbl_cargo`
@@ -1304,7 +1383,7 @@ ALTER TABLE `tbl_citas`
 -- AUTO_INCREMENT de la tabla `tbl_cobros_adicionales`
 --
 ALTER TABLE `tbl_cobros_adicionales`
-  MODIFY `ID_Cobro_adicional` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `ID_Cobro_adicional` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT de la tabla `tbl_consultas`
@@ -1316,7 +1395,7 @@ ALTER TABLE `tbl_consultas`
 -- AUTO_INCREMENT de la tabla `tbl_detalle_factura`
 --
 ALTER TABLE `tbl_detalle_factura`
-  MODIFY `ID_Detalle` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `ID_Detalle` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT de la tabla `tbl_empleado`
@@ -1358,13 +1437,13 @@ ALTER TABLE `tbl_fotos_consultas`
 -- AUTO_INCREMENT de la tabla `tbl_historico_contrasenas`
 --
 ALTER TABLE `tbl_historico_contrasenas`
-  MODIFY `ID_Historial` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `ID_Historial` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT de la tabla `tbl_pacientes`
 --
 ALTER TABLE `tbl_pacientes`
-  MODIFY `ID_Paciente` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `ID_Paciente` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT de la tabla `tbl_parametros`

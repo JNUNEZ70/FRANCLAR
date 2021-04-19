@@ -132,7 +132,7 @@ include 'conexion.php'
 	            tbl_roles.Rol FROM tbl_usuario
 	            INNER JOIN tbl_empleado on tbl_usuario.ID_Empleado = tbl_empleado.ID_Empleado
 	            INNER JOIN tbl_estado_usuario on tbl_usuario.ID_Estado = tbl_estado_usuario.ID_Estado
-	            INNER JOIN tbl_roles on tbl_usuario.ID_Rol = tbl_roles.ID_Rol");
+	            INNER JOIN tbl_roles on tbl_usuario.ID_Rol = tbl_roles.ID_Rol WHERE tbl_usuario.ID_Usuario <> 1");
 			//aqui va el codigo
 
 		
