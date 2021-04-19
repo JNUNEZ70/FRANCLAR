@@ -32,8 +32,8 @@
             window.location.href= 'Recuperacion.php';
             </script>";
         }else{
-            $dato = mysqli_fetch_assoc($obtener_id);
-            $id_usuario = $dato['ID_Usuario'];
+            
+            $id_usuario = $row2['ID_Usuario'];
             $_SESSION['ID_Usuario'] = $id_usuario;
             $update = mysqli_query($conn, "UPDATE tbl_usuario SET ID_Estado=3 WHERE ID_Usuario='$id_usuario'") or die(mysqli_error());
             if($update){
@@ -62,8 +62,8 @@
             window.location.href= 'Recuperacion.php';
             </script>";
         }else{
-            $dato = mysqli_fetch_assoc($obtener_id);
-            $id_usuario = $dato['ID_Usuario'];
+            
+            $id_usuario = $row2['ID_Usuario'];
             $_SESSION['ID_Usuario'] = $id_usuario;
             $update = mysqli_query($conn, "UPDATE tbl_usuario SET ID_Estado=3 WHERE ID_Usuario='$id_usuario'") or die(mysqli_error());
             if($update){

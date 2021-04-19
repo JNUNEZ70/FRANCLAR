@@ -9,13 +9,13 @@ if ($_POST['obj']=='verificarcontraseña') {
     $password = $mysqli->real_escape_string($_POST['$password']);
     $con_password = $mysqli->real_escape_string($_POST['$con_password']);
     $pass_encriptada= password_hash($password, PASSWORD_DEFAULT);
-    $validarContrasena = mysqli_query($mysqli, "SELECT * from tbl_historico_contrsenas WHERE id_usuario='$user_id'");
+    $validarContrasena = mysqli_query($mysqli, "SELECT * from tbl_historico_contrasenas WHERE ID_Usuario='$user_id'");
     $errores=array();
         if (mysqli_num_rows($validarContrasena) > 0) {
             while ($row =  mysqli_fetch_assoc($validarContrasena)) {
                 
                 
-                 if (password_verify($password,$row['contrasena_anterior'])) {
+                 if (password_verify($password,$row['Contrasena_Anterior'])) {
                     $errores[]= 'esta contraseña ya la usó anteriormente';
                  
                 }
@@ -38,14 +38,14 @@ if ($_POST['obj']=='verificarcontraseñapregunta') {
     $password = $mysqli->real_escape_string($_POST['$password']);
     $con_password = $mysqli->real_escape_string($_POST['$con_password']);
     $pass_encriptada= password_hash($password, PASSWORD_DEFAULT);
-    $validarContrasena = mysqli_query($mysqli, "SELECT * from tbl_historico_contrsenas WHERE id_usuario='$user_id'");
+    $validarContrasena = mysqli_query($mysqli, "SELECT * from tbl_historico_contrasenas WHERE ID_Usuario='$user_id'");
     $errores=array();
         if (mysqli_num_rows($validarContrasena) > 0) {
             while ($row =  mysqli_fetch_assoc($validarContrasena)) {
                 
                 
-                 if (password_verify($password,$row['contrasena_anterior'])) {
-                    $errores[]= 'esta contraseña ya la uso anteriormente';
+                 if (password_verify($password,$row['Contrasena_Anterior'])) {
+                    $errores[]= 'esta contraseña ya la usó anteriormente';
                  
                 }
             }

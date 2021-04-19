@@ -5,12 +5,7 @@
         <link rel="shortcut icon" href="img/franclar.png">
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<<<<<<< HEAD
         <link rel="stylesheet" href="../toastr/toastr.css">
-=======
-        <!-- glyphicon -->
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
->>>>>>> dcf76c5b2a1e03933fce167b8b9be16a3d40ad25
         <link rel="stylesheet" href ="css/RPreguntaS.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     </head>
