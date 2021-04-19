@@ -4,7 +4,7 @@ include ("conexionPDO.php");
 ?>
 <?php
     
-	if(isset($_POST['add'])){
+	if(isset($_POST)){
         $ID_Empleado = mysqli_real_escape_string($conn,(strip_tags($_POST['ID_Empleado'],ENT_QUOTES)));
         $Nom_Usuario = mysqli_real_escape_string($conn,(strip_tags($_POST['Nom_Usuario'],ENT_QUOTES)));
         $ID_Estado= mysqli_real_escape_string($conn,(strip_tags($_POST['ID_Estado'],ENT_QUOTES)));

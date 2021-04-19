@@ -1,6 +1,7 @@
 <?php
 session_start();
 include ("conexion.php");
+
 ?>
 <?php
 
@@ -33,7 +34,6 @@ if ($_POST['funcion']=='verificar') {
 } else{
     echo 'no se encontro';
 }
-
 	
 
 ?>

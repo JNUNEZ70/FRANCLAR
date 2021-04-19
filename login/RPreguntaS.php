@@ -5,6 +5,7 @@
         <link rel="shortcut icon" href="img/franclar.png">
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="../toastr/toastr.css">
         <link rel="stylesheet" href ="css/RPreguntaS.css">
     </head>
     <body>
@@ -17,7 +18,7 @@
     <?php	
      require 'funcs/conexion.php';
      require 'funcs/funcs.php';		
-
+/*
     if(isset($_POST['recuperar'])){
                 
             $idpregunta = mysqli_real_escape_string($conn,(strip_tags($_POST['pregunta'],ENT_QUOTES)));
@@ -57,13 +58,13 @@
                 }
             }         
     }
-
+*/
     ?>
 
         <div class = "login-box">
             <img class="avatar" src="img/Logo_franclar.png" alt="Logo De Perfil">
             <h1> Recuperación por preguntas secretas </h1>
-            <form action="" method="POST" class="login100-form validate-form">
+            <form id="recuperacion_pregunta" action="guarda_pass.php" method="POST" class="login100-form validate-form">
                 <!-----Question---->
                 <label for="Question">Pregunta</label>
                 <select class="form-control" id="Pregunta" name="pregunta" onchange="activar_resp()" required>
@@ -77,13 +78,15 @@
                     ?>
                 </select>
                 <!-----Answer---->
+                <input type="hidden" name="recuperar" value="" >
                 <label for="Answer">Respuesta</label>
                 <input type="text" name="respuesta" placeholder="Ingrese su respuesta" required>
                 <!-----Password----->
+                <input type="hidden" id="id_usuario" name="id_usuario" value="<?php echo $id_usuario ?>">
                 <label for="Password">Contraseña nueva</label>
-                <input type="password" name="Ncontraseña" placeholder="Ingrese una contraseña nueva" required> 
+                <input type="password" id="Ncontraseña" name="Ncontraseña" placeholder="Ingrese una contraseña nueva" required> 
                 <label for="Password">Confirmar contraseña</label>
-                <input type="password" name="Ccontraseña" placeholder="Confirme su contraseña" required>
+                <input type="password" id="Ccontraseña" name="Ccontraseña" placeholder="Confirme su contraseña" required>
                 
                 <input type="submit" name="recuperar" value="Recuperar" >
                 
@@ -91,5 +94,8 @@
                 
             </form>            
         </div>
+        <script src="../jquery/jquery-3.3.1.min.js"></script>
+		<script src="../toastr/toastr.min.js"></script>
+		<script src="../js/franclar_login.js"></script>
     </body>
 </html>

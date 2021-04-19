@@ -160,10 +160,10 @@ function fechaMinima(id) {
         anio = fecha.getFullYear();
         //console.log(anio);
         rangoFecha = anio + 4;
-        $fecha = `${anio}-${mes}-${dia}`;
+        $fecha = `${anio}-0${mes}-${dia}`;
         $fechaRango = `${rangoFecha}-${mes}-${dia}`;
         $calendario.setAttribute("min", $fecha);
-        $calendario.setAttribute("max", $fechaRango);
+       // $calendario.setAttribute("max", $fechaRango);
     } else {
 
         //console.log(dia);
@@ -172,10 +172,10 @@ function fechaMinima(id) {
         anio = fecha.getFullYear();
         //console.log(anio);
         rangoFecha = anio + 4;
-        $fecha = `${anio}-${mes}-${dia}`;
+        $fecha = `${anio}-0${mes}-${dia}`;
         $fechaRango = `${rangoFecha}-${mes}-${dia}`;
         $calendario.setAttribute("min", $fecha);
-        $calendario.setAttribute("max", $fechaRango);
+       // $calendario.setAttribute("max", $fechaRango);
     }
 }
 
@@ -268,8 +268,45 @@ CorreoExiste(element);
 
 e.preventDefault();
 });
+
+//validar que no se ingrese contrasenas que ya se an usado anteriormente por el mismo usuario
+
+
+$('#loginform').submit(e=>{
+    console.log('formulario');
+    /*
+    let $token= $('#token').val();
+    let $id_usuario= $('#user_id').val();
+    let $password= $('#password').val();
+    let $con_password= $('#con_password').val();
+    
+    let funcion='verificar';
+    $.post('guarda_pass.php',{funcion,$id_usuario,$token,$password,$con_password},(response)=>{
+    
+    
+    let $json=response;
+    let $msg= JSON.parse($json);
+    if ($msg.length==0) {
+         enviarFormulario($msg)
+       
+    }else{
+    $msg.forEach(element => {
+         console.log(element);
+    
+    CorreoExiste(element);
+    });
+    }
+    
+    
+    });
+    */
+    e.preventDefault();
+    });
+
+
+
 function enviarFormulario($msg) {
-  let $formulario= document.getElementById('Form_registrar_usuario');
+  let $formulario= document.getElementById('loginform');
 
  $formulario.submit()
 }
@@ -344,6 +381,7 @@ function pdfDinamico(id) {
    
  }
 
+ 
 
 
 
