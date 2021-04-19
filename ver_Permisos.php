@@ -123,7 +123,7 @@ include 'conexion.php';
 
 					echo'
 					<tr>
-					<td>'.$row["id_permiso"].'
+					<td>'.$no.'
 					<input type="text" class="d-none" value="'.$row['id_permiso'] .'" name="id_permiso['.$row['id_permiso'] .']">
 					</td>
 					<td>'.$row["objeto"].'</td>

@@ -58,9 +58,10 @@ include 'conexion.php'
 		
 		
 		
-		<form class="form-inline my-2 my-lg-0 float-left">
-			<a href="agregar_Rol.php" class="genric-btn info circle">Agregar</a>
+		<form  class="form-inline my-2 my-lg-0 float-left">
+			<a onclick="roles()" href="#" class="genric-btn info circle">Agregar</a>
 		</form>
+
 		<form class="form-inline my-2 my-lg-0 float-left">
 			<a class="genric-btn btn-danger circle" onclick="pdfDinamico(this)" id="pdf_roles" href="#">
 			<i class="fas fa-file-pdf fa-lg"> </i> Generar Reporte</a>
@@ -68,6 +69,7 @@ include 'conexion.php'
 	   <br>
 		<br>
 		<br>
+		
 	
     
 			
@@ -110,7 +112,13 @@ include 'conexion.php'
 			</table>
 		 </div>
             
-    
+		 <br>
+		<br>
+		<br>
+		<br>
+		<br>
+		
+		
     <!-- footer part end-->
 
     <!-- jquery plugins here-->
@@ -120,6 +128,12 @@ include 'conexion.php'
 		//<a href="Roles.php?aksi=delete&nik='.$row['ID_Rol'].'" title="Eliminar" onclick="return confirm(\'¿Está seguro de borrar los datos del rol '.$row['Rol'].'?\')" class="btn btn-danger btn-sm"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>
     ?>
     
+	<script>
+		function roles(){
+			alert("No se pueden crear más roles.")
+		}
+	</script>
+
 </body>
 
 </html>

@@ -37,8 +37,8 @@ if (isset($_POST['enviar'])) {
 
 if (isset($_POST['depuraraBitacora'])){
 
+    $sql= mysqli_query($con, "DELETE FROM tbl_bitacora_evento");
     $sql= mysqli_query($con, "TRUNCATE TABLE tbl_bitacora_evento");
-
 
     echo "<script type='text/javascript'>
     alert('Bitácora Depurada con éxito');

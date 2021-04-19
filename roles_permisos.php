@@ -87,7 +87,7 @@ include 'conexion.php'
                         }
 						echo '
 						<tr>
-                            <td>'.$row['ID_Rol'].'</td>
+                            <td>'.$no.'</td>
 							<td>'.$row['Rol'].'</td>		
                             <td>							
                             <a href="permisos.php?nik='.$row['ID_Rol'].'" title="Agregar permisos" class="btn btn-warning btn-sm"><span class="glyphicon glyphicon-cog" aria-hidden="true"></span></a>
