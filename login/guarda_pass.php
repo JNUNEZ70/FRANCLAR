@@ -85,7 +85,12 @@ if (validaPassword($password,$con_password)){
 
 } else{
 
-    echo 'Las contraseñas no coinciden';
+    echo "<script type='text/javascript'>
+    alert('Las contraseñas no coinciden');
+    window.location.href= 'ContraseñaCorreo.php?user_id=$user_id&token=$token';
+    </script>";
+
+  
 }
 
 ?>

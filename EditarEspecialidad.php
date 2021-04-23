@@ -68,7 +68,7 @@ include 'conexion.php'
                             <h2>Editar Especialidad</h2>
                             <div class="form-row">
                                 <div class="form-group col-md-6">
-                                    <input type="text" class="form-control" value="<?php echo $row['Descripcion_espec']; ?>" onkeyup="mayus(this);" id="Nombre_Especialidad" maxlength="50" name="Nombre" placeholder="Nombre de Especialidad" required>
+                                    <input type="text" class="form-control" value="<?php echo $row['Descripcion_Espec']; ?>" onkeyup="mayus(this);" id="Nombre_Especialidad" maxlength="50" name="Nombre" placeholder="Nombre de Especialidad" required>
                                 </div>
 
                                 <div class="form-group col-md-6">

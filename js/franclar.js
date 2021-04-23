@@ -227,6 +227,12 @@ function envio_prueba2() {
 
 }
 
+function enviarFormulario($msg) {
+    let $formulario= document.getElementById('Form_registrar_usuario');
+  
+   $formulario.submit()
+  }
+  
 function buscardinamico() {
    
     let $input=document.querySelectorAll('input')[4].value;
@@ -363,36 +369,7 @@ function buscardinamico() {
 }
 
 }
-$('#loginform').submit(e=>{
-    console.log('formulario');
-    /*
-    let $token= $('#token').val();
-    let $id_usuario= $('#user_id').val();
-    let $password= $('#password').val();
-    let $con_password= $('#con_password').val();
-    
-    let funcion='verificar';
-    $.post('guarda_pass.php',{funcion,$id_usuario,$token,$password,$con_password},(response)=>{
-    
-    
-    let $json=response;
-    let $msg= JSON.parse($json);
-    if ($msg.length==0) {
-         enviarFormulario($msg)
-       
-    }else{
-    $msg.forEach(element => {
-         console.log(element);
-    
-    CorreoExiste(element);
-    });
-    }
-    
-    
-    });
-    */
-    e.preventDefault();
-    });
+
 
 
 
@@ -429,8 +406,3 @@ $('#Form_registrar_usuario').submit(e=>{
     e.preventDefault();
     });
     
-function enviarFormulario($msg) {
-  let $formulario= document.getElementById('loginform');
-
- $formulario.submit()
-}

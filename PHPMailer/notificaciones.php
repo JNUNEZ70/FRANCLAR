@@ -50,7 +50,7 @@ try {
         
         
         //Recipients
-$mail->setFrom('complejomedicofranclar2020@gmail.com', utf8_decode('Complejo Médico Franclar'));
+$mail->setFrom('complejomedicofranclar2020@gmail.com', utf8_decode('Complejo Médico Francl6ar'));
 $mail->addAddress($row['Email'],$row['Nom_Paciente'] );
 
 $mail->isHTML(true);                                  // Set email format to HTML

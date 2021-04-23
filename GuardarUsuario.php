@@ -37,10 +37,10 @@ require './login/funcs/funcs.php';
                                     $insert_bitacora = mysqli_query($con, "INSERT INTO tbl_bitacora_evento (id_usuario,id_objeto,Accion,Descripcion)
                                     VALUES ('$id_usuario',2,'Insert','ADMIN CREÓ UN NUEVO USUARIO')") or die(mysqli_error());
                    
-                    $asunto = 'Creación de usuario mediante Admin -Sistema Franclar';
-                    $cuerpo = "Hola  $nom_usuario <br/>Bienvenido al sistema Franclar,
+                    $asunto = utf8_decode( 'Creación de usuario mediante Admin -Sistema Franclar');
+                    $cuerpo = utf8_decode( "Hola  $nom_usuario <br/>Bienvenido al sistema Franclar,
                     estas son tus credenciales:<br> Usuario:  '$nom_usuario'<br>
-                    Contrasena: '$contraseña'";
+                    Contrasena: '$contraseña'");
 
                     $correo= enviarEmail_RegistoAdmin($email, $nom_usuario,$asunto,$cuerpo);
                     if ($correo) {

@@ -71,7 +71,7 @@ $pdf->Output('Reporte_Especialidades.pdf', 'I');
 
 } else {
 
-    $query = "SELECT * FROM tbl_especialidad";
+    $query = "SELECT * FROM tbl_especialidad WHERE ID_Especialidad !=8 AND ID_Especialidad !=9 ";
     $consulta = mysqli_query($con,$query);
     $data = mysqli_num_rows($consulta);
 
