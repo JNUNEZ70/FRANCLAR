@@ -44,7 +44,7 @@ if ($_GET['perl']) {
     $valor=$_GET['perl'];
     
     $buscar=base64_decode($valor);
-    $rol="SELECT * FROM tbl_roles WHERE ID_Rol LIKE '%".$buscar."%' OR Rol LIKE '%".$buscar."%'";
+    $rol="SELECT * FROM tbl_roles WHERE ID_Rol LIKE '%".$buscar."%' OR Rol LIKE '%".$buscar."%' AND ID_Rol <> 5";
     
     $consulta = mysqli_query($con,$rol);
     $data = mysqli_num_rows($consulta);
@@ -59,15 +59,17 @@ $pdf->SetFont('Times','',12);
 $pdf->Cell(20, 10, 'No', 1, 0, 'C', 1);
 $pdf->Cell(170, 10, utf8_decode('Rol'), 1, 1, 'C', 1);
 
+$no = 1;
 while($row = mysqli_fetch_assoc($consulta)){
-    $pdf->Cell(20, 10, $row['ID_Rol'], 1, 0, 'C', 0);
+    $pdf->Cell(20, 10, $no, 1, 0, 'C', 0);
     $pdf->Cell(170, 10, utf8_decode($row['Rol']), 1, 1, 'C', 0);
+    $no++;
 }
 
 $pdf->Output('Reporte_Roles.pdf', 'I');
 
 } else {
-    $query = "SELECT * FROM tbl_roles";
+    $query = "SELECT * FROM tbl_roles where ID_Rol <> 5";
     $consulta = mysqli_query($con,$query);
     $data = mysqli_num_rows($consulta);
 
@@ -81,9 +83,11 @@ $pdf->Output('Reporte_Roles.pdf', 'I');
         $pdf->Cell(20, 10, 'No', 1, 0, 'C', 1);
         $pdf->Cell(170, 10, utf8_decode('Rol'), 1, 1, 'C', 1);
 
+        $no = 1;
         while($row = mysqli_fetch_assoc($consulta)){
-            $pdf->Cell(20, 10, $row['ID_Rol'], 1, 0, 'C', 0);
+            $pdf->Cell(20, 10, $no, 1, 0, 'C', 0);
             $pdf->Cell(170, 10, utf8_decode($row['Rol']), 1, 1, 'C', 0);
+        $no++;
         }
 
         $pdf->Output('Reporte_Roles.pdf', 'I');

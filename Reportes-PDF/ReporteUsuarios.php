@@ -79,13 +79,15 @@ $pdf->Cell(40, 10, utf8_decode('Nombre de usuario'), 1, 0, 'C', 1);
 $pdf->Cell(20, 10, utf8_decode('Descripción'), 1, 0, 'C', 1);
 $pdf->Cell(20, 10, utf8_decode('Rol'), 1, 1, 'C', 1);
 
+$no = 1;
 while($row = mysqli_fetch_assoc($consulta)){
-    $pdf->Cell(8, 10, $row['ID_Usuario'], 1, 0, 'C', 0);
+    $pdf->Cell(8, 10, $no, 1, 0, 'C', 0);
     $pdf->Cell(55, 10, utf8_decode($row['Nom_Empleado']), 1, 0, 'C', 0);
     $pdf->Cell(52, 10, $row['email'], 1, 0, 'C', 0);
     $pdf->Cell(40, 10, utf8_decode($row['Nom_Usuario']), 1, 0, 'C', 0);
     $pdf->Cell(20, 10, utf8_decode($row['Descripcion']), 1, 0, 'C', 0);
     $pdf->Cell(20, 10, utf8_decode($row['Rol']), 1, 1, 'C', 0);
+$no++;
 }
 
 $pdf->Output('Reporte_Usuarios.pdf', 'I');
@@ -117,13 +119,15 @@ $pdf->Output('Reporte_Usuarios.pdf', 'I');
         $pdf->Cell(20, 10, utf8_decode('Descripción'), 1, 0, 'C', 1);
         $pdf->Cell(20, 10, utf8_decode('Rol'), 1, 1, 'C', 1);
 
+        $no = 1;
         while($row = mysqli_fetch_assoc($consulta)){
-            $pdf->Cell(8, 10, $row['ID_Usuario'], 1, 0, 'C', 0);
+            $pdf->Cell(8, 10, $no, 1, 0, 'C', 0);
             $pdf->Cell(55, 10, utf8_decode($row['Nom_Empleado']), 1, 0, 'C', 0);
             $pdf->Cell(52, 10, $row['email'], 1, 0, 'C', 0);
             $pdf->Cell(40, 10, utf8_decode($row['Nom_Usuario']), 1, 0, 'C', 0);
             $pdf->Cell(20, 10, utf8_decode($row['Descripcion']), 1, 0, 'C', 0);
             $pdf->Cell(20, 10, utf8_decode($row['Rol']), 1, 1, 'C', 0);
+        $no++;
         }
 
     $pdf->Output('Reporte_Usuarios.pdf', 'I');

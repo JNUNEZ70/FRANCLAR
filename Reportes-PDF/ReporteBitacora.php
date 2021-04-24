@@ -83,13 +83,15 @@ if ($_GET['perl']) {
         $pdf->Cell(110, 10, utf8_decode('Descripción'), 1, 0, 'C', 1);
         $pdf->Cell(40, 10, 'Fecha del evento', 1, 1, 'C', 1);
         
+        $no = 1;
         while($row = mysqli_fetch_assoc($consulta)){
-            $pdf->Cell(8, 10, $row['id_bitacora_evento'], 1, 0, 'C', 0);
+            $pdf->Cell(8, 10, $no, 1, 0, 'C', 0);
             $pdf->Cell(50, 10, utf8_decode($row['Nom_Usuario']), 1, 0, 'C', 0);
             $pdf->Cell(50, 10, utf8_decode($row['objeto']), 1, 0, 'C', 0);
             $pdf->Cell(20, 10, utf8_decode($row['Accion']), 1, 0, 'C', 0);
             $pdf->Cell(110, 10, utf8_decode($row['Descripcion']), 1, 0, 'C', 0);
             $pdf->Cell(40, 10, $row['fecha_evento'], 1, 1, 'C', 0);
+            $no++;
         }
         
         $pdf->Output('Reporte_Bitacora.pdf', 'I');
@@ -125,13 +127,15 @@ if ($_GET['perl']) {
     $pdf->Cell(110, 10, utf8_decode('Descripción'), 1, 0, 'C', 1);
     $pdf->Cell(40, 10, 'Fecha del evento', 1, 1, 'C', 1);
     
+    $no =1;
     while($row = mysqli_fetch_assoc($consulta)){
-        $pdf->Cell(8, 10, $row['id_bitacora_evento'], 1, 0, 'C', 0);
+        $pdf->Cell(8, 10, $no, 1, 0, 'C', 0);
         $pdf->Cell(50, 10, utf8_decode($row['Nom_Usuario']), 1, 0, 'C', 0);
         $pdf->Cell(50, 10, utf8_decode($row['objeto']), 1, 0, 'C', 0);
         $pdf->Cell(20, 10, utf8_decode($row['Accion']), 1, 0, 'C', 0);
         $pdf->Cell(110, 10, utf8_decode($row['Descripcion']), 1, 0, 'C', 0);
         $pdf->Cell(40, 10, $row['fecha_evento'], 1, 1, 'C', 0);
+        $no++;
     }
     
     $pdf->Output('Reporte_Bitacora.pdf', 'I');

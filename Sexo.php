@@ -94,9 +94,6 @@ include 'conexion.php'
 						<th>No</th>
 						<th>Descripción Del Género</th>
 						<th>Acciones</th>
-						
-						
-						
 					</tr>
 				</thead>
 				<tbody>
@@ -113,14 +110,14 @@ include 'conexion.php'
 							
 					echo '
 							<tr>
-								<td>'.$row['ID_Sexo'].'</td>
+								<td>'.$no.'</td>
 								<td>'.$row['Descripcion_sexo'].'</td>	
 								<td>'.$boton2.' '.$boton.'</td>
 								
 							</tr>
 							';
+							$no++;
 						}
-						$no++;
 					}
 				
 				?>

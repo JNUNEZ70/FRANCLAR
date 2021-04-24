@@ -92,7 +92,7 @@ include 'conexion.php'
 					while($row = mysqli_fetch_assoc($sql)){
 						echo '
 						<tr>
-                            <td>'.$row['ID_Bitacora_evento'].'</td>
+                            <td>'.$no.'</td>
                             <td>'.$row['Nom_Usuario'].'</td>
                             <td>'.$row['Objeto'].'</td>
                             <td>'.$row['Accion'].'</td>

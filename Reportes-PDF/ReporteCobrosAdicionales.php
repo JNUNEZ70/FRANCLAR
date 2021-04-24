@@ -60,10 +60,12 @@ $pdf->Cell(20, 10, 'No', 1, 0, 'C', 1);
 $pdf->Cell(150, 10, utf8_decode('Descripción de cobro'), 1, 0, 'C', 1);
 $pdf->Cell(20, 10, utf8_decode('Precio'), 1, 1, 'C', 1);
 
+$no = 1;
 while($row = mysqli_fetch_assoc($consulta)){
-    $pdf->Cell(20, 10, $row['ID_Cobro_adicional'], 1, 0, 'C', 0);
+    $pdf->Cell(20, 10, $no, 1, 0, 'C', 0);
     $pdf->Cell(150, 10, utf8_decode($row['Descripcion_Cobro']), 1, 0, 'C', 0);
     $pdf->Cell(20, 10, utf8_decode($row['Precio_Cobro']), 1, 1, 'C', 0);
+$no++;
 }
 
 $pdf->Output('Reporte_Cobros_Adicionales.pdf', 'I');
@@ -84,10 +86,12 @@ $pdf->Output('Reporte_Cobros_Adicionales.pdf', 'I');
         $pdf->Cell(150, 10, utf8_decode('Descripción de cobro'), 1, 0, 'C', 1);
         $pdf->Cell(20, 10, utf8_decode('Precio'), 1, 1, 'C', 1);
 
+        $no = 1;
         while($row = mysqli_fetch_assoc($consulta)){
-            $pdf->Cell(20, 10, $row['ID_Cobro_adicional'], 1, 0, 'C', 0);
+            $pdf->Cell(20, 10, $no, 1, 0, 'C', 0);
             $pdf->Cell(150, 10, utf8_decode($row['Descripcion_Cobro']), 1, 0, 'C', 0);
             $pdf->Cell(20, 10, utf8_decode($row['Precio_Cobro']), 1, 1, 'C', 0);
+        $no++;
         }
 
         $pdf->Output('Reporte_Cobros_Adicionales.pdf', 'I');

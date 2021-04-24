@@ -103,8 +103,9 @@ $pdf->Cell(15, 10, utf8_decode('Estado civil'), 1, 0, 'C', 1);
 $pdf->Cell(18, 10, utf8_decode('Cargo'), 1, 0, 'C', 1);
 $pdf->Cell(9, 10, 'Salario', 1, 0, 'C', 1);
 $pdf->Cell(20, 10, utf8_decode('Especialidad'), 1, 1, 'C', 1);
+$no = 1;
 while($row = mysqli_fetch_assoc($consulta)){
-    $pdf->Cell(8, 10, $row['ID_Empleado'], 1, 0, 'C', 0);
+    $pdf->Cell(8, 10, $no, 1, 0, 'C', 0);
     $pdf->Cell(52, 10, utf8_decode($row['Nom_Empleado']), 1, 0, 'C', 0);
     $pdf->Cell(25, 10, $row['Cedula'], 1, 0, 'C', 0);
     $pdf->Cell(22, 10, $row['Fec_Nacimiento'], 1, 0, 'C', 0);
@@ -116,6 +117,7 @@ while($row = mysqli_fetch_assoc($consulta)){
     $pdf->Cell(18, 10, utf8_decode($row['nomb_cargo']), 1, 0, 'C', 0);
     $pdf->Cell(9, 10, $row['Salario'], 1, 0, 'C', 0);
     $pdf->Cell(20, 10, utf8_decode($row['Descripcion_espec']), 1, 1, 'C', 0);
+    $no++;
 }
 
 $pdf->Output('Reporte_Personal.pdf', 'I');
@@ -158,8 +160,9 @@ $pdf->Output('Reporte_Personal.pdf', 'I');
     $pdf->Cell(18, 10, utf8_decode('Cargo'), 1, 0, 'C', 1);
     $pdf->Cell(9, 10, 'Salario', 1, 0, 'C', 1);
     $pdf->Cell(20, 10, utf8_decode('Especialidad'), 1, 1, 'C', 1);
+    $no = 1;
     while($row = mysqli_fetch_assoc($consulta)){
-        $pdf->Cell(8, 10, $row['ID_Empleado'], 1, 0,'C', 0);
+        $pdf->Cell(8, 10, $no, 1, 0,'C', 0);
         $pdf->Cell(52, 10, utf8_decode($row['Nom_Empleado']), 1, 0,'C', 0);
         $pdf->Cell(25, 10, $row['Cedula'], 1, 0,'C', 0);
         $pdf->Cell(22, 10, $row['Fec_Nacimiento'], 1, 0,'C', 0);
@@ -171,6 +174,7 @@ $pdf->Output('Reporte_Personal.pdf', 'I');
         $pdf->Cell(18, 10, utf8_decode($row['nomb_cargo']), 1, 0,'C', 0);
         $pdf->Cell(9, 10, $row['Salario'], 1, 0,'C', 0);
         $pdf->Cell(20, 10, utf8_decode($row['Descripcion_espec']), 1, 1, 'C', 0);
+        $no++;
     }
 
     $pdf->Output('Reporte_Personal.pdf', 'I');

@@ -59,9 +59,11 @@ $pdf->SetFont('Times','',12);
 $pdf->Cell(20, 10, 'No', 1, 0, 'C', 1);
 $pdf->Cell(170, 10, utf8_decode('Tipo de sangre'), 1, 1, 'C', 1);
 
+$no = 1;
 while($row = mysqli_fetch_assoc($consulta)){
-    $pdf->Cell(20, 10, $row['ID_Tipo_Sangre'], 1, 0, 'C', 0);
+    $pdf->Cell(20, 10, $no, 1, 0, 'C', 0);
     $pdf->Cell(170, 10, utf8_decode($row['Descripcion_Sangre']), 1, 1, 'C', 0);
+    $no++;
 }
 
 $pdf->Output('Reporte_Tipo_Sangre.pdf', 'I');
@@ -80,9 +82,11 @@ $pdf->Output('Reporte_Tipo_Sangre.pdf', 'I');
         $pdf->Cell(20, 10, 'No', 1, 0, 'C', 1);
         $pdf->Cell(170, 10, utf8_decode('Tipo de sangre'), 1, 1, 'C', 1);
 
+        $no = 1;
         while($row = mysqli_fetch_assoc($consulta)){
-            $pdf->Cell(20, 10, $row['ID_Tipo_Sangre'], 1, 0, 'C', 0);
+            $pdf->Cell(20, 10, $no, 1, 0, 'C', 0);
             $pdf->Cell(170, 10, utf8_decode($row['Descripcion_Sangre']), 1, 1, 'C', 0);
+        $no++;
         }
 
         $pdf->Output('Reporte_Tipo_Sangre.pdf', 'I');

@@ -60,9 +60,11 @@ $pdf->SetFont('Times','',15);
 $pdf->Cell(20, 10, 'No', 1, 0, 'C', 1);
 $pdf->Cell(170, 10, 'Nombre del cargo', 1, 1, 'C', 1);
 
+$no = 1;
 while($row = mysqli_fetch_assoc($consulta)){
-    $pdf->Cell(20, 10, $row['ID_Cargo'], 1, 0, 'C', 0);
+    $pdf->Cell(20, 10, $no, 1, 0, 'C', 0);
     $pdf->Cell(170, 10, utf8_decode($row['Nomb_Cargo']), 1, 1, 'C', 0);
+    $no++;
 }
 
 $pdf->Output('Reporte_Cargos.pdf', 'I');
@@ -82,9 +84,11 @@ $pdf->SetFont('Times','',15);
 $pdf->Cell(20, 10, 'No', 1, 0, 'C', 1);
 $pdf->Cell(170, 10, 'Nombre del cargo', 1, 1, 'C', 1);
 
+$no = 1;
 while($row = mysqli_fetch_assoc($consulta)){
-    $pdf->Cell(20, 10, $row['ID_Cargo'], 1, 0, 'C', 0);
+    $pdf->Cell(20, 10, $no, 1, 0, 'C', 0);
     $pdf->Cell(170, 10, utf8_decode($row['Nomb_Cargo']), 1, 1, 'C', 0);
+    $no++;
 }
 
 $pdf->Output('Reporte_Cargos.pdf', 'I');

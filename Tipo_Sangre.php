@@ -109,7 +109,7 @@ include 'conexion.php'
 						
 						echo '
 						<tr>
-                            <td>'.$row['ID_Tipo_Sangre'].'</td>
+                            <td>'.$no.'</td>
 							<td>'.$row['Descripcion_Sangre'].'</td>	
 							<td>'.$boton2.' '.$boton.'</td>
 						</tr>

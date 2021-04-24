@@ -95,7 +95,7 @@ include 'conexion.php'
 					while($row = mysqli_fetch_assoc($sql)){
 						echo '
 						<tr>
-                            <td>'.$row['ID_Rol'].'</td>
+                            <td>'.$no.'</td>
 							<td>'.$row['Rol'].'</td>
 									
 							<td>							

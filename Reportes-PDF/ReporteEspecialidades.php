@@ -45,7 +45,7 @@ if ($_GET['perl']) {
     $valor=$_GET['perl'];
     
     $buscar=base64_decode($valor);
-    $especialidad="SELECT * FROM tbl_especialidad WHERE ID_Especialidad LIKE '%".$buscar."%' OR Descripcion_Espec LIKE '%".$buscar."%' OR Precio LIKE '%".$buscar."%'";
+    $especialidad="SELECT * FROM tbl_especialidad WHERE ID_Especialidad LIKE '%".$buscar."%' OR Descripcion_Espec LIKE '%".$buscar."%' OR Precio LIKE '%".$buscar."%' AND ID_Especialidad <> 8 AND ID_Especialidad <> 9";
     
     $consulta = mysqli_query($con,$especialidad);
     $data = mysqli_num_rows($consulta);
@@ -58,20 +58,22 @@ $pdf->SetFillColor(232,232,232);
 $pdf->SetFont('Times','',12);
 
 $pdf->Cell(20, 10, 'No', 1, 0, 'C', 1);
-$pdf->Cell(130, 10, utf8_decode('Nombre del Diagnóstico'), 1, 0, 'C', 1);
+$pdf->Cell(130, 10, utf8_decode('Nombre de la Especialidad'), 1, 0, 'C', 1);
 $pdf->Cell(40, 10, 'Precio', 1, 1, 'C', 1);
 
+$no = 1;
 while($row = mysqli_fetch_assoc($consulta)){
-    $pdf->Cell(20, 10, $row['ID_Especialidad'], 1, 0, 'C', 0);
+    $pdf->Cell(20, 10, $no, 1, 0, 'C', 0);
     $pdf->Cell(130, 10, utf8_decode($row['Descripcion_Espec']), 1, 0, 'C', 0);
     $pdf->Cell(40, 10, $row['Precio'], 1, 1, 'C', 0);
+    $no++;
 }
 
 $pdf->Output('Reporte_Especialidades.pdf', 'I');
 
 } else {
 
-    $query = "SELECT * FROM tbl_especialidad WHERE ID_Especialidad !=8 AND ID_Especialidad !=9 ";
+    $query = "SELECT * FROM tbl_especialidad WHERE ID_Especialidad <> 9 AND ID_Especialidad <> 8";
     $consulta = mysqli_query($con,$query);
     $data = mysqli_num_rows($consulta);
 
@@ -83,13 +85,15 @@ $pdf->SetFillColor(232,232,232);
 $pdf->SetFont('Times','',12);
 
 $pdf->Cell(20, 10, 'No', 1, 0, 'C', 1);
-$pdf->Cell(130, 10, utf8_decode('Nombre del Diagnóstico'), 1, 0, 'C', 1);
+$pdf->Cell(130, 10, utf8_decode('Nombre de la Especialidad'), 1, 0, 'C', 1);
 $pdf->Cell(40, 10, 'Precio', 1, 1, 'C', 1);
 
+$no = 1;
 while($row = mysqli_fetch_assoc($consulta)){
-    $pdf->Cell(20, 10, $row['ID_Especialidad'], 1, 0, 'C', 0);
+    $pdf->Cell(20, 10, $no, 1, 0, 'C', 0);
     $pdf->Cell(130, 10, utf8_decode($row['Descripcion_Espec']), 1, 0, 'C', 0);
     $pdf->Cell(40, 10, $row['Precio'], 1, 1, 'C', 0);
+    $no++;
 }
 
 $pdf->Output('Reporte_Especialidades.pdf', 'I');

@@ -111,7 +111,7 @@ include 'conexion.php'
 						
 						echo '
 						<tr>
-                            <td>'.$row['ID_Cobro_adicional'].'</td>
+                            <td>'.$no.'</td>
 							<td>'.$row['Descripcion_Cobro'].'</td>
 							<td>'.$row['Precio_Cobro'].'</td>			
 							<td>'.$boton2.' '.$boton.'</td>

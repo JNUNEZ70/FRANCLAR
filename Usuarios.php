@@ -144,7 +144,7 @@ include 'conexion.php'
 					if($row['Descripcion'] == 'Activo'){
 					echo '
 					<tr>                            
-						<td>'.$row['ID_Usuario'].'</td>
+						<td>'.$no.'</td>
 						<td>'.$row['Nom_Empleado'].'</td>
 						<td>'.$row['email'].'</td>
 						<td>'.$row['Nom_Usuario'].'</td>
@@ -159,7 +159,7 @@ include 'conexion.php'
 				}else{
 					echo '
 					<tr>                            
-						<td>'.$row['ID_Usuario'].'</td>
+						<td>'.$no.'</td>
 						<td>'.$row['Nom_Empleado'].'</td>
 						<td>'.$row['email'].'</td>
 						<td>'.$row['Nom_Usuario'].'</td>
